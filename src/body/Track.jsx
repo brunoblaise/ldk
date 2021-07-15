@@ -1,0 +1,69 @@
+import people from "../images/dashboard/people.svg" 
+import Numexercise from './Numexercise'
+import Numwork from './Numwork'
+import Numnotes from './Numnotes'
+import Numanswer from "./Numanswer"
+import React, { useEffect, useState } from "react";
+function Track() {
+    const [message, setMessage] = useState([]);
+  
+
+  const getProfile = async () => {
+    try {
+      const res = await fetch("https://extreme-ip-lookup.com/json/", {
+        method: "GET"
+      });
+
+      const parseData = await res.json();
+
+      
+
+
+      setMessage(parseData);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  
+  useEffect(() => {
+    getProfile();
+    
+  
+  }, [setMessage]);
+
+    return (
+  
+                    
+                    <div className="row">
+                        <div className="col-md-6 grid-margin stretch-card">
+                            <div className="card tale-bg">
+                                <div className="card-people mt-auto">
+                                    <img src={people}alt="people"/>
+                                    <div className="weather-info">
+                                        <div className="d-flex">
+                                           
+                                            <div className="ml-2">
+                                                <h4 className="location font-weight-normal">{message.country}</h4>
+                                                <h6 className="font-weight-normal">{message.city}</h6>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="col-md-6 grid-margin transparent">
+                            <div className="row">
+                            <Numexercise/>
+                                <Numnotes/>
+                            </div>
+                            <div className="row">
+                              <Numwork/>
+                               <Numanswer/>
+                            </div>
+                        </div>
+                    </div>
+      
+    )
+}
+
+export default Track

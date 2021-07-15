@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "..\\..\\..\\syste\\frontend\\public\\css"
+		},
+		{
+			"path": "..\\..\\..\\syste\\frontend\\public\\js"
+		},
+		{
+			"path": "..\\..\\..\\syste\\frontend\\public\\vendors"
+		}
+	]
+}
