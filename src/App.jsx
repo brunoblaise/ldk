@@ -15,7 +15,7 @@ import Exercise from "./body/Exercise";
 import ExerciseOne from "./body/ExerciseOne";
 import DownloadWork from "./body/DownloadWork";
 import "./App.css"
-import "./Min.css"
+
 import {
   BrowserRouter as Router,
   Route,
