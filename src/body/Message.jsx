@@ -33,7 +33,7 @@ function Message() {
   const own = profile.map(profil=>(
     profil.student_fname
   ))
-  console.log(own)
+
   
  
     return (

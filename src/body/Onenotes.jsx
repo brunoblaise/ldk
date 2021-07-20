@@ -67,7 +67,7 @@ function Onenotes({match}) {
              <p>Hi Students,</p>
              <p>{notes.short_note}</p>
             
-                 <Iframe iframe={`<iframe width="100%" height="266" s frameborder="no"  src='http://localhost:5000/uploads/${notes.notes_url}'></iframe>`}/>
+                 <Iframe iframe={`<iframe width="100%" height="266" s frameborder="no"  src='${notes.notes_url}'></iframe>`}/>
              <p><br/><br/>Regards,<br/>{format(notes.timestamp)}</p>
          </div>
         

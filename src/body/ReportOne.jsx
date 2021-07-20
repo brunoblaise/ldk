@@ -65,7 +65,7 @@ function ReportOne() {
               <p>Hi Students,</p>
               <p>your report card is here:</p>
              
-                  <Iframe iframe={`<iframe width="100%" height="266" s frameborder="no"  src='http://localhost:5000/uploads/${note.report_url}'></iframe>`}/>
+                  <Iframe iframe={`<iframe width="100%" height="266" s frameborder="no"  src='${note.report_url}'></iframe>`}/>
               <p><br/><br/>Regards,<br/>{format(note.timestamp)}</p>
           </div>
          

@@ -68,7 +68,7 @@ function Onenotesu({match}) {
              <p>Hi Teachers,</p>
              <p>{notes.student_fname}</p>
             
-                 <Iframe iframe={`<iframe width="100%" height="50%" s frameborder="no"  src='http://localhost:5000/uploads/${notes.work_url}'></iframe>`}/>
+                 <Iframe iframe={`<iframe width="100%" height="50%" s frameborder="no"  src='${notes.work_url}'></iframe>`}/>
              <p><br/><br/>Regards,<br/>{format(notes.timestamp)}</p>
          </div>
         

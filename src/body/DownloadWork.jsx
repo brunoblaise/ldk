@@ -68,7 +68,7 @@ function DownloadWork({match}) {
             <div class="details">
               <p class="file-name">{notes.work_title}</p>
               <div class="buttons">
-                <Link to={{pathname:`http://localhost:5000/uploads/${notes.work_url}`}} target="_blank"class="view">View</Link>
+                <Link to={{pathname:`${notes.work_url}`}} target="_blank"class="view">View</Link>
                 
               </div>
             </div>

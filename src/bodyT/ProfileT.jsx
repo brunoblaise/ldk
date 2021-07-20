@@ -31,7 +31,7 @@ function ProfileT({setAuth}) {
                                     {profile.map(profil =>( 
                                         <div key={profil.teacher_id}className="col-lg-4">
                                             <div className="border-bottom text-center pb-4">
-                                                <img src={`http://localhost:5000/uploads/${profil.teacher_photo}`}alt="profile" className="img-lg rounded-circle mb-3" />
+                                                <img src={`${profil.teacher_photo}`}alt="profile" className="img-lg rounded-circle mb-3" />
                                                 <div className="mb-3">
                                                     <h3>{profil.teacher_fname}</h3>
                                                    
