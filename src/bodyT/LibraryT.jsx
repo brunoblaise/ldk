@@ -65,4 +65,4 @@ function LibraryT() {
     )
 }
 
-export default LibraryT
+export default  React.memo(LibraryT)

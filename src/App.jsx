@@ -1,50 +1,63 @@
-import React, {  useState, useEffect } from "react";
-import Render from './renders/Render';
-import Login from './body/Login';
-import Profile from "./body/Profile"
-import Register from "./body/Register";
+import React, {  useState, useEffect, Suspense} from "react";
+const Render= React.lazy(() => import('./renders/Render'));
+const Login= React.lazy(() => import('./body/Login'));
+const Profile= React.lazy(() => import('./body/Profile'));
+const Register= React.lazy(() => import('./body/Register'));
 
-import RenderT from './renders1/RenderT';
-import LoginT from './bodyT/LoginT';
-import ProfileT from "./bodyT/ProfileT"
-import RegisterT from "./bodyT/RegisterT";
+const RenderT = React.lazy(() => import('./renders1/RenderT'));
+const LoginT= React.lazy(() => import('./bodyT/LoginT'));
+const ProfileT = React.lazy(() => import('./bodyT/ProfileT'));
+
+const RegisterT  = React.lazy(() => import('./bodyT/RegisterT'));
+const  Notes= React.lazy(() => import('./body/Notes'));
+const Quiz = React.lazy(() => import('./body/Quiz'));
 import "react-toastify/dist/ReactToastify.css";
-import Notes from "./body/Notes";
-import  Quiz from "./body/Quiz";
-import Exercise from "./body/Exercise";
-import ExerciseOne from "./body/ExerciseOne";
-import DownloadWork from "./body/DownloadWork";
-import "./App.css"
+const  Exercise = React.lazy(() => import('./body/Exercise'));
+const  ExerciseOne = React.lazy(() => import('./body/ExerciseOne'));
 
+import "./App.css"
 import {
   BrowserRouter as Router,
   Route,
   Switch,
   Redirect
 } from "react-router-dom";
-import Library from "./body/Library";
-import LibraryT from "./bodyT/LibraryT";
+
+const  Library = React.lazy(() => import('./body/Library'));
+const  LibraryT = React.lazy(() => import('./bodyT/LibraryT'));
+const DownloadWork  = React.lazy(() => import('./body/DownloadWork'));
+
 import { toast } from "react-toastify";
-import Message from "./body/Message";
-import MessageT from "./bodyT/MessageT";
-import Onenotes from "./body/Onenotes";
+
+const  Message= React.lazy(() => import('./body/Message'));
+const  MessageT = React.lazy(() => import('./bodyT/MessageT'));
+const  Onenotes  = React.lazy(() => import('./body/Onenotes'));
+
+
 import {ProfileProvide} from './body/context/ProfileContext'
 import {TeacherProvide} from './bodyT/context/TeacherContext'
-import WorkSub from "./body/WorkSub";
-import Report from "./body/Report";
-import Land from "./land/Land";
-import ExerciseT from "./bodyT/ExercisetT";
-import NotesT from "./bodyT/NotesT";
-import ReportT from "./bodyT/ReportT";
-import WorkSubT from "./bodyT/WorkSubT";
-import Onenotesu from "./bodyT/Onenotesu";
-import Notesu from "./bodyT/Notesu";
-import Allstudents from "./bodyT/Allstudents";
+
+
+const WorkSub = React.lazy(() => import('./body/WorkSub'));
+const Report = React.lazy(() => import('./body/Report'));
+const Land = React.lazy(() => import('./land/Land'));
+
+import { url } from "./url";
+const ExerciseT = React.lazy(() => import('./bodyT/ExercisetT'));
+const NotesT = React.lazy(() => import('./bodyT/NotesT'));
+const ReportT = React.lazy(() => import('./bodyT/ReportT'));
+
+const WorkSubT = React.lazy(() => import('./bodyT/WorkSubT'));
+const Onenotesu = React.lazy(() => import('./bodyT/Onenotesu'));
+const Notesu = React.lazy(() => import('./bodyT/Notesu'));
+
+const Allstudents = React.lazy(() => import('./bodyT/Allstudents'));
+
 toast.configure();
 function App() {
   const checkAuthenticated = async () => {
     try {
-      const res = await fetch("http://localhost:5000/create/verify", {
+      const res = await fetch(`${url}/create/verify`, {
         method: "POST",
         headers: { jwt_token: localStorage.token }
       });
@@ -69,7 +82,7 @@ function App() {
   return (
  
     <Router>
-        
+         <Suspense fallback={<div className="center"><img src="https://img.icons8.com/ios-filled/500/000000/loading-circle--v6.png"/></div>}>
     <Switch>
     <Route
               exact
@@ -402,10 +415,10 @@ function App() {
 
   
     </Switch>
-  
+    </Suspense>
 </Router>
 
   );
 }
 
-export default App;
+export default  React.memo(App);

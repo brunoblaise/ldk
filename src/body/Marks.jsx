@@ -1,13 +1,14 @@
 import React, { useEffect, useState,useContext } from "react";
 import { ProfileContext } from "./context/ProfileContext";
 import { format } from "timeago.js";
+import { url } from "../url";
 function Marks() {
     const [message, setMessage] = useState([]);
   const [profile] = useContext(ProfileContext)
  
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/marks", {
+        const res = await fetch(`${url}/get/marks`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });
@@ -89,4 +90,4 @@ function Marks() {
     )
 }
 
-export default Marks
+export default React.memo(Marks)

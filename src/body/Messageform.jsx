@@ -1,5 +1,6 @@
 import React, { useState,useContext } from "react";
 import { toast } from "react-toastify";
+import { url } from "../url";
 import { ProfileContext } from "./context/ProfileContext";
 function Messageform() {
 
@@ -18,7 +19,7 @@ function Messageform() {
         myHeaders.append("jwt_token", localStorage.token);
   
         const body = {message, name};
-        const response = await fetch("http://localhost:5000/create/message", {
+        const response = await fetch(`${url}/create/message`, {
           method: "POST",
           headers: myHeaders,
           body: JSON.stringify(body)
@@ -37,7 +38,7 @@ function Messageform() {
           toast.success("Sent Successfully");
         }
       
-        window.location = "/";
+      
       } catch (err) {
         console.error(err.message);
       }
@@ -54,4 +55,4 @@ function Messageform() {
     )
 }
 
-export default Messageform
+export default React.memo(Messageform)

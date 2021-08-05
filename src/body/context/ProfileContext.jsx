@@ -1,4 +1,5 @@
 import React,{useState, useEffect, createContext} from 'react'
+import { url } from '../../url';
 
 export const ProfileContext = createContext()
 export const ProfileProvide = props => {
@@ -6,7 +7,7 @@ export const ProfileProvide = props => {
  
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/profile", {
+        const res = await fetch(`${url}/get/profile`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });

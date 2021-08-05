@@ -4,11 +4,12 @@ import Sidebar from '../sidebar/Sidebar';
 import Header from '../header/Header';
 import { format } from "timeago.js";
 import ExerciseSide from './ExerciseSide';
+import { url } from '../url';
 function ExerciseOne({match}) {
     const [notes, setNote] = useState([]);
     const getProfile = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/get/exercise/${match.params.id}`, {
+          const res = await fetch(`${url}/get/exercise/${match.params.id}`, {
             method: "GET",
             headers: { jwt_token: localStorage.token }
           });
@@ -77,4 +78,4 @@ function ExerciseOne({match}) {
     )
 }
 
-export default ExerciseOne
+export default React.memo(ExerciseOne)

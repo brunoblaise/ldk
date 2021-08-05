@@ -143,4 +143,4 @@ function Sidebar({setAuth}) {
     )
 }
 
-export default Sidebar
+export default  React.memo(Sidebar)

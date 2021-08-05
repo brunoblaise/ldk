@@ -9,6 +9,7 @@ function Main() {
             <div className="main-panel">
                   <div className="content-wrapper">
                   <Welcome/>
+                  
                       <Track/>
                     
                      
@@ -25,4 +26,4 @@ function Main() {
     )
 }
 
-export default Main
+export default  React.memo(Main)

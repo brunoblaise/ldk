@@ -55,4 +55,4 @@ function Exercise() {
     )
 }
 
-export default Exercise
+export default React.memo(Exercise)

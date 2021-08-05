@@ -1,4 +1,5 @@
 import React,{useState, useEffect, createContext} from 'react'
+import { url } from '../../url';
 
 export const TeacherContext = createContext()
 export const TeacherProvide = props => {
@@ -6,7 +7,7 @@ export const TeacherProvide = props => {
  
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/teacher", {
+        const res = await fetch(`${url}/get/teacher`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });

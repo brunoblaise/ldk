@@ -12,7 +12,7 @@ function ExerciseForm() {
         myHeaders.append("jwt_token", localStorage.token);
   
         const body = {answer };
-        const response = await fetch("http://localhost:5000/create/answer", {
+        const response = await fetch(`${url}/create/answer`, {
           method: "POST",
           headers: myHeaders,
           body: JSON.stringify(body)
@@ -67,4 +67,4 @@ function ExerciseForm() {
     )
 }
 
-export default ExerciseForm
+export default React.memo(ExerciseForm)

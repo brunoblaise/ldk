@@ -2,6 +2,7 @@ import React, {useState } from 'react'
 import { Link } from "react-router-dom";
 import logo from "../images/logo.svg";
 import { toast } from "react-toastify";
+import { url } from '../url';
  function RegisterT({ setAuth }) {
 
     const [inputs, setInputs] = useState({
@@ -41,7 +42,7 @@ import { toast } from "react-toastify";
 
              
               const response = await fetch(
-                "http://localhost:5000/create/registerT",
+                `${url}/create/registerT`,
                 
                 {
                   method: "POST",
@@ -77,7 +78,7 @@ import { toast } from "react-toastify";
                     <div className="col-lg-6 d-flex align-items-center justify-content-center">
                         <div className="auth-form-transparent text-left p-3">
                             <div className="brand-logo">
-                                <img src={logo} alt="logo"/>
+                                <img width="150" height="" src={logo} alt="logo"/>
                             </div>
                             <h4>New here?</h4>
                             <h6 className="font-weight-light">Join us today! It takes only few steps</h6>
@@ -237,4 +238,4 @@ import { toast } from "react-toastify";
     )
 }
 
-export default RegisterT
+export default  React.memo(RegisterT)

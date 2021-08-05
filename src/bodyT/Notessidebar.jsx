@@ -2,12 +2,13 @@
 import React, { useEffect, useState} from "react";
 import { format } from "timeago.js";
 import { Link } from "react-router-dom";
+import { url } from "../url";
 function Notessidebar() {
     const [notes, setNote] = useState([]);
     const [search, setSearch] = useState("");
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/worksub", {
+        const res = await fetch(`${url}/get/worksub`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });
@@ -32,7 +33,6 @@ function Notessidebar() {
 
   
    
-  
 
     return (
        <>
@@ -55,12 +55,12 @@ function Notessidebar() {
               }).slice(0, 5).map((note)=>(
               
                
-<div key={note.notes_id}className="mail-list">
+<div key={note.subwork_id}className="mail-list">
                   <div className="form-check"> <label className="form-check-label"> <input type="checkbox" className="form-check-input"/> <i className="input-helper"></i></label></div>
               
                    <Link    to={`/worksubT/${note.subwork_id}` } className="content">
                         <p className="sender-name">{note.student_fname}</p>
-                        <p className="sender-name">{format(notes.timestamp)}</p>
+                        <p className="sender-name">{format(note.timestamp)}</p>
                        
                     </Link>
                  
@@ -79,4 +79,4 @@ function Notessidebar() {
     )
 }
 
-export default Notessidebar
+export default React.memo(Notessidebar)

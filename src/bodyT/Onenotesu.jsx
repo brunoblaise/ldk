@@ -5,6 +5,7 @@ import Sidebar from '../sidebar1/Sidebar';
 import Header from '../header1/Header';
 import { format } from "timeago.js";
 import Marks from "./Marks";
+import { url } from "../url";
 function Iframe(props) {
     return (
       <div
@@ -16,7 +17,7 @@ function Onenotesu({match}) {
     const [notes, setNote] = useState([]);
     const getProfile = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/get/worksub/${match.params.id}`, {
+          const res = await fetch(`${url}/get/worksub/${match.params.id}`, {
             method: "GET",
             headers: { jwt_token: localStorage.token }
           });
@@ -85,4 +86,4 @@ function Onenotesu({match}) {
     )
 }
 
-export default Onenotesu
+export default  React.memo(Onenotesu)

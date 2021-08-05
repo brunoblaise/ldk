@@ -55,4 +55,4 @@ function Notes() {
     )
 }
 
-export default Notes
+export default React.memo(Notes)

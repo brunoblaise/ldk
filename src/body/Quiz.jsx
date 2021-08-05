@@ -41,4 +41,4 @@ function Quiz() {
     )
 }
 
-export default Quiz
+export default  React.memo(Quiz)

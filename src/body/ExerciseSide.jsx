@@ -2,13 +2,14 @@
 import React, { useEffect, useState,useContext  } from "react";
 import { ProfileContext } from "./context/ProfileContext";
 import { Link } from "react-router-dom";
+import { url } from "../url";
 function ExerciseSide() {
   const [profile] = useContext(ProfileContext)
     const [notes, setNote] = useState([]);
     const [search, setSearch] = useState("");
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/exercise", {
+        const res = await fetch(`${url}/get/exercise`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });
@@ -84,4 +85,4 @@ function ExerciseSide() {
     )
 }
 
-export default ExerciseSide
+export default React.memo(ExerciseSide)

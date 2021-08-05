@@ -21,4 +21,4 @@ function RenderT({setAuth}) {
     )
 }
 
-export default RenderT
+export default  React.memo(RenderT)

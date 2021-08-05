@@ -106,4 +106,4 @@ function Boardleader() {
     )
 }
 
-export default Boardleader
+export default React.memo(Boardleader)

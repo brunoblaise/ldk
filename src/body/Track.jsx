@@ -38,7 +38,7 @@ function Track() {
                         <div className="col-md-6 grid-margin stretch-card">
                             <div className="card tale-bg">
                                 <div className="card-people mt-auto">
-                                    <img src={people}alt="people"/>
+                                    <img width="" height="" src={people}alt="people"/>
                                     <div className="weather-info">
                                         <div className="d-flex">
                                            
@@ -66,4 +66,4 @@ function Track() {
     )
 }
 
-export default Track
+export default  React.memo(Track)

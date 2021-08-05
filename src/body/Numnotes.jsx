@@ -1,11 +1,12 @@
 import React, { useEffect, useState,useContext  } from "react";
+import { url } from "../url";
 import { ProfileContext } from "./context/ProfileContext";
 function Numnotes() {
     const [profile] = useContext(ProfileContext)
     const [notes, setNote] = useState([]);
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/notes", {
+        const res = await fetch(`${url}/get/notes`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });
@@ -46,4 +47,4 @@ function Numnotes() {
     )
 }
 
-export default Numnotes
+export default  React.memo(Numnotes)

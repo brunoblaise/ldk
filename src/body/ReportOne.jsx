@@ -2,6 +2,7 @@
 import React, { useEffect, useState,useContext  } from "react";
 import { ProfileContext } from "./context/ProfileContext";
 import { format } from "timeago.js";
+import { url } from "../url";
 function Iframe(props) {
     return (
       <div
@@ -14,7 +15,7 @@ function ReportOne() {
     const [profile] = useContext(ProfileContext)
     const getProfile = async () => {
         try {
-          const res = await fetch(`https://glacial-plateau-51122.herokuapp.com/get/report`, {
+          const res = await fetch(`${url}/get/report`, {
             method: "GET",
             headers: { jwt_token: localStorage.token }
           });
@@ -46,7 +47,7 @@ function ReportOne() {
 {notes.map((note)=>(
               
                
-              <div className={format(note.timestamp) === "1 year ago" ? "hide"  : "content-wrapper" }>
+              <div key ={id[0]}className={format(note.timestamp) === "1 year ago" ? "hide"  : "content-wrapper" }>
               <div className="email-wrapper wrapper">
                   <div className="row align-items-stretch">
                       <div className="mail-view d-none d-md-block col-md-9 col-lg-7 bg-white">
@@ -89,4 +90,4 @@ function ReportOne() {
     )
 }
 
-export default ReportOne
+export default  React.memo(ReportOne)

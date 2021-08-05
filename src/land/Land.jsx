@@ -50,7 +50,7 @@ function Land() {
                 <button className="btn btn-opacity-light mr-1">Study online</button>
                 <button className="btn btn-opacity-success ml-1">Get reports easily</button>
             </div>
-            <img src={Group171} alt="" className="img-fluid"/>
+            <img src={Group171} alt=""width="640" height="360" className="img-fluid"/>
         </div>
     </div>
     <div className="content-wrapper">
@@ -63,7 +63,7 @@ function Land() {
                 <div className="d-md-flex justify-content-between">
                     <div className="grid-margin d-flex justify-content-start">
                         <div className="features-width">
-                            <img src={Group12} alt="" className="img-icons"/>
+                            <img src={Group12} alt="" width="62" height="61" className="img-icons"/>
                             <h5 className="py-3">Speed<br/>Optimisation</h5>
                             <p className="text-muted">it is fast as light just one blink and ecery thing is done</p>
                             <Link to="#">
@@ -75,7 +75,7 @@ function Land() {
                     
                     <div className="grid-margin d-flex justify-content-end">
                         <div className="features-width">
-                            <img src={Group5} alt="" className="img-icons"/>
+                            <img src={Group5} alt="" width="62" height="61" className="img-icons"/>
                             <h5 className="py-3">Content<br/>Studying</h5>
                             <p className="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                             <Link to="#">
@@ -95,7 +95,7 @@ function Land() {
                         </div>
                     </div>
                     <div className="col-12 col-lg-5 p-0 img-digital grid-margin grid-margin-lg-0 aos-init aos-animate">
-                        <img src={Group1} alt="" className="img-fluid"/>
+                        <img src={Group1} alt="" width="62" height="61" className="img-fluid"/>
                     </div>
                 </div>
            
@@ -109,4 +109,4 @@ function Land() {
     )
 }
 
-export default Land
+export default  React.memo(Land)

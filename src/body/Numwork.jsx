@@ -1,4 +1,5 @@
 import React, { useEffect, useState,useContext  } from "react";
+import { url } from "../url";
 import { ProfileContext } from "./context/ProfileContext";
 function Numwork() {
     const [profile] = useContext(ProfileContext)
@@ -6,7 +7,7 @@ function Numwork() {
   
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/work", {
+        const res = await fetch(`${url}/get/work`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });
@@ -49,4 +50,4 @@ function Numwork() {
     )
 }
 
-export default Numwork
+export default  React.memo(Numwork)

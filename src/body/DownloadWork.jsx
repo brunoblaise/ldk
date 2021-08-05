@@ -4,11 +4,12 @@ import Sidebar from '../sidebar/Sidebar';
 import Header from '../header/Header';
 import { format } from "timeago.js";
 import WorkList from './WorkList';
+import { url } from "../url";
 function DownloadWork({match}) {
     const [notes, setNote] = useState([]);
     const getProfile = async () => {
         try {
-          const res = await fetch(`http://localhost:5000/get/work/${match.params.id}`, {
+          const res = await fetch(`${url}/get/work/${match.params.id}`, {
             method: "GET",
             headers: { jwt_token: localStorage.token }
           });
@@ -91,4 +92,4 @@ function DownloadWork({match}) {
     )
 }
 
-export default DownloadWork
+export default React.memo(DownloadWork)

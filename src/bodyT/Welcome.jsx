@@ -36,4 +36,4 @@ const [month, day, year]       = [date.getMonth() + 1, date.getDate(), date.getF
     )
 }
 
-export default Welcome
+export default  React.memo(Welcome)

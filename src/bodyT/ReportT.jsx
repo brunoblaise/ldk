@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import { toast } from "react-toastify";
+import { url } from "../url";
 
 function ReportT() {
   const [recfile, setRecfile] = useState('');
@@ -15,7 +16,7 @@ function ReportT() {
           const myHeaders = new Headers();
           myHeaders.append("jwt_token", localStorage.token);
           const response = await fetch(
-            "http://localhost:5000/create/report",
+            `${url}/create/report`,
             
             {
               method: "POST",
@@ -82,4 +83,4 @@ function ReportT() {
     )
 }
 
-export default ReportT
+export default  React.memo(ReportT)

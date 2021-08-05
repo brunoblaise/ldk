@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import { toast } from "react-toastify";
+import { url } from "../url";
 
 function NotesT() {
     const [inputs, setInputs] = useState({
@@ -25,7 +26,7 @@ function NotesT() {
           const myHeaders = new Headers();
           myHeaders.append("jwt_token", localStorage.token);
           const response = await fetch(
-            "http://localhost:5000/create/notes",
+            `${url}/create/notes`,
             
             {
               method: "POST",
@@ -103,4 +104,4 @@ function NotesT() {
     )
 }
 
-export default NotesT
+export default  React.memo(NotesT)

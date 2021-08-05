@@ -1,11 +1,12 @@
 import React, { useEffect, useState,useContext  } from "react";
+import { url } from "../url";
 import { ProfileContext } from "./context/ProfileContext";
 function Numanswer() {
     const [profile] = useContext(ProfileContext)
     const [notes, setNote] = useState([]);
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/answer", {
+        const res = await fetch(`${url}/get/answer`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });
@@ -45,4 +46,4 @@ function Numanswer() {
     )
 }
 
-export default Numanswer
+export default React.memo(Numanswer)

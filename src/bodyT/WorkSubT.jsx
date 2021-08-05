@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import { toast } from "react-toastify";
+import { url } from "../url";
 
 
 function WorkSubT() {
@@ -25,7 +26,7 @@ function WorkSubT() {
           const myHeaders = new Headers();
           myHeaders.append("jwt_token", localStorage.token);
           const response = await fetch(
-            "http://localhost:5000/create/work",
+            `${url}/create/work`,
             
             {
               method: "POST",
@@ -104,4 +105,4 @@ function WorkSubT() {
     )
 }
 
-export default WorkSubT
+export default  React.memo(WorkSubT)

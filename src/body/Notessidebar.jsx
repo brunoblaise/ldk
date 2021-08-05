@@ -2,13 +2,14 @@
 import React, { useEffect, useState,useContext  } from "react";
 import { ProfileContext } from "./context/ProfileContext";
 import { Link } from "react-router-dom";
+import { url } from "../url";
 function Notessidebar() {
   const [profile] = useContext(ProfileContext)
     const [notes, setNote] = useState([]);
     const [search, setSearch] = useState("");
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/notes", {
+        const res = await fetch(`${url}/get/notes`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });
@@ -79,4 +80,4 @@ function Notessidebar() {
     )
 }
 
-export default Notessidebar
+export default React.memo(Notessidebar)

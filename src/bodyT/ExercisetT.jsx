@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import { toast } from "react-toastify";
+import { url } from "../url";
 
 function ExerciseT() {
   const [inputs, setInputs] = useState({
@@ -18,7 +19,7 @@ function ExerciseT() {
         
           const body = { classe, title, summary};
           const response = await fetch(
-            "http://localhost:5000/create/exercises",
+            `${url}/create/exercises`,
             {
               method: "POST",
               headers: {
@@ -95,4 +96,4 @@ function ExerciseT() {
     )
 }
 
-export default ExerciseT
+export default  React.memo(ExerciseT)

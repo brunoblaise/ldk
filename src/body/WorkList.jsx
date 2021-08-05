@@ -1,13 +1,14 @@
 import React, { useEffect, useState,useContext  } from "react";
 import { ProfileContext } from "./context/ProfileContext";
 import { Link } from "react-router-dom";
+import { url } from "../url";
 function WorkList() {
     const [profile] = useContext(ProfileContext)
     const [notes, setNote] = useState([]);
     const [search, setSearch] = useState("");
     const getProfile = async () => {
       try {
-        const res = await fetch("http://localhost:5000/get/work", {
+        const res = await fetch(`${url}/get/work`, {
           method: "GET",
           headers: { jwt_token: localStorage.token }
         });
@@ -37,7 +38,7 @@ function WorkList() {
   
   
    
-  
+
 
     return (
        <>
@@ -83,4 +84,4 @@ function WorkList() {
     )
 }
 
-export default WorkList
+export default  React.memo(WorkList)

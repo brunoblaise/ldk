@@ -114,4 +114,4 @@ function ProfileT({setAuth}) {
     )
 }
 
-export default ProfileT
+export default  React.memo(ProfileT)

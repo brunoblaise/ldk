@@ -55,4 +55,4 @@ function Notesu() {
     )
 }
 
-export default Notesu
+export default  React.memo(Notesu)

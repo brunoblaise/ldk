@@ -1,5 +1,6 @@
 import React, {  useState } from "react";
 import { toast } from "react-toastify";
+import { url } from "../url";
 function Marks() {
     const [inputs, setInputs] = useState({
         email: "",
@@ -17,7 +18,7 @@ function Marks() {
             
               const body = { email, name, mark};
               const response = await fetch(
-                "http://localhost:5000/create/mark",
+                `${url}/create/mark`,
                 {
                   method: "POST",
                   headers: {
@@ -38,7 +39,7 @@ function Marks() {
                 toast.success("Sent Successfully");
               }
             
-              window.location = "/";
+            
              
     
     
@@ -82,4 +83,4 @@ function Marks() {
     )
 }
 
-export default Marks
+export default  React.memo(Marks)

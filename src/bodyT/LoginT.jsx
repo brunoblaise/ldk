@@ -2,6 +2,7 @@ import React, {  useState } from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify";
 import logo from "../images/logo.svg";
+import { url } from "../url";
 const LoginT = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
     email: "",
@@ -18,7 +19,7 @@ const LoginT = ({ setAuth }) => {
     try {
       const body = { email, password };
       const response = await fetch(
-        "http://localhost:5000/create/loginT",
+        `${url}/create/loginT`,
         {
           method: "POST",
           headers: {
@@ -52,7 +53,7 @@ const LoginT = ({ setAuth }) => {
                     <div className="col-lg-4 mx-auto">
                         <div className="auth-form-light text-left py-5 px-4 px-sm-5">
                             <div className="brand-logo">
-                                <img src={logo} alt="logo"/>
+                                <img width="150" height="" src={logo} alt="logo"/>
                             </div>
                             <h4>Hello! let's get started</h4>
                             <h6 className="font-weight-light">Sign in to continue.</h6>
@@ -92,4 +93,4 @@ const LoginT = ({ setAuth }) => {
     )
 }
 
-export default LoginT
+export default  React.memo(LoginT)

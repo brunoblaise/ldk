@@ -1,4 +1,5 @@
 import React, { useEffect, useState} from "react";
+import { url } from "../url";
 
 
 function Allstudents() {
@@ -6,7 +7,7 @@ function Allstudents() {
     const [search, setSearch] = useState("");
       const getProfile = async () => {
         try {
-          const res = await fetch("http://localhost:5000/get/Emailsel", {
+          const res = await fetch(`${url}/get/Emailsel`, {
             method: "GET",
             headers: { jwt_token: localStorage.token }
           });
@@ -28,7 +29,7 @@ function Allstudents() {
        
         }, []);
 
-        
+      
     return (
         <div class="col-lg-12 grid-margin stretch-card">
         <div class="card">
@@ -67,7 +68,7 @@ function Allstudents() {
                 }
               }).slice(0, 15).map((note)=>(
               
-                       <tbody>
+                       <tbody key={note.student_email}>
                        <tr>
                          <td _msthash="4739384" _msttexthash="146692">
                            {note.class_student}
@@ -96,4 +97,4 @@ function Allstudents() {
     )
 }
 
-export default Allstudents
+export default  React.memo(Allstudents)

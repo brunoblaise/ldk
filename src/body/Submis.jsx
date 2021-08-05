@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import lesson from "../images/image.svg"
 import { format } from "timeago.js";
+import { url } from "../url";
 function Submis() {
     const [message, setMessage] = useState([]);
   
     const getProfile = async () => {
         try {
-          const res = await fetch("http://localhost:5000/get/answer", {
+          const res = await fetch(`${url}/get/answer`, {
             method: "GET",
             headers: { jwt_token: localStorage.token }
           });
@@ -37,7 +38,7 @@ function Submis() {
             message.map(chat=>(
                 <div key={chat.answer_id} className={ format(chat.timestamp) === "1 day ago" ? "hide"  : "profile-feed"  }>
                 <div className="d-flex align-items-start profile-feed-item">
-                    <img src={lesson} alt="profile" className="img-sm rounded-circle" />
+                    <img width="640" height="360" src={lesson} alt="profile" className="img-sm rounded-circle" />
                     <div className="ml-4">
                         <h6>
                             {chat.student_fname}
@@ -60,4 +61,4 @@ function Submis() {
     )
 }
 
-export default Submis
+export default  React.memo(Submis)
