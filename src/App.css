@@ -26666,3 +26666,10 @@ footer button.show{
 .hide{
     display: none;
 }
+
+.center{
+    position: relative;
+    left: 78px;
+    top: 112px;
+    
+}

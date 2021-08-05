@@ -82,7 +82,8 @@ function App() {
   return (
  
     <Router>
-         <Suspense fallback={<div className="center"><img src="https://img.icons8.com/ios-filled/500/000000/loading-circle--v6.png"/></div>}>
+         <Suspense fallback={<div>loading... if nothing is seen please refresh</div>}>
+       
     <Switch>
     <Route
               exact

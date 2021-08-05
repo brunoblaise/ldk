@@ -15,6 +15,7 @@ function Land() {
                     <button className="navbar-toggler ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span className="mdi mdi-menu navbar-toggler-icon"></span>
         </button>
+  
                 </div>
                 <div className="collapse navbar-collapse navbar-menu-wrapper" id="navbarSupportedContent">
                     <ul className="navbar-nav align-items-lg-center align-items-start ml-auto">
