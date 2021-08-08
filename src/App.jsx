@@ -14,7 +14,7 @@ const Quiz = React.lazy(() => import('./body/Quiz'));
 import "react-toastify/dist/ReactToastify.css";
 const  Exercise = React.lazy(() => import('./body/Exercise'));
 const  ExerciseOne = React.lazy(() => import('./body/ExerciseOne'));
-
+import { v4 as uuidV4 } from "uuid"
 import "./App.css"
 import {
   BrowserRouter as Router,
@@ -43,6 +43,8 @@ const Report = React.lazy(() => import('./body/Report'));
 const Land = React.lazy(() => import('./land/Land'));
 
 import { url } from "./url";
+
+const  Texteditor = React.lazy(() => import('./texteditor/Texteditor'));
 const ExerciseT = React.lazy(() => import('./bodyT/ExercisetT'));
 const NotesT = React.lazy(() => import('./bodyT/NotesT'));
 const ReportT = React.lazy(() => import('./bodyT/ReportT'));
@@ -85,16 +87,32 @@ function App() {
          <Suspense fallback={<div>loading... if nothing is seen please refresh</div>}>
        
     <Switch>
-    <Route
-              exact
+    <Route   
               path="/"
+              exact
             component={Land}
             />
- 
+              <Route path="/text" exact>
+          <Redirect to={`/text/documents/${uuidV4()}`} />
+        </Route>
+        <Route 
+        path="/text/documents/:id" 
+        exact
+        render={props =>
+          !isAuthenticated ? (
+            <Texteditor {...props} setAuth={setAuth} />
+          ) : (
+            <Redirect to="/" />
+          )
+        }
+        />
+         
+       
     <ProfileProvide>
     <Route
-              exact
+            
               path="/login"
+              exact
               render={props =>
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth} />
@@ -108,8 +126,8 @@ function App() {
  
             
             <Route
-              exact
               path="/dashboard"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Render {...props} setAuth={setAuth} />
@@ -119,8 +137,9 @@ function App() {
               }
             />
             <Route
-              exact
+             
               path="/register"
+              exact
               render={props =>
                 !isAuthenticated ? (
                   <Register {...props} setAuth={setAuth} />
@@ -131,8 +150,9 @@ function App() {
             />
 
 <Route
-              exact
+           
               path="/profile"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Profile {...props} setAuth={setAuth} />
@@ -143,8 +163,9 @@ function App() {
             />
 
 <Route
-              exact
+            
               path="/notes"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Notes {...props} setAuth={setAuth} />
@@ -154,8 +175,9 @@ function App() {
               }
             />
              <Route
-              exact
+         
               path="/works"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Quiz {...props} setAuth={setAuth} />
@@ -165,8 +187,9 @@ function App() {
               }
             />
             <Route
-              exact
+            
               path="/exercise"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Exercise {...props} setAuth={setAuth} />
@@ -177,8 +200,9 @@ function App() {
             />
 
 <Route
-              exact
+            
               path="/library"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Library {...props} setAuth={setAuth} />
@@ -189,8 +213,9 @@ function App() {
             />
 
 <Route
-              exact
+            
               path="/message"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Message {...props} setAuth={setAuth} />
@@ -200,8 +225,9 @@ function App() {
               }
             />
             <Route
-              exact
+             
               path="/notes/:id"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Onenotes {...props} setAuth={setAuth} />
@@ -211,8 +237,9 @@ function App() {
               }
             />
                <Route
-              exact
+              
               path="/exercise/:id"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <ExerciseOne {...props} setAuth={setAuth} />
@@ -222,8 +249,9 @@ function App() {
               }
             />
               <Route
-              exact
+            
               path="/work/:id"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <DownloadWork {...props} setAuth={setAuth} />
@@ -234,8 +262,9 @@ function App() {
             />
            
            <Route
-              exact
+              
               path="/worksub"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <WorkSub {...props} setAuth={setAuth} />
@@ -245,8 +274,9 @@ function App() {
               }
             />
                 <Route
-              exact
+              
               path="/report"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Report {...props} setAuth={setAuth} />
@@ -260,8 +290,9 @@ function App() {
 
 
 <Route
-              exact
+           
               path="/loginT"
+              exact
               render={props =>
                 !isAuthenticated ? (
                   <LoginT {...props} setAuth={setAuth} />
@@ -275,8 +306,9 @@ function App() {
  
             
             <Route
-              exact
+             
               path="/dashboardT"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <RenderT {...props} setAuth={setAuth} />
@@ -286,8 +318,9 @@ function App() {
               }
             />
             <Route
-              exact
+             
               path="/registerT"
+              exact
               render={props =>
                 !isAuthenticated ? (
                   <RegisterT {...props} setAuth={setAuth} />
@@ -298,8 +331,9 @@ function App() {
             />
 
 <Route
-              exact
+              
               path="/Teacher"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <ProfileT {...props} setAuth={setAuth} />
@@ -311,8 +345,9 @@ function App() {
 
 
 <Route
-              exact
+             
               path="/libraryT"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <LibraryT {...props} setAuth={setAuth} />
@@ -323,8 +358,9 @@ function App() {
             />
 
 <Route
-              exact
+             
               path="/messageT"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <MessageT {...props} setAuth={setAuth} />
@@ -334,8 +370,9 @@ function App() {
               }
             />
            <Route
-              exact
+            
               path="/notesT"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <NotesT {...props} setAuth={setAuth} />
@@ -346,8 +383,9 @@ function App() {
             />
            
             <Route
-              exact
+             
               path="/exerciseT"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <ExerciseT {...props} setAuth={setAuth} />
@@ -357,8 +395,9 @@ function App() {
               }
             />
                 <Route
-              exact
+             
               path="/reportT"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <ReportT {...props} setAuth={setAuth} />
@@ -368,8 +407,9 @@ function App() {
               }
             />
    <Route
-              exact
+             
               path="/worksT"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <WorkSubT {...props} setAuth={setAuth} />
@@ -379,8 +419,9 @@ function App() {
               }
             />
      <Route
-              exact
+            
               path="/worksubT/:id"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Onenotesu {...props} setAuth={setAuth} />
@@ -390,8 +431,9 @@ function App() {
               }
             />
              <Route
-              exact
+             
               path="/allstudent"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Allstudents {...props} setAuth={setAuth} />
@@ -401,8 +443,9 @@ function App() {
               }
             />
             <Route
-              exact
+             
               path="/worksubT"
+              exact
               render={props =>
                 isAuthenticated ? (
                   <Notesu {...props} setAuth={setAuth} />

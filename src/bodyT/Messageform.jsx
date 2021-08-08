@@ -37,8 +37,7 @@ function Messageform() {
         
           toast.success("Sent Successfully");
         }
-      
-        window.location = "/dashboardT";
+
       } catch (err) {
         console.error(err.message);
       }
