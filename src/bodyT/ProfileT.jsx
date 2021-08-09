@@ -1,7 +1,8 @@
 import React, { useContext} from "react";
 import { Link } from "react-router-dom";
 import { toast } from "react-toastify"
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import { TeacherContext} from "./context/TeacherContext";
 function ProfileT({setAuth}) {
     const logout = async e => {
@@ -31,7 +32,7 @@ function ProfileT({setAuth}) {
                                     {profile.map(profil =>( 
                                         <div key={profil.teacher_id}className="col-lg-4">
                                             <div className="border-bottom text-center pb-4">
-                                                <img src={`${profil.teacher_photo}`}alt="profile" className="img-lg rounded-circle mb-3" />
+                                                <LazyLoadImage effect="blur" src={`${profil.teacher_photo}`}alt="profile" className="img-lg rounded-circle mb-3" />
                                                 <div className="mb-3">
                                                     <h3>{profil.teacher_fname}</h3>
                                                    

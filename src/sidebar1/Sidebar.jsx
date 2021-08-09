@@ -110,7 +110,7 @@ function Sidebar({setAuth}) {
 
             <li className="nav-item">
                 <Link className="nav-link" to="/text">
-                <i class="bi bi-clipboard-data"></i>
+                <i className="bi bi-clipboard-data menu-icon"></i>
 
       <span className="menu-title">Smart class</span>
     </Link>

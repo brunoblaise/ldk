@@ -4,6 +4,8 @@ import Group5 from '../images/Group5.svg'
 import Group1 from '../images/Group1.png'
 import Group12 from '../images/Group12.svg'
 import Group171 from '../images/Group171.svg'
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 function Land() {
     return (
         <>
@@ -51,7 +53,7 @@ function Land() {
                 <button className="btn btn-opacity-light mr-1">Study online</button>
                 <button className="btn btn-opacity-success ml-1">Get reports easily</button>
             </div>
-            <img src={Group171} alt=""width="640" height="360" className="img-fluid"/>
+            <LazyLoadImage effect="blur" src={Group171} alt=""width="640" height="360" className="img-fluid"/>
         </div>
     </div>
     <div className="content-wrapper">
@@ -64,7 +66,7 @@ function Land() {
                 <div className="d-md-flex justify-content-between">
                     <div className="grid-margin d-flex justify-content-start">
                         <div className="features-width">
-                            <img src={Group12} alt="" width="62" height="61" className="img-icons"/>
+                            <LazyLoadImage effect="blur" src={Group12} alt="" width="62" height="61" className="img-icons"/>
                             <h5 className="py-3">Speed<br/>Optimisation</h5>
                             <p className="text-muted">it is fast as light just one blink and ecery thing is done</p>
                             <Link to="#">
@@ -76,7 +78,7 @@ function Land() {
                     
                     <div className="grid-margin d-flex justify-content-end">
                         <div className="features-width">
-                            <img src={Group5} alt="" width="62" height="61" className="img-icons"/>
+                            <LazyLoadImage effect="blur" src={Group5} alt="" width="62" height="61" className="img-icons"/>
                             <h5 className="py-3">Content<br/>Studying</h5>
                             <p className="text-muted">Lorem ipsum dolor sit amet, tincidunt vestibulum. Fusce egeabus consectetuer turpis, suspendisse.</p>
                             <Link to="#">
@@ -96,7 +98,7 @@ function Land() {
                         </div>
                     </div>
                     <div className="col-12 col-lg-5 p-0 img-digital grid-margin grid-margin-lg-0 aos-init aos-animate">
-                        <img src={Group1} alt="" width="62" height="61" className="img-fluid"/>
+                        <LazyLoadImage  effect="blur" src={Group1} alt="" width="62" height="61" className="img-fluid"/>
                     </div>
                 </div>
            

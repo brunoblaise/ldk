@@ -92,18 +92,16 @@ function App() {
               exact
             component={Land}
             />
-              <Route path="/text" exact>
+                   <Route path="/text" exact>
           <Redirect to={`/text/documents/${uuidV4()}`} />
         </Route>
         <Route 
         path="/text/documents/:id" 
         exact
         render={props =>
-          !isAuthenticated ? (
+         
             <Texteditor {...props} setAuth={setAuth} />
-          ) : (
-            <Redirect to="/" />
-          )
+         
         }
         />
          

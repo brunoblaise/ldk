@@ -1,8 +1,9 @@
 import React, {useState} from 'react'
+import { url } from "../url";
+import { toast } from "react-toastify";
 
-
-function SidaKeep({setAuth}) {
-    const [url1,setUrl1] = useState("");
+function SidaKeep() {
+    const [url1, setUrl1] = useState("");
     const onSubmitForm = async e => {
       e.preventDefault();
       try {
@@ -18,14 +19,23 @@ function SidaKeep({setAuth}) {
           body: JSON.stringify(body)
         });
   
-       
- 
+
+        if (response.status === "200") {
+          
+          toast.error("Something is wrong");
+         
+        } else {
+          
+        
+          toast.success("Sent Successfully");
+        }
 
  
       } catch (err) {
         console.error(err.message);
       }
     };
+ 
     return (
   
                 <div className="row mx-0 box">

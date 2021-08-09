@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import lesson from "../images/image.svg"
 import { format } from "timeago.js";
 import { url } from "../url";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 function Submis() {
     const [message, setMessage] = useState([]);
   
@@ -38,7 +40,7 @@ function Submis() {
             message.map(chat=>(
                 <div key={chat.answer_id} className={ format(chat.timestamp) === "1 day ago" ? "hide"  : "profile-feed"  }>
                 <div className="d-flex align-items-start profile-feed-item">
-                    <img width="640" height="360" src={lesson} alt="profile" className="img-sm rounded-circle" />
+                    <LazyLoadImage effect="blur" width="640" height="360" src={lesson} alt="profile" className="img-sm rounded-circle" />
                     <div className="ml-4">
                         <h6>
                             {chat.student_fname}

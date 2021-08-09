@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import logo from "../images/logo.svg";
 import { toast } from "react-toastify";
 import { url } from '../url';
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
  function Register({ setAuth }) {
 
     const [inputs, setInputs] = useState({
@@ -79,7 +81,7 @@ import { url } from '../url';
                     <div className="col-lg-6 d-flex align-items-center justify-content-center">
                         <div className="auth-form-transparent text-left p-3">
                             <div className="brand-logo">
-                                <img width="150" height="" src={logo} alt="logo"/>
+                                <LazyLoadImage effect="blur" width="150" height="" src={logo} alt="logo"/>
                             </div>
                             <h4>New here?</h4>
                             <h6 className="font-weight-light">Join us today! It takes only few steps</h6>

@@ -1,5 +1,6 @@
 import people from "../images/dashboard/people.svg" 
-
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import React, { useEffect, useState } from "react";
 function Track() {
     const [message, setMessage] = useState([]);
@@ -35,7 +36,7 @@ function Track() {
                         <div className="col-md-6 grid-margin stretch-card">
                             <div className="card tale-bg">
                                 <div className="card-people mt-auto">
-                                    <img width="" height="" src={people}alt="people"/>
+                                    <LazyLoadImage effect="blur" width="" height="" src={people}alt="people"/>
                                     <div className="weather-info">
                                         <div className="d-flex">
                                            

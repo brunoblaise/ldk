@@ -4,6 +4,8 @@ import React, { useEffect, useState,useContext } from "react";
 import { ProfileContext } from "./context/ProfileContext";
 import { format } from "timeago.js";
 import { url } from "../url";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 import cxr from "../images/cxr.jpg"
 function Message() {
   const [message, setMessage] = useState([]);
@@ -40,7 +42,7 @@ function Message() {
 
     return (
        
-            <div className="__main"><div className="nav"><div className="nav__blocks"></div><div className="nav__blocks"></div><div className="nav__blocks"></div></div><div className="main__chatbody"><div className="main__chatcontent"><div className="content__header"><div className="blocks"><div className="current-chatting-user"><div className="avatar"><div className="avatar-img"><img width="640" height="360" src={cxr} alt=""/></div><span className="isOnline active"></span></div><p>Cxr Chat Box</p></div></div></div><div className="content__body"><div className="chat__items">
+            <div className="__main"><div className="nav"><div className="nav__blocks"></div><div className="nav__blocks"></div><div className="nav__blocks"></div></div><div className="main__chatbody"><div className="main__chatcontent"><div className="content__header"><div className="blocks"><div className="current-chatting-user"><div className="avatar"><div className="avatar-img"><LazyLoadImage effect="blur" width="640" height="360" src={cxr} alt=""/></div><span className="isOnline active"></span></div><p>Cxr Chat Box</p></div></div></div><div className="content__body"><div className="chat__items">
             
           
             {message.map(chat=>(<div key={chat.message_id} className={chat.message_fname === own[0] ? "chat__item me" : "chat__item other"} style={{animationDelay: "0.8s"}}><div className="chat__item__content"><div className="chat__msg">{chat.messages}</div><div className="chat__meta"><span>{chat.message_fname}</span><span>{format(chat.timestamp)}</span></div></div></div>))

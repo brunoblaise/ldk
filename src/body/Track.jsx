@@ -4,6 +4,8 @@ import Numwork from './Numwork'
 import Numnotes from './Numnotes'
 import Numanswer from "./Numanswer"
 import React, { useEffect, useState } from "react";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 function Track() {
     const [message, setMessage] = useState([]);
   
@@ -38,7 +40,7 @@ function Track() {
                         <div className="col-md-6 grid-margin stretch-card">
                             <div className="card tale-bg">
                                 <div className="card-people mt-auto">
-                                    <img width="" height="" src={people}alt="people"/>
+                                    <LazyLoadImage effect="blur" width="" height="" src={people}alt="people"/>
                                     <div className="weather-info">
                                         <div className="d-flex">
                                            

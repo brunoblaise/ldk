@@ -2,6 +2,8 @@ import React, {  useState } from "react";
 import { toast } from "react-toastify";
 import { url } from "../url";
 import Marks from "./Marks";
+import { LazyLoadImage } from 'react-lazy-load-image-component';
+import 'react-lazy-load-image-component/src/effects/blur.css';
 function WorkSub() {
   const [recfile, setRecfile] = useState('');
     const onSubmitForm = async e => {
