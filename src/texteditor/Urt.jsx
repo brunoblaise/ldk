@@ -33,7 +33,7 @@ function Urt() {
         <div>
                    <div className="row mx-0 box1">
                     <div className="">
-                        <div className="auth-form-light text-left py-3 px-2">
+                        <div className="auth-form-light text-left py-3 px-2 were">
                             {message.map(chat=>(
                           <Link to={{pathname:`${chat.url_content}`}} target='_blank' className="were">{format(chat.timestamp)}</Link>
                             ))}
