@@ -23022,6 +23022,7 @@ div.tagsinput span.tag a {
     }
   }
 
-  .were:hover{
-    overflow: visible;
-  }
+.auth-form-light.text-left.py-3.px-2.were {
+    display: flex;
+    flex-direction: column;
+}
