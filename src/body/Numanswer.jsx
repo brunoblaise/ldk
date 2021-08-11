@@ -1,49 +1,40 @@
-import React, { useEffect, useState,useContext  } from "react";
-import { url } from "../url";
-import { ProfileContext } from "./context/ProfileContext";
+import React, {useEffect, useState, useContext} from 'react';
+import {url} from '../url';
+import {ProfileContext} from './context/ProfileContext';
 function Numanswer() {
-    const [profile] = useContext(ProfileContext)
-    const [notes, setNote] = useState([]);
-    const getProfile = async () => {
-      try {
-        const res = await fetch(`${url}/get/answer`, {
-          method: "GET",
-          headers: { jwt_token: localStorage.token }
-        });
-  
-        const parseData = await res.json();
-  
-        
-  
-        setNote(parseData.map((fil)=> fil).length)
-       
-        
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
- 
+  const [profile] = useContext(ProfileContext);
+  const [notes, setNote] = useState([]);
+  const getProfile = async () => {
+    try {
+      const res = await fetch(`${url}/get/answer`, {
+        method: 'GET',
+        headers: {jwt_token: localStorage.token},
+      });
 
-    useEffect(() => {
-      getProfile();
-   
-    },[setNote]);
+      const parseData = await res.json();
 
-    const id = profile.map(profil=>(
-      profil.class_student
-    ))
+      setNote(parseData.map((fil) => fil).length);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
-    return (
-        <div className="col-md-6 stretch-card transparent">
-                                    <div className="card card-light-danger">
-                                        <div className="card-body">
-                                            <p className="mb-4">Number of Answer</p>
-                                            <p className="fs-30 mb-2">{notes}</p>
-                                            
-                                        </div>
-                                    </div>
-                                </div>
-    )
+  useEffect(() => {
+    getProfile();
+  }, [setNote]);
+
+  const id = profile.map((profil) => profil.class_student);
+
+  return (
+    <div className='col-md-6 stretch-card transparent'>
+      <div className='card card-light-danger'>
+        <div className='card-body'>
+          <p className='mb-4'>Number of Answer</p>
+          <p className='fs-30 mb-2'>{notes}</p>
+        </div>
+      </div>
+    </div>
+  );
 }
 
-export default React.memo(Numanswer)
+export default React.memo(Numanswer);

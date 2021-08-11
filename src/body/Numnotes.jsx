@@ -1,50 +1,42 @@
-import React, { useEffect, useState,useContext  } from "react";
-import { url } from "../url";
-import { ProfileContext } from "./context/ProfileContext";
+import React, {useEffect, useState, useContext} from 'react';
+import {url} from '../url';
+import {ProfileContext} from './context/ProfileContext';
 function Numnotes() {
-    const [profile] = useContext(ProfileContext)
-    const [notes, setNote] = useState([]);
-    const getProfile = async () => {
-      try {
-        const res = await fetch(`${url}/get/notes`, {
-          method: "GET",
-          headers: { jwt_token: localStorage.token }
-        });
-  
-        const parseData = await res.json();
-  
-        
-  
-        setNote(parseData.filter((fil)=> fil.class_year_content === id[0]).length)
-       
-        
-      } catch (err) {
-        console.error(err.message);
-      }
-    };
- 
+  const [profile] = useContext(ProfileContext);
+  const [notes, setNote] = useState([]);
+  const getProfile = async () => {
+    try {
+      const res = await fetch(`${url}/get/notes`, {
+        method: 'GET',
+        headers: {jwt_token: localStorage.token},
+      });
 
-    useEffect(() => {
-      getProfile();
-   
-    },[]);
+      const parseData = await res.json();
 
-    const id = profile.map(profil=>(
-      profil.class_student
-    ))
+      setNote(
+        parseData.filter((fil) => fil.class_year_content === id[0]).length,
+      );
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
 
-  
-    return (
-        <div className="col-md-6 mb-4 stretch-card transparent">
-        <div className="card card-dark-blue">
-            <div className="card-body">
-                <p className="mb-4">Number of Notes</p>
-                <p className="fs-30 mb-2">{notes}</p>
-             
-            </div>
+  useEffect(() => {
+    getProfile();
+  }, []);
+
+  const id = profile.map((profil) => profil.class_student);
+
+  return (
+    <div className='col-md-6 mb-4 stretch-card transparent'>
+      <div className='card card-dark-blue'>
+        <div className='card-body'>
+          <p className='mb-4'>Number of Notes</p>
+          <p className='fs-30 mb-2'>{notes}</p>
         </div>
+      </div>
     </div>
-    )
+  );
 }
 
-export default  React.memo(Numnotes)
+export default React.memo(Numnotes);
