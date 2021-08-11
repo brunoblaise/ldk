@@ -34,8 +34,8 @@ function Track() {
           <div className='card-people mt-auto'>
             <LazyLoadImage
               effect='blur'
-              width=''
-              height=''
+              width='464.5px'
+              height='241.87px'
               src={people}
               alt='people'
             />
