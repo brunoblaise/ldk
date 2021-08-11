@@ -10,37 +10,14 @@ function Land() {
       <header className='header-section'>
         <nav className='navbar navbar-expand-lg pl-3 pl-sm-0' id='navbar'>
           <div className='container'>
-            <div className='navbar-brand-wrapper d-flex w-100'>
-              <button
-                className='navbar-toggler ml-auto'
-                type='button'
-                data-toggle='collapse'
-                data-target='#navbarSupportedContent'
-                aria-controls='navbarSupportedContent'
-                aria-expanded='false'
-                aria-label='Toggle navigation'>
-                <span className='mdi mdi-menu navbar-toggler-icon'></span>
-              </button>
-            </div>
+      
             <div
-              className='collapse navbar-collapse navbar-menu-wrapper'
+              className=' navbar-menu-wrapper'
               id='navbarSupportedContent'>
               <ul className='navbar-nav align-items-lg-center align-items-start ml-auto'>
-                <li className='d-flex align-items-center justify-content-between pl-4 pl-lg-0'>
-                  <button
-                    className='navbar-toggler close-button'
-                    type='button'
-                    data-toggle='collapse'
-                    data-target='#navbarSupportedContent'
-                    aria-controls='navbarSupportedContent'
-                    aria-expanded='false'
-                    aria-label='Toggle navigation'>
-                    <span className='mdi mdi-close navbar-toggler-icon pl-5'></span>
-                  </button>
-                </li>
                 <li className='nav-item'>
                   <Link className='nav-link' to='#header-section'>
-                    Home{' '}
+                    Home
                   </Link>
                 </li>
                 <li className='nav-item'>
@@ -69,7 +46,7 @@ function Land() {
           </h1>
           <h6 className='font-weight-normal text-muted pb-3'>
             This Simple is a way where students and teacher connect every easy
-            in this days enjoy{' '}
+            in this days enjoy
           </h6>
           <div>
             <button className='btn btn-opacity-light mr-1'>Study online</button>

@@ -1,6 +1,6 @@
 import {TeacherContext} from '../bodyT/context/TeacherContext';
 import React, {useContext} from 'react';
-import mini from '../images/logo-mini.svg';
+
 import {Link} from 'react-router-dom';
 
 import {LazyLoadImage} from 'react-lazy-load-image-component';
@@ -11,7 +11,7 @@ function Header() {
     <nav className='navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row'>
       <div className='text-center navbar-brand-wrapper d-flex align-items-center justify-content-center'>
         <Link to='/dashboard' className='navbar-brand brand-logo-mini'>
-          <LazyLoadImage effect='blur' src={mini} alt='logo' />
+          
         </Link>
       </div>
       <div className='navbar-menu-wrapper d-flex align-items-center justify-content-end'>
