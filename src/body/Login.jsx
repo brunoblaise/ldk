@@ -1,9 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
-import logo from '../images/logo.svg';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+
 import {url} from '../url';
 const Login = ({setAuth}) => {
   const [inputs, setInputs] = useState({
@@ -49,15 +47,6 @@ const Login = ({setAuth}) => {
           <div className='row w-100 mx-0'>
             <div className='col-lg-4 mx-auto'>
               <div className='auth-form-light text-left py-5 px-4 px-sm-5'>
-                <div className='brand-logo'>
-                  <LazyLoadImage
-                    effect='blur'
-                    width='150'
-                    height=''
-                    src={logo}
-                    alt='logo'
-                  />
-                </div>
                 <h4>Hello! let's get started</h4>
                 <h6 className='font-weight-light'>Sign in to continue.</h6>
                 <form className='pt-3' onSubmit={onSubmitForm}>
