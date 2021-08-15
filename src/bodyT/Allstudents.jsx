@@ -23,25 +23,26 @@ function Allstudents() {
     getProfile();
   }, []);
 
+ 
   return (
-    <div class='col-lg-12 grid-margin stretch-card'>
-      <div class='card'>
-        <div class='card-body'>
-          <h4 class='card-title' _msthash='2271633' _msttexthash='226057'>
+    <div className='col-lg-12 grid-margin stretch-card'>
+      <div className='card'>
+        <div className='card-body'>
+          <h4 className='card-title' _msthash='2271633' _msttexthash='226057'>
             Signed up Students
           </h4>
 
-          <div class='table-responsive pt-3'>
+          <div className='table-responsive pt-3'>
             <input
               type='search'
-              class='form-control'
+              className='form-control'
               placeholder='Search'
               aria-controls='order-listing'
               value={search}
               name='search'
               onChange={(e) => setSearch(e.target.value)}
             />
-            <table class='table table-bordered'>
+            <table className='table table-bordered'>
               <thead>
                 <tr>
                   <th _msthash='4713943' _msttexthash='135252'>
@@ -49,6 +50,9 @@ function Allstudents() {
                   </th>
                   <th _msthash='4715139' _msttexthash='117936'>
                     Email
+                  </th>
+                  <th _msthash='4715139' _msttexthash='117936'>
+                    Photo
                   </th>
                   <th _msthash='4716335' _msttexthash='79274'>
                     Gender
@@ -80,6 +84,9 @@ function Allstudents() {
 
                       <td _msthash='4741776' _msttexthash='38454'>
                         {note.student_email}
+                      </td>
+                      <td _msthash='4741776' _msttexthash='38454'>
+                       <img src={note.student_photo} alt="" />
                       </td>
                       <td _msthash='4742972' _msttexthash='89830'>
                         {note.student_gender}

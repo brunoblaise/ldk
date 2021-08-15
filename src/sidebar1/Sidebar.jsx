@@ -93,6 +93,13 @@ function Sidebar({setAuth}) {
             <span className='menu-title'>Smart class</span>
           </Link>
         </li>
+          
+        <li className='nav-item'>
+          <Link className='nav-link' to='/class'>
+            <i className="bi bi-collection-play menu-icon"></i>
+            <span className='menu-title'>Rooms</span>
+          </Link>
+        </li>
         <br />
         <br />
         <br />

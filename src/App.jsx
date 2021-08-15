@@ -43,6 +43,8 @@ const Land = React.lazy(() => import('./land/Land'));
 
 import {url} from './url';
 
+const   Class= React.lazy(() => import('./bodyT/Class'));
+const  Rooms = React.lazy(() => import('./bodyT/Rooms'));
 const Texteditor = React.lazy(() => import('./texteditor/Texteditor'));
 const ExerciseT = React.lazy(() => import('./bodyT/ExercisetT'));
 const NotesT = React.lazy(() => import('./bodyT/NotesT'));
@@ -130,6 +132,7 @@ function App() {
                 )
               }
             />
+           
 
             <Route
               path='/profile'
@@ -401,6 +404,28 @@ function App() {
                 render={(props) =>
                   isAuthenticated ? (
                     <Notesu {...props} setAuth={setAuth} />
+                  ) : (
+                    <Redirect to='/loginT' />
+                  )
+                }
+              />
+             <Route
+                path='/class'
+                exact
+                render={(props) =>
+                  isAuthenticated ? (
+                    <Rooms {...props} setAuth={setAuth} />
+                  ) : (
+                    <Redirect to='/loginT' />
+                  )
+                }
+              />
+                <Route
+                path='/class/room/:id'
+                exact
+                render={(props) =>
+                  isAuthenticated ? (
+                    <Class {...props} setAuth={setAuth} />
                   ) : (
                     <Redirect to='/loginT' />
                   )
