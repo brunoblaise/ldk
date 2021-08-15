@@ -45,8 +45,7 @@ function Land() {
             It is just one click.
           </h1>
           <h6 className='font-weight-normal text-muted pb-3'>
-            This Simple is a way where students and teacher connect every easy
-            in this days enjoy
+            This Simple is a way where students and teacher connect very easy
           </h6>
           <div>
             <button className='btn btn-opacity-light mr-1'>Study online</button>
