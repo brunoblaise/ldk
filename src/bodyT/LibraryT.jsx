@@ -51,7 +51,7 @@ function LibraryT() {
                       reb enjoy. it is very simple you can access all the books
                       in one place without navigating between website{' '}
                       <Link to='/library' style={{color: '#6c84ff'}}>
-                        Happy Studting
+                        Happy Learning
                       </Link>
                     </p>
                     <Iframe iframe={reb} />
