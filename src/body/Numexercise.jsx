@@ -15,7 +15,7 @@ function Numexercise() {
       const parseData = await res.json();
 
       setNote(
-        parseData.filter((fil) => fil.class_year_content === id[0]).length,
+        parseData.filter((fil) => fil.class_year_content === id[0]).length
       );
     } catch (err) {
       console.error(err.message);

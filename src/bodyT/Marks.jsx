@@ -1,13 +1,13 @@
 import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
-function Marks() {
+function Marks({student}) {
   const [inputs, setInputs] = useState({
-    email: '',
     name: '',
     mark: '',
   });
-  const {email, name, mark} = inputs;
+  const [email] = useState(student);
+  const { name, mark} = inputs;
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -33,7 +33,7 @@ function Marks() {
       console.error(err.message);
     }
   };
-
+console.log(student)
   return (
     <form onSubmit={onSubmitForm}>
       <div className='col-md-6'>
@@ -44,15 +44,7 @@ function Marks() {
         <input
           type='text'
           className='form-control form-control form-control-lg border-left-0'
-          name='title'
-          value={email}
-          placeholder='title'
-          onChange={(e) => onChange(e)}
-        />
-        <input
-          type='text'
-          className='form-control form-control form-control-lg border-left-0'
-          name='title'
+          name='name'
           value={name}
           placeholder='name of the work'
           onChange={(e) => onChange(e)}

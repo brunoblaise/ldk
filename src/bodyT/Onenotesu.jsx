@@ -30,6 +30,7 @@ function Onenotesu({match}) {
   useEffect(() => {
     getProfile();
   }, [setNote]);
+  console.log(notes)
   return (
     <>
       <Header />
@@ -44,7 +45,7 @@ function Onenotesu({match}) {
                 <div className='message-body'>
                   <div className='sender-details'>
                     <div className='details'>
-                      <p className='msg-subject'>{notes.notes_title}</p>
+                      <p className='msg-subject'>{notes.student_email}</p>
                     </div>
                   </div>
                   <div className='message-content'>
@@ -63,7 +64,7 @@ function Onenotesu({match}) {
                     </p>
                   </div>
 
-                  <Marks />
+                  <Marks student={notes.student_email}/>
                 </div>
               </div>
             </div>

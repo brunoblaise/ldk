@@ -31,10 +31,10 @@ function Marks() {
         <div className='card-body'>
           <h4 className='card-title'>Your marks</h4>
           <p className='card-description'>your marks will appear here</p>
-          <div class='card'>
-            <div class='card-body'>
-              <div class='table-responsive pt-3'>
-                <table class='table table-dark'>
+          <div className='card'>
+            <div className='card-body'>
+              <div className='table-responsive pt-3'>
+                <table className='table table-dark'>
                   <thead>
                     <tr>
                       <th>Name of work</th>

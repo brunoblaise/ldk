@@ -15,7 +15,7 @@ function WorkList() {
 
       const parseData = await res.json();
 
-      setNote(parseData.filter((fil) => fil.class_year_content === id[0]));
+      setNote(parseData.filter((fil) => fil.class_year_content === id[0] || 'Senoir Two'));
     } catch (err) {
       console.error(err.message);
     }
@@ -24,7 +24,7 @@ function WorkList() {
   useEffect(() => {
     getProfile();
   }, []);
-
+  console.log(notes)
   const id = profile.map((profil) => profil.class_student);
 
   return (

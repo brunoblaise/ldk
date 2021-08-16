@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {toast} from 'react-toastify';
+import {url} from '../url';
 function ExerciseForm() {
   const [answer, setAnswer] = useState('');
   const onSubmitForm = async (e) => {
@@ -22,8 +23,6 @@ function ExerciseForm() {
       } else {
         toast.success('Sent Successfully');
       }
-
-      window.location = '/';
     } catch (err) {
       console.error(err.message);
     }
@@ -35,23 +34,23 @@ function ExerciseForm() {
           <div className='thumb'>
             <i className='ti-image'></i>
           </div>
-          <div class='container'>
+          <div className='container'>
             <div
-              class='form form-stacked sendNewMessage'
+              className='form form-stacked sendNewMessage'
               style={{position: 'relative', right: '30px'}}>
-              <div class='form-block'>
-                <label class='label' htmlFor='board_content'>
+              <div className='form-block'>
+                <label className='label' htmlFor='board_content'>
                   Answer
                 </label>
-                <div class='form-controls' style={{width: '540px'}}>
+                <div className='form-controls' style={{width: '540px'}}>
                   <span
-                    class='button'
+                    className='button'
                     title='Strong <strong>'
                     data-button-type='addStrong'>
                     <strong>Enjoy</strong>
                   </span>
                   <span
-                    class='button'
+                    className='button'
                     title='Emphasis <em>'
                     data-button-type='addEmphasis'>
                     <strong>
@@ -64,10 +63,10 @@ function ExerciseForm() {
                   name='answer'
                   value={answer}
                   onChange={(e) => setAnswer(e.target.value)}
-                  class='textarea-tall'
+                  className='textarea-tall'
                   id='board_content'></textarea>
-                <button class='btnSendMsg' id='sendMsgBtn'>
-                  <i class='fa fa-paper-plane'></i>
+                <button className='btnSendMsg' id='sendMsgBtn'>
+                  <i className='fa fa-paper-plane'></i>
                 </button>
               </div>
             </div>

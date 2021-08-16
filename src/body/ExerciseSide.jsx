@@ -15,7 +15,7 @@ function ExerciseSide() {
 
       const parseData = await res.json();
 
-      setNote(parseData.filter((fil) => fil.class_year_content === id[0]));
+      setNote(parseData);
     } catch (err) {
       console.error(err.message);
     }
@@ -24,6 +24,7 @@ function ExerciseSide() {
   useEffect(() => {
     getProfile();
   }, []);
+  ci
 
   const id = profile.map((profil) => profil.class_student);
 

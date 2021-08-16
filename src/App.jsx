@@ -45,8 +45,10 @@ import {url} from './url';
 import { ErrorBoundary } from 'react-error-boundary';
 import { Fallback } from './Fallback';
 
-const   Class= React.lazy(() => import('./bodyT/Class'));
-const  Rooms = React.lazy(() => import('./bodyT/Rooms'));
+const Rostudent = React.lazy(() => import('./body/Rostudent'));
+const TestRoom = React.lazy(() => import('./body/TestRoom'));
+const Class= React.lazy(() => import('./bodyT/Class'));
+const Rooms = React.lazy(() => import('./bodyT/Rooms'));
 const Texteditor = React.lazy(() => import('./texteditor/Texteditor'));
 const ExerciseT = React.lazy(() => import('./bodyT/ExercisetT'));
 const NotesT = React.lazy(() => import('./bodyT/NotesT'));
@@ -168,6 +170,18 @@ const errorHandle =(error, errorInfo)=>{
               }
               exact
             />
+             <Route
+              path='/room/student'
+              
+              render={(props) =>
+                isAuthenticated ? (
+                  <Rostudent {...props} setAuth={setAuth} />
+                ) : (
+                  <Redirect to='/login' />
+                )
+              }
+              exact
+            />
             <Route
               path='/works'
               
@@ -199,6 +213,18 @@ const errorHandle =(error, errorInfo)=>{
               render={(props) =>
                 isAuthenticated ? (
                   <Library {...props} setAuth={setAuth} />
+                ) : (
+                  <Redirect to='/login' />
+                )
+              }
+              exact
+            />
+        <Route
+              path='/room/test'
+              
+              render={(props) =>
+                isAuthenticated ? (
+                  <TestRoom {...props} setAuth={setAuth} />
                 ) : (
                   <Redirect to='/login' />
                 )

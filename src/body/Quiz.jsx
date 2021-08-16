@@ -18,7 +18,7 @@ function Quiz() {
                   <div className='sender-details'>
                     <div className='details'>
                       <p className='msg-subject'>
-                        search for the work nd then downloaded it
+                        search for the work and then downloaded it
                       </p>
                     </div>
                   </div>

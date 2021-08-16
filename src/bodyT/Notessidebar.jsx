@@ -24,6 +24,7 @@ function Notessidebar() {
     getProfile();
   }, []);
 
+
   return (
     <>
       <div className='mail-list-container col-md-3 pt-4 pb-4 border-right bg-white'>

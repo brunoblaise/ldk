@@ -34,7 +34,7 @@ function Notesu() {
                       <br />
                       Regards,
                       <br />
-                      Mudacumura brunoblaise
+                      Teacher
                     </p>
                   </div>
                 </div>

@@ -63,6 +63,8 @@ function DownloadWork({ match }) {
                         </div>
                         <div class='details'>
                           <p class='file-name'>{notes.work_title}</p>
+                          <br />
+                          
                           <div class='buttons'>
                             <Link
                               to={{ pathname: `${notes.work_url}` }}

@@ -31,7 +31,7 @@ function WorkSub() {
         toast.success('Sent Successfully');
       }
 
-      window.location = '/';
+   
     } catch (err) {
       console.error(err.message);
     }

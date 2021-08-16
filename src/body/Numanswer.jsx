@@ -1,8 +1,8 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 import {url} from '../url';
-import {ProfileContext} from './context/ProfileContext';
+
 function Numanswer() {
-  const [profile] = useContext(ProfileContext);
+
   const [notes, setNote] = useState([]);
   const getProfile = async () => {
     try {
@@ -23,7 +23,7 @@ function Numanswer() {
     getProfile();
   }, [setNote]);
 
-  const id = profile.map((profil) => profil.class_student);
+
 
   return (
     <div className='col-md-6 stretch-card transparent'>

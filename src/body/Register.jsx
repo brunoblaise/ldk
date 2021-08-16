@@ -87,7 +87,7 @@ function Register({setAuth}) {
                         className='form-control form-control form-control-lg border-left-0'
                         name='fname'
                         value={fname}
-                        placeholder='First name'
+                        placeholder='Username'
                         onChange={(e) => onChange(e)}
                       />
                     </div>
