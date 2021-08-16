@@ -35,7 +35,7 @@ function ExerciseSide() {
             <input
               className='form-control w-100'
               type='search'
-              placeholder='Search notes'
+              placeholder='Search exercise'
               id='Mail-rearch'
               value={search}
               name='search'

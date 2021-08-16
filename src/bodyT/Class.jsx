@@ -21,7 +21,7 @@ function Class({match}) {
     useEffect(() => {
       getProfile();
     }, []);
-    console.log(message)
+   
     return (
         <div className='col-lg-12 grid-margin stretch-card'>
         <div className='card'>
@@ -103,4 +103,4 @@ function Class({match}) {
     )
 }
 
-export default Class
+export default React.memo(Class)

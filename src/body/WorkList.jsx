@@ -35,8 +35,7 @@ function WorkList() {
             <input
               className='form-control w-100'
               type='search'
-              placeholder='Search notes'
-              id='Mail-rearch'
+              placeholder='Search work'
               value={search}
               name='search'
               onChange={(e) => setSearch(e.target.value)}

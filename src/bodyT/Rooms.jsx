@@ -178,4 +178,4 @@ function Rooms() {
     )
 }
 
-export default Rooms
+export default React.memo(Rooms)

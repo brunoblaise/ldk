@@ -21723,3 +21723,10 @@ div.tagsinput span.tag a {
         width: 450px;
     }
 }
+
+.fall{
+    position: relative;
+    left: 24px;
+    padding: 20px;
+    word-wrap: break-word;
+}

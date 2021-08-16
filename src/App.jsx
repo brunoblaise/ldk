@@ -42,6 +42,8 @@ const Report = React.lazy(() => import('./body/Report'));
 const Land = React.lazy(() => import('./land/Land'));
 
 import {url} from './url';
+import { ErrorBoundary } from 'react-error-boundary';
+import { Fallback } from './Fallback';
 
 const   Class= React.lazy(() => import('./bodyT/Class'));
 const  Rooms = React.lazy(() => import('./bodyT/Rooms'));
@@ -81,13 +83,15 @@ function App() {
   const setAuth = (boolean) => {
     setIsAuthenticated(boolean);
   };
-
+const errorHandle =(error, errorInfo)=>{
+  console.log('logging', error, errorInfo)
+}
   return (
     <Router>
       <Suspense
-        fallback={<div>loading... if nothing is seen please refresh</div>}>
+        fallback={<h1 className="fall">loading the application please hold on💕💕💕... </h1>}>
         <Switch>
-          <Route path='/' exact component={Land} />
+          <Route path='/' component={Land} exact />
           <Route path='/text' exact>
             <Redirect to={`/text/documents/${uuidV4()}`} />
           </Route>
@@ -97,10 +101,11 @@ function App() {
             render={(props) => <Texteditor {...props} setAuth={setAuth} />}
           />
 
+            <ErrorBoundary FallbackComponent={Fallback} onError={errorHandle}>
           <ProfileProvide>
             <Route
               path='/login'
-              exact
+             
               render={(props) =>
                 !isAuthenticated ? (
                   <Login {...props} setAuth={setAuth} />
@@ -108,22 +113,25 @@ function App() {
                   <Redirect to='/dashboard' />
                 )
               }
+              exact
             />
 
             <Route
               path='/dashboard'
-              exact
+             
               render={(props) =>
                 isAuthenticated ? (
                   <Render {...props} setAuth={setAuth} />
                 ) : (
                   <Redirect to='/login' />
                 )
+
               }
+              exact
             />
             <Route
               path='/register'
-              exact
+           
               render={(props) =>
                 !isAuthenticated ? (
                   <Register {...props} setAuth={setAuth} />
@@ -131,12 +139,13 @@ function App() {
                   <Redirect to='/dashboard' />
                 )
               }
+              exact
             />
            
 
             <Route
               path='/profile'
-              exact
+             
               render={(props) =>
                 isAuthenticated ? (
                   <Profile {...props} setAuth={setAuth} />
@@ -144,11 +153,12 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
 
             <Route
               path='/notes'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <Notes {...props} setAuth={setAuth} />
@@ -156,10 +166,11 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
             <Route
               path='/works'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <Quiz {...props} setAuth={setAuth} />
@@ -167,10 +178,11 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
             <Route
               path='/exercise'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <Exercise {...props} setAuth={setAuth} />
@@ -178,11 +190,12 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
 
             <Route
               path='/library'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <Library {...props} setAuth={setAuth} />
@@ -190,11 +203,12 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
 
             <Route
               path='/message'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <Message {...props} setAuth={setAuth} />
@@ -202,10 +216,11 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
             <Route
               path='/notes/:id'
-              exact
+             
               render={(props) =>
                 isAuthenticated ? (
                   <Onenotes {...props} setAuth={setAuth} />
@@ -213,10 +228,11 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
             <Route
               path='/exercise/:id'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <ExerciseOne {...props} setAuth={setAuth} />
@@ -224,10 +240,11 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
             <Route
               path='/work/:id'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <DownloadWork {...props} setAuth={setAuth} />
@@ -235,11 +252,12 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
 
             <Route
               path='/worksub'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <WorkSub {...props} setAuth={setAuth} />
@@ -247,10 +265,11 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
             <Route
               path='/report'
-              exact
+              
               render={(props) =>
                 isAuthenticated ? (
                   <Report {...props} setAuth={setAuth} />
@@ -258,12 +277,13 @@ function App() {
                   <Redirect to='/login' />
                 )
               }
+              exact
             />
 
             <TeacherProvide>
               <Route
                 path='/loginT'
-                exact
+                
                 render={(props) =>
                   !isAuthenticated ? (
                     <LoginT {...props} setAuth={setAuth} />
@@ -271,11 +291,12 @@ function App() {
                     <Redirect to='/dashboardT' />
                   )
                 }
+                exact
               />
 
               <Route
                 path='/dashboardT'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <RenderT {...props} setAuth={setAuth} />
@@ -283,10 +304,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
               <Route
                 path='/registerT'
-                exact
+                
                 render={(props) =>
                   !isAuthenticated ? (
                     <RegisterT {...props} setAuth={setAuth} />
@@ -294,11 +316,12 @@ function App() {
                     <Redirect to='/dashboardT' />
                   )
                 }
+                exact
               />
 
               <Route
                 path='/Teacher'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <ProfileT {...props} setAuth={setAuth} />
@@ -306,11 +329,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
 
               <Route
                 path='/libraryT'
-                exact
                 render={(props) =>
                   isAuthenticated ? (
                     <LibraryT {...props} setAuth={setAuth} />
@@ -318,11 +341,12 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
 
               <Route
                 path='/messageT'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <MessageT {...props} setAuth={setAuth} />
@@ -330,10 +354,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
               <Route
                 path='/notesT'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <NotesT {...props} setAuth={setAuth} />
@@ -341,11 +366,12 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
 
               <Route
                 path='/exerciseT'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <ExerciseT {...props} setAuth={setAuth} />
@@ -353,10 +379,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
               <Route
                 path='/reportT'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <ReportT {...props} setAuth={setAuth} />
@@ -364,10 +391,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
               <Route
                 path='/worksT'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <WorkSubT {...props} setAuth={setAuth} />
@@ -375,10 +403,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
               <Route
                 path='/worksubT/:id'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <Onenotesu {...props} setAuth={setAuth} />
@@ -386,10 +415,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
               <Route
                 path='/allstudent'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <Allstudents {...props} setAuth={setAuth} />
@@ -397,10 +427,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
               <Route
                 path='/worksubT'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <Notesu {...props} setAuth={setAuth} />
@@ -408,10 +439,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
              <Route
                 path='/class'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <Rooms {...props} setAuth={setAuth} />
@@ -419,10 +451,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
                 <Route
                 path='/class/room/:id'
-                exact
+                
                 render={(props) =>
                   isAuthenticated ? (
                     <Class {...props} setAuth={setAuth} />
@@ -430,9 +463,11 @@ function App() {
                     <Redirect to='/loginT' />
                   )
                 }
+                exact
               />
             </TeacherProvide>
           </ProfileProvide>
+          </ErrorBoundary>
         </Switch>
       </Suspense>
     </Router>
