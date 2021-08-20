@@ -1,9 +1,11 @@
-import people from '../images/dashboard/people.svg';
-import Numexercise from './Numexercise';
-import Numwork from './Numwork';
-import Numnotes from './Numnotes';
-import Numanswer from './Numanswer';
 import React, {useEffect, useState} from 'react';
+import people from '../images/dashboard/people.svg';
+
+const Numexercise = React.lazy(() => import('./Numexercise'));
+const Numwork = React.lazy(() => import('./Numwork'));
+const Numnotes = React.lazy(() => import('./Numnotes'));
+const Numanswer = React.lazy(() => import('./Numanswer'));
+
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 function Track() {

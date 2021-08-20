@@ -1,11 +1,13 @@
 import React, {useEffect, useState, useContext} from 'react';
-import {ProfileContext} from './context/ProfileContext';
+
 import {Link} from 'react-router-dom';
 import {url} from '../url';
+import {ProfileContext} from './context/ProfileContext';
 function ExerciseSide() {
   const [profile] = useContext(ProfileContext);
   const [notes, setNote] = useState([]);
   const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/exercise`, {
@@ -15,7 +17,8 @@ function ExerciseSide() {
 
       const parseData = await res.json();
 
-      setNote(parseData);
+      setNote(parseData.filter((fil) => fil.class_year_content === id[0]));
+      setLoading(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -24,8 +27,6 @@ function ExerciseSide() {
   useEffect(() => {
     getProfile();
   }, []);
-  ci
-
   const id = profile.map((profil) => profil.class_student);
 
   return (
@@ -44,38 +45,42 @@ function ExerciseSide() {
             />
           </div>
         </div>
-        {notes
-          .filter((val) => {
-            if (search === '') {
-              return val;
-            } else if (
-              val.exercise_title.toLowerCase().includes(search.toLowerCase())
-            ) {
-              return val;
-            }
-          })
-          .slice(0, 5)
-          .map((note) => (
-            <div key={note.exercise_id} className='mail-list'>
-              <div className='form-check'>
-                {' '}
-                <label className='form-check-label'>
+        {loading ? (
+          <p>loading...</p>
+        ) : (
+          notes
+            .filter((val) => {
+              if (search === '') {
+                return val;
+              } else if (
+                val.exercise_title.toLowerCase().includes(search.toLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .slice(0, 5)
+            .map((note) => (
+              <div key={note.exercise_id} className='mail-list'>
+                <div className='form-check'>
                   {' '}
-                  <input type='checkbox' className='form-check-input' />{' '}
-                  <i className='input-helper'></i>
-                </label>
-              </div>
+                  <label className='form-check-label'>
+                    {' '}
+                    <input type='checkbox' className='form-check-input' />{' '}
+                    <i className='input-helper'></i>
+                  </label>
+                </div>
 
-              <Link to={`/exercise/${note.exercise_id}`} className='content'>
-                <p className='sender-name'>{note.exercise_title}</p>
-                <p className='message_text'>{note.short_exercise}</p>
-              </Link>
+                <Link to={`/exercise/${note.exercise_id}`} className='content'>
+                  <p className='sender-name'>{note.exercise_title}</p>
+                  <p className='message_text'>{note.short_exercise}</p>
+                </Link>
 
-              <div className='details'>
-                <i className='ti-star'></i>
+                <div className='details'>
+                  <i className='ti-star'></i>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+        )}
       </div>
     </>
   );

@@ -1,8 +1,8 @@
-import Sidebar from '../sidebar/Sidebar';
-import Header from '../header/Header';
 import React from 'react';
-import ReportOne from './ReportOne';
 
+const Header = React.lazy(() => import('../header/Header'));
+const ReportOne = React.lazy(() => import('./ReportOne'));
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 function Notes() {
   return (
     <>

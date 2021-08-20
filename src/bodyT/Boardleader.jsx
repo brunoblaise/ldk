@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 
 function Boardleader() {
   const [message, setMessage] = useState([]);
-
+  const [loading, setLoading] = useState(true);
   useEffect(() => {
     let controller = new AbortController();
     const getProfile = async () => {
@@ -15,6 +15,7 @@ function Boardleader() {
         const parseData = await res.json();
 
         setMessage(parseData);
+        setLoading(false);
         controller = null;
       } catch (err) {
         console.error(err.message);
@@ -44,12 +45,14 @@ function Boardleader() {
                         <br />
                         <p className='card-title'>Generator Quote</p>
                         <h1 className='text-primary' style={{fontSize: '20px'}}>
-                          {message.dateAdded}
+                          {loading ? <p>loading..</p> : message.dateAdded}
                         </h1>
                         <h3 className='font-weight-500 mb-xl-4 text-primary'>
-                          {message.author}
+                          {loading ? <p>loading..</p> : message.author}
                         </h3>
-                        <p className='mb-2 mb-xl-0'>{message.content}</p>
+                        <p className='mb-2 mb-xl-0'>
+                          {loading ? <p>loading..</p> : message.content}
+                        </p>
                       </div>
                     </div>
                     <div className='col-md-12 col-xl-9'>

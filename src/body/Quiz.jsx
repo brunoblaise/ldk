@@ -1,8 +1,8 @@
 import React from 'react';
-import Sidebar from '../sidebar/Sidebar';
-import Header from '../header/Header';
-import WorkList from './WorkList';
 
+const Header = React.lazy(() => import('../header/Header'));
+const WorkList = React.lazy(() => import('./WorkList'));
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 function Quiz() {
   return (
     <>

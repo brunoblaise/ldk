@@ -4,11 +4,12 @@ import {url} from '../url';
 
 function ExerciseT() {
   const [inputs, setInputs] = useState({
-    classe: '',
     title: '',
     summary: '',
   });
-  const {classe, title, summary} = inputs;
+  const [subjec, setSubjec] = useState('');
+  const classe = subjec.value;
+  const {title, summary} = inputs;
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -30,11 +31,12 @@ function ExerciseT() {
       } else {
         toast.success('Sent Successfully');
       }
-
-      window.location = '/exerciseT';
     } catch (err) {
       console.error(err.message);
     }
+  };
+  const handleChang = (event) => {
+    setSubjec({value: event.target.value});
   };
 
   return (
@@ -43,7 +45,7 @@ function ExerciseT() {
         <div className='row'>
           <div className='col-md-6'>
             <div className='card-body'>
-              <h4 className='card-title'>Submit your work here </h4>
+              <h4 className='card-title'>Submit your exercise here </h4>
               <div className='template-demo'>
                 <p className='card-description'>
                   here you will submit you work with the button upload
@@ -51,15 +53,26 @@ function ExerciseT() {
               </div>
 
               <form onSubmit={onSubmitForm} className='template-demo'>
-                <input
-                  type='text'
-                  className='form-control form-control-lg'
-                  id='exampleInputEmail1'
-                  placeholder='Classe'
-                  name='classe'
-                  value={classe}
-                  onChange={(e) => onChange(e)}
-                />{' '}
+                <label forhtml='inputEmail4' className='form-label'>
+                  class
+                </label>
+                <select
+                  onChange={handleChang}
+                  id='inputState'
+                  className='form-select'>
+                  <option value='s1'>s1</option>
+                  <option value='s2'>s2</option>
+                  <option value='s3'>s3</option>
+                  <option value='s4mcb'>s4mcb</option>
+                  <option value='s4lkk'>s4lkk</option>
+                  <option value='s4pcb'>s4pcb</option>
+                  <option value='s5mcb'>s5mcb</option>
+                  <option value='s5pcb'>s5pcb</option>
+                  <option value='s5lkk'>s5lkk</option>
+                  <option value='s6mcb'>s6mcb</option>
+                  <option value='s6pcb'>s6pcb</option>
+                  <option value='s6lkk'>s6lkk</option>
+                </select>{' '}
                 <input
                   type='text'
                   className='form-control form-control-lg'
@@ -90,5 +103,4 @@ function ExerciseT() {
     </div>
   );
 }
-
 export default React.memo(ExerciseT);

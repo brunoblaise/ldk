@@ -1,7 +1,9 @@
 import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
-import Submis from './Submis';
+
+const Submis = React.lazy(() => import('./Submis'));
+
 import {ProfileContext} from './context/ProfileContext';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';

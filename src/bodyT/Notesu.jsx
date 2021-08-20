@@ -1,8 +1,7 @@
-import Sidebar from '../sidebar1/Sidebar';
-import Header from '../header1/Header';
 import React from 'react';
-
-import Notessidebar from './Notessidebar';
+const Notessidebar = React.lazy(() => import('./Notessidebar'));
+const Header = React.lazy(() => import('../header1/Header'));
+const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 function Notesu() {
   return (
     <>

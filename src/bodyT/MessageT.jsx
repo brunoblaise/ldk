@@ -1,5 +1,6 @@
-import Messageform from './Messageform';
 import React, {useEffect, useState, useContext} from 'react';
+const Messageform = React.lazy(() => import('./Messageform'));
+
 import {TeacherContext} from './context/TeacherContext';
 import {format} from 'timeago.js';
 import {url} from '../url';

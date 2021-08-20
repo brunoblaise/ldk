@@ -1,10 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useState, useContext} from 'react';
 import {format} from 'timeago.js';
 import {Link} from 'react-router-dom';
 import {url} from '../url';
+import {TeacherContext} from './context/TeacherContext';
 function Notessidebar() {
+  const [profile] = useContext(TeacherContext);
   const [notes, setNote] = useState([]);
   const [search, setSearch] = useState('');
+  const [loading, setLoading] = useState(true);
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/worksub`, {
@@ -14,7 +17,12 @@ function Notessidebar() {
 
       const parseData = await res.json();
 
-      setNote(parseData);
+      setNote(
+        parseData.filter(
+          (fil) => fil.teacher_email === id[0] && fil.subwork_id !== null,
+        ),
+      );
+      setLoading(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -23,8 +31,9 @@ function Notessidebar() {
   useEffect(() => {
     getProfile();
   }, []);
+  const id = profile.map((profil) => profil.teacher_email);
 
-
+  console.log(notes);
   return (
     <>
       <div className='mail-list-container col-md-3 pt-4 pb-4 border-right bg-white'>
@@ -41,38 +50,42 @@ function Notessidebar() {
             />
           </div>
         </div>
-        {notes
-          .filter((val) => {
-            if (search === '') {
-              return val;
-            } else if (
-              val.student_fname.toLowerCase().includes(search.toLowerCase())
-            ) {
-              return val;
-            }
-          })
-          .slice(0, 5)
-          .map((note) => (
-            <div key={note.subwork_id} className='mail-list'>
-              <div className='form-check'>
-                {' '}
-                <label className='form-check-label'>
+        {loading ? (
+          <p>loading...</p>
+        ) : (
+          notes
+            .filter((val) => {
+              if (search === '') {
+                return val;
+              } else if (
+                val.student_fname.toLowerCase().includes(search.toLowerCase())
+              ) {
+                return val;
+              }
+            })
+            .slice(0, 5)
+            .map((note) => (
+              <div key={note.subwork_id} className='mail-list'>
+                <div className='form-check'>
                   {' '}
-                  <input type='checkbox' className='form-check-input' />{' '}
-                  <i className='input-helper'></i>
-                </label>
-              </div>
+                  <label className='form-check-label'>
+                    {' '}
+                    <input type='checkbox' className='form-check-input' />{' '}
+                    <i className='input-helper'></i>
+                  </label>
+                </div>
 
-              <Link to={`/worksubT/${note.subwork_id}`} className='content'>
-                <p className='sender-name'>{note.student_fname}</p>
-                <p className='sender-name'>{format(note.timestamp)}</p>
-              </Link>
+                <Link to={`/worksubT/${note.subwork_id}`} className='content'>
+                  <p className='sender-name'>{note.student_fname}</p>
+                  <p className='sender-name'>{format(note.timestamp)}</p>
+                </Link>
 
-              <div className='details'>
-                <i className='ti-star'></i>
+                <div className='details'>
+                  <i className='ti-star'></i>
+                </div>
               </div>
-            </div>
-          ))}
+            ))
+        )}
       </div>
     </>
   );

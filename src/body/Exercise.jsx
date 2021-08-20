@@ -2,9 +2,9 @@
 
 import React from 'react';
 
-import Sidebar from '../sidebar/Sidebar';
-import Header from '../header/Header';
-import ExerciseSide from './ExerciseSide';
+const Header = React.lazy(() => import('../header/Header'));
+const ExerciseSide = React.lazy(() => import('./ExerciseSide'));
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 function Exercise() {
   return (
     <>

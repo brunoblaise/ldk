@@ -79,7 +79,7 @@ const LoginT = ({setAuth}) => {
                     </button>
                   </div>
                   <div className='text-center mt-4 font-weight-light'>
-                    Don't have an account?{' '}
+                    Don't have an account?
                     <Link to='/registert' className='text-primary'>
                       Create
                     </Link>

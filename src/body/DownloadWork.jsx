@@ -1,19 +1,19 @@
 /** @format */
 
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
-import Sidebar from '../sidebar/Sidebar';
-import Header from '../header/Header';
-import { format } from 'timeago.js';
+import React, {useEffect, useState} from 'react';
+import {Link} from 'react-router-dom';
+const Header = React.lazy(() => import('../header/Header'));
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
+import {format} from 'timeago.js';
 import WorkList from './WorkList';
-import { url } from '../url';
-function DownloadWork({ match }) {
+import {url} from '../url';
+function DownloadWork({match}) {
   const [notes, setNote] = useState([]);
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/work/${match.params.id}`, {
         method: 'GET',
-        headers: { jwt_token: localStorage.token },
+        headers: {jwt_token: localStorage.token},
       });
 
       const parseData = await res.json();
@@ -64,10 +64,10 @@ function DownloadWork({ match }) {
                         <div class='details'>
                           <p class='file-name'>{notes.work_title}</p>
                           <br />
-                          
+
                           <div class='buttons'>
                             <Link
-                              to={{ pathname: `${notes.work_url}` }}
+                              to={{pathname: `${notes.work_url}`}}
                               target='_blank'
                               class='view'>
                               View

@@ -1,9 +1,10 @@
 import React, {useEffect, useState} from 'react';
-import Notessidebar from './Notessidebar';
-import Sidebar from '../sidebar/Sidebar';
-import Header from '../header/Header';
+
 import {format} from 'timeago.js';
 import {url} from '../url';
+const Header = React.lazy(() => import('../header/Header'));
+const Notessidebar = React.lazy(() => import('./Notessidebar'));
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 function Iframe(props) {
   return (
     <div dangerouslySetInnerHTML={{__html: props.iframe ? props.iframe : ''}} />

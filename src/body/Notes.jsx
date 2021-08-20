@@ -1,8 +1,8 @@
-import Sidebar from '../sidebar/Sidebar';
-import Header from '../header/Header';
 import React from 'react';
+const Header = React.lazy(() => import('../header/Header'));
+const Notessidebar = React.lazy(() => import('./Notessidebar'));
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 
-import Notessidebar from './Notessidebar';
 function Notes() {
   return (
     <>
@@ -34,7 +34,7 @@ function Notes() {
                       <br />
                       Regards,
                       <br />
-                      Mudacumura brunoblaise
+                      Teacher
                     </p>
                   </div>
                 </div>

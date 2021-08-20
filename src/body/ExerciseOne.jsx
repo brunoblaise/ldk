@@ -1,9 +1,9 @@
 import ExerciseForm from './ExerciseForm';
 import React, {useEffect, useState} from 'react';
-import Sidebar from '../sidebar/Sidebar';
-import Header from '../header/Header';
 import {format} from 'timeago.js';
-import ExerciseSide from './ExerciseSide';
+const Header = React.lazy(() => import('../header/Header'));
+const ExerciseSide = React.lazy(() => import('./ExerciseSide'));
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 import {url} from '../url';
 function ExerciseOne({match}) {
   const [notes, setNote] = useState([]);

@@ -6,8 +6,9 @@ function Marks({student}) {
     name: '',
     mark: '',
   });
-  const [email] = useState(student);
-  const { name, mark} = inputs;
+  const email = student;
+
+  const {name, mark} = inputs;
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -16,6 +17,7 @@ function Marks({student}) {
 
     try {
       const body = {email, name, mark};
+
       const response = await fetch(`${url}/create/mark`, {
         method: 'POST',
         headers: {
@@ -33,7 +35,7 @@ function Marks({student}) {
       console.error(err.message);
     }
   };
-console.log(student)
+
   return (
     <form onSubmit={onSubmitForm}>
       <div className='col-md-6'>
@@ -66,5 +68,4 @@ console.log(student)
     </form>
   );
 }
-
 export default React.memo(Marks);

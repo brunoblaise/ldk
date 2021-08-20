@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
-import Marks from './Marks';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+
+const Marks = React.lazy(() => import('./Marks'));
+
 function WorkSub() {
   const [recfile, setRecfile] = useState('');
+  const [name, setName] = useState('');
   const onSubmitForm = async (e) => {
     e.preventDefault();
 
@@ -13,6 +14,7 @@ function WorkSub() {
       const formData = new FormData();
 
       formData.append('recfile', recfile);
+      formData.append('name', name);
       const myHeaders = new Headers();
       myHeaders.append('jwt_token', localStorage.token);
       const response = await fetch(
@@ -30,8 +32,6 @@ function WorkSub() {
       } else {
         toast.success('Sent Successfully');
       }
-
-   
     } catch (err) {
       console.error(err.message);
     }
@@ -49,7 +49,6 @@ function WorkSub() {
                   here you will submit you work with the button upload
                 </p>
               </div>
-
               <form onSubmit={onSubmitForm} className='template-demo'>
                 <input
                   name='recfile'
@@ -58,6 +57,15 @@ function WorkSub() {
                   className='form-control form-control form-control-lg border-left-0'
                   id='exampleInputPassword'
                   onChange={(e) => setRecfile(e.target.files[0])}
+                />
+                <input
+                  name='name'
+                  placeholder='Teacher email'
+                  type='email'
+                  className='form-control form-control form-control-lg border-left-0'
+                  id='exampleInputPassword'
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
                 />
                 <button className='btn btn-primary btn-icon-text'>
                   <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>

@@ -2,7 +2,6 @@ import React, {useEffect, useState, useContext} from 'react';
 import {url} from '../url';
 import {ProfileContext} from './context/ProfileContext';
 function Rostudent() {
-   
   const [message, setMessage] = useState([]);
   const [search, setSearch] = useState('');
   const [profile] = useContext(ProfileContext);
@@ -88,7 +87,7 @@ function Rostudent() {
                         {note.student_email}
                       </td>
                       <td _msthash='4741776' _msttexthash='38454'>
-                       <img src={note.student_photo} alt="" />
+                        <img src={note.student_photo} alt='' />
                       </td>
                       <td _msthash='4742972' _msttexthash='89830'>
                         {note.student_gender}
@@ -104,7 +103,7 @@ function Rostudent() {
         </div>
       </div>
     </div>
-    )
+  );
 }
 
-export default Rostudent
+export default React.memo(Rostudent);

@@ -71,14 +71,6 @@ function Sidebar({setAuth}) {
         </li>
 
         <li className='nav-item'>
-          <Link className='nav-link' to='/allstudent'>
-            <i className='bi bi-award menu-icon'></i>
-
-            <span className='menu-title'>List of Students</span>
-          </Link>
-        </li>
-
-        <li className='nav-item'>
           <Link className='nav-link' to='/reportT'>
             <i className='bi bi-award menu-icon'></i>
 
@@ -93,13 +85,27 @@ function Sidebar({setAuth}) {
             <span className='menu-title'>Smart class</span>
           </Link>
         </li>
-          
+
         <li className='nav-item'>
           <Link className='nav-link' to='/class'>
-            <i className="bi bi-collection-play menu-icon"></i>
+            <i className='bi bi-collection-play menu-icon'></i>
             <span className='menu-title'>Rooms</span>
           </Link>
         </li>
+
+        <li className='nav-item'>
+          <Link className='nav-link' to='/create/room/test'>
+            <i className='bi bi-asterisk  menu-icon'></i>
+            <span className='menu-title'>Test</span>
+          </Link>
+        </li>
+        <li className='nav-item'>
+          <Link className='nav-link' to='/room/mark'>
+            <i className='bi bi-archive menu-icon'></i>
+            <span className='menu-title'>Marks of the test</span>
+          </Link>
+        </li>
+
         <br />
         <br />
         <br />

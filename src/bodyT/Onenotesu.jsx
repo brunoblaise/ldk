@@ -1,10 +1,11 @@
 import React, {useEffect, useState} from 'react';
-import Notessidebar from './Notessidebar';
-import Sidebar from '../sidebar1/Sidebar';
-import Header from '../header1/Header';
+
 import {format} from 'timeago.js';
 import Marks from './Marks';
 import {url} from '../url';
+const Notessidebar = React.lazy(() => import('./Notessidebar'));
+const Header = React.lazy(() => import('../header1/Header'));
+const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 function Iframe(props) {
   return (
     <div dangerouslySetInnerHTML={{__html: props.iframe ? props.iframe : ''}} />
@@ -18,7 +19,6 @@ function Onenotesu({match}) {
         method: 'GET',
         headers: {jwt_token: localStorage.token},
       });
-
       const parseData = await res.json();
 
       setNote(parseData);
@@ -30,7 +30,7 @@ function Onenotesu({match}) {
   useEffect(() => {
     getProfile();
   }, [setNote]);
-  console.log(notes)
+
   return (
     <>
       <Header />
@@ -64,7 +64,7 @@ function Onenotesu({match}) {
                     </p>
                   </div>
 
-                  <Marks student={notes.student_email}/>
+                  <Marks student={notes.student_email} />
                 </div>
               </div>
             </div>

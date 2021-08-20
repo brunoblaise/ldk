@@ -1,7 +1,9 @@
 import React from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import {Link} from 'react-router-dom';
-import Header from '../header/Header';
+
+const Header = React.lazy(() => import('../header/Header'));
+
 const reb =
   '<iframe width="100%" height="266" s frameborder="no"  src="https://www.reb.rw/main-menu/resources/secondary-school-books/"></iframe>';
 function Iframe(props) {
