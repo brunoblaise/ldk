@@ -1,17 +1,19 @@
 import React from 'react';
 import Sidebar from '../sidebar/Sidebar';
 import {Link} from 'react-router-dom';
-
 const Header = React.lazy(() => import('../header/Header'));
 
 const reb =
   '<iframe width="100%" height="266" s frameborder="no"  src="https://www.reb.rw/main-menu/resources/secondary-school-books/"></iframe>';
-function Iframe(props) {
-  return (
-    <div dangerouslySetInnerHTML={{__html: props.iframe ? props.iframe : ''}} />
-  );
-}
+
 function Library() {
+  function Iframe(props) {
+    return (
+      <div
+        dangerouslySetInnerHTML={{__html: props.iframe ? props.iframe : ''}}
+      />
+    );
+  }
   return (
     <>
       <Header />
@@ -52,7 +54,7 @@ function Library() {
                       reb enjoy. it is very simple you can access all the books
                       in one place without navigating between website{' '}
                       <Link to='/library' style={{color: '#6c84ff'}}>
-                        Happy Studting
+                        Happy Learning
                       </Link>
                     </p>
                     <Iframe iframe={reb} />
@@ -61,7 +63,7 @@ function Library() {
                       <br />
                       Regards,
                       <br />
-                      Mudacumura BrunoBlaise
+                      Teacher
                     </p>
                   </div>
                 </div>
