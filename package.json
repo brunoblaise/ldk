@@ -3,8 +3,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "serve": "vite preview",
-    "postbuild": "gzip build/static/js/*.js && gzip build/static/css/*.css"
+    "postbuild": "gzip build/static/js/*.js && gzip build/static/css/*.css",
+    "serve": "vite preview"
   },
   "dependencies": {
     "axios": "^0.21.1",
