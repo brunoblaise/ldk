@@ -61,6 +61,7 @@ function Screen({match}) {
           results={answers}
           data={notes}
           nameu={match.params.id}
+        
           datas={notes[activeQuestion]}
         />
       )}

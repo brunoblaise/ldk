@@ -26740,6 +26740,24 @@ a.mb-2.mb-xl-0 {
   border-radius: 20px;
 }
 
-.otr{    position: relative;
+.otr {
+  position: relative;
   left: 123px;
-  top: 40px;}
+  top: 40px;
+}
+.activer {
+  position: relative;
+  left: 900px;
+  top: -700px;
+}
+.yur{
+  position: relative;
+  left: 1053px;
+  top: -760px;
+
+}
+
+p.btn.btn-danger.has-text-white.p-2 {
+  width: 200px;
+  display: flex;
+}
