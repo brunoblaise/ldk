@@ -3,7 +3,6 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "postbuild": "gzip build/static/js/*.js && gzip build/static/css/*.css",
     "serve": "vite preview"
   },
   "dependencies": {
