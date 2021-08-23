@@ -30,6 +30,8 @@ const DownloadWork = React.lazy(() => import('./body/DownloadWork'));
 
 import {toast} from 'react-toastify';
 
+const VideoCall = React.lazy(() => import('./page/Meeting'));
+const JoinMeeting = React.lazy(() => import('./page/Join'));
 const Message = React.lazy(() => import('./body/Message'));
 const MessageT = React.lazy(() => import('./bodyT/MessageT'));
 const Onenotes = React.lazy(() => import('./body/Onenotes'));
@@ -98,6 +100,8 @@ function App() {
           </h1>
         }>
         <Switch>
+          <Route exact path='/meet' component={JoinMeeting} />
+          <Route exact path='/video/:id' component={VideoCall} />
           <Route path='/' component={Land} exact />
           <Route path='/text' exact>
             <Redirect to={`/text/documents/${uuidV4()}`} />

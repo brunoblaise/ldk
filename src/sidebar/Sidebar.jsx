@@ -93,6 +93,13 @@ function Sidebar({setAuth}) {
             <span className='menu-title'>Test</span>
           </Link>
         </li>
+
+        <li className='nav-item'>
+          <Link className='nav-link' to='/meet'>
+            <i class='bi bi-pause-btn menu-icon'></i>
+            <span className='menu-title'>Video chat</span>
+          </Link>
+        </li>
         <br />
         <br />
         <br />
