@@ -6,7 +6,6 @@ export default function Video({match}) {
 
   useEffect(() => {
     const domain = 'https://brunoblaise.daily.co/';
-
     axios
       .get(`https://serene-tor-16642.herokuapp.com/video-call/${id}`)
       .then((res) => {

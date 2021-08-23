@@ -10,9 +10,7 @@ function Header() {
   return (
     <nav className='navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row'>
       <div className='text-center navbar-brand-wrapper d-flex align-items-center justify-content-center'>
-        <Link to='/dashboard' className='navbar-brand brand-logo-mini'>
-          
-        </Link>
+        <Link to='/dashboard' className='navbar-brand brand-logo-mini'></Link>
       </div>
       <div className='navbar-menu-wrapper d-flex align-items-center justify-content-end'>
         <ul className='navbar-nav mr-lg-2'>

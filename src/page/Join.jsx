@@ -6,7 +6,6 @@ export default function JoinRoom() {
   const onSubmit = () => {
     window.location.assign(`/video/${room}`);
   };
-
   return (
     <div className='main-panel otr'>
       <p>Create a meeting or Join any already existing meeting</p>
