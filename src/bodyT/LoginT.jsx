@@ -83,6 +83,10 @@ const LoginT = ({setAuth}) => {
                     <Link to='/registert' className='text-primary'>
                       Create
                     </Link>
+                    <br />
+                    <Link to='/forget' className='text-primary'>
+                      forget password
+                    </Link>
                   </div>
                 </form>
               </div>

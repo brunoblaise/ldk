@@ -46,6 +46,8 @@ import {url} from './url';
 import {ErrorBoundary} from 'react-error-boundary';
 import {Fallback} from './Fallback';
 
+const Forget = React.lazy(() => import('./res/Forget'));
+const Reset = React.lazy(() => import('./res/Reset'));
 const MarkOne = React.lazy(() => import('./bodyT/MarkOne'));
 const MarkClass = React.lazy(() => import('./bodyT/MarkClass'));
 const CreateTest = React.lazy(() => import('./bodyT/CreateTest'));
@@ -135,6 +137,13 @@ function App() {
                     <Redirect to='/login' />
                   )
                 }
+                exact
+              />
+              <Route path='/forget' render={(props) => <Forget />} exact />
+
+              <Route
+                path='/forget/:id/:token'
+                render={(props) => <Reset />}
                 exact
               />
               <Route
