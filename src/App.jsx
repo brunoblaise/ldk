@@ -99,9 +99,7 @@ function App() {
     <Router>
       <Suspense
         fallback={
-          <h1 className='fall'>
-            loading the application please hold on💕💕💕...{' '}
-          </h1>
+          <h1 className='fall'>loading the application please hold on... </h1>
         }>
         <Switch>
           <Route exact path='/meet' component={JoinMeeting} />
