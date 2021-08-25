@@ -4,13 +4,12 @@ import {url} from '../url';
 
 function WorkSubT() {
   const [inputs, setInputs] = useState({
-  
     title: '',
     summary: '',
   });
   const {title, summary} = inputs;
-  const [subjec,setSubjec] = useState('')
-  const classe = subjec.value
+  const [subjec, setSubjec] = useState('');
+  const classe = subjec.value;
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -36,20 +35,18 @@ function WorkSubT() {
         },
       );
 
-      if (response.status === '200') {
+      if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
       }
-
-  
     } catch (err) {
       console.error(err.message);
     }
   };
-  const handleChang =(event)  => {
+  const handleChang = (event) => {
     setSubjec({value: event.target.value});
-  }
+  };
 
   return (
     <div className='col-12 grid-margin'>
@@ -65,53 +62,58 @@ function WorkSubT() {
               </div>
 
               <form onSubmit={onSubmitForm} className='template-demo'>
-              <div className="col-md-6">
-          <label forhtml="inputEmail4" className="form-label">class</label>
-          <select onChange={handleChang} id="inputState" className="form-select">
-          <option value="s1">s1</option>
-          <option value="s2">s2</option>
-          <option value="s3">s3</option>
-          <option value="s4mcb">s4mcb</option>
-          <option value="s4lkk">s4lkk</option>
-          <option value="s4pcb">s4pcb</option>
-          <option value="s5mcb">s5mcb</option>
-          <option value="s5pcb">s5pcb</option>
-          <option value="s5lkk">s5lkk</option>
-          <option value="s6mcb">s6mcb</option>
-          <option value="s6pcb">s6pcb</option>
-          <option value="s6lkk">s6lkk</option>
-          </select>
-        </div>
-        <div className="col-md-6">
-                <input
-                  type='text'
-                  className='form-control form-control form-control-lg border-left-0'
-                  name='title'
-                  value={title}
-                  placeholder='title'
-                  onChange={(e) => onChange(e)}
-                />
-                 </div>
-                 <div className="col-md-6">
-                <textarea
-                  type='text'
-                  className='form-control form-control form-control-lg border-left-0'
-                  name='summary'
-                  value={summary}
-                  placeholder='summary'
-                  onChange={(e) => onChange(e)}
-                />
-                 </div>
-                 <div className="col-md-6">
-                <input
-                  name='recfile'
-                  placeholder='Upload File'
-                  type='file'
-                  className='form-control form-control form-control-lg border-left-0'
-                  id='exampleInputPassword'
-                  onChange={(e) => setRecfile(e.target.files[0])}
-                />
-                 </div>
+                <div className='col-md-6'>
+                  <label forhtml='inputEmail4' className='form-label'>
+                    class
+                  </label>
+                  <select
+                    onChange={handleChang}
+                    id='inputState'
+                    className='form-select'>
+                    <option value='s1'>s1</option>
+                    <option value='s2'>s2</option>
+                    <option value='s3'>s3</option>
+                    <option value='s4mcb'>s4mcb</option>
+                    <option value='s4lkk'>s4lkk</option>
+                    <option value='s4pcb'>s4pcb</option>
+                    <option value='s5mcb'>s5mcb</option>
+                    <option value='s5pcb'>s5pcb</option>
+                    <option value='s5lkk'>s5lkk</option>
+                    <option value='s6mcb'>s6mcb</option>
+                    <option value='s6pcb'>s6pcb</option>
+                    <option value='s6lkk'>s6lkk</option>
+                  </select>
+                </div>
+                <div className='col-md-6'>
+                  <input
+                    type='text'
+                    className='form-control form-control form-control-lg border-left-0'
+                    name='title'
+                    value={title}
+                    placeholder='title'
+                    onChange={(e) => onChange(e)}
+                  />
+                </div>
+                <div className='col-md-6'>
+                  <textarea
+                    type='text'
+                    className='form-control form-control form-control-lg border-left-0'
+                    name='summary'
+                    value={summary}
+                    placeholder='summary'
+                    onChange={(e) => onChange(e)}
+                  />
+                </div>
+                <div className='col-md-6'>
+                  <input
+                    name='recfile'
+                    placeholder='Upload File'
+                    type='file'
+                    className='form-control form-control form-control-lg border-left-0'
+                    id='exampleInputPassword'
+                    onChange={(e) => setRecfile(e.target.files[0])}
+                  />
+                </div>
                 <button className='btn btn-primary btn-icon-text'>
                   <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
                   Submit

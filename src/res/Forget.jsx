@@ -14,7 +14,7 @@ function Forget() {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    toast.success('Check your email to reset the password');
+
     try {
       const body = {email};
       const response = await fetch(`${url}/res/forget`, {
@@ -26,6 +26,11 @@ function Forget() {
       });
 
       const parseRes = await response.json();
+      if (parseRes === 'User does not exist') {
+        toast.error(parseRes);
+      } else {
+        toast.success('Check your email to reset the password');
+      }
     } catch (err) {
       console.error(err.message);
     }

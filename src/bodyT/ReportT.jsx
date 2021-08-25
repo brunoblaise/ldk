@@ -25,7 +25,7 @@ function ReportT() {
         },
       );
 
-      if (response.status === '200') {
+      if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');

@@ -15,7 +15,7 @@ function ResetT() {
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    toast.success('Go back to login');
+
     try {
       const body = {password};
       const response = await fetch(`${url}/rese/reset/${id}/${token}`, {
@@ -27,6 +27,11 @@ function ResetT() {
       });
 
       const parseRes = await response.json();
+      if (parseRes === 'User does not exist') {
+        toast.error(parseRes);
+      } else {
+        toast.success('Go back to login');
+      }
     } catch (err) {
       console.error(err.message);
     }

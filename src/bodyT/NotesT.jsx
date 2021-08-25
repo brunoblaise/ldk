@@ -8,8 +8,8 @@ function NotesT() {
     summary: '',
   });
   const [recfile, setRecfile] = useState('');
-  const [subjec,setSubjec] = useState('')
-  const classe = subjec.value
+  const [subjec, setSubjec] = useState('');
+  const classe = subjec.value;
   const {title, summary} = inputs;
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
@@ -36,21 +36,18 @@ function NotesT() {
         },
       );
 
-      if (response.status === '200') {
+      if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
       }
-
-  
     } catch (err) {
       console.error(err.message);
     }
   };
-  const handleChang =(event)  => {
+  const handleChang = (event) => {
     setSubjec({value: event.target.value});
-  }
-
+  };
 
   return (
     <div className='col-12 grid-margin'>
@@ -66,21 +63,26 @@ function NotesT() {
               </div>
 
               <form onSubmit={onSubmitForm} className='template-demo'>
-              <label forhtml="inputEmail4" className="form-label">class</label>
-          <select onChange={handleChang} id="inputState" className="form-select">
-          <option value="s1">s1</option>
-          <option value="s2">s2</option>
-          <option value="s3">s3</option>
-          <option value="s4mcb">s4mcb</option>
-          <option value="s4lkk">s4lkk</option>
-          <option value="s4pcb">s4pcb</option>
-          <option value="s5mcb">s5mcb</option>
-          <option value="s5pcb">s5pcb</option>
-          <option value="s5lkk">s5lkk</option>
-          <option value="s6mcb">s6mcb</option>
-          <option value="s6pcb">s6pcb</option>
-          <option value="s6lkk">s6lkk</option>
-          </select>
+                <label forhtml='inputEmail4' className='form-label'>
+                  class
+                </label>
+                <select
+                  onChange={handleChang}
+                  id='inputState'
+                  className='form-select'>
+                  <option value='s1'>s1</option>
+                  <option value='s2'>s2</option>
+                  <option value='s3'>s3</option>
+                  <option value='s4mcb'>s4mcb</option>
+                  <option value='s4lkk'>s4lkk</option>
+                  <option value='s4pcb'>s4pcb</option>
+                  <option value='s5mcb'>s5mcb</option>
+                  <option value='s5pcb'>s5pcb</option>
+                  <option value='s5lkk'>s5lkk</option>
+                  <option value='s6mcb'>s6mcb</option>
+                  <option value='s6pcb'>s6pcb</option>
+                  <option value='s6lkk'>s6lkk</option>
+                </select>
                 <input
                   type='text'
                   className='form-control form-control form-control-lg border-left-0'

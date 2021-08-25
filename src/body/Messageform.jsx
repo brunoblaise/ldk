@@ -22,7 +22,7 @@ function Messageform() {
         body: JSON.stringify(body),
       });
 
-      if (response.status === '200') {
+      if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');

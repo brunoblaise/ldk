@@ -26,14 +26,14 @@ function WorkSub() {
           headers: myHeaders,
         },
       );
-
-      if (response.status === '200') {
+      console.log(response.status);
+      if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
       }
     } catch (err) {
-      console.error(err.message);
+      toast.error(err.message);
     }
   };
 
