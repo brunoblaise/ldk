@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {url} from '../url';
 
-function Forget() {
+function ForgetT() {
   const [inputs, setInputs] = useState({
     email: '',
   });
@@ -17,7 +17,7 @@ function Forget() {
     toast.success('Check your email to reset the password');
     try {
       const body = {email};
-      const response = await fetch(`${url}/res/forget`, {
+      const response = await fetch(`${url}/rese/forget`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -79,4 +79,4 @@ function Forget() {
   );
 }
 
-export default React.memo(Forget);
+export default React.memo(ForgetT);

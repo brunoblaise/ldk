@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
 
-export default function Video({match}) {
+function Video({match}) {
   const id = match.params.id;
 
   useEffect(() => {
@@ -33,3 +33,4 @@ export default function Video({match}) {
 
   return <div></div>;
 }
+export default React.memo(Video);

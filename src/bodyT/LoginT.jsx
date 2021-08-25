@@ -84,7 +84,7 @@ const LoginT = ({setAuth}) => {
                       Create
                     </Link>
                     <br />
-                    <Link to='/forget' className='text-primary'>
+                    <Link to='/forgetT' className='text-primary'>
                       forget password
                     </Link>
                   </div>

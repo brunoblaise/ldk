@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function JoinRoom() {
+function JoinRoom() {
   const [room, setRoom] = useState(null);
 
   const onSubmit = () => {
@@ -27,3 +27,5 @@ export default function JoinRoom() {
     </div>
   );
 }
+
+export default React.memo(JoinRoom);

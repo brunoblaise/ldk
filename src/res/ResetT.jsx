@@ -2,22 +2,23 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {url} from '../url';
-
-function Forget() {
+import {useParams} from 'react-router-dom';
+function ResetT() {
   const [inputs, setInputs] = useState({
-    email: '',
+    password: '',
   });
-  const {email} = inputs;
+  const {password} = inputs;
+  const {id, token} = useParams();
 
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
-    toast.success('Check your email to reset the password');
+    toast.success('Go back to login');
     try {
-      const body = {email};
-      const response = await fetch(`${url}/res/forget`, {
+      const body = {password};
+      const response = await fetch(`${url}/rese/reset/${id}/${token}`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -44,12 +45,12 @@ function Forget() {
                   <form className='pt-3' onSubmit={onSubmitForm}>
                     <div className='form-group'>
                       <input
-                        type='email'
+                        type='password'
                         className='form-control form-control-lg'
                         id='exampleInputEmail1'
-                        placeholder='Email'
-                        name='email'
-                        value={email}
+                        placeholder='enter your new password'
+                        name='password'
+                        value={password}
                         onChange={(e) => onChange(e)}
                       />
                     </div>
@@ -79,4 +80,4 @@ function Forget() {
   );
 }
 
-export default React.memo(Forget);
+export default React.memo(ResetT);

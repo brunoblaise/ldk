@@ -80,4 +80,4 @@ function Reset() {
   );
 }
 
-export default Reset;
+export default React.memo(Reset);
