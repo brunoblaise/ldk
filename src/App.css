@@ -26864,3 +26864,18 @@ button.btn.btn-opacity-success.ml-1.banner-move {
   object-fit: fill;
 }
 
+#rotate{
+ 
+  animation: wheel 1s ease;
+  transform-origin:center;
+  transform-box:fill-box;
+}
+
+@keyframes wheel{
+ from{
+   transform: rotateZ(0deg)
+ }
+ to{
+   transform:rotateZ(360deg)
+ }
+}
