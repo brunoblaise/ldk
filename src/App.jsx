@@ -18,7 +18,7 @@ const ExerciseOne = React.lazy(() => import('./body/ExerciseOne'));
 import {v4 as uuidV4} from 'uuid';
 import './App.css';
 import {
-  HashRouter as Router,
+  BrowserRouter as Router,
   Route,
   Switch,
   Redirect,
