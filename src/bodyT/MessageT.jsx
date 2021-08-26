@@ -10,7 +10,7 @@ import cxr from '../images/cxr.jpg';
 function MessageT() {
   const [message, setMessage] = useState([]);
   const [profile] = useContext(TeacherContext);
-
+  const [loading, setLoading] = useState(true);
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/message`, {
@@ -21,6 +21,7 @@ function MessageT() {
       const parseData = await res.json();
 
       setMessage(parseData);
+      setLoading(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -29,7 +30,7 @@ function MessageT() {
   useEffect(() => {
     getProfile();
   }, [setMessage]);
-  const own = profile.map((profil) => profil.teacher_fname);
+  const own = profile.map((profil) => profil.teacher_email);
 
   return (
     <div className='__main'>
@@ -61,24 +62,28 @@ function MessageT() {
           </div>
           <div className='content__body'>
             <div className='chat__items'>
-              {message.map((chat) => (
-                <div
-                  key={chat.message_id}
-                  className={
-                    chat.message_fname === own[0]
-                      ? 'chat__item me'
-                      : 'chat__item other'
-                  }
-                  style={{animationDelay: '0.8s'}}>
-                  <div className='chat__item__content'>
-                    <div className='chat__msg'>{chat.messages}</div>
-                    <div className='chat__meta'>
-                      <span>{chat.message_fname}</span>
-                      <span>{format(chat.timestamp)}</span>
+              {loading ? (
+                <p>loading..</p>
+              ) : (
+                message.map((chat) => (
+                  <div
+                    key={chat.message_id}
+                    className={
+                      chat.message_fname === own[0]
+                        ? 'chat__item me'
+                        : 'chat__item other'
+                    }
+                    style={{animationDelay: '0.8s'}}>
+                    <div className='chat__item__content'>
+                      <div className='chat__msg'>{chat.messages}</div>
+                      <div className='chat__meta'>
+                        <span>{chat.message_fname}</span>
+                        <span>{format(chat.timestamp)}</span>
+                      </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                ))
+              )}
 
               <div></div>
             </div>

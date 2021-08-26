@@ -2,7 +2,7 @@ import {TeacherContext} from '../bodyT/context/TeacherContext';
 import React, {useContext} from 'react';
 
 import {Link} from 'react-router-dom';
-
+import Ca from '../images/Capture-removebg-preview.png';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 function Header() {
@@ -10,7 +10,16 @@ function Header() {
   return (
     <nav className='navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row'>
       <div className='text-center navbar-brand-wrapper d-flex align-items-center justify-content-center'>
-        <Link to='/dashboard' className='navbar-brand brand-logo-mini'></Link>
+        <Link to='/dashboardT'>
+          <LazyLoadImage
+            effect='blur'
+            src={Ca}
+            alt=''
+            width='640'
+            height='360'
+            className='img-fluid fic'
+          />
+        </Link>
       </div>
       <div className='navbar-menu-wrapper d-flex align-items-center justify-content-end'>
         <ul className='navbar-nav mr-lg-2'>

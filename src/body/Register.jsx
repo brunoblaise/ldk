@@ -5,7 +5,6 @@ import {url} from '../url';
 
 function Register({setAuth}) {
   const [inputs, setInputs] = useState({
-    
     fname: '',
     lname: '',
     gender: '',
@@ -15,12 +14,11 @@ function Register({setAuth}) {
     phone: '',
     bio: '',
   });
-  const [subjec,setSubjec] = useState('')
-  const classe = subjec.value
+  const [subjec, setSubjec] = useState('');
+  const classe = subjec.value;
 
   const [photo, setPhoto] = useState('');
-  const { fname, lname, gender, email, password, age, phone, bio} =
-    inputs;
+  const {fname, lname, gender, email, password, age, phone, bio} = inputs;
 
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
@@ -63,10 +61,9 @@ function Register({setAuth}) {
       console.error(err.message);
     }
   };
-  const handleChang =(event)  => {
+  const handleChang = (event) => {
     setSubjec({value: event.target.value});
-  }
-
+  };
 
   return (
     <div className='container-scroller'>
@@ -156,22 +153,27 @@ function Register({setAuth}) {
                   </div>
 
                   <div className='form-group'>
-                  <label forhtml="inputEmail4" className="form-label">class</label>
-          <select onChange={handleChang} id="inputState" className="form-select">
-          <option value="s1">s1</option>
-          <option value="s2">s2</option>
-          <option value="s3">s3</option>
-          <option value="s4mcb">s4mcb</option>
-          <option value="s4lkk">s4lkk</option>
-          <option value="s4pcb">s4pcb</option>
-          <option value="s5mcb">s5mcb</option>
-          <option value="s5pcb">s5pcb</option>
-          <option value="s5lkk">s5lkk</option>
-          <option value="s6mcb">s6mcb</option>
-          <option value="s6pcb">s6pcb</option>
-          <option value="s6lkk">s6lkk</option>
-          </select>
-                   
+                    <label forhtml='inputEmail4' className='form-label'>
+                      class
+                    </label>
+                    <select
+                      onChange={handleChang}
+                      id='inputState'
+                      className='form-select'>
+                      <option>Select your class</option>
+                      <option value='s1'>s1</option>
+                      <option value='s2'>s2</option>
+                      <option value='s3'>s3</option>
+                      <option value='s4mcb'>s4mcb</option>
+                      <option value='s4lkk'>s4lkk</option>
+                      <option value='s4pcb'>s4pcb</option>
+                      <option value='s5mcb'>s5mcb</option>
+                      <option value='s5pcb'>s5pcb</option>
+                      <option value='s5lkk'>s5lkk</option>
+                      <option value='s6mcb'>s6mcb</option>
+                      <option value='s6pcb'>s6pcb</option>
+                      <option value='s6lkk'>s6lkk</option>
+                    </select>
                   </div>
 
                   <div className='form-group'>

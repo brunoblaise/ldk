@@ -25,7 +25,7 @@ function Class({match}) {
   useEffect(() => {
     getProfile();
   }, []);
-
+  console.log(message);
   return (
     <div className='col-lg-12 grid-margin stretch-card'>
       <div className='card'>
@@ -55,6 +55,9 @@ function Class({match}) {
                 <tr>
                   <th _msthash='4713943' _msttexthash='135252'>
                     Class
+                  </th>
+                  <th _msthash='4715139' _msttexthash='117936'>
+                    Names
                   </th>
                   <th _msthash='4715139' _msttexthash='117936'>
                     Email
@@ -89,7 +92,11 @@ function Class({match}) {
                       <td _msthash='4739384' _msttexthash='146692'>
                         {note.class_student}
                       </td>
-
+                      <td _msthash='4741776' _msttexthash='38454'>
+                        {note.student_fname}
+                        <br />
+                        {note.student_lname}
+                      </td>
                       <td _msthash='4741776' _msttexthash='38454'>
                         {note.student_email}
                       </td>

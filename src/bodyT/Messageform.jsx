@@ -4,7 +4,7 @@ import {url} from '../url';
 import {TeacherContext} from './context/TeacherContext';
 function Messageform() {
   const [profile] = useContext(TeacherContext);
-  const own = profile.map((profil) => profil.teacher_fname);
+  const own = profile.map((profil) => profil.teacher_email);
   const [message, setMessage] = useState('');
   const [name] = useState(own[0]);
   const onSubmitForm = async (e) => {

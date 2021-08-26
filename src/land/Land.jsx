@@ -2,6 +2,7 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 import Group171 from '../images/Group171.svg';
+import Ca from '../images/Capture-removebg-preview.png';
 
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -10,6 +11,16 @@ function Land() {
     <>
       <header className='header-section'>
         <nav className='navbar navbar-expand-lg pl-3 pl-sm-0' id='navbar'>
+          <Link to='/'>
+            <LazyLoadImage
+              effect='blur'
+              src={Ca}
+              alt=''
+              width='640'
+              height='360'
+              className='img-fluid cap'
+            />
+          </Link>
           <div className='container'>
             <div className=' navbar-menu-wrapper' id='navbarSupportedContent'>
               <ul className='navbar-nav align-items-lg-center align-items-start ml-auto'>

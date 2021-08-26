@@ -26783,3 +26783,19 @@ p.btn.btn-danger.has-text-white.p-2 {
   position: relative;
   right: 20px;
 }
+
+.cap {
+  top: -6px;
+  position: relative;
+  width: 100px !important;
+  left: 200px;
+}
+
+ul.navbar-nav.align-items-lg-center.align-items-start.ml-auto {
+  top: 4px;
+  position: relative;
+  left: 300px;
+}
+img.img-fluid.fic {
+  width: 100px !important;
+}

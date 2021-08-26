@@ -107,7 +107,7 @@ function Sidebar({setAuth}) {
         </li>
         <li className='nav-item'>
           <Link className='nav-link' to='/meet'>
-            <i class='bi bi-pause-btn menu-icon'></i>
+            <i className='bi bi-pause-btn menu-icon'></i>
             <span className='menu-title'>Video chat</span>
           </Link>
         </li>

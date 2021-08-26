@@ -63,7 +63,7 @@ function ProfileT({setAuth}) {
                           </span>
                         </p>
                         <p className='clearfix'>
-                          <span className='float-left'>Age</span>
+                          <span className='float-left'>Birth of date</span>
                           <span className='float-right text-muted'>
                             <span>{profil.teacher_age}</span>
                           </span>

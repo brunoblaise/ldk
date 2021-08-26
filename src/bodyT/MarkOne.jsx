@@ -61,7 +61,7 @@ function MarkOne({match}) {
             <thead>
               <tr>
                 <th scope='col'>Email</th>
-                <th scope='col'>clas</th>
+                <th scope='col'>class</th>
                 <th scope='col'>Marks</th>
               </tr>
             </thead>

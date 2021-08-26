@@ -186,7 +186,7 @@ function RegisterT({setAuth}) {
                     </div>
                   </div>
                   <div className='form-group'>
-                    <label>Age</label>
+                    <label>Date of birth</label>
                     <div className='input-group'>
                       <div className='input-group-prepend bg-transparent'>
                         <span className='input-group-text bg-transparent border-right-0'>

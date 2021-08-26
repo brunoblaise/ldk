@@ -60,6 +60,7 @@ function ExerciseT() {
                   onChange={handleChang}
                   id='inputState'
                   className='form-select'>
+                  <option>Select your class</option>
                   <option value='s1'>s1</option>
                   <option value='s2'>s2</option>
                   <option value='s3'>s3</option>
