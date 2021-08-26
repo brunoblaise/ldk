@@ -1,9 +1,9 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import Group171 from '../images/Group171.svg';
+import Group171 from '../images/linkedin-sales-solutions-EI50ZDA-l8Y-unsplash.jpg';
 import Ca from '../images/Capture-removebg-preview.png';
-
+import Group from '../images/blob-scene-haikei.svg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 function Land() {
@@ -44,40 +44,38 @@ function Land() {
           </div>
         </nav>
       </header>
-      <div className='banner'>
-        <div className='container'>
-          <br />
-          <br />
-          <br />
-          <h1 className='font-weight-semibold'>
-            A Better way to study now &<br />
-            It is just one click.
+
+      <div className='banner banner-background'>
+        <LazyLoadImage
+          effect='blur'
+          src={Group}
+          alt=''
+          width='1300px'
+          className='banner-image'
+        />
+        <div className=''>
+          <h1 className='font-weight-semibold banner-move'>
+            A Better way to study now & It is just one click.
           </h1>
-          <h6 className='font-weight-normal text-muted pb-3'>
+          <h6 className='font-weight-normal text-muted pb-3 banner-move'>
             This Simple is a way where students and teacher connect very easy
           </h6>
           <div>
-            <button className='btn btn-opacity-light mr-1'>Study online</button>
-            <button className='btn btn-opacity-success ml-1'>
+            <button className='btn btn-opacity-light mr-1 banner-move'>
+              Study online
+            </button>
+            <button className='btn btn-opacity-success ml-1 banner-move'>
               Get reports easily
             </button>
           </div>
-          <LazyLoadImage
-            effect='blur'
-            src={Group171}
-            alt=''
-            width='640'
-            height='360'
-            className='img-fluid'
-          />
         </div>
       </div>
-      <h1 className='pq'>Services that the application offers </h1>
+      <h1 className='pq'>Services that the application offers</h1>
       <div className='row row-cols-1 row-cols-md-3 g-4 weq'>
         <div className='col fut'>
           <div className='card h-100'>
             <div className='card-body'>
-              <h5 className='card-title'>Communication is made easy</h5>
+              <h5 className='card-title '>Communication is made easy</h5>
               <p className='card-text'>
                 What do we mean that communication is made easy. Listen to this
                 careful we offer video chat and place of announcement of all
