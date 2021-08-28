@@ -31,7 +31,7 @@ function ReportT() {
         toast.success('Sent Successfully');
       }
 
-      window.location = '/reportT';
+  
     } catch (err) {
       console.error(err.message);
     }

@@ -9,6 +9,7 @@ function CreateTest() {
   const [inputs, setInputs] = useState({
     question: '',
     answers: '',
+    certificate: 'no',
     email: '',
   });
   const [choicese, setChoicese] = useState(null);
@@ -17,7 +18,7 @@ function CreateTest() {
   const [choica, setChoica] = useState(null);
   const [subject, setSubject] = useState('');
   const [subjec, setSubjec] = useState('');
-  const {question, answers, email} = inputs;
+  const {question, certificate, answers, email} = inputs;
   const choices = [choicese, choice, choic, choica];
   const name = subject.value;
   const classe = subjec.value;
@@ -35,7 +36,15 @@ function CreateTest() {
     e.preventDefault();
 
     try {
-      const body = {name, question, choices, answers, email, classe};
+      const body = {
+        name,
+        certificate,
+        question,
+        choices,
+        answers,
+        email,
+        classe,
+      };
       const response = await fetch(`${url}/create/test`, {
         method: 'POST',
         headers: {
@@ -44,7 +53,7 @@ function CreateTest() {
         body: JSON.stringify(body),
       });
 
-      if (response.status === '200') {
+      if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
@@ -69,6 +78,7 @@ function CreateTest() {
                 onChange={handleChange}
                 id='inputState'
                 className='form-select'>
+                <option>Select subject</option>
                 <option value='mathematics'>mathematics</option>
                 <option value='english'>english</option>
                 <option value='kinyarwanda'>kinyarwanda</option>
@@ -164,6 +174,19 @@ function CreateTest() {
                 className='form-control'
                 name='email'
                 value={email}
+                onChange={(e) => onChange(e)}
+                id='inputCity'
+              />
+            </div>
+            <div className='col-md-4'>
+              <label forhtml='inputState' className='form-label'>
+                Get certificate || Yes or No
+              </label>
+              <input
+                type='text'
+                className='form-control'
+                name='certificate'
+                value={certificate}
                 onChange={(e) => onChange(e)}
                 id='inputCity'
               />

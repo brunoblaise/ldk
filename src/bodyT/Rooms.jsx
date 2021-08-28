@@ -53,7 +53,7 @@ function Rooms() {
               </div>
             </Link>
 
-            <Link to='/class/room/3' className='row'>
+            <Link to='/class/room/s3' className='row'>
               <div className='col-md-12 grid-margin stretch-card'>
                 <div className='card position-relative'>
                   <div className='card-body'>
@@ -90,11 +90,11 @@ function Rooms() {
                             Senior 4 MCB
                           </Link>
                           <br />
-                          <Link to='/class/room/s5pcb' className='mb-2 mb-xl-0'>
+                          <Link to='/class/room/s4pcb' className='mb-2 mb-xl-0'>
                             Senior 4 PCB
                           </Link>
                           <br />
-                          <Link to='/class/room/s6lkk' className='mb-2 mb-xl-0'>
+                          <Link to='/class/room/s4lkk' className='mb-2 mb-xl-0'>
                             Senior 4 LKK
                           </Link>
                           <br />

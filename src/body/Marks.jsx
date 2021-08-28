@@ -24,7 +24,7 @@ function Marks() {
   useEffect(() => {
     getProfile();
   }, []);
-  console.log(message)
+
   const id = profile.map((profil) => profil.student_email);
   return (
     <>

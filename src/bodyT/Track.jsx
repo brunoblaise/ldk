@@ -4,7 +4,7 @@ import 'react-lazy-load-image-component/src/effects/blur.css';
 import React, {useEffect, useState} from 'react';
 function Track() {
   const [message, setMessage] = useState([]);
-
+  const [loading, Setloading] = useState(true);
   const getProfile = async () => {
     try {
       const res = await fetch('https://extreme-ip-lookup.com/json/', {
@@ -12,8 +12,8 @@ function Track() {
       });
 
       const parseData = await res.json();
-
       setMessage(parseData);
+      Setloading(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -39,9 +39,12 @@ function Track() {
               <div className='d-flex'>
                 <div className='ml-2'>
                   <h4 className='location font-weight-normal'>
-                    {message.country}
+                    {loading ? <p>loading</p> : message.country}
                   </h4>
-                  <h6 className='font-weight-normal'>{message.city}</h6>
+                  <h6 className='font-weight-normal'>
+                    {' '}
+                    {loading ? <p>loading</p> : message.country}
+                  </h6>
                 </div>
               </div>
             </div>

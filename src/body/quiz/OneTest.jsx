@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef} from 'react';
 
 function OneTest({ data, onAnswerUpdate, numberOfQuestions, activeQuestion, onSetActiveQuestion,onSetStep,notes }) {
     
-    const [counter, setCounter] = useState(14400);
+    const [counter, setCounter] = useState(120);
     const [selected, setSelected] = useState('');
     const [error, setError] = useState('');
     const radiosWrapper = useRef();
@@ -16,7 +16,7 @@ function OneTest({ data, onAnswerUpdate, numberOfQuestions, activeQuestion, onSe
             findCheckedInput.checked = false;
           }
         }catch(error){
-         console.log(error)
+         console.error(error)
         }
       
       }, [data]);

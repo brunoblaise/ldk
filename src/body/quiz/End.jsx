@@ -45,7 +45,7 @@ function End({results, data, nameu, datas}) {
         body: JSON.stringify(body),
       });
 
-      if (response.status === '200') {
+      if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
@@ -55,17 +55,17 @@ function End({results, data, nameu, datas}) {
     }
   };
 
-  console.log(name, mark, email, classe);
+
   return (
     <>
-      <button className='btn btn-info ' onClick={generatePdf}>
+      <button  className={data.test_certificate === 'no' ? 'hide' : 'btn btn-info'} onClick={generatePdf}>
         download your certificate
       </button>
-      <form onSubmit={onSubmitForm}>
-        <div class='containerp' id='contentp'>
-          <div class='logop'>College du Christ Roi</div>
+      <form onSubmit={onSubmitForm} className={data.test_certificate === 'no' ? 'hide' : ''}> 
+        <div className='containerp' id='contentp'>
+          <div className='logop'>College du Christ Roi</div>
 
-          <div class='marquee'>
+          <div className='marquee'>
             Certificate of Completion
             <p>
               {correctAnswers} of {data.length}
@@ -73,11 +73,11 @@ function End({results, data, nameu, datas}) {
             <strong>{mark}%</strong>
           </div>
 
-          <div class='assignment'>This certificate is presented to</div>
+          <div className='assignment'>This certificate is presented to</div>
 
-          <div class='person'>{profile[0].student_fname}</div>
+          <div className='person'>{profile[0].student_fname}</div>
 
-          <div class='reason'>
+          <div className='reason'>
             for finishing the test given by his or her Teacher in {nameu}
           </div>
         </div>

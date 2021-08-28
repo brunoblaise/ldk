@@ -1,5 +1,6 @@
 import React from 'react';
-import Sidebar from '../sidebar/Sidebar';
+
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 import {Link} from 'react-router-dom';
 const Header = React.lazy(() => import('../header/Header'));
 
