@@ -1,8 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 
-import Group171 from '../images/linkedin-sales-solutions-EI50ZDA-l8Y-unsplash.jpg';
-import Ca from '../images/Capture-removebg-preview.png';
+
+import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 import Group from '../images/blob-scene-haikei.svg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
