@@ -547,7 +547,8 @@ function App() {
             </ProfileProvide>
           </ErrorBoundary>
         </Switch>
-        : 'you are offline'}
+        :<p className="offline_web">you are offline</p>}
+       
       </Suspense>
     </Router>
   );
