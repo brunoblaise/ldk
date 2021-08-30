@@ -125,7 +125,7 @@ function App() {
         fallback={
           <h1 className='fall'>loading the application please hold on... </h1>
         }>
-        <span>You are {isOnline ? 'online' : 'offline'}.</span>
+       {isOnline ?
         <Switch>
           <Route exact path='/meet' component={JoinMeeting} />
           <Route exact path='/video/:id' component={VideoCall} />
@@ -547,6 +547,7 @@ function App() {
             </ProfileProvide>
           </ErrorBoundary>
         </Switch>
+        : 'you are offline'}
       </Suspense>
     </Router>
   );

@@ -26801,7 +26801,9 @@ ul.navbar-nav.align-items-lg-center.align-items-start.ml-auto {
   left: 500px;
 }
 img.img-fluid.fic {
-  width: 100px !important;
+  position: relative;
+  right:40px;
+  width: 60px !important;
 }
 
 img.img-fluid.banner-image {
