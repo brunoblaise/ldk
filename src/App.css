@@ -26852,17 +26852,12 @@ button.btn.btn-opacity-success.ml-1.banner-move {
 
   border: 4px solid #164249;
 }
-.banner-flex {
-  display: flex;
+
+.offline_web{
   position: relative;
-  left: -12px;
-  top: -174px;
+  left: 580px;
+  margin-top: 319px;
+  font-size:20px;
 }
-.badt {
-  position: relative;
-  left: 396px;
-  top: -58px;
-  height: 738px;
-  width: 938px;
-  object-fit: fill;
-}
+
+
