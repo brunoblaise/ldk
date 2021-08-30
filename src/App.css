@@ -26246,7 +26246,7 @@ div.tagsinput span.tag a {
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: #f1f1f1;
+  background: antiquewhite;
 }
 
 /* Handle */
@@ -26256,6 +26256,7 @@ div.tagsinput span.tag a {
 }
 
 ::-webkit-scrollbar-thumb:hover {
+      
   background: #001220;
 }
 .main__chatcontent {

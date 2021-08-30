@@ -95,12 +95,37 @@ function App() {
   const errorHandle = (error, errorInfo) => {
     console.log('logging', error, errorInfo);
   };
+  const getOnLineStatus = () =>
+    typeof navigator !== 'undefined' && typeof navigator.onLine === 'boolean'
+      ? navigator.onLine
+      : true;
+
+  const useNavigatorOnLine = () => {
+    const [status, setStatus] = React.useState(getOnLineStatus());
+
+    const setOnline = () => setStatus(true);
+    const setOffline = () => setStatus(false);
+
+    React.useEffect(() => {
+      window.addEventListener('online', setOnline);
+      window.addEventListener('offline', setOffline);
+
+      return () => {
+        window.removeEventListener('online', setOnline);
+        window.removeEventListener('offline', setOffline);
+      };
+    }, []);
+
+    return status;
+  };
+  const isOnline = useNavigatorOnLine();
   return (
     <Router>
       <Suspense
         fallback={
           <h1 className='fall'>loading the application please hold on... </h1>
         }>
+        <span>You are {isOnline ? 'online' : 'offline'}.</span>
         <Switch>
           <Route exact path='/meet' component={JoinMeeting} />
           <Route exact path='/video/:id' component={VideoCall} />
