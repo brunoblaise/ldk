@@ -1,6 +1,7 @@
 import {ProfileContext} from '../body/context/ProfileContext';
 import React, {useContext} from 'react';
-import Ca from '../images/Capture-removebg-preview.png';
+import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
+
 import {Link} from 'react-router-dom';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';

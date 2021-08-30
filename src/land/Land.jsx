@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
+
 import Group from '../images/blob-scene-haikei.svg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
