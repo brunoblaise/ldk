@@ -26822,11 +26822,7 @@ img.img-fluid.banner-image {
   word-break: normal;
 }
 
-.woj {
-  width: 395px;
-  height: 738px;
-  background-color: #fff1e0;
-}
+
 h6.font-weight-normal.text-muted.pb-3.banner-move {
   left: 202px;
   color: #fff !important;
@@ -26849,7 +26845,6 @@ button.btn.btn-opacity-success.ml-1.banner-move:hover {
 button.btn.btn-opacity-success.ml-1.banner-move {
   left: 302px;
   top: -605px;
-
   border: 4px solid #164249;
 }
 
