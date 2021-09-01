@@ -125,434 +125,432 @@ function App() {
         fallback={
           <h1 className='fall'>loading the application please hold on... </h1>
         }>
-       {isOnline ?
-        <Switch>
-          <Route exact path='/meet' component={JoinMeeting} />
-          <Route exact path='/video/:id' component={VideoCall} />
-          <Route path='/' component={Land} exact />
-          <Route path='/text' exact>
-            <Redirect to={`/text/documents/${uuidV4()}`} />
-          </Route>
-          <Route
-            path='/text/documents/:id'
-            exact
-            render={(props) => <Texteditor {...props} setAuth={setAuth} />}
-          />
+        {isOnline ? (
+          <Switch>
+            <Route exact path='/meet' component={JoinMeeting} />
+            <Route exact path='/video/:id' component={VideoCall} />
+            <Route path='/' component={Land} exact />
+            <Route path='/text' exact>
+              <Redirect to={`/text/documents/${uuidV4()}`} />
+            </Route>
+            <Route
+              path='/text/documents/:id'
+              exact
+              render={(props) => <Texteditor {...props} setAuth={setAuth} />}
+            />
 
-          <ErrorBoundary FallbackComponent={Fallback} onError={errorHandle}>
-            <ProfileProvide>
-              <Route
-                path='/login'
-                render={(props) =>
-                  !isAuthenticated ? (
-                    <Login {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/dashboard' />
-                  )
-                }
-                exact
-              />
-
-              <Route
-                path='/dashboard'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Render {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route path='/forget' render={(props) => <Forget />} exact />
-
-              <Route
-                path='/forget/:id/:token'
-                render={(props) => <Reset />}
-                exact
-              />
-              <Route path='/forgetT' render={(props) => <ForgetT />} exact />
-
-              <Route
-                path='/forgetT/:id/:token'
-                render={(props) => <ResetT />}
-                exact
-              />
-              <Route
-                path='/register'
-                render={(props) =>
-                  !isAuthenticated ? (
-                    <Register {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/dashboard' />
-                  )
-                }
-                exact
-              />
-
-              <Route
-                path='/profile'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Profile {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-
-              <Route
-                path='/notes'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Notes {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/room/student'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Rostudent {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/works'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Quiz {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/exercise'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Exercise {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-
-              <Route
-                path='/library'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Library {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/room/test'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <TestRoom {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/room/test/:id'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Screen {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/message'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Message {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-
-              <Route
-                path='/notes/:id'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Onenotes {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/exercise/:id'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <ExerciseOne {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/work/:id'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <DownloadWork {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-
-              <Route
-                path='/worksub'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <WorkSub {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-              <Route
-                path='/report'
-                render={(props) =>
-                  isAuthenticated ? (
-                    <Report {...props} setAuth={setAuth} />
-                  ) : (
-                    <Redirect to='/login' />
-                  )
-                }
-                exact
-              />
-
-              <TeacherProvide>
+            <ErrorBoundary FallbackComponent={Fallback} onError={errorHandle}>
+              <ProfileProvide>
                 <Route
-                  path='/loginT'
+                  path='/login'
                   render={(props) =>
                     !isAuthenticated ? (
-                      <LoginT {...props} setAuth={setAuth} />
+                      <Login {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/dashboardT' />
+                      <Redirect to='/dashboard' />
                     )
                   }
                   exact
                 />
 
                 <Route
-                  path='/dashboardT'
+                  path='/dashboard'
                   render={(props) =>
                     isAuthenticated ? (
-                      <RenderT {...props} setAuth={setAuth} />
+                      <Render {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
+                <Route path='/forget' render={(props) => <Forget />} exact />
+
                 <Route
-                  path='/registerT'
+                  path='/forget/:id/:token'
+                  render={(props) => <Reset />}
+                  exact
+                />
+                <Route path='/forgetT' render={(props) => <ForgetT />} exact />
+
+                <Route
+                  path='/forgetT/:id/:token'
+                  render={(props) => <ResetT />}
+                  exact
+                />
+                <Route
+                  path='/register'
                   render={(props) =>
                     !isAuthenticated ? (
-                      <RegisterT {...props} setAuth={setAuth} />
+                      <Register {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/dashboardT' />
-                    )
-                  }
-                  exact
-                />
-                <Route
-                  path='/create/room/test'
-                  render={(props) =>
-                    isAuthenticated ? (
-                      <CreateTest {...props} setAuth={setAuth} />
-                    ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/dashboard' />
                     )
                   }
                   exact
                 />
 
                 <Route
-                  path='/Teacher'
+                  path='/profile'
                   render={(props) =>
                     isAuthenticated ? (
-                      <ProfileT {...props} setAuth={setAuth} />
+                      <Profile {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
 
                 <Route
-                  path='/libraryT'
+                  path='/notes'
                   render={(props) =>
                     isAuthenticated ? (
-                      <LibraryT {...props} setAuth={setAuth} />
+                      <Notes {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
+                    )
+                  }
+                  exact
+                />
+                <Route
+                  path='/room/student'
+                  render={(props) =>
+                    isAuthenticated ? (
+                      <Rostudent {...props} setAuth={setAuth} />
+                    ) : (
+                      <Redirect to='/login' />
+                    )
+                  }
+                  exact
+                />
+                <Route
+                  path='/works'
+                  render={(props) =>
+                    isAuthenticated ? (
+                      <Quiz {...props} setAuth={setAuth} />
+                    ) : (
+                      <Redirect to='/login' />
+                    )
+                  }
+                  exact
+                />
+                <Route
+                  path='/exercise'
+                  render={(props) =>
+                    isAuthenticated ? (
+                      <Exercise {...props} setAuth={setAuth} />
+                    ) : (
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
 
                 <Route
-                  path='/messageT'
+                  path='/library'
                   render={(props) =>
                     isAuthenticated ? (
-                      <MessageT {...props} setAuth={setAuth} />
+                      <Library {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
                 <Route
-                  path='/notesT'
+                  path='/room/test'
                   render={(props) =>
                     isAuthenticated ? (
-                      <NotesT {...props} setAuth={setAuth} />
+                      <TestRoom {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
+                    )
+                  }
+                  exact
+                />
+                <Route
+                  path='/room/test/:id'
+                  render={(props) =>
+                    isAuthenticated ? (
+                      <Screen {...props} setAuth={setAuth} />
+                    ) : (
+                      <Redirect to='/login' />
+                    )
+                  }
+                  exact
+                />
+                <Route
+                  path='/message'
+                  render={(props) =>
+                    isAuthenticated ? (
+                      <Message {...props} setAuth={setAuth} />
+                    ) : (
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
 
                 <Route
-                  path='/exerciseT'
+                  path='/notes/:id'
                   render={(props) =>
                     isAuthenticated ? (
-                      <ExerciseT {...props} setAuth={setAuth} />
+                      <Onenotes {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
                 <Route
-                  path='/reportT'
+                  path='/exercise/:id'
                   render={(props) =>
                     isAuthenticated ? (
-                      <ReportT {...props} setAuth={setAuth} />
+                      <ExerciseOne {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
                 <Route
-                  path='/worksT'
+                  path='/work/:id'
                   render={(props) =>
                     isAuthenticated ? (
-                      <WorkSubT {...props} setAuth={setAuth} />
+                      <DownloadWork {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
-                    )
-                  }
-                  exact
-                />
-                <Route
-                  path='/worksubT/:id'
-                  render={(props) =>
-                    isAuthenticated ? (
-                      <Onenotesu {...props} setAuth={setAuth} />
-                    ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
 
                 <Route
-                  path='/worksubT'
+                  path='/worksub'
                   render={(props) =>
                     isAuthenticated ? (
-                      <Notesu {...props} setAuth={setAuth} />
+                      <WorkSub {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
                 <Route
-                  path='/class'
+                  path='/report'
                   render={(props) =>
                     isAuthenticated ? (
-                      <Rooms {...props} setAuth={setAuth} />
+                      <Report {...props} setAuth={setAuth} />
                     ) : (
-                      <Redirect to='/loginT' />
+                      <Redirect to='/login' />
                     )
                   }
                   exact
                 />
-                <Route
-                  path='/room/mark'
-                  render={(props) =>
-                    isAuthenticated ? (
-                      <MarkClass {...props} setAuth={setAuth} />
-                    ) : (
-                      <Redirect to='/loginT' />
-                    )
-                  }
-                  exact
-                />
-                <Route
-                  path='/class/room/mark/:id'
-                  render={(props) =>
-                    isAuthenticated ? (
-                      <MarkOne {...props} setAuth={setAuth} />
-                    ) : (
-                      <Redirect to='/loginT' />
-                    )
-                  }
-                  exact
-                />
-                <Route
-                  path='/class/room/:id'
-                  render={(props) =>
-                    isAuthenticated ? (
-                      <Class {...props} setAuth={setAuth} />
-                    ) : (
-                      <Redirect to='/loginT' />
-                    )
-                  }
-                  exact
-                />
-              </TeacherProvide>
-            </ProfileProvide>
-          </ErrorBoundary>
-        </Switch>
-        :<p className="offline_web">
-          
-          
-          
-          you are offline</p>}
-       
+
+                <TeacherProvide>
+                  <Route
+                    path='/loginT'
+                    render={(props) =>
+                      !isAuthenticated ? (
+                        <LoginT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/dashboardT' />
+                      )
+                    }
+                    exact
+                  />
+
+                  <Route
+                    path='/dashboardT'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <RenderT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/registerT'
+                    render={(props) =>
+                      !isAuthenticated ? (
+                        <RegisterT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/dashboardT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/create/room/test'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <CreateTest {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+
+                  <Route
+                    path='/Teacher'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <ProfileT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+
+                  <Route
+                    path='/libraryT'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <LibraryT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+
+                  <Route
+                    path='/messageT'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <MessageT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/notesT'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <NotesT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+
+                  <Route
+                    path='/exerciseT'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <ExerciseT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/reportT'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <ReportT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/worksT'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <WorkSubT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/worksubT/:id'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Onenotesu {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+
+                  <Route
+                    path='/worksubT'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Notesu {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/class'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Rooms {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/room/mark'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <MarkClass {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/class/room/mark/:id'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <MarkOne {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/class/room/:id'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Class {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                </TeacherProvide>
+              </ProfileProvide>
+            </ErrorBoundary>
+          </Switch>
+        ) : (
+      
+          <p className='offline_web'> you are offline</p>
+        )}
       </Suspense>
     </Router>
   );
