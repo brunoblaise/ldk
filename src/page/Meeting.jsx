@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
-
+import {Helmet} from "react-helmet";
 function Video({match}) {
   const id = match.params.id;
 
@@ -31,6 +31,19 @@ function Video({match}) {
       .catch((err) => console.log(err));
   }, [id]);
 
-  return <div></div>;
+  return <div> <Helmet>
+  <meta name='title' content='college du christ roi' />
+  <meta
+    http-equiv='Content-Security-Policy'
+    content='upgrade-insecure-requests'
+  />
+  <meta name='language' content='EN' />
+  <meta name='author' content='Mudacumura brunoblaise' />
+  <meta name='creationdate' content='29/07/2020' />
+  <meta name='distribution' content='global' />
+  <meta name='rating' content='general' />
+
+  <title>{id}</title>
+</Helmet></div>;
 }
 export default React.memo(Video);

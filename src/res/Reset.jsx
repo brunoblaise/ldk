@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {url} from '../url';
 import {useParams} from 'react-router-dom';
+import {Helmet} from "react-helmet";
 function Reset() {
   const [inputs, setInputs] = useState({
     password: '',
@@ -39,6 +40,20 @@ function Reset() {
 
   return (
     <>
+    <Helmet>
+  <meta name='title' content='college du christ roi' />
+  <meta
+    http-equiv='Content-Security-Policy'
+    content='upgrade-insecure-requests'
+  />
+  <meta name='language' content='EN' />
+  <meta name='author' content='Mudacumura brunoblaise' />
+  <meta name='creationdate' content='29/07/2020' />
+  <meta name='distribution' content='global' />
+  <meta name='rating' content='general' />
+
+  <title>Reset</title>
+</Helmet>
       <div className='container-scroller'>
         <div className='container-fluid page-body-wrapper full-page-wrapper'>
           <div className='content-wrapper d-flex align-items-center auth px-0'>

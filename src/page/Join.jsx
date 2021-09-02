@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import {Helmet} from "react-helmet";
 function JoinRoom() {
   const [room, setRoom] = useState(null);
 
@@ -8,6 +8,20 @@ function JoinRoom() {
   };
   return (
     <div className='main-panel otr'>
+       <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
+
+        <title>{room}</title>
+      </Helmet>
       <p>Create a meeting or Join any already existing meeting</p>
       <div class='input-group input-group-sm mb-3'>
         <span class='input-group-text' id='inputGroup-sizing-sm'>

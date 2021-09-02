@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-
+import {Helmet} from "react-helmet";
 import {url} from '../url';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
+
 function RegisterT({setAuth}) {
   const [inputs, setInputs] = useState({
     fname: '',
@@ -63,6 +62,20 @@ function RegisterT({setAuth}) {
 
   return (
     <div className='container-scroller'>
+          <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
+
+        <title>register</title>
+      </Helmet>
       <div className='container-fluid page-body-wrapper full-page-wrapper'>
         <div className='content-wrapper d-flex align-items-stretch auth auth-img-bg'>
           <div className='row flex-grow'>
