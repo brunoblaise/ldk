@@ -4,6 +4,7 @@ import {toast} from 'react-toastify';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import {TeacherContext} from './context/TeacherContext';
+import {Helmet} from "react-helmet";
 function ProfileT({setAuth}) {
   const logout = async (e) => {
     e.preventDefault();
@@ -21,6 +22,20 @@ function ProfileT({setAuth}) {
   return (
     <div>
       <div className='content-wrapper'>
+      <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
+
+        <title>Profile</title>
+      </Helmet>
         <div className='row'>
           <div className='col-12'>
             <div className='card'>

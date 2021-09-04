@@ -23,7 +23,7 @@ function Land() {
         <meta name='distribution' content='global' />
         <meta name='rating' content='general' />
 
-        <title>Cxr Home</title>
+        <title>College du Christ Roi</title>
         <meta name='title' content='College du Christ Roi' />
         <meta
           name='description'

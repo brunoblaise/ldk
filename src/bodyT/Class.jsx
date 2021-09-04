@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-
+import {Helmet} from "react-helmet";
 import {url} from '../url';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 function Class({match}) {
@@ -27,7 +27,22 @@ function Class({match}) {
   }, []);
   console.log(message);
   return (
+    
     <div className='col-lg-12 grid-margin stretch-card'>
+        <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
+
+        <title> {match.params.id} class</title>
+      </Helmet>
       <div className='card'>
         <div className='card-body'>
           <h4 className='card-title' _msthash='2271633' _msttexthash='226057'>

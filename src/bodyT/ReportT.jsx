@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
-
+import {Helmet} from "react-helmet";
 function ReportT() {
   const [recfile, setRecfile] = useState('');
   const [name, setName] = useState('');
@@ -39,6 +39,20 @@ function ReportT() {
 
   return (
     <div className='col-12 grid-margin'>
+          <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
+
+        <title>Report</title>
+      </Helmet>
       <div className='card'>
         <div className='row'>
           <div className='col-md-6'>

@@ -1,8 +1,8 @@
-import React, {useState} from 'react';
+import React, {useState,useContext} from 'react';
 import {toast} from 'react-toastify';
 
 import {url} from '../url';
-
+import {TeacherContext} from '../bodyT/context/TeacherContext';
 const Header = React.lazy(() => import('../header1/Header'));
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 function CreateTest() {
@@ -10,15 +10,19 @@ function CreateTest() {
     question: '',
     answers: '',
     certificate: 'no',
-    email: '',
+
   });
+  const [profile] = useContext(TeacherContext);
+  const own = profile.map((profil) => profil.teacher_email);
+  const [email] = useState(own[0]);
+  
   const [choicese, setChoicese] = useState(null);
   const [choice, setChoice] = useState(null);
   const [choic, setChoic] = useState(null);
   const [choica, setChoica] = useState(null);
   const [subject, setSubject] = useState('');
   const [subjec, setSubjec] = useState('');
-  const {question, certificate, answers, email} = inputs;
+  const {question, certificate, answers} = inputs;
   const choices = [choicese, choice, choic, choica];
   const name = subject.value;
   const classe = subjec.value;
@@ -62,6 +66,7 @@ function CreateTest() {
       console.error(err.message);
     }
   };
+
 
   return (
     <div className='App'>
@@ -165,19 +170,7 @@ function CreateTest() {
                 id='inputCity'
               />
             </div>
-            <div className='col-md-4'>
-              <label forhtml='inputState' className='form-label'>
-                Email
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                name='email'
-                value={email}
-                onChange={(e) => onChange(e)}
-                id='inputCity'
-              />
-            </div>
+         
             <div className='col-md-4'>
               <label forhtml='inputState' className='form-label'>
                 Get certificate || Yes or No

@@ -4,6 +4,7 @@ import jsPDF from 'jspdf';
 import {toast} from 'react-toastify';
 import {url} from '../../url';
 import Modal from './Modal';
+import {Link} from 'react-router-dom';
 function End({results, data, nameu, datas}) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [profile] = useContext(ProfileContext);
@@ -55,13 +56,12 @@ function End({results, data, nameu, datas}) {
     }
   };
 
-
   return (
     <>
-      <button  className={data.test_certificate === 'no' ? 'hide' : 'btn btn-info'} onClick={generatePdf}>
+      <button  className={data[0].test_certificate === 'no' ? 'hide' : 'btn btn-info'} onClick={generatePdf}>
         download your certificate
       </button>
-      <form onSubmit={onSubmitForm} className={data.test_certificate === 'no' ? 'hide' : ''}> 
+      <form onSubmit={onSubmitForm} > 
         <div className='containerp' id='contentp'>
           <div className='logop'>College du Christ Roi</div>
 
@@ -86,7 +86,7 @@ function End({results, data, nameu, datas}) {
           save your marks
         </button>
       </form>
-
+    <Link to="/dashboard">continue to Dashboard</Link>
       <Modal results={results} data={data} />
     </>
   );
