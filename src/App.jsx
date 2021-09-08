@@ -44,8 +44,12 @@ const Land = React.lazy(() => import('./land/Land'));
 
 import {url} from './url';
 import {ErrorBoundary} from 'react-error-boundary';
-import {Fallback} from './Fallback';
 
+
+const Givem = React.lazy(() => import('./bodyT/open/Givem'));
+const Fallback = React.lazy(() => import('./Fallback'));
+const Openw = React.lazy(() => import('./body/quiz/Openw'));
+const Openq = React.lazy(() => import('./bodyT/open/Openq'));
 const ForgetT = React.lazy(() => import('./res/ForgetT'));
 const ResetT = React.lazy(() => import('./res/ResetT'));
 const Forget = React.lazy(() => import('./res/Forget'));
@@ -123,7 +127,7 @@ function App() {
     <Router>
       <Suspense
         fallback={
-          <h1 className='fall'>loading the application please hold on... </h1>
+          <p className='fall'>loading the application please hold on... </p>
         }>
         {isOnline ? (
           <Switch>
@@ -158,6 +162,17 @@ function App() {
                   render={(props) =>
                     isAuthenticated ? (
                       <Render {...props} setAuth={setAuth} />
+                    ) : (
+                      <Redirect to='/login' />
+                    )
+                  }
+                  exact
+                />
+                <Route
+                  path='/open/:id'
+                  render={(props) =>
+                    isAuthenticated ? (
+                      <Openw {...props} setAuth={setAuth} />
                     ) : (
                       <Redirect to='/login' />
                     )
@@ -373,6 +388,7 @@ function App() {
                     }
                     exact
                   />
+
                   <Route
                     path='/registerT'
                     render={(props) =>
@@ -543,12 +559,35 @@ function App() {
                     }
                     exact
                   />
+                  <Route
+                    path='/ope/question'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Openq {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                 
+                  />
+                   <Route
+                    path='/question/open/:id/:mark'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Givem {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                 
+                  />
                 </TeacherProvide>
               </ProfileProvide>
             </ErrorBoundary>
           </Switch>
         ) : (
-      
           <p className='offline_web'> you are offline</p>
         )}
       </Suspense>

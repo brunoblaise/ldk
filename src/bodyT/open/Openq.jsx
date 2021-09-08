@@ -1,29 +1,21 @@
-import React, {useState,useContext} from 'react';
+import React, {useState, useContext} from 'react';
 import {toast} from 'react-toastify';
 import {Link} from 'react-router-dom';
-import {url} from '../url';
-import {TeacherContext} from '../bodyT/context/TeacherContext';
-const Header = React.lazy(() => import('../header1/Header'));
-const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
-function CreateTest() {
+import {url} from '../../url';
+import {TeacherContext} from '../../bodyT/context/TeacherContext';
+const Header = React.lazy(() => import('../../header1/Header'));
+const Sidebar = React.lazy(() => import('../../sidebar1/Sidebar'));
+function Openq() {
   const [inputs, setInputs] = useState({
     question: '',
-    answers: '',
-    certificate: 'no',
-
   });
   const [profile] = useContext(TeacherContext);
   const own = profile.map((profil) => profil.teacher_email);
   const [email] = useState(own[0]);
-  
-  const [choicese, setChoicese] = useState(null);
-  const [choice, setChoice] = useState(null);
-  const [choic, setChoic] = useState(null);
-  const [choica, setChoica] = useState(null);
   const [subject, setSubject] = useState('');
   const [subjec, setSubjec] = useState('');
-  const {question, certificate, answers} = inputs;
-  const choices = [choicese, choice, choic, choica];
+  const {question} = inputs;
+
   const name = subject.value;
   const classe = subjec.value;
   const onChange = (e) =>
@@ -42,14 +34,11 @@ function CreateTest() {
     try {
       const body = {
         name,
-        certificate,
         question,
-        choices,
-        answers,
         email,
         classe,
       };
-      const response = await fetch(`${url}/create/test`, {
+      const response = await fetch(`${url}/create/open`, {
         method: 'POST',
         headers: {
           'Content-type': 'application/json',
@@ -66,7 +55,6 @@ function CreateTest() {
       console.error(err.message);
     }
   };
-
 
   return (
     <div className='App'>
@@ -100,90 +88,7 @@ function CreateTest() {
                 <option value='biology'>biology</option>
               </select>
             </div>
-            <div className='col-md-6'>
-              <label forhtml='inputPassword4' className='form-label'>
-                Question
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                value={question}
-                onChange={(e) => onChange(e)}
-                name='question'
-                id='inputPassword4'
-              />
-            </div>
-            <div className='col-12'>
-              <label forhtml='inputAddress' className='form-label'>
-                Answer
-              </label>
-              <input
-                type='text'
-                onChange={(e) => setChoicese(e.target.value)}
-                className='form-control'
-                id='inputAddress'
-              />
-            </div>
-            <div className='col-12'>
-              <label forhtml='inputAddress2' className='form-label'>
-                Answer 2
-              </label>
-              <input
-                type='text'
-                onChange={(e) => setChoice(e.target.value)}
-                className='form-control'
-                id='inputAddress2'
-              />
-            </div>
-            <div className='col-12'>
-              <label forhtml='inputAddress' className='form-label'>
-                Answer 3
-              </label>
-              <input
-                type='text'
-                onChange={(e) => setChoic(e.target.value)}
-                className='form-control'
-                id='inputAddress'
-              />
-            </div>
-            <div className='col-12'>
-              <label forhtml='inputAddress2' className='form-label'>
-                Answer 4
-              </label>
-              <input
-                type='text'
-                onChange={(e) => setChoica(e.target.value)}
-                className='form-control'
-                id='inputAddress2'
-              />
-            </div>
-            <div className='col-md-6'>
-              <label forhtml='inputCity' className='form-label'>
-                Correct answer
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                value={answers}
-                onChange={(e) => onChange(e)}
-                name='answers'
-                id='inputCity'
-              />
-            </div>
-         
-            <div className='col-md-4'>
-              <label forhtml='inputState' className='form-label'>
-                Get certificate || Yes or No
-              </label>
-              <input
-                type='text'
-                className='form-control'
-                name='certificate'
-                value={certificate}
-                onChange={(e) => onChange(e)}
-                id='inputCity'
-              />
-            </div>
+
             <div className='col-md-6'>
               <label forhtml='inputEmail4' className='form-label'>
                 class
@@ -207,7 +112,44 @@ function CreateTest() {
                 <option value='s6lkk'>s6lkk</option>
               </select>
             </div>
-
+            <div className='col-md-6 container'>
+              <label forhtml='inputPassword4' className='form-label'>
+                Question
+              </label>
+              <div
+                className='form form-stacked sendNewMessage'
+                style={{position: 'relative', right: '30px'}}>
+                <div className='form-block'>
+                  <label className='label' htmlFor='board_content'>
+                    Answer
+                  </label>
+                  <div className='form-controls' style={{width: '460px'}}>
+                    <span
+                      className='button'
+                      title='Strong <strong>'
+                      data-button-type='addStrong'>
+                      <strong>Enjoy</strong>
+                    </span>
+                    <span
+                      className='button'
+                      title='Emphasis <em>'
+                      data-button-type='addEmphasis'>
+                      <strong>
+                        <em>Good work</em>
+                      </strong>
+                    </span>
+                  </div>
+                  <textarea
+                    placeholder='Your question is needed'
+                    type='text'
+                    value={question}
+                    onChange={(e) => onChange(e)}
+                    name='question'
+                    className='textarea-tall'
+                    id='board_content'></textarea>
+                </div>
+              </div>
+            </div>
             <button className='btn btn-primary btn-icon-text'>
               <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
               Submit
@@ -215,12 +157,11 @@ function CreateTest() {
           </form>
           <br />
           <br />
-          <Link to='/ope/question/'>Add open questions</Link>
+          <Link to='/create/room/test'>Add other question</Link>
         </div>
-        
       </div>
     </div>
   );
 }
 
-export default React.memo(CreateTest);
+export default React.memo(Openq);

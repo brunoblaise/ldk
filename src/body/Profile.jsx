@@ -1,12 +1,11 @@
 import React, {useContext} from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
-
-const Submis = React.lazy(() => import('./Submis'));
-
 import {ProfileContext} from './context/ProfileContext';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+const Submis = React.lazy(() => import( './Submis'));
+
 function Profile({setAuth}) {
   const logout = async (e) => {
     e.preventDefault();
@@ -18,8 +17,11 @@ function Profile({setAuth}) {
       console.error(err.message);
     }
   };
-
+  
   const [profile] = useContext(ProfileContext);
+ 
+
+
 
   return (
     <div>
@@ -107,12 +109,12 @@ function Profile({setAuth}) {
                         <li className='nav-item'>
                           <p className='nav-link'>
                             <i className='ti-user'></i>
-                            Info of submission
+                            Info of correct answers of open questions
                           </p>
                         </li>
                       </ul>
                     </div>
-                    <Submis />
+                 <Submis/>
                   </div>
                 </div>
               </div>

@@ -26855,4 +26855,6 @@ button.btn.btn-opacity-success.ml-1.banner-move {
   font-size:20px;
 }
 
-
+.col-md-6 textarea#board_content {
+    width: 460px !important;
+}

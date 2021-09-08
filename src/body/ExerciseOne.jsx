@@ -1,4 +1,4 @@
-import ExerciseForm from './ExerciseForm';
+
 import React, {useEffect, useState} from 'react';
 import {format} from 'timeago.js';
 const Header = React.lazy(() => import('../header/Header'));
@@ -55,7 +55,7 @@ function ExerciseOne({match}) {
                     </p>
                   </div>
                 </div>
-                <ExerciseForm />
+              
               </div>
             </div>
           </div>

@@ -1,6 +1,8 @@
 import React from 'react';
-
+import {Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 const Modal = ({results, data}) => {
+  const {id: documentId} = useParams();
 
   return (
     <div className='activer'>
@@ -8,7 +10,6 @@ const Modal = ({results, data}) => {
       <div className='card'>
         <header className='card-head'>
           <p className='card-title'>Your answers</p>
-          
         </header>
         <section className='card-body flex0 content'>
           <ul>
@@ -23,19 +24,18 @@ const Modal = ({results, data}) => {
                       ? 'btn btn-success has-text-white p-2'
                       : 'btn btn-danger has-text-white p-2'
                   }>
-                   
                   Your answer: {result.a}
                 </p>
                 {result.a !== data[i].test_answer ? (
                   <p className='btn btn-success has-text-white p-2'>
                     Correct answer: {data[i].test_answer}
                   </p>
-                ):
-                <p>All correct</p>
-                }
-               
+                ) : (
+                  <p>All correct</p>
+                )}
               </li>
             ))}
+            <Link to={`/open/${documentId}`}>continue to open questions</Link>
           </ul>
         </section>
       </div>
@@ -43,4 +43,4 @@ const Modal = ({results, data}) => {
   );
 };
 
-export default Modal;
+export default React.memo(Modal);

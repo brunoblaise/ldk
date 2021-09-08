@@ -3,7 +3,8 @@ import {ProfileContext} from '../context/ProfileContext';
 import jsPDF from 'jspdf';
 import {toast} from 'react-toastify';
 import {url} from '../../url';
-import Modal from './Modal';
+
+const Modal = React.lazy(() => import('./Modal'));
 import {Link} from 'react-router-dom';
 function End({results, data, nameu, datas}) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -88,6 +89,7 @@ function End({results, data, nameu, datas}) {
       </form>
     <Link to="/dashboard">continue to Dashboard</Link>
       <Modal results={results} data={data} />
+      
     </>
   );
 }

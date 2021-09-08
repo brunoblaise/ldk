@@ -11,12 +11,13 @@ function Screen({match}) {
   const [answers, setAnswers] = useState([]);
   const [notes, setNote] = useState([]);
   const [profile] = useContext(ProfileContext);
-
+  let controller = new AbortController();
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/test`, {
         method: 'GET',
         headers: {jwt_token: localStorage.token},
+        signal: controller.signal,
       });
 
       const parseData = await res.json();
@@ -39,10 +40,11 @@ function Screen({match}) {
 
   useEffect(() => {
     getProfile();
+    return () => controller?.abort();
   }, []);
 
   const id = profile.map((profil) => profil.class_student);
-  console.log(notes);
+
   return (
     <div>
       {step === 1 && <Start onQuizStart={quizStartHandler} data={notes} />}
@@ -61,7 +63,6 @@ function Screen({match}) {
           results={answers}
           data={notes}
           nameu={match.params.id}
-        
           datas={notes[activeQuestion]}
         />
       )}

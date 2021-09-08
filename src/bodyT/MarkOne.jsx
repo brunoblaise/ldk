@@ -2,16 +2,20 @@ import React, {useEffect, useState, useContext} from 'react';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import {url} from '../url';
 import {TeacherContext} from './context/TeacherContext';
+import {Link} from 'react-router-dom';
+
 function MarkOne({match}) {
   const [search, setSearch] = useState('');
   const [message, setMessage] = useState([]);
   const [profile] = useContext(TeacherContext);
   const [loading, setLoading] = useState(true);
+  let controller = new AbortController();
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/test_mark`, {
         method: 'GET',
         headers: {jwt_token: localStorage.token},
+        signal: controller.signal,
       });
 
       const parseData = await res.json();
@@ -30,8 +34,9 @@ function MarkOne({match}) {
 
   useEffect(() => {
     getProfile();
+    return () => controller?.abort();
   }, []);
-
+  
   return (
     <div className='col-lg-12 grid-margin stretch-card'>
       <div className='card'>
@@ -63,10 +68,20 @@ function MarkOne({match}) {
                 <th scope='col'>Email</th>
                 <th scope='col'>class</th>
                 <th scope='col'>Marks</th>
+
+                <th scope='col'> Send marks </th>
               </tr>
             </thead>
             {loading ? (
-              <p>loading...</p>
+              <tbody>
+                <tr>
+                  <td> loading...</td>
+                  <td> loading...</td>
+                  <td> loading...</td>
+                  <td> loading...</td>
+                
+                </tr>
+              </tbody>
             ) : (
               message
                 .filter((val) => {
@@ -82,11 +97,21 @@ function MarkOne({match}) {
                 })
                 .slice(0, 15)
                 .map((note) => (
-                  <tbody key={note.student_email}>
+                  <tbody key={note.timestamp} id={`save${note.test_mark_id}`}>
                     <tr>
                       <td>{note.student_email}</td>
                       <td>{note.class_year_content}</td>
                       <td>{note.test_mark}%</td>
+
+                      <td>
+                        {' '}
+                        <Link
+                          to={`/question/open/${note.student_email}/${note.test_mark_id}`}
+                          className='btn btn-info'
+                          data-target={`#save${note.test_mark_id}`}>
+                          Give marks
+                        </Link>
+                      </td>
                     </tr>
                   </tbody>
                 ))

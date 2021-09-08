@@ -6,11 +6,13 @@ export const ProfileContext = createContext();
 export const ProfileProvide = (props) => {
   const [profile, setProfile] = useState([]);
   const [loading, setLoading] = useState(true);
+  let controller = new AbortController();
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/profile`, {
         method: 'GET',
         headers: {jwt_token: localStorage.token},
+        signal: controller.signal,
       });
 
       const parseData = await res.json();
@@ -24,6 +26,7 @@ export const ProfileProvide = (props) => {
 
   useEffect(() => {
     getProfile();
+    return () => controller?.abort();
   }, []);
 
   return (
