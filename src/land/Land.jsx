@@ -1,9 +1,8 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
-
-
+import ReactPlayer from 'react-player';
 import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 import Group from '../images/blob-scene-haikei.svg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -11,43 +10,43 @@ function Land() {
   return (
     <>
       <header className='header-section'>
-      <Helmet>
-        <meta name='title' content='college du christ roi' />
-        <meta
-          http-equiv='Content-Security-Policy'
-          content='upgrade-insecure-requests'
-        />
-        <meta name='language' content='EN' />
-        <meta name='author' content='Mudacumura brunoblaise' />
-        <meta name='creationdate' content='29/07/2020' />
-        <meta name='distribution' content='global' />
-        <meta name='rating' content='general' />
+        <Helmet>
+          <meta name='title' content='college du christ roi' />
+          <meta
+            http-equiv='Content-Security-Policy'
+            content='upgrade-insecure-requests'
+          />
+          <meta name='language' content='EN' />
+          <meta name='author' content='Mudacumura brunoblaise' />
+          <meta name='creationdate' content='29/07/2020' />
+          <meta name='distribution' content='global' />
+          <meta name='rating' content='general' />
 
-        <title>College du Christ Roi</title>
-        <meta name='title' content='College du Christ Roi' />
-        <meta
-          name='description'
-          content='study today from your home and give your students online work or exercise and boost your productivity'
-        />
+          <title>College du Christ Roi</title>
+          <meta name='title' content='College du Christ Roi' />
+          <meta
+            name='description'
+            content='study today from your home and give your students online work or exercise and boost your productivity'
+          />
 
-        <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://cxrgo.ml/' />
-        <meta property='og:title' content='College du Christ Roi' />
-        <meta
-          property='og:description'
-          content='study today from your home and give your students online work or exercise and boost your productivity'
-        />
-        <meta property='og:image' content='/cxr.jpg' />
+          <meta property='og:type' content='website' />
+          <meta property='og:url' content='https://cxrgo.ml/' />
+          <meta property='og:title' content='College du Christ Roi' />
+          <meta
+            property='og:description'
+            content='study today from your home and give your students online work or exercise and boost your productivity'
+          />
+          <meta property='og:image' content='/cxr.jpg' />
 
-        <meta property='twitter:card' content='summary_large_image' />
-        <meta property='twitter:url' content='https://cxrgo.ml/' />
-        <meta property='twitter:title' content='College du Christ Roi' />
-        <meta
-          property='twitter:description'
-          content='study today from your home and give your students online work or exercise and boost your productivity'
-        />
-        <meta property='twitter:image' content='/cxr.jpg' />
-      </Helmet>
+          <meta property='twitter:card' content='summary_large_image' />
+          <meta property='twitter:url' content='https://cxrgo.ml/' />
+          <meta property='twitter:title' content='College du Christ Roi' />
+          <meta
+            property='twitter:description'
+            content='study today from your home and give your students online work or exercise and boost your productivity'
+          />
+          <meta property='twitter:image' content='/cxr.jpg' />
+        </Helmet>
         <nav className='navbar navbar-expand-lg pl-3 pl-sm-0' id='navbar'>
           <Link to='/'>
             <LazyLoadImage
@@ -136,7 +135,6 @@ function Land() {
             </div>
           </div>
         </div>
-
         <div className='col fut'>
           <div className='card h-100'>
             <div className='card-body'>
@@ -160,9 +158,15 @@ function Land() {
                 Smart class for explanation of notes and other much more
               </p>
             </div>
+
           </div>
+
         </div>
+
+        <ReactPlayer width='300px' height='100px' url='https://www.youtube.com/watch?v=0Xw-kIknJGg'  className="video_land"controls />
+
       </div>
+
     </>
   );
 }

@@ -2,6 +2,8 @@ import React, {useState, useEffect, useContext} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../../url';
 import {ProfileContext} from '../context/ProfileContext';
+
+
 function Openw({match}) {
   const [counter, setCounter] = useState(120);
   const [loading, setLoading] = useState(true);
@@ -71,6 +73,8 @@ function Openw({match}) {
       console.error(err.message);
     }
   };
+  
+
   return (
     <>
       <div>

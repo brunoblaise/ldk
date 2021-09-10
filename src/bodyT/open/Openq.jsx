@@ -113,15 +113,12 @@ function Openq() {
               </select>
             </div>
             <div className='col-md-6 container'>
-              <label forhtml='inputPassword4' className='form-label'>
-                Question
-              </label>
               <div
                 className='form form-stacked sendNewMessage'
                 style={{position: 'relative', right: '30px'}}>
                 <div className='form-block'>
                   <label className='label' htmlFor='board_content'>
-                    Answer
+                    Question
                   </label>
                   <div className='form-controls' style={{width: '460px'}}>
                     <span

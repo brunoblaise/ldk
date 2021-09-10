@@ -570,8 +570,9 @@ pre code {
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin-right: -15px;
+  margin-right: 305px;
   margin-left: -15px;
+  height:400px;
 }
 
 .no-gutters {
@@ -26763,7 +26764,7 @@ p.btn.btn-danger.has-text-white.p-2 {
 }
 .fut {
   box-shadow: 0px 5px 21px -5px #cdd1e1;
-  margin-left: 300px;
+  margin-left: 200px;
   margin: 20px;
 }
 .weq {
@@ -26857,4 +26858,11 @@ button.btn.btn-opacity-success.ml-1.banner-move {
 
 .col-md-6 textarea#board_content {
     width: 460px !important;
+}
+.video_land{
+  width: 800px !important;
+  height: 520px !important;
+  position: relative;
+  left: 846px;
+  top: -528px;
 }

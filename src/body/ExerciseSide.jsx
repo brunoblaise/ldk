@@ -28,6 +28,7 @@ function ExerciseSide() {
     getProfile();
   }, []);
   const id = profile.map((profil) => profil.class_student);
+  
 
   return (
     <>

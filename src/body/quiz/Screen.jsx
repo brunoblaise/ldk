@@ -45,6 +45,7 @@ function Screen({match}) {
 
   const id = profile.map((profil) => profil.class_student);
 
+
   return (
     <div>
       {step === 1 && <Start onQuizStart={quizStartHandler} data={notes} />}
