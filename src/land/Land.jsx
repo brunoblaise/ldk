@@ -108,7 +108,7 @@ function Land() {
         </div>
       </div>
       <h1 className='pq'>Services that the application offers</h1>
-      <div className='row row-cols-1 row-cols-md-3 g-4 weq'>
+      <div className='row1 row-cols-1 row-cols-md-3 g-4 weq'>
         <div className='col fut'>
           <div className='card h-100'>
             <div className='card-body'>
