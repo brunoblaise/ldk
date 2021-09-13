@@ -31,7 +31,7 @@ function Message() {
     getProfile();
   }, [setMessage]);
   const own = profile.map((profil) => profil.student_email);
-
+  
   return (
     <div className='__main'>
       <div className='nav'>

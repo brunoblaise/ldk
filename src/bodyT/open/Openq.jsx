@@ -112,38 +112,19 @@ function Openq() {
                 <option value='s6lkk'>s6lkk</option>
               </select>
             </div>
-            <div className='col-md-6 container'>
+            <div className='containe ql-editor bade'>
               <div
                 className='form form-stacked sendNewMessage'
-                style={{position: 'relative', right: '30px'}}>
-                <div className='form-block'>
-                  <label className='label' htmlFor='board_content'>
-                    Question
-                  </label>
-                  <div className='form-controls' style={{width: '460px'}}>
-                    <span
-                      className='button'
-                      title='Strong <strong>'
-                      data-button-type='addStrong'>
-                      <strong>Enjoy</strong>
-                    </span>
-                    <span
-                      className='button'
-                      title='Emphasis <em>'
-                      data-button-type='addEmphasis'>
-                      <strong>
-                        <em>Good work</em>
-                      </strong>
-                    </span>
-                  </div>
+                >
+                <div>
                   <textarea
                     placeholder='Your question is needed'
                     type='text'
                     value={question}
                     onChange={(e) => onChange(e)}
                     name='question'
-                    className='textarea-tall'
-                    id='board_content'></textarea>
+                    className='ql-editor bado'
+                  />
                 </div>
               </div>
             </div>

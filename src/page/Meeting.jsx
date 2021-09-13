@@ -44,6 +44,8 @@ function Video({match}) {
   <meta name='rating' content='general' />
 
   <title>{id}</title>
+  <script crossorigin src="https://unpkg.com/@daily-co/daily-js" defer></script>
+
 </Helmet></div>;
 }
 export default React.memo(Video);

@@ -19,6 +19,7 @@ function JoinRoom() {
         <meta name='creationdate' content='29/07/2020' />
         <meta name='distribution' content='global' />
         <meta name='rating' content='general' />
+        <script crossorigin src="https://unpkg.com/@daily-co/daily-js" defer></script>
 
         <title>{room}</title>
       </Helmet>

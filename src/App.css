@@ -26866,3 +26866,13 @@ button.btn.btn-opacity-success.ml-1.banner-move {
   left: 846px;
   top: -528px;
 }
+.bade{
+  position: relative;
+    left: 2px;
+}
+.bado{
+  position: relative;
+    left: 62px;
+    top: 10px;
+    border-style:none !important;
+}
