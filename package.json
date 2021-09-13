@@ -16,6 +16,7 @@
     "react-helmet": "^6.1.0",
     "react-html-table-to-excel": "^2.0.0",
     "react-lazy-load-image-component": "^1.5.1",
+    "react-mathjax": "^1.0.1",
     "react-player": "^2.9.0",
     "react-router-dom": "^5.2.0",
     "react-toastify": "^7.0.4",

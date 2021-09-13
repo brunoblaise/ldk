@@ -2,8 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../../url';
 import {ProfileContext} from '../context/ProfileContext';
-
-
+import MathJax from 'react-mathjax'
 function Openw({match}) {
   const [counter, setCounter] = useState(120);
   const [loading, setLoading] = useState(true);
@@ -73,7 +72,6 @@ function Openw({match}) {
       console.error(err.message);
     }
   };
-  
 
   return (
     <>
@@ -96,7 +94,12 @@ function Openw({match}) {
                 </h1>
               </div>
             </div>
-            <h2 id='question'>{loading ? 'loading' : notes[0].question}</h2>
+            <MathJax.Provider>
+              <MathJax.Node
+                id='question'
+                formula={loading ? 'loading' : notes[0].question}
+              />
+            </MathJax.Provider>
           </div>
         </div>
       </div>
