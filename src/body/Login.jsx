@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 import {url} from '../url';
 const Login = ({setAuth}) => {
   const [inputs, setInputs] = useState({
@@ -42,7 +42,7 @@ const Login = ({setAuth}) => {
 
   return (
     <div className='container-scroller'>
-        <Helmet>
+      <Helmet>
         <meta name='title' content='college du christ roi' />
         <meta
           http-equiv='Content-Security-Policy'
@@ -55,7 +55,10 @@ const Login = ({setAuth}) => {
         <meta name='rating' content='general' />
 
         <title>Login</title>
-    
+        <meta
+          name='keywords'
+          content='college du christ roi, nyanza, south province, rwanda, school, website'
+        />
       </Helmet>
       <div className='container-fluid page-body-wrapper full-page-wrapper'>
         <div className='content-wrapper d-flex align-items-center auth px-0'>

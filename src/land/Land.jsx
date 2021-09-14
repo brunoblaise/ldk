@@ -5,6 +5,7 @@ import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 import {Helmet} from 'react-helmet';
 import Group from '../images/blob-scene-haikei.svg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
+
 import 'react-lazy-load-image-component/src/effects/blur.css';
 function Land() {
   return (
@@ -16,6 +17,11 @@ function Land() {
             http-equiv='Content-Security-Policy'
             content='upgrade-insecure-requests'
           />
+          <meta
+            name='keywords'
+            content='college du christ roi, nyanza, south province, rwanda, school, website'
+          />
+
           <meta name='language' content='EN' />
           <meta name='author' content='Mudacumura brunoblaise' />
           <meta name='creationdate' content='29/07/2020' />
@@ -36,7 +42,7 @@ function Land() {
             property='og:description'
             content='study today from your home and give your students online work or exercise and boost your productivity'
           />
-          <meta property='og:image' content='/cxr.jpg' />
+          <meta property='og:image' content='./cxr.jpg' />
 
           <meta property='twitter:card' content='summary_large_image' />
           <meta property='twitter:url' content='https://cxrgo.ml/' />
@@ -45,7 +51,7 @@ function Land() {
             property='twitter:description'
             content='study today from your home and give your students online work or exercise and boost your productivity'
           />
-          <meta property='twitter:image' content='/cxr.jpg' />
+          <meta property='twitter:image' content='./cxr.jpg' />
         </Helmet>
         <nav className='navbar navbar-expand-lg pl-3 pl-sm-0' id='navbar'>
           <Link to='/'>
@@ -158,15 +164,17 @@ function Land() {
                 Smart class for explanation of notes and other much more
               </p>
             </div>
-
           </div>
-
         </div>
 
-        <ReactPlayer width='300px' height='100px' url='https://www.youtube.com/watch?v=0Xw-kIknJGg'  className="video_land"controls />
-
+        <ReactPlayer
+          width='300px'
+          height='100px'
+          url='https://www.youtube.com/watch?v=0Xw-kIknJGg'
+          className='video_land'
+          controls
+        />
       </div>
-
     </>
   );
 }

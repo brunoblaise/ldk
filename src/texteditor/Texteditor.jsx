@@ -3,9 +3,7 @@ import Quill from 'quill';
 import 'quill/dist/quill.snow.css';
 import {io} from 'socket.io-client';
 import {useParams} from 'react-router-dom';
-import katex from 'katex';
-window.katex = katex;
-import 'katex/dist/katex.css';
+
 
 const SAVE_INTERVAL_MS = 2000;
 const TOOLBAR_OPTIONS = [
@@ -16,7 +14,7 @@ const TOOLBAR_OPTIONS = [
   [{color: []}, {background: []}],
   [{script: 'sub'}, {script: 'super'}],
   [{align: []}],
-  ['image', 'blockquote', 'code-block', 'formula'],
+  ['image', 'blockquote', 'code-block'],
   ['clean'],
 ];
 
@@ -92,7 +90,7 @@ function TextEditor() {
     wrapper.append(editor);
     const q = new Quill(editor, {
       theme: 'snow',
-      modules: {formula: true, toolbar: TOOLBAR_OPTIONS},
+      modules: {toolbar: TOOLBAR_OPTIONS},
     });
     q.disable();
     q.setText('Loading...');
