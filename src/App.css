@@ -26876,3 +26876,17 @@ button.btn.btn-opacity-success.ml-1.banner-move {
     top: 10px;
     border-style:none !important;
 }
+.moviee{
+  position:relative;
+  left:220px;
+}
+.eh{
+  position:relative;
+top:-10px;
+left:-20px;
+}
+.question{
+  position:relative;
+  word-wrap:break-word;
+  right:100px;
+}

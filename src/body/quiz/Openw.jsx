@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../../url';
 import {ProfileContext} from '../context/ProfileContext';
-import MathJax from 'react-mathjax'
+import MathJax from 'react-mathjax';
 function Openw({match}) {
   const [counter, setCounter] = useState(120);
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ function Openw({match}) {
 
   const id = profile.map((profil) => profil.class_student);
   const [notes, setNote] = useState([]);
-  const teacher = loading ? 'loading' : notes[0].teacher_email;
+
   let controller = new AbortController();
   const getProfile = async () => {
     try {
@@ -47,6 +47,8 @@ function Openw({match}) {
     getProfile();
     return () => controller?.abort();
   }, [setNote]);
+
+  const teacher = loading ? 'loading' : notes[0].teacher_email;
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -96,6 +98,7 @@ function Openw({match}) {
             </div>
             <MathJax.Provider>
               <MathJax.Node
+              className="question"
                 id='question'
                 formula={loading ? 'loading' : notes[0].question}
               />
@@ -103,42 +106,27 @@ function Openw({match}) {
           </div>
         </div>
       </div>
-      <div className='attachments-sections'>
+      <div className='containe ql-editor'>
         <ul>
           <form onSubmit={onSubmitForm}>
             <div className='thumb'>
               <i className='ti-image'></i>
             </div>
-            <div className='container'>
+            <div className='containe moviee'  >
               <div
                 className='form form-stacked sendNewMessage'
-                style={{position: 'relative', right: '30px'}}>
-                <div className='form-block'>
-                  <label className='label' htmlFor='board_content'>
-                    Answer
-                  </label>
-                  <div className='form-controls' style={{width: '540px'}}>
-                    <span
-                      className='button'
-                      title='Strong <strong>'
-                      data-button-type='addStrong'>
-                      <strong>Enjoy</strong>
-                    </span>
-                    <span
-                      className='button'
-                      title='Emphasis <em>'
-                      data-button-type='addEmphasis'>
-                      <strong>
-                        <em>Good work</em>
-                      </strong>
-                    </span>
+              >
+                <div className='ql-editor '>
+                  <div>
+              
+            
                   </div>
                   <textarea
                     placeholder='Your answer is needed'
                     name='answer'
                     value={answer}
                     onChange={(e) => setAnswer(e.target.value)}
-                    className='textarea-tall'
+                    className='ql-editor bado eh'
                     id='board_content'></textarea>
                   <button
                     className={counter === 0 ? 'over' : 'btnSendMsg '}
