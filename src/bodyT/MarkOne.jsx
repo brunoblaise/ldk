@@ -36,6 +36,7 @@ function MarkOne({match}) {
     getProfile();
     return () => controller?.abort();
   }, []);
+  message.filter((el, index) => message.indexOf(el) === index);
   
   return (
     <div className='col-lg-12 grid-margin stretch-card'>

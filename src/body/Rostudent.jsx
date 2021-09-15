@@ -24,7 +24,7 @@ function Rostudent() {
     getProfile();
   }, []);
   const id = profile.map((profil) => profil.class_student);
-
+  message.filter((el, index) => message.indexOf(el) === index);
   return (
     <div className='col-lg-12 grid-margin stretch-card'>
       <div className='card'>

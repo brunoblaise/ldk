@@ -6,7 +6,7 @@ import {format} from 'timeago.js';
 import {url} from '../url';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import cxr from '../images/cxr.jpg';
+
 import {Helmet} from "react-helmet";
 function MessageT() {
   const [message, setMessage] = useState([]);
@@ -65,7 +65,8 @@ function MessageT() {
                       effect='blur'
                       width='640'
                       height='360'
-                      src={cxr}
+                      src={`https://avatars.dicebear.com/api/avataaars/${own}.svg`}
+                      
                       alt=''
                     />
                   </div>
