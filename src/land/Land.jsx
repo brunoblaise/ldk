@@ -102,7 +102,7 @@ function Land() {
           </h1>
           <h6 className='font-weight-normal text-muted pb-3 banner-move'>
             This is Simple a way where students and teacher connect very easy
-            
+
           </h6>
           <div>
             <button className='btn btn-opacity-light mr-1 banner-move'>
