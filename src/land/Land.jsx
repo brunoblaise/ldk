@@ -177,7 +177,7 @@ function Land() {
       </div>
       <div>
         <h2 className='pb-5 pt-4 pl-4'>
-          It's not about the platform but the quality of education we are given
+          It's not about the platform but the quality of education we as student are offered
         </h2>
         <div className='container ml-4 closer'>
           <div className='row align-items-center connecting-lines d-flex'>
