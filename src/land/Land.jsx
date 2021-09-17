@@ -7,6 +7,7 @@ import Group from '../images/blob-scene-haikei.svg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
+
 function Land() {
   return (
     <>
@@ -87,7 +88,6 @@ function Land() {
           </div>
         </nav>
       </header>
-
       <div className='banner banner-background'>
         <LazyLoadImage
           effect='blur'
@@ -101,8 +101,7 @@ function Land() {
             A Better way to study now & It is just one click.
           </h1>
           <h6 className='font-weight-normal text-muted pb-3 banner-move'>
-            This is Simple  way where students and teacher connect very easy
-
+            This is Simple way where students and teacher connect very easy
           </h6>
           <div>
             <button className='btn btn-opacity-light mr-1 banner-move'>
@@ -175,7 +174,11 @@ function Land() {
           className='video_land'
           controls
         />
+
+       
       </div>
+
+ 
     </>
   );
 }

@@ -22,6 +22,7 @@ function CreateTest() {
   const [choica, setChoica] = useState(null);
   const [subject, setSubject] = useState('');
   const [subjec, setSubjec] = useState('');
+  const [answer, setSubje] = useState('');
   const {question, certificate, answers} = inputs;
   const choices = [choicese, choice, choic, choica];
   const name = subject.value;
@@ -167,6 +168,20 @@ function CreateTest() {
                 value={answers}
                 onChange={(e) => onChange(e)}
                 name='answers'
+                id='inputCity'
+              />
+            </div>
+         
+            <div className='col-md-6'>
+              <label forhtml='inputCity' className='form-label'>
+                Set Timer
+              </label>
+              <input
+                type='text'
+                className='form-control'
+                value={answer}
+                onChange={(e) => setSubje(e.target.value)}
+              
                 id='inputCity'
               />
             </div>

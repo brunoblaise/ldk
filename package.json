@@ -5,7 +5,6 @@
     "build": "vite build",
     "serve": "vite preview"
   },
-
   "dependencies": {
     "axios": "^0.21.4",
     "jspdf": "^2.3.1",
