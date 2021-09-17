@@ -161,7 +161,7 @@ function Land() {
               </h5>
               <p className='card-text'>
                 These include: quiz given to student, exercise, work, notes and
-                Smart class for explanation of notes and other much more
+                Smart className for explanation of notes and other much more
               </p>
             </div>
           </div>
@@ -174,11 +174,100 @@ function Land() {
           className='video_land'
           controls
         />
-
-       
       </div>
+      <div>
+        <h2 className='pb-5 pt-4 pl-4'>
+          It's not about the platform but the quality of education we are given
+        </h2>
+        <div className='container ml-4 closer'>
+          <div className='row align-items-center connecting-lines d-flex'>
+            <div className='col-2 text-center bottom d-inline-flex justify-content-center align-items-center'>
+              <div className='circle font-weight-bold'>
+                <i className='fa fa-check'></i>
+              </div>
+            </div>
+            <div className='col-6'>
+              <h4 className='uw'>Discipline</h4>
+              <p>
+                Why is discipline important? Discipline teaches us to operate by
+                principle rather than desire. Saying no to our impulses (even
+                the ones that are not inherently sinful) puts us in control of
+                our appetites rather than vice versa. It deposes our lust and
+                permits truth, virtue, and integrity to rule our minds instead.
+              </p>
+            </div>
+          </div>
 
- 
+          <div className='row timeline'>
+            <div className='col-2'>
+              <div className='corner top-right'></div>
+            </div>
+            <div className='col-8'>
+              <hr />
+            </div>
+            <div className='col-2'>
+              <div className='corner left-bottom'></div>
+            </div>
+          </div>
+
+          <div className='row align-items-center justify-content-end connecting-lines d-flex'>
+            <div className='col-6 text-right'>
+              <h4 className='uw'>Education</h4>
+              <p className='uw'>
+                Educating the mind without educating the heart is no education
+                at all. That is what differentiate us from the rest, that is why
+                we are the best in every thing we do no matter how difficult we
+                always find a way
+              </p>
+            </div>
+            <div className='col-2 text-center full d-inline-flex justify-content-center align-items-center'>
+              <div className='circle font-weight-bold'>
+                <i className='fa fa-check'></i>
+              </div>
+            </div>
+          </div>
+
+          <div className='row timeline'>
+            <div className='col-2'>
+              <div className='corner right-bottom'></div>
+            </div>
+            <div className='col-8'>
+              <hr />
+            </div>
+            <div className='col-2'>
+              <div className='corner top-left'></div>
+            </div>
+          </div>
+
+          <div className='row align-items-center connecting-lines d-flex' >
+            <div className='col-2 text-center top d-inline-flex justify-content-center align-items-center'>
+              <div className='circle font-weight-bold'>
+                <i className='fa fa-check'></i>
+              </div>
+            </div>
+            <div className='col-6'>
+              <h4 className='uw'>Inspiration</h4>
+              <p className='uw'>
+                Our inspiration comes from the hard work our teachers do, they
+                educated us to be come the best versions of ourselves
+              </p>
+            </div>
+           
+          </div>
+        
+        </div>
+         <LazyLoadImage
+            style={{position: 'relative', left: '663px', top: '-136px'}}
+            effect='blur'
+            src='https://inyarwanda.com/app/webroot/img/201705/attachments/1494937585_b30a9665.jpg'
+            alt=''
+            width='630px'
+            className='banner-image'
+          />
+      </div>
+      <br />
+      <br />
+      <br />
     </>
   );
 }
