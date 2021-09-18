@@ -78,14 +78,14 @@ function Header() {
           </li>
         </ul>
         <ul className='navbar-nav navbar-nav-right'>
-          {profile.map((profil) => (
+          {profile.map((profiles) => (
             <li
-              key={profil.teacher_id}
+              key={profiles.teacher_id}
               className='nav-item nav-profile avatar-img'>
               <Link to='/profile' className='nav-link'>
                 <LazyLoadImage
                   effect='blur'
-                  src={`${profil.teacher_photo}`}
+                  src={`${profiles.teacher_photo}`}
                   alt='profile'
                 />
               </Link>
