@@ -29,8 +29,7 @@ function WorkList() {
 
   return (
     <>
-      <div className='mail-list-container col-md-3 pt-4 pb-4 border-right bg-white'>
-        <div className='border-bottom pb-4 mb-3 px-3'>
+    
           <div className='form-group'>
             <input
               className='form-control w-100'
@@ -41,7 +40,7 @@ function WorkList() {
               onChange={(e) => setSearch(e.target.value)}
             />
           </div>
-        </div>
+        
         {notes
           .slice(0, 5)
           .filter((val) => {
@@ -55,27 +54,22 @@ function WorkList() {
           })
           .slice(0, 5)
           .map((note) => (
-            <div key={note.work_id} className='mail-list'>
-              <div className='form-check'>
-                {' '}
-                <label className='form-check-label'>
-                  {' '}
-                  <input type='checkbox' className='form-check-input' />{' '}
-                  <i className='input-helper'></i>
-                </label>
-              </div>
-
-              <Link to={`/work/${note.work_id}`} className='content'>
-                <p className='sender-name'>{note.work_title}</p>
-                <p className='message_text'>{note.work_note}</p>
+            <div key={note.work_id} className="list-group">
+              
+              
+            <Link className="list-group-item list-group-item-action" to={`/work/${note.work_id}`} >
+               {note.work_title}
+              
               </Link>
+             
+           
+          </div>
+     
+          ))
+          }
 
-              <div className='details'>
-                <i className='ti-star'></i>
-              </div>
-            </div>
-          ))}
-      </div>
+     
+     
     </>
   );
 }

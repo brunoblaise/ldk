@@ -49,12 +49,6 @@ function Sidebar({setAuth}) {
           </Link>
         </li>
 
-        <li className='nav-item'>
-          <Link className='nav-link' to='/exercise'>
-            <i className='bi bi-file-earmark-spreadsheet-fill menu-icon'></i>
-            <span className='menu-title'>Exercise</span>
-          </Link>
-        </li>
 
         <li className='nav-item'>
           <Link className='nav-link' to='/works'>
@@ -63,13 +57,7 @@ function Sidebar({setAuth}) {
           </Link>
         </li>
 
-        <li className='nav-item'>
-          <Link className='nav-link' to='/worksub'>
-            <i className='bi bi-app-indicator  menu-icon'></i>
-
-            <span className='menu-title'>Work Sub</span>
-          </Link>
-        </li>
+       
 
         <li className='nav-item'>
           <Link className='nav-link' to='/report'>

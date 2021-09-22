@@ -1,6 +1,9 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from "react-helmet";
 import {url} from '../url';
+import {Link} from 'react-router-dom';
+const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
+const Header = React.lazy(() => import('../header1/Header'));
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 function Class({match}) {
   const [message, setMessage] = useState([]);
@@ -45,15 +48,19 @@ function Class({match}) {
 
         <title> {match.params.id} class</title>
       </Helmet>
+      <Header />
+      <div className='container-fluid page-body-wrapper'>
+        <Sidebar />
+        <div className='content-wrapper'>
       <div className='card'>
         <div className='card-body'>
-          <h4 className='card-title' _msthash='2271633' _msttexthash='226057'>
+          <h4 className='card-title' >
             Signed up Students in {match.params.id}
           </h4>
           <ReactHTMLTableToExcel
             className='btn btn-info'
             table='emp'
-            filename='Report'
+            filename={match.params.id}
             sheet='Sheet'
             buttonText='Export'
           />
@@ -67,26 +74,30 @@ function Class({match}) {
               name='search'
               onChange={(e) => setSearch(e.target.value)}
             />
-            <table className='table table-bordered' id='emp'>
+             <table className='table caption-top' id='emp'>
+            <caption>List of student</caption>
               <thead>
                 <tr>
-                  <th _msthash='4713943' _msttexthash='135252'>
+                  <th scope='col'>
                     Class
                   </th>
-                  <th _msthash='4715139' _msttexthash='117936'>
+                  <th scope='col'>
                     Names
-                  </th>
-                  <th _msthash='4715139' _msttexthash='117936'>
+                  </th >
+                  <th scope='col'>
                     Email
                   </th>
-                  <th _msthash='4715139' _msttexthash='117936'>
+                  <th scope='col'>
                     Photo
                   </th>
-                  <th _msthash='4716335' _msttexthash='79274'>
+                  <th scope='col'>
                     Gender
                   </th>
-                  <th _msthash='4717531' _msttexthash='109837'>
+                  <th scope='col'>
                     Phone
+                  </th>
+                  <th scope='col'>
+                   Mark
                   </th>
                 </tr>
               </thead>
@@ -105,34 +116,45 @@ function Class({match}) {
                 .slice(0, 15)
                 .map((note) => (
                   <tbody key={note.student_email}>
-                    <tr>
-                      <td _msthash='4739384' _msttexthash='146692'>
+                  <tr>
+                  <td >
                         {note.class_student}
                       </td>
-                      <td _msthash='4741776' _msttexthash='38454'>
+                      <td>
                         {note.student_fname}
                         <br />
                         {note.student_lname}
                       </td>
-                      <td _msthash='4741776' _msttexthash='38454'>
+                      <td>
                         {note.student_email}
                       </td>
-                      <td _msthash='4741776' _msttexthash='38454'>
+                      <td>
                         <img src={note.student_photo} alt='' />
                       </td>
-                      <td _msthash='4742972' _msttexthash='89830'>
-                        {note.student_gender}
+                      <td>
+                      {note.student_gender}
                       </td>
-                      <td _msthash='4742972' _msttexthash='89830'>
+                      <td >
                         {note.student_phonem}
                       </td>
-                    </tr>
-                  </tbody>
+
+                      <td>
+                        {' '}
+                        <Link 
+                         to={`/mywork/${note.student_email}`}
+                        >
+                         Turn in 
+                        </Link>
+                      </td>
+                  </tr>
+                </tbody>
                 ))}
             </table>
           </div>
         </div>
       </div>
+    </div>
+    </div>
     </div>
   );
 }

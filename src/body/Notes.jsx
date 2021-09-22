@@ -11,8 +11,8 @@ function Notes() {
         <Sidebar />
         <div className='content-wrapper'>
           <div className='email-wrapper wrapper'>
-            <div className='row align-items-stretch'>
-              <Notessidebar />
+           
+              
 
               <div className='mail-view d-none d-md-block col-md-9 col-lg-7 bg-white'>
                 <div className='message-body'>
@@ -29,6 +29,7 @@ function Notes() {
                       right away please search in the search box
                     </p>
 
+            <Notessidebar/>
                     <p>
                       <br />
                       <br />
@@ -42,7 +43,7 @@ function Notes() {
             </div>
           </div>
         </div>
-      </div>
+      
     </>
   );
 }

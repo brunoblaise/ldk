@@ -13,8 +13,7 @@ const RegisterT = React.lazy(() => import('./bodyT/RegisterT'));
 const Notes = React.lazy(() => import('./body/Notes'));
 const Quiz = React.lazy(() => import('./body/Quiz'));
 import 'react-toastify/dist/ReactToastify.css';
-const Exercise = React.lazy(() => import('./body/Exercise'));
-const ExerciseOne = React.lazy(() => import('./body/ExerciseOne'));
+
 import {v4 as uuidV4} from 'uuid';
 import './App.css';
 import {
@@ -38,14 +37,14 @@ const Onenotes = React.lazy(() => import('./body/Onenotes'));
 import {ProfileProvide} from './body/context/ProfileContext';
 import {TeacherProvide} from './bodyT/context/TeacherContext';
 
-const WorkSub = React.lazy(() => import('./body/WorkSub'));
 const Report = React.lazy(() => import('./body/Report'));
 const Land = React.lazy(() => import('./land/Land'));
 
 import {url} from './url';
 import {ErrorBoundary} from 'react-error-boundary';
 
-
+const Mywork = React.lazy(() => import('./bodyT/home/Mywork'));
+const Seen = React.lazy(() => import('./bodyT/home/Seen'));
 const Givem = React.lazy(() => import('./bodyT/open/Givem'));
 const Fallback = React.lazy(() => import('./Fallback'));
 const Openw = React.lazy(() => import('./body/quiz/Openw'));
@@ -54,8 +53,7 @@ const ForgetT = React.lazy(() => import('./res/ForgetT'));
 const ResetT = React.lazy(() => import('./res/ResetT'));
 const Forget = React.lazy(() => import('./res/Forget'));
 const Reset = React.lazy(() => import('./res/Reset'));
-const MarkOne = React.lazy(() => import('./bodyT/MarkOne'));
-const MarkClass = React.lazy(() => import('./bodyT/MarkClass'));
+
 const CreateTest = React.lazy(() => import('./bodyT/CreateTest'));
 const Screen = React.lazy(() => import('./body/quiz//Screen'));
 const Rostudent = React.lazy(() => import('./body/Rostudent'));
@@ -63,14 +61,9 @@ const TestRoom = React.lazy(() => import('./body/TestRoom'));
 const Class = React.lazy(() => import('./bodyT/Class'));
 const Rooms = React.lazy(() => import('./bodyT/Rooms'));
 const Texteditor = React.lazy(() => import('./texteditor/Texteditor'));
-const ExerciseT = React.lazy(() => import('./bodyT/ExercisetT'));
 const NotesT = React.lazy(() => import('./bodyT/NotesT'));
 const ReportT = React.lazy(() => import('./bodyT/ReportT'));
-
 const WorkSubT = React.lazy(() => import('./bodyT/WorkSubT'));
-const Onenotesu = React.lazy(() => import('./bodyT/Onenotesu'));
-const Notesu = React.lazy(() => import('./bodyT/Notesu'));
-
 toast.configure();
 function App() {
   const checkAuthenticated = async () => {
@@ -250,17 +243,6 @@ function App() {
                   }
                   exact
                 />
-                <Route
-                  path='/exercise'
-                  render={(props) =>
-                    isAuthenticated ? (
-                      <Exercise {...props} setAuth={setAuth} />
-                    ) : (
-                      <Redirect to='/login' />
-                    )
-                  }
-                  exact
-                />
 
                 <Route
                   path='/library'
@@ -318,17 +300,7 @@ function App() {
                   }
                   exact
                 />
-                <Route
-                  path='/exercise/:id'
-                  render={(props) =>
-                    isAuthenticated ? (
-                      <ExerciseOne {...props} setAuth={setAuth} />
-                    ) : (
-                      <Redirect to='/login' />
-                    )
-                  }
-                  exact
-                />
+
                 <Route
                   path='/work/:id'
                   render={(props) =>
@@ -341,17 +313,6 @@ function App() {
                   exact
                 />
 
-                <Route
-                  path='/worksub'
-                  render={(props) =>
-                    isAuthenticated ? (
-                      <WorkSub {...props} setAuth={setAuth} />
-                    ) : (
-                      <Redirect to='/login' />
-                    )
-                  }
-                  exact
-                />
                 <Route
                   path='/report'
                   render={(props) =>
@@ -460,17 +421,6 @@ function App() {
                   />
 
                   <Route
-                    path='/exerciseT'
-                    render={(props) =>
-                      isAuthenticated ? (
-                        <ExerciseT {...props} setAuth={setAuth} />
-                      ) : (
-                        <Redirect to='/loginT' />
-                      )
-                    }
-                    exact
-                  />
-                  <Route
                     path='/reportT'
                     render={(props) =>
                       isAuthenticated ? (
@@ -492,29 +442,7 @@ function App() {
                     }
                     exact
                   />
-                  <Route
-                    path='/worksubT/:id'
-                    render={(props) =>
-                      isAuthenticated ? (
-                        <Onenotesu {...props} setAuth={setAuth} />
-                      ) : (
-                        <Redirect to='/loginT' />
-                      )
-                    }
-                    exact
-                  />
 
-                  <Route
-                    path='/worksubT'
-                    render={(props) =>
-                      isAuthenticated ? (
-                        <Notesu {...props} setAuth={setAuth} />
-                      ) : (
-                        <Redirect to='/loginT' />
-                      )
-                    }
-                    exact
-                  />
                   <Route
                     path='/class'
                     render={(props) =>
@@ -526,33 +454,35 @@ function App() {
                     }
                     exact
                   />
-                  <Route
-                    path='/room/mark'
-                    render={(props) =>
-                      isAuthenticated ? (
-                        <MarkClass {...props} setAuth={setAuth} />
-                      ) : (
-                        <Redirect to='/loginT' />
-                      )
-                    }
-                    exact
-                  />
-                  <Route
-                    path='/class/room/mark/:id'
-                    render={(props) =>
-                      isAuthenticated ? (
-                        <MarkOne {...props} setAuth={setAuth} />
-                      ) : (
-                        <Redirect to='/loginT' />
-                      )
-                    }
-                    exact
-                  />
+
                   <Route
                     path='/class/room/:id'
                     render={(props) =>
                       isAuthenticated ? (
                         <Class {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+
+                  <Route
+                    path='/mywork/:id'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Mywork {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/work_to_one/:name/:email/:teacher/:id'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Seen {...props} setAuth={setAuth} />
                       ) : (
                         <Redirect to='/loginT' />
                       )
@@ -569,9 +499,8 @@ function App() {
                       )
                     }
                     exact
-                 
                   />
-                   <Route
+                  <Route
                     path='/question/open/:id/:mark'
                     render={(props) =>
                       isAuthenticated ? (
@@ -581,7 +510,6 @@ function App() {
                       )
                     }
                     exact
-                 
                   />
                 </TeacherProvide>
               </ProfileProvide>

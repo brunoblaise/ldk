@@ -75,6 +75,11 @@ function CreateTest() {
       <div className='container-fluid page-body-wrapper'>
         <Sidebar />
         <div className='content-wrapper'>
+        <div className='card'>
+        <div className='row'>
+          
+            <div className='card-body'>
+            <div className='ml-xl-4 mt-3'>
           <form className='row g-3' onSubmit={onSubmitForm}>
             <div className='col-md-6'>
               <label forhtml='inputEmail4' className='form-label'>
@@ -223,18 +228,19 @@ function CreateTest() {
               </select>
             </div>
 
-            <button className='btn btn-primary btn-icon-text'>
-              <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
+            <button className='btn m-4 btn-primary col-md-3 btn-icon-text'>
+              <i className='bi bi-upload   btn-icon-prepend'></i>
               Submit
             </button>
+            <Link ClassName='ml-4'to='/ope/question/'>Add open questions</Link>
           </form>
-          <br />
-          <br />
-          <Link to='/ope/question/'>Add open questions</Link>
         </div>
-        
+        </div>
       </div>
     </div>
+    </div>
+      </div>
+      </div>
   );
 }
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import Header from '../header/Header';
-import Sidebar from '../sidebar/Sidebar';
-import Main from './Main';
+
+const Main = React.lazy(() => import('./Main'));
+const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
+const Header = React.lazy(() => import('../header/Header'));
 
 function Render({setAuth}) {
   return (

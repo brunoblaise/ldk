@@ -12,17 +12,24 @@ function Quiz() {
         <div className='content-wrapper'>
           <div className='email-wrapper wrapper'>
             <div className='row align-items-stretch'>
-              <WorkList />
+              
               <div className='mail-view d-none d-md-block col-md-9 col-lg-7 bg-white'>
                 <div className='message-body'>
                   <div className='sender-details'>
                     <div className='details'>
-                      <p className='msg-subject'>
-                        search for the work and then downloaded it
-                      </p>
+                   
+                    <p>How to view work given</p>
                     </div>
                   </div>
-                  <div className='message-content'></div>
+                  <div className='message-content'>
+                  <p>Hi Students,</p>
+                  <p className='msg-subject'>
+                        Here you will find all the work you have been given 
+                      </p>
+                  <WorkList />
+                 
+                      
+                  </div>
                 </div>
               </div>
             </div>

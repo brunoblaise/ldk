@@ -1,15 +1,13 @@
 import React, {useEffect, useState} from 'react';
-
+import {Link} from 'react-router-dom';
 import {format} from 'timeago.js';
 import {url} from '../url';
+
+const Submit = React.lazy(() => import('./Submit'));
 const Header = React.lazy(() => import('../header/Header'));
-const Notessidebar = React.lazy(() => import('./Notessidebar'));
+
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
-function Iframe(props) {
-  return (
-    <div dangerouslySetInnerHTML={{__html: props.iframe ? props.iframe : ''}} />
-  );
-}
+
 function Onenotes({match}) {
   const [notes, setNote] = useState([]);
   const getProfile = async () => {
@@ -30,6 +28,7 @@ function Onenotes({match}) {
   useEffect(() => {
     getProfile();
   }, [setNote]);
+
   return (
     <>
       <Header />
@@ -38,22 +37,68 @@ function Onenotes({match}) {
         <div className='content-wrapper'>
           <div className='email-wrapper wrapper'>
             <div className='row align-items-stretch'>
-              <Notessidebar />
-
               <div className='mail-view d-none d-md-block col-md-9 col-lg-7 bg-white'>
                 <div className='message-body'>
-                  <div className='sender-details'>
-                    <div className='details'>
-                      <p className='msg-subject'>{notes.notes_title}</p>
-                    </div>
+                  <div className='details'>
+                    <p className='msg-subject'>{notes.notes_title}</p>
                   </div>
-                  <div className='message-content'>
-                    <p>Hi Students,</p>
-                    <p>{notes.short_note}</p>
 
-                    <Iframe
-                      iframe={`<iframe width="100%" height="266" s frameborder="no"  src='${notes.notes_url}'></iframe>`}
-                    />
+                  <div className='message-content'>
+                    <p>Hi Students, instructions must be followed</p>
+
+                    <p>{notes.short_note}</p>
+                    <div class='attachments-sections'>
+                      <ul>
+                        <li>
+                          {loading ? (
+                            'loading..'
+                          ) : notes.notes_url === 'null' ? (
+                            <p>{notes.written}</p>
+                          ) : (
+                              <>
+                                <div class='thumb'>
+                                  <i class='ti-file'></i>
+                                </div>
+                                <div class='details'>
+                                  <p class='file-name'>{notes.notes_title}</p>
+                                  <br />
+
+                                  <div class='buttons'>
+                                    <Link
+                                      to={{pathname: `${notes.notes_url}`}}
+                                      target='_blank'
+                                      class='view'>
+                                      View
+                                    </Link>
+                                  </div>
+                                </div>{' '}
+                              </>
+                            ) && notes.written === 'null' ? (
+                            <>
+                              <div class='thumb'>
+                                <i class='ti-file'></i>
+                              </div>
+                              <div class='details'>
+                                <p class='file-name'>{notes.notes_title}</p>
+                                <br />
+
+                                <div class='buttons'>
+                                  <Link
+                                    to={{pathname: `${notes.notes_url}`}}
+                                    target='_blank'
+                                    class='view'>
+                                    View
+                                  </Link>
+                                </div>
+                              </div>{' '}
+                            </>
+                          ) : (
+                            <p>{notes.written}</p>
+                          )}
+                        </li>
+                      </ul>
+                    </div>
+                    <Submit note={'note'} wore={notes.teacher_email} />
                     <p>
                       <br />
                       <br />

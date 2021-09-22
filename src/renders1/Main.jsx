@@ -1,7 +1,8 @@
 import React from 'react';
-import Track from '../bodyT/Track';
-import Welcome from '../bodyT/Welcome';
-import Boardleader from '../bodyT/Boardleader';
+
+const Boardleader = React.lazy(() => import('../bodyT/Boardleader'));
+const Welcome = React.lazy(() => import('../bodyT/Welcome'));
+const Track = React.lazy(() => import('../bodyT/Track'));
 function Main() {
   return (
     <div className='main-panel'>

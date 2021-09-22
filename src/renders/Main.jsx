@@ -1,7 +1,9 @@
 import React from 'react';
-import Track from '../body/Track';
-import Welcome from '../body/Welcome';
-import Boardleader from '../body/Boardleader';
+
+const Welcome = React.lazy(() => import('../body/Welcome'));
+const Track = React.lazy(() => import('../body/Track'));
+const Boardleader = React.lazy(() => import('../body/Boardleader'));
+const Mymarks = React.lazy(() => import('../body/Mymarks'));
 function Main() {
   return (
     <div className='main-panel'>
@@ -10,6 +12,7 @@ function Main() {
         <Track />
 
         <Boardleader />
+        <Mymarks />
       </div>
     </div>
   );

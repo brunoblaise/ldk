@@ -11,12 +11,12 @@ function Openw({match}) {
   }, [counter]);
 
   const [profile] = useContext(ProfileContext);
-  const email = profile.map((profil) => profil.student_email)[0];
-  const classe = profile.map((profil) => profil.class_student)[0];
-  const name = profile.map((profil) => profil.student_fname)[0];
-  const [answer, setAnswer] = useState('');
+  const name = profile.map((profil) => profil.student_email)[0];
 
+  const [written, setAnswer] = useState('');
+  const [title, setTitled] = useState('');
   const id = profile.map((profil) => profil.class_student);
+  const type = 'quiz';
   const [notes, setNote] = useState([]);
 
   let controller = new AbortController();
@@ -48,18 +48,17 @@ function Openw({match}) {
     return () => controller?.abort();
   }, [setNote]);
 
-  const teacher = loading ? 'loading' : notes[0].teacher_email;
+  const email = loading ? 'loading' : notes[0].teacher_email;
 
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
       const myHeaders = new Headers();
-
       myHeaders.append('Content-Type', 'application/json');
       myHeaders.append('jwt_token', localStorage.token);
 
-      const body = {answer, email, classe, name, teacher};
-      const response = await fetch(`${url}/create/answer`, {
+      const body = {title, name, email, type, written};
+      const response = await fetch(`${url}/create/tiled`, {
         method: 'POST',
         headers: myHeaders,
         body: JSON.stringify(body),
@@ -98,7 +97,7 @@ function Openw({match}) {
             </div>
             <MathJax.Provider>
               <MathJax.Node
-              className="question"
+                className='question'
                 id='question'
                 formula={loading ? 'loading' : notes[0].question}
               />
@@ -112,19 +111,27 @@ function Openw({match}) {
             <div className='thumb'>
               <i className='ti-image'></i>
             </div>
-            <div className='containe moviee'  >
-              <div
-                className='form form-stacked sendNewMessage'
-              >
+            <div className='col-md-6' style={{left: '325px', top: '-38px'}}>
+              <label forhtml='inputCity' className='form-label'>
+                title
+              </label>
+              <input
+                type='text'
+                className='form-control'
+                value={title}
+                onChange={(e) => setTitled(e.target.value)}
+                name='title'
+                id='inputCity'
+              />
+            </div>
+            <div className='containe moviee'>
+              <div className='form form-stacked sendNewMessage'>
                 <div className='ql-editor '>
-                  <div>
-              
-            
-                  </div>
+                  <div></div>
                   <textarea
                     placeholder='Your answer is needed'
                     name='answer'
-                    value={answer}
+                    value={written}
                     onChange={(e) => setAnswer(e.target.value)}
                     className='ql-editor bado eh'
                     id='board_content'></textarea>

@@ -9,9 +9,10 @@ import {Link} from 'react-router-dom';
 function End({results, data, nameu, datas}) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [profile] = useContext(ProfileContext);
-  const [name] = useState(profile[0].student_email);
-  const [email] = useState(datas.teacher_email);
-  const [classe] = useState(profile[0].class_student);
+  const [email] = useState(profile[0].student_email);
+  const [name] = useState('closed question');
+  const [written] = useState('Great work');
+  const [teacher] = useState(datas.teacher_email);
   const mark = Math.floor((correctAnswers / data.length) * 100);
   useEffect(() => {
     let correct = 0;
@@ -40,8 +41,8 @@ function End({results, data, nameu, datas}) {
       myHeaders.append('Content-Type', 'application/json');
       myHeaders.append('jwt_token', localStorage.token);
 
-      const body = {name, mark, email, classe};
-      const response = await fetch(`${url}/create/test_mark`, {
+      const body = {mark, name, email, teacher, written};
+      const response = await fetch(`${url}/create/mark_feed`, {
         method: 'POST',
         headers: myHeaders,
         body: JSON.stringify(body),
@@ -59,10 +60,12 @@ function End({results, data, nameu, datas}) {
 
   return (
     <>
-      <button  className={data[0].test_certificate === 'no' ? 'hide' : 'btn btn-info'} onClick={generatePdf}>
+      <button
+        className={data[0].test_certificate === 'no' ? 'hide' : 'btn btn-info'}
+        onClick={generatePdf}>
         download your certificate
       </button>
-      <form onSubmit={onSubmitForm} > 
+      <form onSubmit={onSubmitForm}>
         <div className='containerp' id='contentp'>
           <div className='logop'>College du Christ Roi</div>
 
@@ -87,9 +90,8 @@ function End({results, data, nameu, datas}) {
           save your marks
         </button>
       </form>
-    <Link to="/dashboard">continue to Dashboard</Link>
+      <Link to='/dashboard'>continue to Dashboard</Link>
       <Modal results={results} data={data} />
-      
     </>
   );
 }

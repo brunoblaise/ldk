@@ -1,8 +1,8 @@
 import React from 'react';
-import Header from '../header1/Header';
-import Sidebar from '../sidebar1/Sidebar';
-import Main from './Main';
 
+const Main = React.lazy(() => import('./Main'));
+const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
+const Header = React.lazy(() => import('../header1/Header'));
 function RenderT({setAuth}) {
   return (
     <div className='App'>
