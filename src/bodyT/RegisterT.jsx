@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 import {url} from '../url';
 
 function RegisterT({setAuth}) {
@@ -17,7 +17,7 @@ function RegisterT({setAuth}) {
 
   const [photo, setPhoto] = useState('');
   const {fname, lname, gender, email, password, age, phone, bio} = inputs;
-
+  const [opene, setOpene] = useState(false);
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -47,6 +47,7 @@ function RegisterT({setAuth}) {
       );
 
       const parseRes = await response.json();
+      setOpene(true);
       if (parseRes.jwtToken) {
         localStorage.setItem('token', parseRes.jwtToken);
         setAuth(true);
@@ -54,6 +55,7 @@ function RegisterT({setAuth}) {
       } else {
         setAuth(false);
         toast.error(parseRes);
+        setOpene(false);
       }
     } catch (err) {
       console.error(err.message);
@@ -62,7 +64,7 @@ function RegisterT({setAuth}) {
 
   return (
     <div className='container-scroller'>
-          <Helmet>
+      <Helmet>
         <meta name='title' content='college du christ roi' />
         <meta
           http-equiv='Content-Security-Policy'
@@ -257,7 +259,9 @@ function RegisterT({setAuth}) {
                   </div>
 
                   <div className='mt-3'>
-                    <button className='btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn'>
+                    <button
+                      disabled={opene}
+                      className='btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn'>
                       SIGN UP
                     </button>
                   </div>

@@ -15,14 +15,15 @@ function NotesT() {
     title: '',
     email: name,
     summary: '',
-    written: null,
+    written: 'null',
   });
 
-  const [recfile, setRecfile] = useState(null);
+  const [recfile, setRecfile] = useState('');
   const [subjec, setSubjec] = useState('');
   const [open, setOpen] = useState(false);
   const classe = subjec.value;
   const {title, email, summary, written} = inputs;
+  const [opene, setOpene] = useState(false);
 
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
@@ -50,11 +51,12 @@ function NotesT() {
           headers: myHeaders,
         },
       );
-
+      setOpene(true);
       if (response.status === 500) {
-        toast.error('Something is wrong');
+        toast.error('Fill the required one');
       } else {
         toast.success('Sent Successfully');
+        setOpene(false);
       }
     } catch (err) {
       console.error(err.message);
@@ -187,7 +189,9 @@ function NotesT() {
                         </div>
                       </div>
                     </div>
-                    <button className='btn m-4 btn-primary col-md-3 btn-icon-text'>
+                    <button
+                      disabled={opene}
+                      className='btn m-4 btn-primary col-md-3 btn-icon-text'>
                       <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
                       Submit
                     </button>

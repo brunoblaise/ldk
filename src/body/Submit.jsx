@@ -20,7 +20,7 @@ function Submit({note, work, wor, wore}) {
 
   const [name] = useState(own[0]);
   const [open, setOpen] = useState(false);
-
+  const [opene, setOpene] = useState(false);
   const onSubmitForm = async (e) => {
     e.preventDefault();
 
@@ -39,11 +39,12 @@ function Submit({note, work, wor, wore}) {
         },
         body: JSON.stringify(body),
       });
-
+      setOpene(true);
       if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
+        setOpene(false);
       }
     } catch (err) {
       console.error(err.message);
@@ -88,7 +89,9 @@ function Submit({note, work, wor, wore}) {
             />
           </div>
         </div>
-        <button className='btn m-4 btn-primary col-md-3 btn-icon-text'>
+        <button
+          disabled={opene}
+          className='btn m-4 btn-primary col-md-3 btn-icon-text'>
           <i className='bi bi-upload   btn-icon-prepend'></i>
           Submit
         </button>

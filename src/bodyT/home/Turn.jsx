@@ -27,18 +27,20 @@ function Turn({id, name, own}) {
     getProfile();
   }, [setMessage]);
 
-  console.log(message);
-
   return (
     <>
-      {loading
-        ? 'loading ...'
-        : message.map((fil) => (
-            <td key={fil.mark_id}>
-              {' '}
-              {fil.test_name === name ? fil.test_mark : 'turn in'}
-            </td>
-          ))}
+      {loading ? (
+        'loading ...'
+      ) : message.length === 0 ? (
+        <td>turn in</td>
+      ) : (
+        message.map((fil) => (
+          <td key={fil.mark_id}>
+            {' '}
+            {fil.test_name === name ? fil.test_mark : 'turn in'}
+          </td>
+        ))
+      )}
     </>
   );
 }

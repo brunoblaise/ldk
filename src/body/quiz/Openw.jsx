@@ -49,7 +49,7 @@ function Openw({match}) {
   }, [setNote]);
 
   const email = loading ? 'loading' : notes[0].teacher_email;
-
+  const [open, setOpen] = useState(false);
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
@@ -63,11 +63,12 @@ function Openw({match}) {
         headers: myHeaders,
         body: JSON.stringify(body),
       });
-
+      setOpen(true);
       if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
+        setOpen(false);
       }
     } catch (err) {
       console.error(err.message);
@@ -136,6 +137,7 @@ function Openw({match}) {
                     className='ql-editor bado eh'
                     id='board_content'></textarea>
                   <button
+                    disabled={open}
                     className={counter === 0 ? 'over' : 'btnSendMsg '}
                     id='sendMsgBtn'>
                     <i className='fa fa-paper-plane'></i>

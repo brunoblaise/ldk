@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {url} from '../url';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 function Register({setAuth}) {
   const [inputs, setInputs] = useState({
     fname: '',
@@ -19,7 +19,7 @@ function Register({setAuth}) {
 
   const [photo, setPhoto] = useState('');
   const {fname, lname, gender, email, password, age, phone, bio} = inputs;
-
+  const [open, setOpen] = useState(false);
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -49,6 +49,7 @@ function Register({setAuth}) {
       );
 
       const parseRes = await response.json();
+      setOpen(true);
       if (parseRes.jwtToken) {
         localStorage.setItem('token', parseRes.jwtToken);
         setAuth(true);
@@ -67,7 +68,7 @@ function Register({setAuth}) {
 
   return (
     <div className='container-scroller'>
-         <Helmet>
+      <Helmet>
         <meta name='title' content='college du christ roi' />
         <meta
           http-equiv='Content-Security-Policy'
@@ -286,7 +287,9 @@ function Register({setAuth}) {
                   </div>
 
                   <div className='mt-3'>
-                    <button className='btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn'>
+                    <button
+                      disabled={open}
+                      className='btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn'>
                       SIGN UP
                     </button>
                   </div>

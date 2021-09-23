@@ -9,6 +9,7 @@ function Openq() {
   const [inputs, setInputs] = useState({
     question: '',
   });
+  const [opene, setOpene] = useState(false);
   const [profile] = useContext(TeacherContext);
   const own = profile.map((profil) => profil.teacher_email);
   const [email] = useState(own[0]);
@@ -45,11 +46,12 @@ function Openq() {
         },
         body: JSON.stringify(body),
       });
-
+      setOpene(true);
       if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
+        setOpene(false);
       }
     } catch (err) {
       console.error(err.message);
@@ -113,9 +115,7 @@ function Openq() {
               </select>
             </div>
             <div className='containe ql-editor bade'>
-              <div
-                className='form form-stacked sendNewMessage'
-                >
+              <div className='form form-stacked sendNewMessage'>
                 <div>
                   <textarea
                     placeholder='Your question is needed'
@@ -128,7 +128,7 @@ function Openq() {
                 </div>
               </div>
             </div>
-            <button className='btn btn-primary btn-icon-text'>
+            <button disabled={opene} className='btn btn-primary btn-icon-text'>
               <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
               Submit
             </button>

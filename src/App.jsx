@@ -45,7 +45,7 @@ import {ErrorBoundary} from 'react-error-boundary';
 
 const Mywork = React.lazy(() => import('./bodyT/home/Mywork'));
 const Seen = React.lazy(() => import('./bodyT/home/Seen'));
-const Givem = React.lazy(() => import('./bodyT/open/Givem'));
+
 const Fallback = React.lazy(() => import('./Fallback'));
 const Openw = React.lazy(() => import('./body/quiz/Openw'));
 const Openq = React.lazy(() => import('./bodyT/open/Openq'));
@@ -494,17 +494,6 @@ function App() {
                     render={(props) =>
                       isAuthenticated ? (
                         <Openq {...props} setAuth={setAuth} />
-                      ) : (
-                        <Redirect to='/loginT' />
-                      )
-                    }
-                    exact
-                  />
-                  <Route
-                    path='/question/open/:id/:mark'
-                    render={(props) =>
-                      isAuthenticated ? (
-                        <Givem {...props} setAuth={setAuth} />
                       ) : (
                         <Redirect to='/loginT' />
                       )

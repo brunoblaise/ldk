@@ -13,6 +13,7 @@ function End({results, data, nameu, datas}) {
   const [name] = useState('closed question');
   const [written] = useState('Great work');
   const [teacher] = useState(datas.teacher_email);
+  const [open, setOpen] = useState(false);
   const mark = Math.floor((correctAnswers / data.length) * 100);
   useEffect(() => {
     let correct = 0;
@@ -47,11 +48,12 @@ function End({results, data, nameu, datas}) {
         headers: myHeaders,
         body: JSON.stringify(body),
       });
-
+      setOpen(true);
       if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
+        setOpen(false);
       }
     } catch (err) {
       console.error(err.message);
@@ -85,7 +87,10 @@ function End({results, data, nameu, datas}) {
             for finishing the test given by his or her Teacher in {nameu}
           </div>
         </div>
-        <button className='btnSendMsg btn btn_info yur' id='sendMsgBtn'>
+        <button
+          disabled={open}
+          className='btnSendMsg btn btn_info yur'
+          id='sendMsgBtn'>
           <i className='fa fa-paper-plane'></i>
           save your marks
         </button>

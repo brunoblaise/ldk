@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 function ReportT() {
   const [recfile, setRecfile] = useState('');
   const [name, setName] = useState('');
+  const [opene, setOpene] = useState(false);
   const onSubmitForm = async (e) => {
     e.preventDefault();
 
@@ -24,14 +25,13 @@ function ReportT() {
           headers: myHeaders,
         },
       );
-
+      setOpene(true);
       if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
+        setOpene(false);
       }
-
-  
     } catch (err) {
       console.error(err.message);
     }
@@ -39,7 +39,7 @@ function ReportT() {
 
   return (
     <div className='col-12 grid-margin'>
-          <Helmet>
+      <Helmet>
         <meta name='title' content='college du christ roi' />
         <meta
           http-equiv='Content-Security-Policy'
@@ -80,7 +80,9 @@ function ReportT() {
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
-                <button className='btn btn-primary btn-icon-text'>
+                <button
+                  disabled={opene}
+                  className='btn btn-primary btn-icon-text'>
                   <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
                   Submit
                 </button>

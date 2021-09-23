@@ -15,7 +15,7 @@ function Seen({match}) {
     teacher: match.params.teacher,
   });
   const {mark, written, name, teacher, email} = inputs;
-
+  const [opene, setOpene] = useState(false);
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -37,11 +37,12 @@ function Seen({match}) {
         },
         body: JSON.stringify(body),
       });
-
+      setOpene(true);
       if (response.status === 500) {
         toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
+        setOpene(false);
       }
     } catch (err) {
       console.error(err.message);
@@ -110,7 +111,9 @@ function Seen({match}) {
                     <div className='col-12'>
                       <Sent id={match.params.id} />
                     </div>
-                    <button className='btn m-4 btn-primary col-md-3 btn-icon-text'>
+                    <button
+                      disabled={opene}
+                      className='btn m-4 btn-primary col-md-3 btn-icon-text'>
                       <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
                       Submit
                     </button>

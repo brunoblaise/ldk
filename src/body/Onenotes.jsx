@@ -10,6 +10,7 @@ const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 
 function Onenotes({match}) {
   const [notes, setNote] = useState([]);
+  const [loading, setLoading] = useState(true);
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/notes/${match.params.id}`, {
@@ -20,6 +21,7 @@ function Onenotes({match}) {
       const parseData = await res.json();
 
       setNote(parseData);
+      setLoading(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -47,53 +49,53 @@ function Onenotes({match}) {
                     <p>Hi Students, instructions must be followed</p>
 
                     <p>{notes.short_note}</p>
-                    <div class='attachments-sections'>
+                    <div className='attachments-sections'>
                       <ul>
                         <li>
                           {loading ? (
                             'loading..'
-                          ) : notes.notes_url === 'null' ? (
-                            <p>{notes.written}</p>
-                          ) : (
-                              <>
-                                <div class='thumb'>
-                                  <i class='ti-file'></i>
-                                </div>
-                                <div class='details'>
-                                  <p class='file-name'>{notes.notes_title}</p>
-                                  <br />
-
-                                  <div class='buttons'>
-                                    <Link
-                                      to={{pathname: `${notes.notes_url}`}}
-                                      target='_blank'
-                                      class='view'>
-                                      View
-                                    </Link>
-                                  </div>
-                                </div>{' '}
-                              </>
-                            ) && notes.written === 'null' ? (
+                          ) : notes.written === 'null' ? (
                             <>
-                              <div class='thumb'>
-                                <i class='ti-file'></i>
+                              <div className='thumb'>
+                                <i className='ti-file'></i>
                               </div>
-                              <div class='details'>
-                                <p class='file-name'>{notes.notes_title}</p>
+                              <div className='details'>
+                                <p className='file-name'>{notes.notes_title}</p>
                                 <br />
 
-                                <div class='buttons'>
+                                <div className='buttons'>
                                   <Link
                                     to={{pathname: `${notes.notes_url}`}}
                                     target='_blank'
-                                    class='view'>
+                                    className='view'>
                                     View
                                   </Link>
                                 </div>
                               </div>{' '}
                             </>
                           ) : (
-                            <p>{notes.written}</p>
+                            <>
+                              <div className='thumb'>
+                                <i className='ti-file'></i>
+                              </div>
+                              <div className='details'>
+                                <h6> notes title</h6>
+                                <p className='file-name'>{notes.notes_title}</p>
+                                <br />
+                                <h5>written notes</h5>
+                                <p className='file-name'>{notes.written}</p>
+                                <br />
+
+                                <div className='buttons'>
+                                  <Link
+                                    to={{pathname: `${notes.notes_url}`}}
+                                    target='_blank'
+                                    className='view'>
+                                    View
+                                  </Link>
+                                </div>
+                              </div>
+                            </>
                           )}
                         </li>
                       </ul>
