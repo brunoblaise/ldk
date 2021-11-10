@@ -93,7 +93,8 @@ function Land() {
           effect='blur'
           src={Group}
           alt=''
-          width='1300px'
+          height='793px'
+          width='1280px'
           className='banner-image'
         />
         <div className=''>

@@ -26790,10 +26790,10 @@ img.img-fluid.banner-image {
 }
 .banner-move {
   position: relative;
-  bottom: 700px;
+  left: 129px;
+    top: -739px;
   color: #fff;
-  left: 117px;
-  top: -811px;
+
   word-break: normal;
 }
 

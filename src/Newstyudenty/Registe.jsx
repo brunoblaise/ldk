@@ -93,7 +93,6 @@ function Registe() {
 
         <title>NEW STUDENTS REGISTRATION </title>
       </Helmet>
-
       <div className='container-fluid page-body-wrapper'>
         <div className='content-wrapper'>
           <div className='card'>
