@@ -8,7 +8,6 @@ const Register = React.lazy(() => import('./body/Register'));
 const RenderT = React.lazy(() => import('./renders1/RenderT'));
 const LoginT = React.lazy(() => import('./bodyT/LoginT'));
 const ProfileT = React.lazy(() => import('./bodyT/ProfileT'));
-
 const RegisterT = React.lazy(() => import('./bodyT/RegisterT'));
 const Notes = React.lazy(() => import('./body/Notes'));
 const Quiz = React.lazy(() => import('./body/Quiz'));
