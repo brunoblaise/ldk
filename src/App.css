@@ -37,8 +37,6 @@ body {
   background-color: #fff;
 }
 
-
-
 h1,
 h2,
 h3,
@@ -359,8 +357,6 @@ h6,
   line-height: 1.2;
 }
 
-
-
 small,
 .small {
   font-size: 80%;
@@ -563,7 +559,7 @@ pre code {
   flex-wrap: wrap;
   margin-right: 305px;
   margin-left: -15px;
-  height:400px;
+  height: 400px;
 }
 
 .no-gutters {
@@ -2859,19 +2855,7 @@ textarea.is-invalid.tt-hint {
   cursor: pointer;
 }
 
-a.btn.disabled,
-.ajax-upload-dragdrop a.disabled.ajax-file-upload,
-.swal2-modal .swal2-buttonswrapper a.disabled.swal2-styled,
-.wizard > .actions a.disabled,
-fieldset:disabled a.btn,
-fieldset:disabled .ajax-upload-dragdrop a.ajax-file-upload,
-.ajax-upload-dragdrop fieldset:disabled a.ajax-file-upload,
-fieldset:disabled .swal2-modal .swal2-buttonswrapper a.swal2-styled,
-.swal2-modal .swal2-buttonswrapper fieldset:disabled a.swal2-styled,
-fieldset:disabled .wizard > .actions a,
-.wizard > .actions fieldset:disabled a {
-  pointer-events: none;
-}
+
 
 .btn-primary,
 .wizard > .actions a {
@@ -26248,7 +26232,6 @@ div.tagsinput span.tag a {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-      
   background: #001220;
 }
 .main__chatcontent {
@@ -26794,7 +26777,7 @@ ul.navbar-nav.align-items-lg-center.align-items-start.ml-auto {
 }
 img.img-fluid.fic {
   position: relative;
-  right:40px;
+  right: 40px;
   width: 60px !important;
 }
 
@@ -26813,7 +26796,6 @@ img.img-fluid.banner-image {
   top: -811px;
   word-break: normal;
 }
-
 
 h6.font-weight-normal.text-muted.pb-3.banner-move {
   left: 202px;
@@ -26840,77 +26822,75 @@ button.btn.btn-opacity-success.ml-1.banner-move {
   border: 4px solid #164249;
 }
 
-.offline_web{
+.offline_web {
   position: relative;
   left: 580px;
   margin-top: 319px;
-  font-size:20px;
+  font-size: 20px;
 }
 
 .col-md-6 textarea#board_content {
-    width: 460px !important;
+  width: 460px !important;
 }
-.video_land{
+.video_land {
   width: 800px !important;
   height: 520px !important;
   position: relative;
   left: 846px;
   top: -528px;
 }
-.bade{
+.bade {
   position: relative;
-    left: 2px;
+  left: 2px;
 }
-.bado{
+.bado {
   position: relative;
-    left: 62px;
-    top: 10px;
-    border-style:none !important;
+  left: 62px;
+  top: 10px;
+  border-style: none !important;
 }
-.moviee{
-  position:relative;
-  left:220px;
+.moviee {
+  position: relative;
+  left: 220px;
 }
-.eh{
-  position:relative;
-top:-10px;
-left:-20px;
+.eh {
+  position: relative;
+  top: -10px;
+  left: -20px;
 }
-.question{
-  position:relative;
-  word-wrap:break-word;
-  right:100px;
+.question {
+  position: relative;
+  word-wrap: break-word;
+  right: 100px;
 }
 
-.saw{
-  position:relative;
+.saw {
+  position: relative;
   left: 547px;
   top: -14px;
-  width:840px;
+  width: 840px;
 }
-
-
 
 .circle {
   padding: 16px 20px;
   border-radius: 30%;
-  background-color: #B0DDC2;
+  background-color: #b0ddc2;
   color: #fff;
   max-height: 50px;
   z-index: 2;
 }
 .uw p {
-    color: #88818b;
+  color: #88818b;
 }
 .uw h2 {
-    color:#B0DDC2;
-    font-weight: bold;
+  color: #b0ddc2;
+  font-weight: bold;
 }
 .connecting-lines.row .col-2 {
   align-self: stretch;
 }
 .connecting-lines.row .col-2::after {
-  content: "";
+  content: '';
   position: absolute;
   border-left: 3px solid#B0DDC2;
   z-index: 1;
@@ -26930,7 +26910,6 @@ left:-20px;
   top: 0;
 }
 
-
 .timeline div {
   padding: 0;
   height: 40px;
@@ -26940,7 +26919,7 @@ left:-20px;
   margin: 0;
   top: 17px;
   position: relative;
-  opacity:1 !important;
+  opacity: 1 !important;
 }
 .timeline .col-2 {
   display: flex;
@@ -26969,7 +26948,127 @@ left:-20px;
   top: calc(50% - 3px);
 }
 
-.closer{
+.closer {
   height: 200px;
+}
 
+
+.btn-track {
+  position: relative;
+  top: -100px;
+    left: 20px;
+  text-decoration: none;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track .--icon {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background: #fedecf;
+  float: left;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track .--icon #box {
+  position: absolute;
+  top: 17px;
+  left: 18px;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track .--icon #pin {
+  position: absolute;
+  top: 0px;
+  left: 25px;
+  opacity: 0;
+  transition: all 0.2s ease;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track .--icon .circle-inner {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.9);
+  margin: 10px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+  transform: scale(0);
+  transition: all 0.3s ease;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track .--icon .circle-outer {
+  position: absolute;
+  margin: 4px;
+  width: 52px;
+  height: 52px;
+  border-radius: 26px;
+  background: rgba(255,255,255,0.5);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+  transform: scale(0);
+  transition: all 0.3s ease;
+}
+.btn-track .--text {
+  float: left;
+  color: #000;
+  white-space: nowrap;
+  line-height: 20px;
+  height: 60px;
+  padding: 20px;
+  border-radius: 0 8px 8px 0;
+  font-size: 16px;
+  font-weight: 500;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track:hover .--icon #box {
+  transform: translateY(9px) scale(0.83333);
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track:hover .--icon #pin {
+  transform: translateY(11px);
+  opacity: 1;
+  transition-delay: 0.15s;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track:hover .--icon .circle-inner {
+  transform: scale(1);
+  transition-delay: 0.2s;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track:hover .--icon .circle-outer {
+  transform: scale(1);
+  transition-delay: 0.25s;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track:hover .--text {
+  color: #000;
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
+}
+.btn-track:active {
+  transform: translateY(1px);
+  box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
+  border-radius: 8px;
+  transition: all 0.1s ease;
 }

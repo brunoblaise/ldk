@@ -43,6 +43,7 @@ const Land = React.lazy(() => import('./land/Land'));
 import {url} from './url';
 import {ErrorBoundary} from 'react-error-boundary';
 
+const Registe = React.lazy(() => import('./Newstyudenty/Registe'));
 const Mywork = React.lazy(() => import('./bodyT/home/Mywork'));
 const Seen = React.lazy(() => import('./bodyT/home/Seen'));
 
@@ -124,19 +125,20 @@ function App() {
         }>
         {isOnline ? (
           <Switch>
-            <Route exact path='/meet' component={JoinMeeting} />
-            <Route exact path='/video/:id' component={VideoCall} />
-            <Route path='/' component={Land} exact />
-            <Route path='/text' exact>
-              <Redirect to={`/text/documents/${uuidV4()}`} />
-            </Route>
-            <Route
-              path='/text/documents/:id'
-              exact
-              render={(props) => <Texteditor {...props} setAuth={setAuth} />}
-            />
-
             <ErrorBoundary FallbackComponent={Fallback} onError={errorHandle}>
+              <Route exact path='/meet' component={JoinMeeting} />
+              <Route exact path='/video/:id' component={VideoCall} />
+              <Route path='/' component={Land} exact />
+              <Route path='/text' exact>
+                <Redirect to={`/text/documents/${uuidV4()}`} />
+              </Route>
+              <Route
+                path='/text/documents/:id'
+                exact
+                render={(props) => <Texteditor {...props} setAuth={setAuth} />}
+              />
+
+              <Route exact path='/new/register' component={Registe} />
               <ProfileProvide>
                 <Route
                   path='/login'

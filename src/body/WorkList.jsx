@@ -29,47 +29,38 @@ function WorkList() {
 
   return (
     <>
-    
-          <div className='form-group'>
-            <input
-              className='form-control w-100'
-              type='search'
-              placeholder='Search work'
-              value={search}
-              name='search'
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </div>
-        
-        {notes
-          .slice(0, 5)
-          .filter((val) => {
-            if (search === '') {
-              return val;
-            } else if (
-              val.work_title.toLowerCase().includes(search.toLowerCase())
-            ) {
-              return val;
-            }
-          })
-          .slice(0, 5)
-          .map((note) => (
-            <div key={note.work_id} className="list-group">
-              
-              
-            <Link className="list-group-item list-group-item-action" to={`/work/${note.work_id}`} >
-               {note.work_title}
-              
-              </Link>
-             
-           
-          </div>
-     
-          ))
-          }
+      <div className='form-group'>
+        <input
+          className='form-control w-100'
+          type='search'
+          placeholder='Search work'
+          value={search}
+          name='search'
+          onChange={(e) => setSearch(e.target.value)}
+        />
+      </div>
 
-     
-     
+      {notes
+        .slice(0, 5)
+        .filter((val) => {
+          if (search === '') {
+            return val;
+          } else if (
+            val.work_title.toLowerCase().includes(search.toLowerCase())
+          ) {
+            return val;
+          }
+        })
+        .slice(0, 5)
+        .map((note) => (
+          <div key={note.work_id} className='list-group'>
+            <Link
+              className='list-group-item list-group-item-action'
+              to={`/work/${note.work_id}`}>
+              {note.work_title}
+            </Link>
+          </div>
+        ))}
     </>
   );
 }
