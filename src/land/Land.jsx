@@ -3,7 +3,8 @@ import {Link} from 'react-router-dom';
 import ReactPlayer from 'react-player';
 import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 import {Helmet} from 'react-helmet';
-import Group from '../images/blob-scene-haikei.svg';
+import Group from '../images/blob-scene-haikei (1).svg';
+import gto from '../images/1494937585_b30a9665.jpg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -69,7 +70,7 @@ function Land() {
             <div className=' navbar-menu-wrapper' id='navbarSupportedContent'>
               <ul className='navbar-nav align-items-lg-center align-items-start ml-auto'>
                 <li className='nav-item'>
-                  <Link className='nav-link' to='#header-section'>
+                  <Link className='nav-link' to='/'>
                     Home
                   </Link>
                 </li>
@@ -289,15 +290,122 @@ function Land() {
         <LazyLoadImage
           style={{position: 'relative', left: '663px', top: '-136px'}}
           effect='blur'
-          src='https://inyarwanda.com/app/webroot/img/201705/attachments/1494937585_b30a9665.jpg'
+          src={gto}
           alt=''
           width='630px'
           className='banner-image'
         />
       </div>
-      <br />
-      <br />
-      <br />
+      <footer class='footer-03'>
+      <div class="custom-shape-divider-top-1637157769">
+    <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="shape-fill"></path>
+        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="shape-fill"></path>
+        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="shape-fill"></path>
+    </svg>
+</div>
+        <div class='bor'>
+          <div class='row'>
+            <div class='col-md-6 '>
+              <div class='row mart'>
+                <div class='col-md-4 mb-md-0 mb-4'>
+                  <h2 class='footer-heading'>Pages</h2>
+                  <ul class='list-unstyled'>
+                    <li>
+                      <Link to='/home' class='py-1 d-block'>
+                        Home
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/login' class='py-1 d-block'>
+                        Student
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/loginT' class='py-1 d-block'>
+                        Teacher
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to='/new/register' class='py-1 d-block'>
+                        New comer
+                      </Link>
+                    </li>
+                  </ul>
+                </div>
+                <div class='col-md-4 mb-md-0 mb-4'>
+                  <h2 class='footer-heading'>Goals</h2>
+                  <ul class='list-unstyled'>
+                    <li>
+                      <a href='#' class='py-1 d-block'>
+                        To teach
+                      </a>
+                    </li>
+                    <li>
+                      <a href='#' class='py-1 d-block'>
+                        To study
+                      </a>
+                    </li>
+                    <li>
+                      <a href='#' class='py-1 d-block'>
+                        To learn
+                      </a>
+                    </li>
+                    <li>
+                      <a href='#' class='py-1 d-block'>
+                        To innovate
+                      </a>
+                    </li>
+                  </ul>
+                </div>
+                <div class='col-md-4 mb-md-0 mb-4'>
+                  <h2 class='footer-heading'>Mission</h2>
+                  <ul class='list-unstyled'>
+                    <li>
+                      <a href='#' class='py-1 d-block'>
+                        To create
+                      </a>
+                      <li>
+                        <a href='#' class='py-1 d-block'>
+                          To help our mates
+                        </a>
+                      </li>
+                      <li>
+                        <a href='#' class='py-1 d-block'>
+                          To solve problems
+                        </a>
+                      </li>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class='col-md-6'>
+              <div class=''>
+                <form className='row g-3 sendNewMessage'>
+                  <div className='col-md-6'>
+                    <input
+                      type='text'
+                      className='form-control border'
+                      placeholder='Enter email address'
+                    />
+                  </div>
+                  <div className='col-md-10'>
+                    <textarea
+                      class='form-control'
+                      placeholder='If you have any question or a suggestion tell us here thank you'
+                      style={{height: '140px'}}></textarea>
+                    <br />
+                    <button className='btnSendMsg' id='sendMsgBtn'>
+                      <i className='fa fa-paper-plane'></i>
+                    </button>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </>
   );
 }

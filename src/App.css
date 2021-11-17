@@ -26918,6 +26918,7 @@ button.btn.btn-opacity-success.ml-1.banner-move {
   border-top: 3px solid#B0DDC2 !important;
   margin: 0;
   top: 17px;
+   background-color: #B0DDC2;
   position: relative;
   opacity: 1 !important;
 }
@@ -27071,4 +27072,43 @@ button.btn.btn-opacity-success.ml-1.banner-move {
   box-shadow: 0 8px 20px -6px rgba(0,0,0,0.3);
   border-radius: 8px;
   transition: all 0.1s ease;
+}
+.footer-03 {
+
+  background-color: #fff;
+  box-shadow: rgb(109 125 172 / 10%) 0px 10px 50px;
+  border-radius: 20px;
+  margin-left: 200px;
+  margin: 20px;
+  
+}
+footer{position: relative;
+  left: 48px;
+  top: 8px;
+  width:1200px;
+}
+.bor{
+height: 308px;
+  padding: 2em 0;
+}
+.mart{
+  margin:2px;
+  min-width: 0;
+ 
+ 
+  margin-left:8px;
+}
+
+.custom-shape-divider-top-1637157769 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    
+}
+
+.custom-shape-divider-top-1637157769 .shape-fill {
+  fill: #005ee3;
 }

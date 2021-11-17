@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {Link} from 'react-router-dom';
+import {LazyLoadImage} from 'react-lazy-load-image-component';
+import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 
 import {Helmet} from 'react-helmet';
 import {url} from '../url';
@@ -78,6 +80,42 @@ function Registe() {
     setSubje({value: event.target.value});
   };
   return (
+    <>
+     <header className='header-section'>
+         <nav className='navbar navbar-expand-lg pl-3 pl-sm-0' id='navbar'>
+          <Link to='/'>
+            <LazyLoadImage
+              effect='blur'
+              src={Ca}
+              alt=''
+              width='640'
+              height='360'
+              className='img-fluid cap'
+            />
+          </Link>
+          <div className='container'>
+            <div className=' navbar-menu-wrapper' id='navbarSupportedContent'>
+              <ul className='navbar-nav align-items-lg-center align-items-start ml-auto'>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/'>
+                    Home
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/login'>
+                    Student
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/loginT'>
+                    Teacher
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
     <div className='col-12 grid-margin'>
       <Helmet>
         <meta name='title' content='college du christ roi' />
@@ -93,6 +131,7 @@ function Registe() {
 
         <title>NEW STUDENTS REGISTRATION </title>
       </Helmet>
+     
       <div className='container-fluid page-body-wrapper'>
         <div className='content-wrapper'>
           <div className='card'>
@@ -290,6 +329,7 @@ function Registe() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 
