@@ -154,7 +154,7 @@ function CreateTest() {
                     <div
 
                       className={
-                        open ?
+                        opene ?
                           'col-12'
                           : 'col-12 hide'
                       }>
@@ -171,7 +171,7 @@ function CreateTest() {
                     <div
 
                       className={
-                        open ?
+                        opene ?
                           'col-12'
                           : 'col-12 hide'
                       }>
