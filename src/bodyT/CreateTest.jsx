@@ -1,8 +1,8 @@
-import React, {useState, useContext} from 'react';
-import {toast} from 'react-toastify';
-import {Link} from 'react-router-dom';
-import {url} from '../url';
-import {TeacherContext} from '../bodyT/context/TeacherContext';
+import React, { useState, useContext } from 'react';
+import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
+import { url } from '../url';
+import { TeacherContext } from '../bodyT/context/TeacherContext';
 const Header = React.lazy(() => import('../header1/Header'));
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 function CreateTest() {
@@ -22,19 +22,20 @@ function CreateTest() {
   const [subject, setSubject] = useState('');
   const [subjec, setSubjec] = useState('');
   const [answer, setSubje] = useState('');
-  const {question, certificate, answers} = inputs;
+  const { question, certificate, answers } = inputs;
   const choices = [choicese, choice, choic, choica];
   const name = subject.value;
   const classe = subjec.value;
   const [open, setOpen] = useState(false);
+  const [opene, setOpene] = useState(false);
   const onChange = (e) =>
-    setInputs({...inputs, [e.target.name]: e.target.value});
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
 
   const handleChange = (event) => {
-    setSubject({value: event.target.value});
+    setSubject({ value: event.target.value });
   };
   const handleChang = (event) => {
-    setSubjec({value: event.target.value});
+    setSubjec({ value: event.target.value });
   };
 
   const onSubmitForm = async (e) => {
@@ -140,7 +141,23 @@ function CreateTest() {
                         id='inputAddress2'
                       />
                     </div>
-                    <div className='col-12'>
+                    {opene ? (
+                      <Link onClick={() => setOpene(false)}>
+                        <i className='bi bi-plus'></i>No more questions{' '}
+                      </Link>
+                    ) : (
+                      <Link onClick={() => setOpene(true)}>
+                        <i className='bi bi-plus'></i>More questions{' '}
+                      </Link>
+                    )}
+
+                    <div
+
+                      className={
+                        open ?
+                          'col-12'
+                          : 'col-12 hide'
+                      }>
                       <label forhtml='inputAddress' className='form-label'>
                         Answer 3
                       </label>
@@ -151,7 +168,13 @@ function CreateTest() {
                         id='inputAddress'
                       />
                     </div>
-                    <div className='col-12'>
+                    <div
+
+                      className={
+                        open ?
+                          'col-12'
+                          : 'col-12 hide'
+                      }>
                       <label forhtml='inputAddress2' className='form-label'>
                         Answer 4
                       </label>
@@ -161,6 +184,8 @@ function CreateTest() {
                         className='form-control'
                         id='inputAddress2'
                       />
+
+
                     </div>
                     <div className='col-md-6'>
                       <label forhtml='inputCity' className='form-label'>
@@ -175,7 +200,6 @@ function CreateTest() {
                         id='inputCity'
                       />
                     </div>
-
                     <div className='col-md-6'>
                       <label forhtml='inputCity' className='form-label'>
                         Set Timer
