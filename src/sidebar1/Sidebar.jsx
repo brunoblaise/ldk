@@ -49,8 +49,6 @@ function Sidebar({setAuth}) {
           </Link>
         </li>
 
-      
-
         <li className='nav-item'>
           <Link className='nav-link' to='/worksT'>
             <i className='bi bi-hexagon-fill menu-icon'></i>
@@ -58,7 +56,6 @@ function Sidebar({setAuth}) {
           </Link>
         </li>
 
-        
         <li className='nav-item'>
           <Link className='nav-link' to='/reportT'>
             <i className='bi bi-award menu-icon'></i>
@@ -88,11 +85,18 @@ function Sidebar({setAuth}) {
             <span className='menu-title'>Test</span>
           </Link>
         </li>
-   
+
         <li className='nav-item'>
           <Link className='nav-link' to='/meet'>
             <i className='bi bi-pause-btn menu-icon'></i>
             <span className='menu-title'>Video chat</span>
+          </Link>
+        </li>
+
+        <li className='nav-item'>
+          <Link className='nav-link' to='/Syllabust'>
+            <i className='bi bi-body-text menu-icon'></i>
+            <span className='menu-title'>Syllabus</span>
           </Link>
         </li>
         <br />

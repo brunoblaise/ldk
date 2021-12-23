@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
 import {Helmet} from 'react-helmet';
+const Around = React.lazy(() => import('./home/Around'));
+
 function ReportT() {
   const [recfile, setRecfile] = useState('');
   const [name, setName] = useState('');
@@ -64,17 +66,19 @@ function ReportT() {
                 </p>
               </div>
 
-              <form onSubmit={onSubmitForm} className='template-demo'>
+              <form className='row g-3' onSubmit={onSubmitForm}>
                 <input
                   name='recfile'
                   placeholder='Upload File'
                   type='file'
-                  className='form-control form-control form-control-lg border-left-0'
+                  className='form-control form-control form-control-lg '
+                  
                   id='exampleInputPassword'
                   onChange={(e) => setRecfile(e.target.files[0])}
                 />
                 <input
                   type='text'
+                  className='form-control form-control form-control-lg '
                   placeholder='Student Email'
                   name='name'
                   value={name}
@@ -90,6 +94,7 @@ function ReportT() {
             </div>
           </div>
         </div>
+        <Around/>
       </div>
     </div>
   );

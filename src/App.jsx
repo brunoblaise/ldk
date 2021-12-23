@@ -33,6 +33,7 @@ const JoinMeeting = React.lazy(() => import('./page/Join'));
 const Message = React.lazy(() => import('./body/Message'));
 const MessageT = React.lazy(() => import('./bodyT/MessageT'));
 const Onenotes = React.lazy(() => import('./body/Onenotes'));
+
 import {ProfileProvide} from './body/context/ProfileContext';
 import {TeacherProvide} from './bodyT/context/TeacherContext';
 
@@ -42,6 +43,8 @@ const Land = React.lazy(() => import('./land/Land'));
 import {url} from './url';
 import {ErrorBoundary} from 'react-error-boundary';
 
+const SyllabusT = React.lazy(() => import('./bodyT/home/SyllabusT'));
+const Syllabus = React.lazy(() => import('./body/Syllabus'));
 const Registe = React.lazy(() => import('./Newstyudenty/Registe'));
 const Mywork = React.lazy(() => import('./bodyT/home/Mywork'));
 const Seen = React.lazy(() => import('./bodyT/home/Seen'));
@@ -188,7 +191,7 @@ function App() {
                   exact
                 />
                 <Route
-                  path='/register'
+                  path='/register/:token'
                   render={(props) =>
                     !isAuthenticated ? (
                       <Register {...props} setAuth={setAuth} />
@@ -216,6 +219,18 @@ function App() {
                   render={(props) =>
                     isAuthenticated ? (
                       <Notes {...props} setAuth={setAuth} />
+                    ) : (
+                      <Redirect to='/login' />
+                    )
+                  }
+                  exact
+                />
+
+                <Route
+                  path='/syllabus'
+                  render={(props) =>
+                    isAuthenticated ? (
+                      <Syllabus {...props} setAuth={setAuth} />
                     ) : (
                       <Redirect to='/login' />
                     )
@@ -352,7 +367,7 @@ function App() {
                   />
 
                   <Route
-                    path='/registerT'
+                    path='/registerT/:token'
                     render={(props) =>
                       !isAuthenticated ? (
                         <RegisterT {...props} setAuth={setAuth} />
@@ -367,6 +382,18 @@ function App() {
                     render={(props) =>
                       isAuthenticated ? (
                         <CreateTest {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+
+                  <Route
+                    path='/Syllabust'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <SyllabusT {...props} setAuth={setAuth} />
                       ) : (
                         <Redirect to='/loginT' />
                       )

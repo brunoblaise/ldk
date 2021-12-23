@@ -1,24 +1,17 @@
-import React, {useState, useContext} from 'react';
-import {TeacherContext} from './context/TeacherContext';
-import {toast} from 'react-toastify';
-import {url} from '../url';
-import {Helmet} from 'react-helmet';
-import {Link} from 'react-router-dom';
-const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
-const Header = React.lazy(() => import('../header1/Header'));
-function WorkSubT() {
-  const [profile] = useContext(TeacherContext);
-  const own = profile.map((profil) => profil.teacher_email);
+import React, {useState} from 'react';
 
-  const [name] = useState(own[0]);
+import {toast} from 'react-toastify';
+import {url} from '../../url';
+import {Helmet} from 'react-helmet';
+
+const Sidebar = React.lazy(() => import('../../sidebar1/Sidebar'));
+const Header = React.lazy(() => import('../../header1/Header'));
+function SyllabusT() {
   const [inputs, setInputs] = useState({
     title: '',
-    summary: '',
-    email: name,
-    written: 'null',
   });
-  const [open, setOpen] = useState(false);
-  const {title, email, summary, written} = inputs;
+
+  const {title} = inputs;
   const [subjec, setSubjec] = useState('');
   const [opene, setOpene] = useState(false);
 
@@ -34,14 +27,11 @@ function WorkSubT() {
       const formData = new FormData();
       formData.append('classe', classe);
       formData.append('title', title);
-      formData.append('summary', summary);
-      formData.append('written', written);
-      formData.append('email', email);
       formData.append('recfile', recfile);
       const myHeaders = new Headers();
       myHeaders.append('jwt_token', localStorage.token);
       const response = await fetch(
-        `${url}/create/work`,
+        `${url}/create/syllabus`,
 
         {
           method: 'POST',
@@ -78,7 +68,7 @@ function WorkSubT() {
         <meta name='distribution' content='global' />
         <meta name='rating' content='general' />
 
-        <title>Work</title>
+        <title>Syllabus</title>
       </Helmet>
       <Header />
       <div className='container-fluid page-body-wrapper'>
@@ -88,10 +78,10 @@ function WorkSubT() {
             <div className='row'>
               <div className='card-body'>
                 <div className='ml-xl-4 mt-3'>
-                  <h4 className='card-title'>Submit your Assignment here </h4>
+                  <h4 className='card-title'>Submit your syllabus here </h4>
                   <div className='template-demo'>
                     <p className='card-description'>
-                      here you will submit you work with the button upload
+                      here you will submit your syllabus with the button upload
                     </p>
                   </div>
 
@@ -121,7 +111,7 @@ function WorkSubT() {
                     </div>
                     <div className='col-md-4'>
                       <label forhtml='inputEmail4' className='form-label'>
-                        Notes title
+                        title
                       </label>
                       <input
                         type='text'
@@ -132,61 +122,21 @@ function WorkSubT() {
                         onChange={(e) => onChange(e)}
                       />
                     </div>
-                    <div className='col-md-6'>
-                      <label forhtml='inputEmail4' className='form-label'>
-                        Instruction
-                      </label>
-                      <textarea
-                        type='text'
-                        className='form-control form-control form-control-lg '
-                        name='summary'
-                        value={summary}
-                        placeholder='summary'
-                        onChange={(e) => onChange(e)}
-                      />
-                    </div>
+
                     <div className='col-md-4'>
                       <label forhtml='inputEmail4' className='form-label'>
                         Upload a file
                       </label>
                       <input
                         name='recfile'
-                        disabled={open}
                         placeholder='Upload File'
                         type='file'
                         className='form-control form-control form-control-lg '
                         id='exampleInputPassword'
                         onChange={(e) => setRecfile(e.target.files[0])}
                       />
-                      <br />
-                      {open ? (
-                        <Link onClick={() => setOpen(false)}>
-                          <i className='bi bi-plus'></i>Discard the work{' '}
-                        </Link>
-                      ) : (
-                        <Link onClick={() => setOpen(true)}>
-                          <i className='bi bi-plus'></i>Write work here{' '}
-                        </Link>
-                      )}
                     </div>
-                    <div
-                      className={
-                        open ? 'containe ql-editor' : 'containe ql-editor hide'
-                      }>
-                      <div className='form form-stacked sendNewMessage'>
-                        <div>
-                          <textarea
-                            type='text'
-                            value={written}
-                            placeholder='write assignment here'
-                            onChange={(e) => onChange(e)}
-                            style={{left: '0px', top: '3px'}}
-                            name='written'
-                            className='ql-editor bado'
-                          />
-                        </div>
-                      </div>
-                    </div>
+
                     <button
                       disabled={opene}
                       className='btn m-4 btn-primary col-md-3 btn-icon-text'>
@@ -204,4 +154,4 @@ function WorkSubT() {
   );
 }
 
-export default React.memo(WorkSubT);
+export default React.memo(SyllabusT);

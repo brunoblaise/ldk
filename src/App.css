@@ -13580,14 +13580,18 @@ code {
   height: 26px;
 }
 
-.stretch-card {
+.stretch-cardy {
   display: -webkit-flex;
   display: flex;
   -webkit-align-items: stretch;
   align-items: stretch;
   -webkit-justify-content: stretch;
   justify-content: stretch;
+  width: 690px;
+  left: 580px;
+  top: -230px;
 }
+
 
 .stretch-card > .card {
   width: 100%;
@@ -26369,7 +26373,7 @@ div.tagsinput span.tag a {
 .sendNewMessage button i {
   display: block;
 }
-.sendNewMessage input {
+.sendNewMessage textarea {
   flex-grow: 1;
   padding: 0 15px;
   background-color: transparent;
@@ -26839,6 +26843,13 @@ button.btn.btn-opacity-success.ml-1.banner-move {
   left: 846px;
   top: -528px;
 }
+.video_lande{
+  position: relative;
+  top: -8px;
+left:20px;
+  border-radius: 30%;
+  
+}
 .bade {
   position: relative;
   left: 2px;
@@ -27111,4 +27122,8 @@ height: 308px;
 
 .custom-shape-divider-top-1637157769 .shape-fill {
   fill: #005ee3;
+}
+
+.messageInput{
+  height: 100px;
 }

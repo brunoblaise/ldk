@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 import {url} from '../url';
 const LoginT = ({setAuth}) => {
   const [inputs, setInputs] = useState({
@@ -93,10 +93,6 @@ const LoginT = ({setAuth}) => {
                     </button>
                   </div>
                   <div className='text-center mt-4 font-weight-light'>
-                    Don't have an account?
-                    <Link to='/registert' className='text-primary'>
-                      Create
-                    </Link>
                     <br />
                     <Link to='/forgetT' className='text-primary'>
                       forget password

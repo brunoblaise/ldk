@@ -39,8 +39,9 @@ function Messageform() {
       <button className='addFiles'>
         <i className='fa fa-plus'></i>
       </button>
-      <input
+      <textarea
         type='text'
+        className='messageInput'
         placeholder='Type a message here'
         name='message'
         value={message}

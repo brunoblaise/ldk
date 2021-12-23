@@ -28,9 +28,7 @@ function Library() {
                   <div className='content'>
                     <p className='sender-name'>Syllabus</p>
                     <p className='message_text'>
-                      Dear students, you will see that this syllabus contains
-                      reb website so you will access it every easy the books of
-                      reb enjoy
+                      👨🏿‍🏫 Syllabus
                     </p>
                   </div>
                   <div className='details'>
