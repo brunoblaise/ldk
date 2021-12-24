@@ -6,6 +6,7 @@ import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 
 import {Helmet} from 'react-helmet';
 import {url} from '../url';
+import Footer from '../footer/Footer';
 
 function Registe() {
   const [open, setOpen] = useState(false);
@@ -329,6 +330,7 @@ function Registe() {
         </div>
       </div>
     </div>
+    <Footer/>
     </>
   );
 }

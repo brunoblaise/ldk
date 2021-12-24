@@ -36,12 +36,10 @@ function Messageform() {
 
   return (
     <form onSubmit={onSubmitForm} className='sendNewMessage'>
-      <button className='addFiles'>
-        <i className='fa fa-plus'></i>
-      </button>
+   
       <textarea
         type='text'
-        className='messageInput'
+        className='messageInput textarea'
         placeholder='Type a message here'
         name='message'
         value={message}

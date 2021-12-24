@@ -5,7 +5,7 @@ import {Link} from 'react-router-dom';
 const Header = React.lazy(() => import('../header/Header'));
 
 const reb =
-  '<iframe width="100%" height="266" s frameborder="no"  src="https://www.reb.rw/main-menu/resources/secondary-school-books/"></iframe>';
+  '<iframe width="100%" height="266" s frameborder="no"  src="https://www.reb.rw/main-menu/resources/sciences-ebooks/"></iframe>';
 
 function Library() {
   function Iframe(props) {
