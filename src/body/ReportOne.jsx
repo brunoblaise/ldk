@@ -69,23 +69,7 @@ function ReportOne() {
         </div>
       ))}
 
-      <div className='email-wrapper wrapper saw'>
-        <div className='row align-items-stretch'>
-          <div className='mail-view d-none d-md-block col-md-9 col-lg-7 bg-white'>
-            <div className='message-body'>
-              <div className='sender-details'></div>
-              <div className='message-content'>
-                <p>Hi Students,</p>
-                <p>Babyeyi</p>
-
-                <Iframe
-                  iframe={`<iframe width="100%" height="266" s frameborder="no"  src='></iframe>`}
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+     
     </>
   );
 }

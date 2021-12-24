@@ -26,7 +26,7 @@ function Footer() {
                   <h2 className='footer-heading'>Pages</h2>
                   <ul className='list-unstyled'>
                     <li>
-                      <Link to='/home' className='py-1 d-block'>
+                      <Link to='/' className='py-1 d-block'>
                         Home
                       </Link>
                     </li>
