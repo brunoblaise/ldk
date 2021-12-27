@@ -26863,7 +26863,7 @@ left:20px;
 .circle {
   padding: 16px 20px;
   border-radius: 30%;
-  background-color: #b0ddc2;
+  background-color: #0066ff;
   color: #fff;
   max-height: 50px;
   z-index: 2;
@@ -26872,7 +26872,7 @@ left:20px;
   color: #88818b;
 }
 .uw h2 {
-  color: #b0ddc2;
+  color: #0066ff;
   font-weight: bold;
 }
 .connecting-lines.row .col-2 {
@@ -26881,7 +26881,7 @@ left:20px;
 .connecting-lines.row .col-2::after {
   content: '';
   position: absolute;
-  border-left: 3px solid#B0DDC2;
+  border-left: 3px solid#0066ff;
   z-index: 1;
 }
 .connecting-lines.row .col-2.bottom::after {
@@ -26904,10 +26904,10 @@ left:20px;
   height: 40px;
 }
 .timeline hr {
-  border-top: 3px solid#B0DDC2 !important;
+  border-top: 3px solid#0066ff !important;
   margin: 0;
   top: 17px;
-   background-color: #B0DDC2;
+   background-color: #0066ff;
   position: relative;
   opacity: 1 !important;
 }
@@ -26916,7 +26916,7 @@ left:20px;
   overflow: hidden;
 }
 .timeline .corner {
-  border: 3px solid#B0DDC2;
+  border: 3px solid#0066ff;
   width: 100%;
   position: relative;
   border-radius: 15px;
