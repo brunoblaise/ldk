@@ -4,7 +4,6 @@ import ReactPlayer from 'react-player';
 import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 import {Helmet} from 'react-helmet';
 import Group from '../images/blob-scene-haikei (1).svg';
-import Groupe from '../images/blob-haikei.svg';
 import gto from '../images/1494937585_b30a9665.jpg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 
@@ -290,23 +289,11 @@ function Land() {
             </div>
           </div>
         </div>
+       
         <LazyLoadImage
           style={{
             position: 'relative',
-            left: '360px',
-            top: '-136px',
-            transform: 'translateZ(-10px)'
-          }}
-          effect='blur'
-          src={Groupe}
-          alt=''
-          width='630px'
-          className='banner-image'
-        />
-        <LazyLoadImage
-          style={{
-            position: 'relative',
-            left: '63px',
+            left: '693px',
             top: '-138px',
            
           }}

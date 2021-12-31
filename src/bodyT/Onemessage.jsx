@@ -1,17 +1,17 @@
 import React, {useEffect, useState, useContext} from 'react';
 const Messageform = React.lazy(() => import('./Messageform'));
 
-import {ProfileContext} from './context/ProfileContext';
+import {TeacherContext} from './context/TeacherContext';
 import {format} from 'timeago.js';
 import {url} from '../url';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-function Message() {
-  const [message, setMessage] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const [profile] = useContext(ProfileContext);
-  const id = profile.map((profil) => profil.class_student);
 
+import {Helmet} from "react-helmet";
+function Onemessage({match}) {
+  const [message, setMessage] = useState([]);
+  const [profile] = useContext(TeacherContext);
+  const [loading, setLoading] = useState(true);
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/message`, {
@@ -20,8 +20,8 @@ function Message() {
       });
 
       const parseData = await res.json();
-      setMessage(parseData.filter((fil) => fil.class_year_content === id[0]));
 
+      setMessage(parseData.filter((fil) => fil.class_year_content === match.params.id));
       setLoading(false);
     } catch (err) {
       console.error(err.message);
@@ -31,10 +31,24 @@ function Message() {
   useEffect(() => {
     getProfile();
   }, [setMessage]);
-  const own = profile.map((profil) => profil.student_email);
+  const own = profile.map((profil) => profil.teacher_email);
 
   return (
     <div className='__main'>
+           <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
+
+        <title>Message</title>
+      </Helmet>
       <div className='nav'>
         <div className='nav__blocks'></div>
         <div className='nav__blocks'></div>
@@ -51,7 +65,8 @@ function Message() {
                       effect='blur'
                       width='640'
                       height='360'
-                      src={`https://avatars.dicebear.com/api/avataaars/${own[0]}.svg`}
+                      src={`https://avatars.dicebear.com/api/avataaars/${own}.svg`}
+                      
                       alt=''
                     />
                   </div>
@@ -77,6 +92,7 @@ function Message() {
                     style={{animationDelay: '0.8s'}}>
                     <div className='chat__item__content'>
                       <div className='chat__msg'>{chat.messages}</div>
+                   
 
                       <div className='chat__meta'>
                         <span>{chat.message_fname}</span>
@@ -91,7 +107,7 @@ function Message() {
             </div>
           </div>
           <div className='content__footer'>
-            <Messageform classe={id[0]} />
+            <Messageform classe={match.params.id} />
           </div>
         </div>
       </div>
@@ -99,4 +115,4 @@ function Message() {
   );
 }
 
-export default React.memo(Message);
+export default React.memo(Onemessage);

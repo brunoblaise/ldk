@@ -27173,3 +27173,21 @@ footer a{
     0% { transform: rotate(6deg); }
     100% { transform: rotate(-6deg); }
 }
+
+
+
+
+.row12 {
+  display: flex;
+margin-top:100px;
+  margin-right: 305px;
+  margin-left: -15px;
+  height: 300px;
+}
+
+.fileUpload {
+   
+    cursor: pointer;
+    opacity: 0.6;
+    filter: alpha(opacity=0);
+}

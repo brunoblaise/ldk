@@ -1,41 +1,11 @@
-import React, {useEffect, useState, useContext} from 'react';
-const Messageform = React.lazy(() => import('./Messageform'));
+import React from 'react';
+import {Link} from 'react-router-dom';
 
-import {TeacherContext} from './context/TeacherContext';
-import {format} from 'timeago.js';
-import {url} from '../url';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
-import 'react-lazy-load-image-component/src/effects/blur.css';
-
-import {Helmet} from "react-helmet";
+import {Helmet} from 'react-helmet';
 function MessageT() {
-  const [message, setMessage] = useState([]);
-  const [profile] = useContext(TeacherContext);
-  const [loading, setLoading] = useState(true);
-  const getProfile = async () => {
-    try {
-      const res = await fetch(`${url}/get/message`, {
-        method: 'GET',
-        headers: {jwt_token: localStorage.token},
-      });
-
-      const parseData = await res.json();
-
-      setMessage(parseData);
-      setLoading(false);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  useEffect(() => {
-    getProfile();
-  }, [setMessage]);
-  const own = profile.map((profil) => profil.teacher_email);
-
   return (
     <div className='__main'>
-           <Helmet>
+      <Helmet>
         <meta name='title' content='college du christ roi' />
         <meta
           http-equiv='Content-Security-Policy'
@@ -49,66 +19,119 @@ function MessageT() {
 
         <title>Message</title>
       </Helmet>
-      <div className='nav'>
-        <div className='nav__blocks'></div>
-        <div className='nav__blocks'></div>
-        <div className='nav__blocks'></div>
-      </div>
-      <div className='main__chatbody'>
-        <div className='main__chatcontent'>
-          <div className='content__header'>
-            <div className='blocks'>
-              <div className='current-chatting-user'>
-                <div className='avatar'>
-                  <div className='avatar-img'>
-                    <LazyLoadImage
-                      effect='blur'
-                      width='640'
-                      height='360'
-                      src={`https://avatars.dicebear.com/api/avataaars/${own}.svg`}
-                      
-                      alt=''
-                    />
-                  </div>
-                  <span className='isOnline active'></span>
-                </div>
-                <p>Cxr Chat Box</p>
+
+      <>
+        <div className='row12 row-cols-1'>
+          <div className='col fut'>
+            <div className='card h-100'>
+              <div className='card-body'>
+                <h5 className='card-title '>Board 1</h5>
+                <p className='card-text'>
+
+                   
+                <Link to='/messageT/tch' className='row'>
+                 
+
+                 <p className='mb-2 mb-xl-0'>Teacher</p>
+               </Link>
+                  <Link to='/messageT/s1' className='row'>
+                  
+
+                    <p className='mb-2 mb-xl-0'>Senior 1</p>
+                  </Link>
+                 
+                  <Link to='/messageT/s2' className='row'>
+                   
+                    <p className='mb-2 mb-xl-0'>Senior 2</p>
+                  </Link>
+                 
+                  <Link to='/messageT/s3' className='row'>
+                   
+
+                    <p className='mb-2 mb-xl-0'>Senior 3</p>
+                  </Link>
+                  <Link to='/messageT/s4lkk' className='row'>
+                  
+
+                  <p className='mb-2 mb-xl-0'>Senior 4 lkk</p>
+                </Link>
+                
+                <Link to='/messageT/s4mcb' className='row'>
+                 
+                  <p className='mb-2 mb-xl-0'>Senior 4 mcb</p>
+                </Link>
+                
+                <Link to='/messageT/s4pcb' className='row'>
+                 
+
+                  <p className='mb-2 mb-xl-0'>Senior 4 pcb</p>
+                </Link>
+                </p>
               </div>
             </div>
           </div>
-          <div className='content__body'>
-            <div className='chat__items'>
-              {loading ? (
-                <p>loading..</p>
-              ) : (
-                message.map((chat) => (
-                  <div
-                    key={chat.message_id}
-                    className={
-                      chat.message_fname === own[0]
-                        ? 'chat__item me'
-                        : 'chat__item other'
-                    }
-                    style={{animationDelay: '0.8s'}}>
-                    <div className='chat__item__content'>
-                      <div className='chat__msg'>{chat.messages}</div>
-                      <div className='chat__meta'>
-                        <span>{chat.message_fname}</span>
-                        <span>{format(chat.timestamp)}</span>
-                      </div>
-                    </div>
-                  </div>
-                ))
-              )}
 
-              <div></div>
+          <div className=' fut'>
+            <div className='card h-100'>
+              <div className='card-body'>
+                <h5 className='card-title '>Board 2</h5>
+                <p className='card-text'>
+                
+                <Link to='/messageT/s5lkk' className='row'>
+                  
+
+                    <p className='mb-2 mb-xl-0'>Senior 5 lkk</p>
+                  </Link>
+                 
+                  <Link to='/messageT/s5mcb' className='row'>
+                   
+                    <p className='mb-2 mb-xl-0'>Senior 5 mcb</p>
+                  </Link>
+                 
+                  <Link to='/messageT/s5pcb' className='row'>
+                   
+
+                    <p className='mb-2 mb-xl-0'>Senior 5 pcb</p>
+                  </Link>
+
+                  <Link to='/messageT/s6lkk' className='row'>
+                  
+
+                  <p className='mb-2 mb-xl-0'>Senior 6 lkk</p>
+                </Link>
+               
+                <Link to='/messageT/s6mcb' className='row'>
+                 
+                  <p className='mb-2 mb-xl-0'>Senior 6 mcb</p>
+                </Link>
+               
+                <Link to='/messageT/s6pcb' className='row'>
+                 
+
+                  <p className='mb-2 mb-xl-0'>Senior 6 pcb</p>
+                </Link>
+                </p>
+              </div>
             </div>
           </div>
-          <div className='content__footer'>
-            <Messageform />
+        </div>
+        <div className='row align-items-center justify-content-end connecting-lines d-flex'>
+          <div className='col-6 text-right'>
+            <h4 className='uw'>Education</h4>
+            <p className='uw'>
+              Educating the mind without educating the heart is no education at
+              all. That is what differentiate us from the rest, that is why we
+              are the best in every thing we do no matter how difficult we
+              always find a way
+            </p>
+          </div>
+          <div className='col-2 text-center full d-inline-flex justify-content-center align-items-center'>
+            <div className='circle font-weight-bold'>
+              <i className='fa fa-check'></i>
+            </div>
           </div>
         </div>
-      </div>
+      </>
     </div>
   );
 }

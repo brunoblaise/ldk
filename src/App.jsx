@@ -45,6 +45,8 @@ import {ErrorBoundary} from 'react-error-boundary';
 
 
 
+const Onemessage  = React.lazy(() => import( './bodyT/Onemessage'));
+
 const UpdateClass = React.lazy(() => import('./body/UpdateClass'));
 
 const SyllabusT = React.lazy(() => import('./bodyT/home/SyllabusT'));
@@ -309,7 +311,7 @@ function App() {
                   exact
                 />
                 <Route
-                  path='/message'
+                  path='/message/'
                   render={(props) =>
                     isAuthenticated ? (
                       <Message {...props} setAuth={setAuth} />
@@ -445,6 +447,17 @@ function App() {
                     render={(props) =>
                       isAuthenticated ? (
                         <MessageT {...props} setAuth={setAuth} />
+                      ) : (
+                        <Redirect to='/loginT' />
+                      )
+                    }
+                    exact
+                  />
+                  <Route
+                    path='/messageT/:id'
+                    render={(props) =>
+                      isAuthenticated ? (
+                        <Onemessage {...props} setAuth={setAuth} />
                       ) : (
                         <Redirect to='/loginT' />
                       )
