@@ -8,36 +8,29 @@ function Messageform({classe}) {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState('');
   const [name] = useState(own[0]);
-
   const onSubmitForm = async (e) => {
     e.preventDefault();
-
     try {
-      const formData = new FormData();
-      formData.append('message', message);
-      formData.append('name', name);
-      formData.append('classe', classe);
-
       const myHeaders = new Headers();
-      myHeaders.append('jwt_token', localStorage.token);
-      const response = await fetch(
-        `${url}/create/message`,
 
-        {
-          method: 'POST',
-          body: formData,
-          headers: myHeaders,
-        },
-      );
+      myHeaders.append('Content-Type', 'application/json');
+      myHeaders.append('jwt_token', localStorage.token);
+
+      const body = {message, name, classe};
+      const response = await fetch(`${url}/create/message`, {
+        method: 'POST',
+        headers: myHeaders,
+        body: JSON.stringify(body),
+      });
       setOpen(true);
       if (response.status === 500) {
-        toast.error('Fill the required one');
+        toast.error('Something is wrong');
       } else {
         toast.success('Sent Successfully');
         setOpen(false);
       }
     } catch (err) {
-      console.error(err.message);
+      console.log(err.message);
     }
   };
   return (

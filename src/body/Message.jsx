@@ -20,6 +20,7 @@ function Message() {
       });
 
       const parseData = await res.json();
+     
       setMessage(parseData.filter((fil) => fil.class_year_content === id[0]));
 
       setLoading(false);
@@ -32,7 +33,7 @@ function Message() {
     getProfile();
   }, [setMessage]);
   const own = profile.map((profil) => profil.student_email);
-
+  
   return (
     <div className='__main'>
       <div className='nav'>
