@@ -1,5 +1,7 @@
 import React from 'react';
 
+const GetLink = React.lazy(() => import('../bodyT/GetLink'));
+
 const Boardleader = React.lazy(() => import('../bodyT/Boardleader'));
 const Welcome = React.lazy(() => import('../bodyT/Welcome'));
 const Track = React.lazy(() => import('../bodyT/Track'));
@@ -12,6 +14,7 @@ function Main() {
         <Track />
 
         <Boardleader />
+        <GetLink />
       </div>
     </div>
   );

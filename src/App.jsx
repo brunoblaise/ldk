@@ -208,7 +208,7 @@ function App() {
                   exact
                 />
                 <Route
-                  path='/register/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYnJ1bm9ibGFpc2U5NEBnbWFpbC5jb20iLCJpZCI6IjMwOTE5MTZkLTEyODgtNDZlMy04NTZkLWE0ZWJkOWVhMWEwNSJ9LCJpYXQiOjE2NDAyODMxMjAsImV4cCI6MTY0MDI5MDMyMH0.zdscUYiOXMkOS20ABCs2-VP5_VL_WkxCjkrXwg-VyuQ'
+                  path='/register/WkxCjkrXwg'
                   render={(props) =>
                     !isAuthenticated ? (
                       <Register {...props} setAuth={setAuth} />
@@ -384,7 +384,7 @@ function App() {
                   />
 
                   <Route
-                    path='/registerT/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImVtYWlsIjoiYnJ1bm9ibGFpc2U5NEBnbWFpbC5jb20iLCJpZCI6IjMwOTE5MTZkLTEyODgtNDZlMy04NTZkLWE0ZWJkOWVhMWEwNSJ9LCJpYXQiOjE2NDAyODMxMjAsImV4cCI6MTY0MDI5MDMyMH0.zdscUYiOXMkOS20ABCs2-VP5_VL_WkxCjkrXwg-VyuQ'
+                    path='/registerT/WkxCjkrXwg'
                     render={(props) =>
                       !isAuthenticated ? (
                         <RegisterT {...props} setAuth={setAuth} />

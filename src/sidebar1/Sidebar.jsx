@@ -121,7 +121,7 @@ function Sidebar({setAuth}) {
         <br />
         <br />
         <br />
-        <br />
+    
         <li className='nav-item active' onClick={(e) => logout(e)}>
           <Link className='nav-link' to='/'>
             <i className='bi bi-box-arrow-left  menu-icon'></i>

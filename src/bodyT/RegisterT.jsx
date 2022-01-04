@@ -18,6 +18,7 @@ function RegisterT({setAuth}) {
   const [photo, setPhoto] = useState('');
   const {fname, lname, gender, email, password, age, phone, bio} = inputs;
   const [opene, setOpene] = useState(false);
+  const [type] = useState('main');
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -29,6 +30,8 @@ function RegisterT({setAuth}) {
 
       formData.append('fname', fname);
       formData.append('lname', lname);
+      formData.append('type', type);
+
       formData.append('gender', gender);
       formData.append('email', email);
       formData.append('password', password);
