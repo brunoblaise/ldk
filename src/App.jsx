@@ -72,7 +72,7 @@ const NotesT = React.lazy(() => import('./bodyT/NotesT'));
 const ReportT = React.lazy(() => import('./bodyT/ReportT'));
 const WorkSubT = React.lazy(() => import('./bodyT/WorkSubT'));
 import {BrowserView, MobileView} from 'react-device-detect';
-const Error = React.lazy(() => import('./error/Error'));
+
 toast.configure();
 function App() {
   const checkAuthenticated = async () => {
@@ -564,9 +564,9 @@ function App() {
                       }
                       exact
                     />
-                    <Route path='*' component={Error} />
                   </TeacherProvide>
                 </ProfileProvide>
+                
                 
               </Switch>
               
