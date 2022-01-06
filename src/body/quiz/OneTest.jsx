@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef} from 'react';
 
-function OneTest({ data, onAnswerUpdate, numberOfQuestions, activeQuestion, onSetActiveQuestion,onSetStep,notes }) {
+function OneTest({ data, onAnswerUpdate, numberOfQuestions, activeQuestion, onSetActiveQuestion,onSetStep, }) {
     
     const [counter, setCounter] = useState(120);
     const [selected, setSelected] = useState('');

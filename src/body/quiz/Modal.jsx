@@ -1,9 +1,43 @@
-import React from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import {ProfileContext} from '../context/ProfileContext';
 import {Link} from 'react-router-dom';
+import {url} from '../../url';
 import {useParams} from 'react-router-dom';
 const Modal = ({results, data}) => {
   const {id: documentId} = useParams();
+  const [profile] = useContext(ProfileContext);
+  const [notes, setNote] = useState([]);
+  const id = profile.map((profil) => profil.class_student);
+  let controller = new AbortController();
+  const getProfile = async () => {
+    try {
+      const res = await fetch(`${url}/get/open`, {
+        method: 'GET',
+        headers: {jwt_token: localStorage.token},
+        signal: controller.signal,
+      });
 
+      const parseData = await res.json();
+
+      setNote(
+        parseData.filter(
+          (fil) =>
+            fil.class_year_content === id[0] &&
+            fil.test_name === documentId,
+        ),
+      );
+     
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getProfile();
+    return () => controller?.abort();
+  }, [setNote]);
+
+  
   return (
     <div className='activer'>
       <div className='background'></div>
@@ -35,7 +69,12 @@ const Modal = ({results, data}) => {
                 )}
               </li>
             ))}
-            <Link to={`/open/${documentId}`}>continue to open questions</Link>
+            {notes.length > 0 ? (
+              <Link to={`/open/${documentId}`}>continue to open questions</Link>
+            ): (
+              <Link to='/'>there is no open questions</Link>
+            )}
+            
           </ul>
         </section>
       </div>
