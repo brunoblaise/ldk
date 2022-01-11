@@ -8,8 +8,8 @@ import gto from '../images/1494937585_b30a9665.jpg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import Footer from '../footer/Footer';
 
+const Footer = React.lazy(() => import( '../footer/Footer'));
 function Land() {
   return (
     <>
