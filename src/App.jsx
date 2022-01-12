@@ -10,6 +10,9 @@ const LoginT = React.lazy(() => import('./bodyT/LoginT'));
 const ProfileT = React.lazy(() => import('./bodyT/ProfileT'));
 const RegisterT = React.lazy(() => import('./bodyT/RegisterT'));
 const Notes = React.lazy(() => import('./body/Notes'));
+const Land = React.lazy(() => import('./land/Land'));
+const Take = React.lazy(() => import('./bodyT/home/Take'));
+
 const Quiz = React.lazy(() => import('./body/Quiz'));
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -38,7 +41,9 @@ import {ProfileProvide} from './body/context/ProfileContext';
 import {TeacherProvide} from './bodyT/context/TeacherContext';
 
 const Report = React.lazy(() => import('./body/Report'));
-const Land = React.lazy(() => import('./land/Land'));
+
+
+const Look = React.lazy(() => import('./bodyT/Look'));
 
 import {url} from './url';
 import {ErrorBoundary} from 'react-error-boundary';
@@ -558,6 +563,28 @@ function App() {
                       render={(props) =>
                         isAuthenticated ? (
                           <Openq {...props} setAuth={setAuth} />
+                        ) : (
+                          <Redirect to='/loginT' />
+                        )
+                      }
+                      exact
+                    />
+                      <Route
+                      path='/look'
+                      render={(props) =>
+                        isAuthenticated ? (
+                          <Look {...props} setAuth={setAuth} />
+                        ) : (
+                          <Redirect to='/loginT' />
+                        )
+                      }
+                      exact
+                    />
+                     <Route
+                      path='/look/:id'
+                      render={(props) =>
+                        isAuthenticated ? (
+                          <Take {...props} setAuth={setAuth} />
                         ) : (
                           <Redirect to='/loginT' />
                         )
