@@ -10,6 +10,8 @@ function GetLink() {
       
     <div>
         {id[0] === 'admin' ? <ol className='list-group list-group-numbered'>
+          <Link to='/look'>New students</Link>
+          <br />
         <li className='list-group-item d-flex justify-content-between align-items-start'>
           <div className='ms-2 me-auto'>
             <div className='fw-bold'>Student Link</div>
