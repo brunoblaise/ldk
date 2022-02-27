@@ -78,9 +78,6 @@ const ReportT = React.lazy(() => import('./bodyT/ReportT'));
 const WorkSubT = React.lazy(() => import('./bodyT/WorkSubT'));
 import {BrowserView, MobileView} from 'react-device-detect';
 
- 
-
-
 toast.configure();
 function App() {
   const checkAuthenticated = async () => {
@@ -225,7 +222,6 @@ function App() {
                   />
                   <Route
                     path='/register/WkxCjkrXwg'
-                  
                     render={(props) =>
                       !isAuthenticated ? (
                         <Register {...props} setAuth={setAuth} />
@@ -401,8 +397,7 @@ function App() {
                     />
 
                     <Route
-                    path='/registerT/WkxCjkrXwg'
-                    
+                      path='/registerT/WkxCjkrXwg'
                       render={(props) =>
                         !isAuthenticated ? (
                           <RegisterT {...props} setAuth={setAuth} />
