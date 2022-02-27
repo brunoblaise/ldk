@@ -1,15 +1,17 @@
 import React, {useContext} from 'react';
 import {TeacherContext} from './context/TeacherContext';
 import {Link} from 'react-router-dom';
-import {hours} from '../App';
+
 function GetLink() {
   const [profile] = useContext(TeacherContext);
 
   const id = profile.map((profil) => profil.teacher_type);
 
+  
+
   return (
     <div>
-      {id[0] === 'admin' ? (
+      {id[0] === 'male' ? (
         <ol className='list-group list-group-numbered'>
           <Link to='/look'>New students</Link>
           <br />
@@ -21,7 +23,10 @@ function GetLink() {
                 <i className='bi bi-plus'></i> Get the link{' '}
               </Link>
               <div className={'card row col-md-18  stretch-card'}>
-                {`https://www.cxrgo.ml/register/${hours}`}
+                    <Link>
+                https://www.cxrgo.ml/register/WkxCjkrXwg
+
+                    </Link>
               </div>
             </div>
           </li>
@@ -33,7 +38,11 @@ function GetLink() {
                 <i className='bi bi-plus'></i> Get the link{' '}
               </Link>
               <div className={'card row col-md-18  stretch-card'}>
-                {`https://www.cxrgo.ml/registerT/${hours}`}
+                <Link>
+              https://www.cxrgo.ml/registerT/WkxCjkrXwg
+
+                </Link>
+                
               </div>
             </div>
           </li>

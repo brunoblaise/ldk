@@ -78,7 +78,7 @@ const ReportT = React.lazy(() => import('./bodyT/ReportT'));
 const WorkSubT = React.lazy(() => import('./bodyT/WorkSubT'));
 import {BrowserView, MobileView} from 'react-device-detect';
 
- export const hours = new Date().getHours();
+ 
 
 
 toast.configure();
@@ -224,7 +224,8 @@ function App() {
                     exact
                   />
                   <Route
-                    path={`/register/${hours}`}
+                    path='/register/WkxCjkrXwg'
+                  
                     render={(props) =>
                       !isAuthenticated ? (
                         <Register {...props} setAuth={setAuth} />
@@ -400,7 +401,8 @@ function App() {
                     />
 
                     <Route
-                      path={`/registerT/${hours}`}
+                    path='/registerT/WkxCjkrXwg'
+                    
                       render={(props) =>
                         !isAuthenticated ? (
                           <RegisterT {...props} setAuth={setAuth} />
