@@ -5,11 +5,12 @@ function GetLink() {
   const [profile] = useContext(TeacherContext);
 
   const id = profile.map((profil) => profil.teacher_type);
-
+  const hours = new Date().getHours() + 1;
+ 
   return (
       
     <div>
-        {id[0] === 'admin' ? <ol className='list-group list-group-numbered'>
+        {id[0] === 'male' ? <ol className='list-group list-group-numbered'>
           <Link to='/look'>New students</Link>
           <br />
         <li className='list-group-item d-flex justify-content-between align-items-start'>
@@ -20,7 +21,7 @@ function GetLink() {
               <i className='bi bi-plus'></i> Get the link{' '}
             </Link>
             <div className={'card row col-md-18  stretch-card'}>
-              https://www.cxrgo.ml/register/WkxCjkrXwg
+              {`https://www.cxrgo.ml/register/WkxCjkrXwg/${hours}`}
             </div>
           </div>
         </li>
@@ -32,7 +33,8 @@ function GetLink() {
               <i className='bi bi-plus'></i> Get the link{' '}
             </Link>
             <div className={'card row col-md-18  stretch-card'}>
-              https://www.cxrgo.ml/registerT/WkxCjkrXwg
+            {`https://www.cxrgo.ml/registerT/WkxCjkrXwg/${hours}`}
+              
             </div>
           </div>
         </li>
