@@ -8,6 +8,10 @@ function Register({setAuth}) {
     fname: '',
     lname: '',
     gender: '',
+    type : 'main',
+    rid: '',
+    hide : '',
+    parent: '',
     email: '',
     password: '',
     age: '',
@@ -18,7 +22,20 @@ function Register({setAuth}) {
   const classe = subjec.value;
 
   const [photo, setPhoto] = useState('');
-  const {fname, lname, gender, email, password, age, phone, bio} = inputs;
+  const {
+    fname,
+    lname,
+    type ,
+    hide,
+    parent,
+    rid,
+    gender,
+    email,
+    password,
+    age,
+    phone,
+    bio,
+  } = inputs;
   const [open, setOpen] = useState(false);
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
@@ -32,6 +49,11 @@ function Register({setAuth}) {
       formData.append('fname', fname);
       formData.append('lname', lname);
       formData.append('gender', gender);
+      formData.append('type', type);
+      formData.append('id', rid);
+      formData.append('parent', parent);
+      formData.append('hide', hide);
+
       formData.append('email', email);
       formData.append('password', password);
       formData.append('photo', photo);
@@ -266,6 +288,64 @@ function Register({setAuth}) {
                     </div>
                   </div>
 
+
+
+
+                  <div className='form-group'>
+                    <label>Hide your contacts no || yes </label>
+                    <div className='input-group'>
+                      <div className='input-group-prepend bg-transparent'>
+                        <span className='input-group-text bg-transparent border-right-0'>
+                          <i className='ti-lock text-primary'></i>
+                        </span>
+                      </div>
+                      <input
+                        className='form-control form-control form-control-lg border-left-0'
+                        value={hide}
+                        name='hide'
+                        placeholder='hide'
+                        type='text'
+                        onChange={(e) => onChange(e)}
+                      />
+                    </div>
+                  </div>
+                  <div className='form-group'>
+                    <label>Student card id</label>
+                    <div className='input-group'>
+                      <div className='input-group-prepend bg-transparent'>
+                        <span className='input-group-text bg-transparent border-right-0'>
+                          <i className='ti-user text-primary'></i>
+                        </span>
+                      </div>
+                      <input
+                        type='text'
+                        className='form-control form-control form-control-lg border-left-0'
+                        name='rid'
+                        value={rid}
+                        placeholder='Student id'
+                        onChange={(e) => onChange(e)}
+                      />
+                    </div>
+                  </div>
+
+                  <div className='form-group'>
+                    <label>Parent name</label>
+                    <div className='input-group'>
+                      <div className='input-group-prepend bg-transparent'>
+                        <span className='input-group-text bg-transparent border-right-0'>
+                          <i className='ti-user text-primary'></i>
+                        </span>
+                      </div>
+                      <input
+                        type='text'
+                        className='form-control form-control form-control-lg border-left-0'
+                        name='parent'
+                        value={parent}
+                        placeholder='Username'
+                        onChange={(e) => onChange(e)}
+                      />
+                    </div>
+                  </div>
                   <div className='form-group'>
                     <label>Biography</label>
                     <div className='input-group'>

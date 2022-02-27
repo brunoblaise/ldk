@@ -78,6 +78,9 @@ const ReportT = React.lazy(() => import('./bodyT/ReportT'));
 const WorkSubT = React.lazy(() => import('./bodyT/WorkSubT'));
 import {BrowserView, MobileView} from 'react-device-detect';
 
+ export const hours = new Date().getHours();
+
+
 toast.configure();
 function App() {
   const checkAuthenticated = async () => {
@@ -221,7 +224,7 @@ function App() {
                     exact
                   />
                   <Route
-                    path='/register/WkxCjkrXwg'
+                    path={`/register/${hours}`}
                     render={(props) =>
                       !isAuthenticated ? (
                         <Register {...props} setAuth={setAuth} />
@@ -397,7 +400,7 @@ function App() {
                     />
 
                     <Route
-                      path='/registerT/WkxCjkrXwg'
+                      path={`/registerT/${hours}`}
                       render={(props) =>
                         !isAuthenticated ? (
                           <RegisterT {...props} setAuth={setAuth} />

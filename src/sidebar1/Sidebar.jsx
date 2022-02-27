@@ -94,7 +94,7 @@ function Sidebar({setAuth}) {
         </li>
 
         <li className='nav-item'>
-          <Link className='nav-link' to='/Syllabus'>
+          <Link className='nav-link' to='/Syllabust'>
             <i className='bi bi-asterisk  menu-icon'></i>
             <span className='menu-title'>Syllabus</span>
           </Link>

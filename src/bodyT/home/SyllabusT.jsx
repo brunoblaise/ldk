@@ -73,7 +73,7 @@ function SyllabusT() {
       <Header />
       <div className='container-fluid page-body-wrapper'>
         <Sidebar />
-        <div className='content-wrapper'>
+        <div className='content-wrapper aerq'>
           <div className='card'>
             <div className='row'>
               <div className='card-body'>

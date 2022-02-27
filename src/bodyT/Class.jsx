@@ -51,7 +51,7 @@ function Class({match}) {
       <Header />
       <div className='container-fluid page-body-wrapper'>
         <Sidebar />
-        <div className='content-wrapper'>
+        <div className='content-wrapper aerq'>
       <div className='card'>
         <div className='card-body'>
           <h4 className='card-title' >

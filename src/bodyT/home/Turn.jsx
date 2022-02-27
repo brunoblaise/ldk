@@ -32,7 +32,7 @@ function Turn({id, name, own}) {
       {loading ? (
         'loading ...'
       ) : message.length === 0 ? (
-        <td>turn in</td>
+        <td>nothing</td>
       ) : (
         message.map((fil) => (
           <td key={fil.mark_id}>

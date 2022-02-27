@@ -8,7 +8,7 @@ const Track = React.lazy(() => import('../bodyT/Track'));
 function Main() {
   return (
     <div className='main-panel'>
-      <div className='content-wrapper'>
+      <div className='content-wrapper aerq'>
         <Welcome />
 
         <Track />

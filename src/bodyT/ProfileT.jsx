@@ -21,7 +21,7 @@ function ProfileT({setAuth}) {
 
   return (
     <div>
-      <div className='content-wrapper'>
+      <div className='content-wrapper aerq'>
         <Helmet>
           <meta name='title' content='college du christ roi' />
           <meta

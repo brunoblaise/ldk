@@ -16,7 +16,8 @@ function Welcome() {
           <div className='col-12 col-xl-8 mb-4 mb-xl-0'>
             {profile.map((profil) => (
               <h3 key={profil.teacher_id} className='font-weight-bold'>
-                Welcome Mr/Mrs.{profil.teacher_fname}
+                {profil.teacher_gender === 'male' ? `Welcome Mrs.${profil.teacher_fname}` : ` Welcome Mr.${profil.teacher_fname}` }
+               
               </h3>
             ))}
 

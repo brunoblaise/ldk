@@ -9,7 +9,7 @@ import {LazyLoadImage} from 'react-lazy-load-image-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
 
-const Footer = React.lazy(() => import( '../footer/Footer'));
+const Footer = React.lazy(() => import('../footer/Footer'));
 function Land() {
   return (
     <>
@@ -289,13 +289,12 @@ function Land() {
             </div>
           </div>
         </div>
-       
+
         <LazyLoadImage
           style={{
             position: 'relative',
             left: '693px',
             top: '-138px',
-           
           }}
           effect='blur'
           src={gto}
@@ -303,7 +302,6 @@ function Land() {
           width='630px'
           className='banner-image'
         />
-       
       </div>
       <Footer />
     </>
