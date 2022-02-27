@@ -50,7 +50,7 @@ function Register({setAuth}) {
       formData.append('lname', lname);
       formData.append('gender', gender);
       formData.append('type', type);
-      formData.append('id', rid);
+      formData.append('rid', rid);
       formData.append('parent', parent);
       formData.append('hide', hide);
 
