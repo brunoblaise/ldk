@@ -9,7 +9,7 @@ function GetLink() {
 
   return (
     <div>
-      {id[0] === 'male' ? (
+      {id[0] === 'admin' ? (
         <ol className='list-group list-group-numbered'>
           <Link to='/look'>New students</Link>
           <br />
