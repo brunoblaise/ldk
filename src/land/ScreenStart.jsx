@@ -7,7 +7,7 @@ import {url} from '../../url';
 const Onechallenge = React.lazy(() => import('./Onechallenge'));
 const Challenge = React.lazy(() => import('./challenge'));
 const End = React.lazy(() => import('./End'));
-function Screen({match}) {
+function ScreenStart({match}) {
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
