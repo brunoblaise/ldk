@@ -1,27 +1,22 @@
 import React from 'react'
 
-function challenge() {
+const challenge = ({onQuizStart, data}) => {
   return (
-    <div>
-
-
-<div className='cardo'>
+    <div className='cardo'>
       <div className='card-content'>
         <div className='content'>
-          <h1>Start the challenge</h1>
-          { <p> Good luck!</p>}
+          <h1>Start the Challenge</h1>
+          {data.length === 0 ? <p>loading questions</p> : <p> Good luck!</p>}
 
           <button
-            className={'button is-info is-medium'}
->
+            className={data.length === 0 ? 'hide' : 'button is-info is-medium'}
+            onClick={onQuizStart}>
             Start
           </button>
         </div>
       </div>
     </div>
-
-    </div>
   )
 }
 
-export default challenge
+export default React.memo(challenge);
