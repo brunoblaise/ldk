@@ -11,7 +11,7 @@ const challenge = ({onQuizStart, data}) => {
           <button
             className={data.length === 0 ? 'hide' : 'button is-info is-medium'}
             onClick={onQuizStart}>
-            Start
+            Starte
           </button>
         </div>
       </div>
