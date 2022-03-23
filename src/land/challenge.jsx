@@ -1,6 +1,7 @@
 import React from 'react'
 
 const challenge = ({onQuizStart, data}) => {
+  console.log('everything good')
   return (
     <div className='cardo'>
       <div className='card-content'>
@@ -11,7 +12,7 @@ const challenge = ({onQuizStart, data}) => {
           <button
             className={data.length === 0 ? 'hide' : 'button is-info is-medium'}
             onClick={onQuizStart}>
-            Starte
+            Start
           </button>
         </div>
       </div>
