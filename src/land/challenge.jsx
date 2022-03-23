@@ -1,7 +1,7 @@
 import React from 'react'
 
 const challenge = ({onQuizStart, data}) => {
-  console.log('everything good')
+ 
   return (
     <div className='cardo'>
       <div className='card-content'>
