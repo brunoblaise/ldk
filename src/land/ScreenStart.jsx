@@ -42,7 +42,7 @@ function Screen({match}) {
   }, []);
 
 
-
+console.log('po', notes)
 
   return (
     <div>
