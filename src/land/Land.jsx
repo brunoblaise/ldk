@@ -69,22 +69,28 @@ function Land() {
           </Link>
           <div className='container'>
             <div className=' navbar-menu-wrapper' id='navbarSupportedContent'>
-              <ul className='navbar-nav align-items-lg-center align-items-start ml-auto'>
-                <li className='nav-item'>
+              <ul className='navbar-nav  align-items-lg-center align-items-start ml-auto'>
+                <li className='nav-item nav-item66'>
                   <Link className='nav-link' to='/'>
                     Home
                   </Link>
                 </li>
-                <li className='nav-item'>
+                <li className='nav-item nav-item66'>
                   <Link className='nav-link' to='/login'>
                     Student
                   </Link>
                 </li>
-                <li className='nav-item'>
+                <li className='nav-item nav-item66'>
                   <Link className='nav-link' to='/loginT'>
                     Teacher
                   </Link>
                 </li>
+                <li className='nav-item nav-item66'>
+                <Link className='nav-link' to='/challenge'>
+                  Challenge
+                </Link>
+                </li>
+
               </ul>
             </div>
           </div>

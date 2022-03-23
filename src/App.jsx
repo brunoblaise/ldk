@@ -12,6 +12,7 @@ const RegisterT = React.lazy(() => import('./bodyT/RegisterT'));
 const Notes = React.lazy(() => import('./body/Notes'));
 const Land = React.lazy(() => import('./land/Land'));
 const Take = React.lazy(() => import('./bodyT/home/Take'));
+const challenge = React.lazy(() => import('./land/challenge'));
 
 const Quiz = React.lazy(() => import('./body/Quiz'));
 import 'react-toastify/dist/ReactToastify.css';
@@ -140,8 +141,10 @@ function App() {
           <BrowserView>
             {isOnline ? (
               <Switch>
-                <Route exact path='/meet' component={JoinMeeting} exact />
-                <Route exact path='/video/:id' component={VideoCall}  exact/>
+                <Route exact path='/meet' component={JoinMeeting}  />
+                <Route exact path='/video/:id' component={VideoCall}  />
+                <Route exact path='/challenge' component={challenge}  />
+
                 <Route path='/' component={Land} exact />
                 
                 <Route path='/text' exact>

@@ -24,6 +24,8 @@ function Rostudent() {
     getProfile();
   }, []);
   const id = profile.map((profil) => profil.class_student);
+
+  const hid =profile[0].hide
   message.filter((el, index) => message.indexOf(el) === index);
   return (
     <div className='col-lg-12 grid-margin stretch-card'>
@@ -92,7 +94,7 @@ function Rostudent() {
                       <td _msthash='4742972' _msttexthash='89830'>
                         {note.student_gender}
                       </td>
-                      {note.hide === 'yes' ?  <td _msthash='4742972' _msttexthash='89830'>
+                      {hid === 'yes' ?  <td _msthash='4742972' _msttexthash='89830'>
                         {'Null'}
                       </td> :  <td _msthash='4742972' _msttexthash='89830'>
                         {note.student_phonem}

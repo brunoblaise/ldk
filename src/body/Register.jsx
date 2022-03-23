@@ -8,9 +8,8 @@ function Register({setAuth}) {
     fname: '',
     lname: '',
     gender: '',
-    type : 'main',
-    rid: '',
-    hide : '',
+    type: 'main',
+    hide: '',
     parent: '',
     email: '',
     password: '',
@@ -25,10 +24,10 @@ function Register({setAuth}) {
   const {
     fname,
     lname,
-    type ,
+    type,
     hide,
     parent,
-    rid,
+
     gender,
     email,
     password,
@@ -50,7 +49,6 @@ function Register({setAuth}) {
       formData.append('lname', lname);
       formData.append('gender', gender);
       formData.append('type', type);
-      formData.append('rid', rid);
       formData.append('parent', parent);
       formData.append('hide', hide);
 
@@ -288,9 +286,6 @@ function Register({setAuth}) {
                     </div>
                   </div>
 
-
-
-
                   <div className='form-group'>
                     <label>Hide your contacts no || yes </label>
                     <div className='input-group'>
@@ -305,24 +300,6 @@ function Register({setAuth}) {
                         name='hide'
                         placeholder='hide'
                         type='text'
-                        onChange={(e) => onChange(e)}
-                      />
-                    </div>
-                  </div>
-                  <div className='form-group'>
-                    <label>Student card id</label>
-                    <div className='input-group'>
-                      <div className='input-group-prepend bg-transparent'>
-                        <span className='input-group-text bg-transparent border-right-0'>
-                          <i className='ti-user text-primary'></i>
-                        </span>
-                      </div>
-                      <input
-                        type='text'
-                        className='form-control form-control form-control-lg border-left-0'
-                        name='rid'
-                        value={rid}
-                        placeholder='Student id'
                         onChange={(e) => onChange(e)}
                       />
                     </div>
@@ -368,7 +345,7 @@ function Register({setAuth}) {
 
                   <div className='mt-3'>
                     <button
-                      disabled={open}
+                    
                       className='btn btn-block btn-primary btn-lg font-weight-medium auth-form-btn'>
                       SIGN UP
                     </button>

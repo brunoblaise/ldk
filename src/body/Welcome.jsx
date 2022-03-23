@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import {ProfileContext} from './context/ProfileContext';
 function Welcome() {
   const [profile] = useContext(ProfileContext);
-
+ console.log(profile)
   const date = new Date();
   const [month, day, year] = [
     date.getMonth() + 1,
@@ -16,7 +16,8 @@ function Welcome() {
           <div className='col-12 col-xl-8 mb-4 mb-xl-0'>
             {profile.map((profil) => (
               <h3 key={profil.student_id} className='font-weight-bold'>
-                Welcome {profil.student_fname}
+                {profil.student_gender === 'male' ? `Welcome Mr.${profil.student_fname}` : ` Welcome Mrs.${profil.student_fname}` }
+                
               </h3>
             ))}
 

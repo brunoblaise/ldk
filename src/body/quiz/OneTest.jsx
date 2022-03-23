@@ -66,7 +66,7 @@ function OneTest({ data, onAnswerUpdate, numberOfQuestions, activeQuestion, onSe
         <div className="choice-container" key={i} ref={radiosWrapper}>
           
          
-              <label className="choice-text" className="radio has-background-light" >
+              <label  className="radio has-background-light choice-text" >
                 <input className="choice-prefix" type="radio" name="answer" value={choice} onChange={changeHandler} />
                 {choice}
               </label>
