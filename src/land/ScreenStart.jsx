@@ -69,4 +69,4 @@ console.log('po', notes)
   );
 }
 
-export default React.memo(Screen);
+export default React.memo(ScreenStart);
