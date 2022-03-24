@@ -1,9 +1,6 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {url} from '../url';
 
-
-
-
 const Onechallenge = React.lazy(() => import('./Onechallenge'));
 const challenge = React.lazy(() => import('./challenge'));
 const End = React.lazy(() => import('./End'));
@@ -46,9 +43,9 @@ console.log('po', notes)
 
   return (
     <div>
-      {step === 1 && <challenge onQuizStart={quizStartHandler} data={notes} url2={url} />}
+      {step === 1 && <Onechallenge onQuizStart={quizStartHandler} data={notes} url2={url} />}
       {step === 2 && (
-        <Onechallenge
+        <challenge
           data={notes[activeQuestion]}
           onAnswerUpdate={setAnswers}
           numberOfQuestions={notes.length}
