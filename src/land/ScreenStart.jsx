@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {url} from '../../url';
+import {url} from '../url';
 
 
 

@@ -2,7 +2,7 @@ import React, {useEffect, useState, useContext} from 'react';
 import {ProfileContext} from '../context/ProfileContext';
 import jsPDF from 'jspdf';
 import {toast} from 'react-toastify';
-import {url} from '../../url';
+import {url} from '../url';
 
 const Start = React.lazy(() => import('./Start'));
 import {Link} from 'react-router-dom';
