@@ -86,8 +86,8 @@ function Land() {
                   </Link>
                 </li>
                 <li className='nav-item nav-item66'>
-                <Link className='nav-link' to='/challengeT'>
-                  Challenger
+                <Link className='nav-link' to='/challenge'>
+                  Challenge
                 </Link>
                 </li>
 
