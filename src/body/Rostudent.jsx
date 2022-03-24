@@ -94,9 +94,7 @@ function Rostudent() {
                       <td _msthash='4742972' _msttexthash='89830'>
                         {note.student_gender}
                       </td>
-                      {hid === 'yes' ?  <td _msthash='4742972' _msttexthash='89830'>
-                        {'Null'}
-                      </td> :  <td _msthash='4742972' _msttexthash='89830'>
+                      {  <td _msthash='4742972' _msttexthash='89830'>
                         {note.student_phonem}
                       </td>   }
                      
