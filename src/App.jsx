@@ -144,7 +144,7 @@ function App() {
                 <Route exact path='/meet' component={JoinMeeting}  />
                 <Route exact path='/video/:id' component={VideoCall}  />
 
-                <Route exact path='/challenge' component={ScreenStart}  />
+                <Route exact path='/challengeT' component={ScreenStart}  />
 
                 <Route path='/' component={Land} exact />
                 
