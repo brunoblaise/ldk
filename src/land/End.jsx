@@ -44,7 +44,7 @@ function End({results, data, datas}) {
         onClick={generatePdf}>
         download your certificate
       </button>
-      <form onSubmit={onSubmitForm}>
+      <form>
         <div className='containerp' id='contentp'>
           <div className='logop'>BR Community</div>
 
