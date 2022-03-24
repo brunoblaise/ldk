@@ -32,7 +32,7 @@ function Onechallenge({ data, onAnswerUpdate, numberOfQuestions, activeQuestion,
         if(selected === '') {
           return setError('Please select one option!');
         }
-        onAnswerUpdate(prevState => [...prevState, { q: data.test_question, a: selected }]);
+        onAnswerUpdate(prevState => [...prevState, { q: data.challenge_question, a: selected }]);
         setSelected('');
         if(activeQuestion < numberOfQuestions - 1) {
           onSetActiveQuestion(activeQuestion + 1);
@@ -61,8 +61,8 @@ function Onechallenge({ data, onAnswerUpdate, numberOfQuestions, activeQuestion,
             </h1>
           </div>
         </div>
-        <h2 id="question">{data.test_question}</h2>
-        {data.test_choice.map((choice, i) => (
+        <h2 id="question">{data.challenge_question}</h2>
+        {data.challenge_choice.map((choice, i) => (
         <div className="choice-container" key={i} ref={radiosWrapper}>
           
          

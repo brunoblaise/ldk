@@ -2,7 +2,7 @@ import React, {useState, useEffect, useContext} from 'react';
 import {url} from '../url';
 
 const Onechallenge = React.lazy(() => import('./Onechallenge'));
-const challenge = React.lazy(() => import('./challenge'));
+const Challenge = React.lazy(() => import('./challenge'));
 const End = React.lazy(() => import('./End'));
 function ScreenStart({match}) {
   const [step, setStep] = useState(1);
@@ -43,8 +43,8 @@ console.log('po', notes)
 
   return (
     <div>
-      {step === 2 && <challenge onQuizStart={quizStartHandler} data={notes} />}
-      {step === 1 && (
+      {step === 1 && <Challenge onQuizStart={quizStartHandler} data={notes} />}
+      {step === 2 && (
         <Onechallenge
           data={notes[activeQuestion]}
           onAnswerUpdate={setAnswers}

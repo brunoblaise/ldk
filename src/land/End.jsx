@@ -19,7 +19,7 @@ function End({results, data, datas}) {
   useEffect(() => {
     let correct = 0;
     results.forEach((result, index) => {
-      if (result.a === data[index].test_answer) {
+      if (result.a === data[index].challenge_answer) {
         correct++;
       }
     });

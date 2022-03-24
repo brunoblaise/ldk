@@ -22,15 +22,15 @@ const Start = ({results, data}) => {
                 </p>
                 <p
                   className={
-                    result.a === data[i].test_answer
+                    result.a === data[i].challenge_answer
                       ? 'btn btn-success has-text-white p-2'
                       : 'btn btn-danger has-text-white p-2'
                   }>
                   Your answer: {result.a}
                 </p>
-                {result.a !== data[i].test_answer ? (
+                {result.a !== data[i].challenge_answer ? (
                   <p className='btn btn-success has-text-white p-2'>
-                    Correct answer: {data[i].test_answer}
+                    Correct answer: {data[i].challenge_answer}
                   </p>
                 ) : (
                   <p>All correct</p>
