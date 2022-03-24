@@ -1,7 +1,7 @@
 import React from 'react'
 
-const challenge = ({onQuizStart, data}) => {
-console.log(data)
+const challenge = ({onQuizStart, data, url2}) => {
+console.log(data, url2)
   return (
     <div className='cardo'>
       <div className='card-content'>
