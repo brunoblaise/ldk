@@ -108,7 +108,7 @@ function Sidebar({setAuth}) {
           </li>
         ) : (
           <li className='nav-item'>
-            <Link className='nav-link' to='rrrr' activeClassName='active'>
+            <Link className='nav-link' activeClassName='active'>
               <i className='bi bi-pause-btn menu-icon'></i>
               <span className='menu-title'>wait for promotion</span>
             </Link>

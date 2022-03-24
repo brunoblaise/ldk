@@ -23,7 +23,7 @@ function JoinRoom() {
 
         <title>{room}</title>
       </Helmet>
-      <p>Create a meeting or Join any already existing meeting</p>
+      <p>Join any  meeting</p>
       <div class='input-group input-group-sm mb-3'>
         <span class='input-group-text' id='inputGroup-sizing-sm'>
           Meet name
