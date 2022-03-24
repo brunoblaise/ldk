@@ -43,7 +43,7 @@ console.log('po', notes)
 
   return (
     <div>
-      {step === 1 && <Onechallenge onQuizStart={quizStartHandler} data={notes} />}
+      {step === 1 && <challenge onQuizStart={quizStartHandler} data={notes} />}
       {step === 2 && (
         <Onechallenge
           data={notes[activeQuestion]}
