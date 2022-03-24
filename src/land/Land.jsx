@@ -85,11 +85,7 @@ function Land() {
                     Teacher
                   </Link>
                 </li>
-                <li className='nav-item nav-item66'>
-                <Link className='nav-link' to='/challenge'>
-                  Challenge
-                </Link>
-                </li>
+               
 
               </ul>
             </div>
