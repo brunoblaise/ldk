@@ -19,7 +19,7 @@ function End({results, data, datas}) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
  
   
-  const [name] = useState('bruno');
+ 
   const [written] = useState('Great work');
  
   const [open, setOpen] = useState(false);
