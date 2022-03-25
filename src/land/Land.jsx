@@ -84,11 +84,7 @@ function Land() {
                     Teacher
                   </Link>
                 </li>
-                <li className='nav-item nav-item66'>
-                <Link className='nav-link' to='/challenge'>
-                  Challenge
-                </Link>
-                </li>
+                
 
               </ul>
             </div>
@@ -119,7 +115,7 @@ function Land() {
               Get reports easily
             </button>
           </div>
-          <Link to='/new/register' className='btn-track'>
+          <Link to='/challenge' className='btn-track'>
             <div className='--icon'>
               <div className='circle-inner'></div>
               <div className='circle-outer'></div>
@@ -147,7 +143,7 @@ function Land() {
                 />
               </svg>
             </div>
-            <div className='--text'>New Student</div>
+            <div className='--text'>Challenge</div>
           </Link>
         </div>
       </div>

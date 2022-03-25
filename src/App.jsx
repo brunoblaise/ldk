@@ -55,7 +55,7 @@ const UpdateClass = React.lazy(() => import('./body/UpdateClass'));
 
 const SyllabusT = React.lazy(() => import('./bodyT/home/SyllabusT'));
 const Syllabus = React.lazy(() => import('./body/Syllabus'));
-const Registe = React.lazy(() => import('./Newstyudenty/Registe'));
+
 const Mywork = React.lazy(() => import('./bodyT/home/Mywork'));
 const Seen = React.lazy(() => import('./bodyT/home/Seen'));
 
@@ -159,7 +159,7 @@ function App() {
                   )}
                 />
 
-                <Route exact path='/new/register' component={Registe} />
+            
                 <ProfileProvide>
                   <Route
                     path='/login'
