@@ -83,7 +83,7 @@ function Registe() {
     <>
 
      
-      <div className='container-fluid page-body-wrapper'>
+      <div className='container-fluid page-body-wrapper topw'>
         <div className='content-wrapper'>
           <div className='card'>
             <div className='row'>
