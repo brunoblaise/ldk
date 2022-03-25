@@ -5,7 +5,10 @@ import {toast} from 'react-toastify';
 import {url} from '../url';
 
 const Start = React.lazy(() => import('./Start'));
+const  Registe = React.lazy(() => import('../Newstyudenty/Registe'));
 import {Link} from 'react-router-dom';
+import {LazyLoadImage} from 'react-lazy-load-image-component';
+import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 
 function End({results, data, datas}) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
@@ -39,6 +42,56 @@ function End({results, data, datas}) {
 
   return (
     <>
+         <header className='header-section'>
+         <nav className='navbar navbar-expand-lg pl-3 pl-sm-0' id='navbar'>
+          <Link to='/'>
+            <LazyLoadImage
+              effect='blur'
+              src={Ca}
+              alt=''
+              width='640'
+              height='360'
+              className='img-fluid cap'
+            />
+          </Link>
+          <div className='container'>
+            <div className=' navbar-menu-wrapper' id='navbarSupportedContent'>
+              <ul className='navbar-nav align-items-lg-center align-items-start ml-auto'>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/'>
+                    Home
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/login'>
+                    Student
+                  </Link>
+                </li>
+                <li className='nav-item'>
+                  <Link className='nav-link' to='/loginT'>
+                    Teacher
+                  </Link>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+  
+      <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
+
+        <title>NEW Contestor REGISTRATION </title>
+      </Helmet>
       <button
         className={'btn btn-info'}
         onClick={generatePdf}>
@@ -68,6 +121,8 @@ function End({results, data, datas}) {
       </form>
   
       <Start results={results} data={data} />
+
+      <Registe/>
     </>
   );
 }

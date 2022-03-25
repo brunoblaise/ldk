@@ -1,12 +1,11 @@
 import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {Link} from 'react-router-dom';
-import {LazyLoadImage} from 'react-lazy-load-image-component';
-import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
+
 
 import {Helmet} from 'react-helmet';
 import {url} from '../url';
-import Footer from '../footer/Footer';
+
 
 function Registe() {
   const [open, setOpen] = useState(false);
@@ -82,56 +81,7 @@ function Registe() {
   };
   return (
     <>
-     <header className='header-section'>
-         <nav className='navbar navbar-expand-lg pl-3 pl-sm-0' id='navbar'>
-          <Link to='/'>
-            <LazyLoadImage
-              effect='blur'
-              src={Ca}
-              alt=''
-              width='640'
-              height='360'
-              className='img-fluid cap'
-            />
-          </Link>
-          <div className='container'>
-            <div className=' navbar-menu-wrapper' id='navbarSupportedContent'>
-              <ul className='navbar-nav align-items-lg-center align-items-start ml-auto'>
-                <li className='nav-item'>
-                  <Link className='nav-link' to='/'>
-                    Home
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link className='nav-link' to='/login'>
-                    Student
-                  </Link>
-                </li>
-                <li className='nav-item'>
-                  <Link className='nav-link' to='/loginT'>
-                    Teacher
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
-    <div className='col-12 grid-margin'>
-      <Helmet>
-        <meta name='title' content='college du christ roi' />
-        <meta
-          http-equiv='Content-Security-Policy'
-          content='upgrade-insecure-requests'
-        />
-        <meta name='language' content='EN' />
-        <meta name='author' content='Mudacumura brunoblaise' />
-        <meta name='creationdate' content='29/07/2020' />
-        <meta name='distribution' content='global' />
-        <meta name='rating' content='general' />
 
-        <title>NEW STUDENTS REGISTRATION </title>
-      </Helmet>
      
       <div className='container-fluid page-body-wrapper'>
         <div className='content-wrapper'>
@@ -141,17 +91,15 @@ function Registe() {
                 <div className='ml-xl-4 mt-3'>
                   <h4 className='card-title'>
                     {' '}
-                    NEW STUDENTS REGISTRATION REQUIREMENT:{' '}
+                  Contestor:{' '}
                   </h4>
                   <div className='template-demo'>
                     <p className='card-description'>
-                      1. Student Passport Photo
+                      1. Contestor Passport Photo
                       <br />
-                      2. Report cards of previous years (for those who want to
-                      join CXR in S2, S3, S5, S6)
+                      2. You will get T-shirt from Br community
                       <br />
-                      3. National Exam Result slip from S3 or P6. (This does not
-                      concern S1 & S4 students)
+                      3.Or you will get 1 week account for studying privately
                       <br />
                     </p>
                   </div>
@@ -208,7 +156,7 @@ function Registe() {
                     </div>
                     <div className='col-md-4'>
                       <label forhtml='inputEmail4' className='form-label'>
-                        Select a photo as were instructed
+                        Select your photo
                       </label>
                       <input
                         name='photo'
@@ -329,8 +277,8 @@ function Registe() {
           </div>
         </div>
       </div>
-    </div>
-    <Footer/>
+ 
+    
     </>
   );
 }
