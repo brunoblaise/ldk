@@ -20,7 +20,6 @@ function End({results, data, datas}) {
  
   
  
-  const [written] = useState('Great work');
  
   const [open, setOpen] = useState(false);
   const mark = Math.floor((correctAnswers / data.length) * 100);
