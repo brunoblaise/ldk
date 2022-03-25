@@ -185,7 +185,7 @@ function End({results, data, datas}) {
 
           <div className='assignment'>This certificate is presented to</div>
 
-          <div className='person'>{name}</div>
+          <div className='person'>{student}</div>
 
           <div className='reason'>
             for finishing the challenge
