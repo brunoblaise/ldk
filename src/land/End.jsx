@@ -3,7 +3,7 @@ import React, {useEffect, useState, useContext} from 'react';
 import jsPDF from 'jspdf';
 import {toast} from 'react-toastify';
 import {url} from '../url';
-
+import {Helmet} from 'react-helmet';
 const Start = React.lazy(() => import('./Start'));
 const  Registe = React.lazy(() => import('../Newstyudenty/Registe'));
 import {Link} from 'react-router-dom';

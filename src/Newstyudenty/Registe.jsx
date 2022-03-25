@@ -3,7 +3,7 @@ import {toast} from 'react-toastify';
 import {Link} from 'react-router-dom';
 
 
-import {Helmet} from 'react-helmet';
+
 import {url} from '../url';
 
 
