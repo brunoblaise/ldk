@@ -44,7 +44,7 @@ function End({results, data, datas}) {
   };
 
  
-  const [open, setOpen] = useState(false);
+ 
 
   const [inputs, setInputs] = useState({
     father: '',
