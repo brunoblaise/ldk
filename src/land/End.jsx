@@ -166,9 +166,8 @@ function End({results, data, datas}) {
 
         <title>NEW Contestor REGISTRATION </title>
       </Helmet>
-    
-     
-      <div className='container-fluid page-body-wrapper topw'>
+
+      <div className='container-fluid page-body-wrapper '>
         <div className='content-wrapper'>
           <div className='card'>
             <div className='row'>
@@ -362,6 +361,7 @@ function End({results, data, datas}) {
           </div>
         </div>
       </div>
+ 
       <button
         className={'btn btn-info'}
         onClick={generatePdf}>
@@ -389,8 +389,10 @@ function End({results, data, datas}) {
         </div>
         
       </form>
+  
       <Start results={results} data={data} />
 
+      
     </>
   );
 }
