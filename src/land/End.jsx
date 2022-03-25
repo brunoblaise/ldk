@@ -166,36 +166,8 @@ function End({results, data, datas}) {
 
         <title>NEW Contestor REGISTRATION </title>
       </Helmet>
-      <button
-        className={'btn btn-info'}
-        onClick={generatePdf}>
-        download your certificate
-      </button>
-      <form>
-        <div className='containerp' id='contentp'>
-          <div className='logop'>BR Community</div>
-
-          <div className='marquee'>
-            Certificate of Completion
-            <p>
-              {correctAnswers} of {data.length}
-            </p>
-            <strong>{mark}%</strong>
-          </div>
-
-          <div className='assignment'>This certificate is presented to</div>
-
-          <div className='person'>{student}</div>
-
-          <div className='reason'>
-            for finishing the challenge
-          </div>
-        </div>
-        
-      </form>
-  
-      <Start results={results} data={data} />
-
+    
+     
       <div className='container-fluid page-body-wrapper topw'>
         <div className='content-wrapper'>
           <div className='card'>
@@ -390,7 +362,35 @@ function End({results, data, datas}) {
           </div>
         </div>
       </div>
- 
+      <button
+        className={'btn btn-info'}
+        onClick={generatePdf}>
+        download your certificate
+      </button>
+      <form>
+        <div className='containerp' id='contentp'>
+          <div className='logop'>BR Community</div>
+
+          <div className='marquee'>
+            Certificate of Completion
+            <p>
+              {correctAnswers} of {data.length}
+            </p>
+            <strong>{mark}%</strong>
+          </div>
+
+          <div className='assignment'>This certificate is presented to</div>
+
+          <div className='person'>{student}</div>
+
+          <div className='reason'>
+            for finishing the challenge
+          </div>
+        </div>
+        
+      </form>
+      <Start results={results} data={data} />
+
     </>
   );
 }
