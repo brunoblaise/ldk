@@ -1,12 +1,11 @@
 {
     "short_name": "App",
-    "name": "App",
+    "name": "cxrgo",
     "icons": [
         {
-            "src": "/bt21-tata.png",
+            "src": "/image/logo.png",
             "type": "image/png",
-            "sizes": "1024x1024",
-            "purpose": "any maskable"
+            "sizes": "1024x1024"
         }
     ],
     "start_url": ".",
