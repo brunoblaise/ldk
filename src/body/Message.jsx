@@ -1,16 +1,23 @@
 import React, {useEffect, useState, useContext} from 'react';
 const Messageform = React.lazy(() => import('./Messageform'));
-
+import ScrollToBottom from "react-scroll-to-bottom";
 import {ProfileContext} from './context/ProfileContext';
 import {format} from 'timeago.js';
-import {url} from '../url';
+import io from 'socket.io-client';
+import {Helmet} from 'react-helmet';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
+import {url} from '../url';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 function Message() {
   const [message, setMessage] = useState([]);
-  const [loading, setLoading] = useState(true);
+
+
   const [profile] = useContext(ProfileContext);
   const id = profile.map((profil) => profil.class_student);
+
+  const own = profile.map((profil) => profil.student_email);
+
+  const socket = io.connect(url);
 
   const getProfile = async () => {
     try {
@@ -20,10 +27,10 @@ function Message() {
       });
 
       const parseData = await res.json();
-     
-      setMessage(parseData.filter((fil) => fil.class_year_content === id[0]));
 
-      setLoading(false);
+      setMessage(parseData.filter((fil) => fil.level === id[0]));
+
+     
     } catch (err) {
       console.error(err.message);
     }
@@ -31,10 +38,30 @@ function Message() {
 
   useEffect(() => {
     getProfile();
-  }, [setMessage]);
-  const own = profile.map((profil) => profil.student_email);
-  
+  }, []);
+
+  useEffect(() => {
+    socket.on('messages', (data) => {
+      setMessage((list) => [...list, data]);
+    });
+  });
+
   return (
+    <>
+    <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
+
+        <title>Message</title>
+      </Helmet>
     <div className='__main'>
       <div className='nav'>
         <div className='nav__blocks'></div>
@@ -64,30 +91,27 @@ function Message() {
           </div>
           <div className='content__body'>
             <div className='chat__items'>
-              {loading ? (
-                <p>loading..</p>
-              ) : (
-                message.map((chat) => (
+            <ScrollToBottom className="chat__items">
+                {message.map((chat) => (
                   <div
-                    key={chat.message_id}
+                    key={chat.id}
                     className={
-                      chat.message_fname === own[0]
+                      chat.email === own[0]
                         ? 'chat__item me'
                         : 'chat__item other'
                     }
                     style={{animationDelay: '0.8s'}}>
                     <div className='chat__item__content'>
-                      <div className='chat__msg'>{chat.messages}</div>
+                      <div className='chat__msg'>{chat.content}</div>
 
                       <div className='chat__meta'>
-                        <span>{chat.message_fname}</span>
-                        <span>{format(chat.timestamp)}</span>
+                        <span>{chat.email}</span>
+                        <span>{format(chat.send_time)}</span>
                       </div>
                     </div>
                   </div>
-                ))
-              )}
-
+                ))}
+              </ScrollToBottom>
               <div></div>
             </div>
           </div>
@@ -97,6 +121,7 @@ function Message() {
         </div>
       </div>
     </div>
+    </>
   );
 }
 

@@ -210,7 +210,7 @@ function Land() {
           controls
         />
       </div>
-      <div>
+      <div className="corrdance">
         <h2 className='pb-5 pt-4 pl-4'>
           It's not about the platform but the quality of education we as student
           are offered

@@ -67,6 +67,8 @@
       property="twitter:description"
       content="study today from your home and give your students online work or exercise and boost your productivity"
     />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="apple-touch-icon" href="./cxr.jpg" />
     <meta property="twitter:image" content="./cxr.jpg" />
     <meta name="keywords" content="college du christ roi, nyanza, south province, rwanda, school, website">
   </head>
@@ -103,6 +105,18 @@
       '//app-worker.visitor-analytics.io/main',
       '.js?s=a6bc017b-06b0-11ec-b589-901b0edac50a&v=',
     );
+
+
+
+  </script>
+     <script>
+      if('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+              navigator.serviceWorker.register('./service-worker.js')
+                  .then((reg) => console.log('Success: ', reg.scope))
+                  .catch((err) => console.log('Failure: ', err));
+          })
+      }
   </script>
   <!-- Start of HubSpot Embed Code -->
   <script type="text/javascript" id="hs-script-loader" async defer src="//js-eu1.hs-scripts.com/25439292.js"></script>

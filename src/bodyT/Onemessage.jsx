@@ -1,17 +1,19 @@
 import React, {useEffect, useState, useContext} from 'react';
 const Messageform = React.lazy(() => import('./Messageform'));
-
+import ScrollToBottom from "react-scroll-to-bottom";
 import {TeacherContext} from './context/TeacherContext';
 import {format} from 'timeago.js';
 import {url} from '../url';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-
-import {Helmet} from "react-helmet";
+import io from 'socket.io-client';
+import {Helmet} from 'react-helmet';
 function Onemessage({match}) {
   const [message, setMessage] = useState([]);
   const [profile] = useContext(TeacherContext);
-  const [loading, setLoading] = useState(true);
+
+  const socket = io.connect(url);
+
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/message`, {
@@ -21,8 +23,7 @@ function Onemessage({match}) {
 
       const parseData = await res.json();
 
-      setMessage(parseData.filter((fil) => fil.class_year_content === match.params.id));
-      setLoading(false);
+      setMessage(parseData.filter((fil) => fil.level === match.params.id));
     } catch (err) {
       console.error(err.message);
     }
@@ -30,12 +31,19 @@ function Onemessage({match}) {
 
   useEffect(() => {
     getProfile();
-  }, [setMessage]);
+  }, []);
+
+  useEffect(() => {
+    socket.on('messages', (data) => {
+      setMessage((list) => [...list, data]);
+    });
+  });
+
   const own = profile.map((profil) => profil.teacher_email);
 
   return (
     <div className='__main'>
-           <Helmet>
+      <Helmet>
         <meta name='title' content='college du christ roi' />
         <meta
           http-equiv='Content-Security-Policy'
@@ -49,65 +57,62 @@ function Onemessage({match}) {
 
         <title>Message</title>
       </Helmet>
-      <div className='nav'>
-        <div className='nav__blocks'></div>
-        <div className='nav__blocks'></div>
-        <div className='nav__blocks'></div>
-      </div>
-      <div className='main__chatbody'>
-        <div className='main__chatcontent'>
-          <div className='content__header'>
-            <div className='blocks'>
-              <div className='current-chatting-user'>
-                <div className='avatar'>
-                  <div className='avatar-img'>
-                    <LazyLoadImage
-                      effect='blur'
-                      width='640'
-                      height='360'
-                      src={`https://avatars.dicebear.com/api/avataaars/${own}.svg`}
-                      
-                      alt=''
-                    />
+      <div className='__main'>
+        <div className='nav'>
+          <div className='nav__blocks'></div>
+          <div className='nav__blocks'></div>
+          <div className='nav__blocks'></div>
+        </div>
+        <div className='main__chatbody'>
+          <div className='main__chatcontent'>
+            <div className='content__header'>
+              <div className='blocks'>
+                <div className='current-chatting-user'>
+                  <div className='avatar'>
+                    <div className='avatar-img'>
+                      <LazyLoadImage
+                        effect='blur'
+                        width='640'
+                        height='360'
+                        src={`https://avatars.dicebear.com/api/avataaars/${own[0]}.svg`}
+                        alt=''
+                      />
+                    </div>
+                    <span className='isOnline active'></span>
                   </div>
-                  <span className='isOnline active'></span>
+                  <p>Cxr Chat Box</p>
                 </div>
-                <p>Cxr Chat Box</p>
               </div>
             </div>
-          </div>
-          <div className='content__body'>
-            <div className='chat__items'>
-              {loading ? (
-                <p>loading..</p>
-              ) : (
-                message.map((chat) => (
-                  <div
-                    key={chat.message_id}
-                    className={
-                      chat.message_fname === own[0]
-                        ? 'chat__item me'
-                        : 'chat__item other'
-                    }
-                    style={{animationDelay: '0.8s'}}>
-                    <div className='chat__item__content'>
-                      <div className='chat__msg'>{chat.messages}</div>
-                   
+            <div className='content__body'>
+              <div className='chat__items'>
+                <ScrollToBottom className='chat__items'>
+                  {message.map((chat) => (
+                    <div
+                      key={chat.id}
+                      className={
+                        chat.email === own[0]
+                          ? 'chat__item me'
+                          : 'chat__item other'
+                      }
+                      style={{animationDelay: '0.8s'}}>
+                      <div className='chat__item__content'>
+                        <div className='chat__msg'>{chat.content}</div>
 
-                      <div className='chat__meta'>
-                        <span>{chat.message_fname}</span>
-                        <span>{format(chat.timestamp)}</span>
+                        <div className='chat__meta'>
+                          <span>{chat.email}</span>
+                          <span>{format(chat.send_time)}</span>
+                        </div>
                       </div>
                     </div>
-                  </div>
-                ))
-              )}
-
-              <div></div>
+                  ))}
+                </ScrollToBottom>
+                <div></div>
+              </div>
             </div>
-          </div>
-          <div className='content__footer'>
-            <Messageform classe={match.params.id} />
+            <div className='content__footer'>
+              <Messageform classe={match.params.id} />
+            </div>
           </div>
         </div>
       </div>
