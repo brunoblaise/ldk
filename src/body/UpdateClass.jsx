@@ -16,7 +16,7 @@ function UpdateClass() {
 
   const classe = subjec.value;
 
-  console.log(classe);
+ 
 
   const handleChang = (event) => {
     setSubjec({value: event.target.value});

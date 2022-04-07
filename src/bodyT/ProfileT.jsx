@@ -5,6 +5,7 @@ import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import {TeacherContext} from './context/TeacherContext';
 import {Helmet} from 'react-helmet';
+const Submis = React.lazy(() => import( './Submis'));
 function ProfileT({setAuth}) {
   const logout = async (e) => {
     e.preventDefault();
@@ -117,6 +118,19 @@ function ProfileT({setAuth}) {
                       </div>
                     </div>
                   </div>
+
+
+                  <div className='mt-4 py-2 border-top border-bottom'>
+                      <ul className='nav profile-navbar'>
+                        <li className='nav-item'>
+                          <p className='nav-link'>
+                            <i className='ti-user'></i>
+                            Change your Info 
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                 <Submis/>
                 </div>
               </div>
             </div>

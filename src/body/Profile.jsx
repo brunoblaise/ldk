@@ -109,7 +109,7 @@ function Profile({setAuth}) {
                         <li className='nav-item'>
                           <p className='nav-link'>
                             <i className='ti-user'></i>
-                            Info of correct answers of open questions
+                            Change your Info 
                           </p>
                         </li>
                       </ul>
