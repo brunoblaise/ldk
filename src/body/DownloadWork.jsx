@@ -53,25 +53,6 @@ function DownloadWork({match}) {
                         <li>
                           {loading ? (
                             'loading..'
-                          ) : notes.written === 'null' ? (
-                            <>
-                              <div className='thumb'>
-                                <i className='ti-file'></i>
-                              </div>
-                              <div className='details'>
-                                <p className='file-name'>{notes.work_title}</p>
-                                <br />
-
-                                <div className='buttons'>
-                                  <Link
-                                    to={{pathname: `${notes.work_url}`}}
-                                    target='_blank'
-                                    className='view'>
-                                    View
-                                  </Link>
-                                </div>
-                              </div>{' '}
-                            </>
                           ) : (
                             <>
                               <div className='thumb'>
@@ -80,10 +61,6 @@ function DownloadWork({match}) {
                               <div className='details'>
                                 <h6> notes title</h6>
                                 <p className='file-name'>{notes.work_title}</p>
-                                <br />
-                                <h5>written notes</h5>
-                                <p className='file-name'>{notes.written}</p>
-                                <br />
 
                                 <div className='buttons'>
                                   <Link
@@ -99,7 +76,7 @@ function DownloadWork({match}) {
                         </li>
                       </ul>
                     </div>
-                    <Submit work={'work'} wor={notes.teacher_email} />
+                    <Submit course={notes.work_title} teacher={notes.teacher_email} />
                     <p>
                       <br />
                       <br />

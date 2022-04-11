@@ -3,7 +3,6 @@ import {Link} from 'react-router-dom';
 import {format} from 'timeago.js';
 import {url} from '../url';
 
-const Submit = React.lazy(() => import('./Submit'));
 const Header = React.lazy(() => import('../header/Header'));
 
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
@@ -54,25 +53,6 @@ function Onenotes({match}) {
                         <li>
                           {loading ? (
                             'loading..'
-                          ) : notes.written === 'null' ? (
-                            <>
-                              <div className='thumb'>
-                                <i className='ti-file'></i>
-                              </div>
-                              <div className='details'>
-                                <p className='file-name'>{notes.notes_title}</p>
-                                <br />
-
-                                <div className='buttons'>
-                                  <Link
-                                    to={{pathname: `${notes.notes_url}`}}
-                                    target='_blank'
-                                    className='view'>
-                                    View
-                                  </Link>
-                                </div>
-                              </div>{' '}
-                            </>
                           ) : (
                             <>
                               <div className='thumb'>
@@ -82,8 +62,7 @@ function Onenotes({match}) {
                                 <h6> notes title</h6>
                                 <p className='file-name'>{notes.notes_title}</p>
                                 <br />
-                                <h5>written notes</h5>
-                                <p className='file-name'>{notes.written}</p>
+
                                 <br />
 
                                 <div className='buttons'>
@@ -100,7 +79,7 @@ function Onenotes({match}) {
                         </li>
                       </ul>
                     </div>
-                    <Submit note={'note'} wore={notes.teacher_email} />
+
                     <p>
                       <br />
                       <br />

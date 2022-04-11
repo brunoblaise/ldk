@@ -80,9 +80,16 @@ function Sidebar({setAuth}) {
         </li>
 
         <li className='nav-item'>
-          <Link className='nav-link' to='/create/room/test'>
+          <Link className='nav-link' to='/create/room/Create'>
             <i className='bi bi-asterisk  menu-icon'></i>
-            <span className='menu-title'>Test</span>
+            <span className='menu-title'>Create</span>
+          </Link>
+        </li>
+
+        <li className='nav-item'>
+          <Link className='nav-link' to='/create/room/Created'>
+            <i className='bi bi-asterisk  menu-icon'></i>
+            <span className='menu-title'>Created</span>
           </Link>
         </li>
 

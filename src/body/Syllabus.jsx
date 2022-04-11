@@ -3,7 +3,6 @@ import {ProfileContext} from './context/ProfileContext';
 import {Link} from 'react-router-dom';
 import {url} from '../url';
 
-;
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
 
@@ -34,6 +33,7 @@ function Syllabus() {
     getProfile();
   }, []);
 
+  console.log(notes);
   return (
     <div className='App'>
       <Header />
@@ -43,32 +43,36 @@ function Syllabus() {
           <div className='content-wrapper'>
             <div className='container overflow-hidden'>
               <div className='row g-2'>
-  
-
-              
-                {loading ? 
-        <p>loading...</p> : notes.map(note =>(
-          <Link className='col-6'>
-          <div className='p-3 border bg-light'>
-            {' '}
-            <img
-              src={`https://avatars.dicebear.com/api/initials/${note.title}.svg`}
-              alt='avatar'
-              width='100px'
-              height='100px'
-            />
-            <div>
-              <p>{note.title}</p>
-            </div>
-          </div>
-        </Link>
-        ))
-     }
-              
+                {loading ? (
+                  <p>loading...</p>
+                ) : (
+                  notes.map((note) => (
+                    <Link
+                      className='col-6'
+                      target='_blank'
+                      to={{pathname: `${note.url_syllabus}`}}>
+                      <div className='p-3 border bg-light'>
+                        {' '}
+                        <img
+                          src={`https://avatars.dicebear.com/api/initials/${note.title}.svg`}
+                          alt='avatar'
+                          width='100px'
+                          height='100px'
+                        />
+                        <div>
+                          <p>{note.title}</p>
+                        </div>
+                      </div>
+                    </Link>
+                  ))
+                )}
               </div>
             </div>
+           
           </div>
+          
         </div>
+        
       </div>
     </div>
   );

@@ -6,10 +6,11 @@
       "src": "/image/logo.png",
       "type": "image/png",
       "sizes": "512x512",
-      "purpose": "any maskable"
+      "purpose": "Education"
     }
   ],
-  "start_url": "/",
+  "start_url": ".",
+  "scope": ".",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

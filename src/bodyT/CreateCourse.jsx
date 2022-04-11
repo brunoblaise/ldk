@@ -2,32 +2,27 @@ import React, {useEffect, useState, useContext} from 'react';
 import {Helmet} from 'react-helmet';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import {Link} from 'react-router-dom';
-import {url} from '../../url';
-import {TeacherContext} from '../context/TeacherContext';
-const Turn = React.lazy(() => import('./Turn'));
-const Sidebar = React.lazy(() => import('../../sidebar1/Sidebar'));
-const Header = React.lazy(() => import('../../header1/Header'));
-function Mywork({match}) {
+import {url} from '../url';
+
+import {TeacherContext} from '../bodyT/context/TeacherContext';
+const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
+const Header = React.lazy(() => import('../header1/Header'));
+function CreateCourse() {
   const [message, setMessage] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
   const [profile] = useContext(TeacherContext);
-  const own = profile.map((profil) => profil.teacher_email)[0];
+  const own = profile.map((profil) => profil.teacher_email);
+  const [teacher] = useState(own[0]);
   const getProfile = async () => {
     try {
-      const res = await fetch(`${url}/get/tiled`, {
+      const res = await fetch(`${url}/get/courses`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
       });
 
       const parseData = await res.json();
 
-      setMessage(
-        parseData.filter(
-          (fil) =>
-            fil.teacher_email === own || fil.student_email === match.params.id,
-        ),
-      );
+      setMessage(parseData.filter((fil) => fil.teacher_email === teacher));
       setLoading(false);
     } catch (err) {
       console.error(err.message);
@@ -38,6 +33,7 @@ function Mywork({match}) {
     getProfile();
   }, [setMessage]);
 
+ 
   return (
     <div className='col-lg-12 grid-margin stretch-card'>
       <Helmet>
@@ -52,7 +48,7 @@ function Mywork({match}) {
         <meta name='distribution' content='global' />
         <meta name='rating' content='general' />
 
-        <title> {match.params.id} class</title>
+        <title> Create</title>
       </Helmet>
       <Header />
       <div className='container-fluid page-body-wrapper'>
@@ -60,13 +56,11 @@ function Mywork({match}) {
         <div className='content-wrapper'>
           <div className='card'>
             <div className='card-body'>
-              <h4 className='card-title'>
-                Signed up Students in {match.params.id}
-              </h4>
+              <h4 className='card-title'></h4>
               <ReactHTMLTableToExcel
                 className='btn btn-info'
                 table='emp'
-                filename={match.params.id}
+                filename={'creation'}
                 sheet='Sheet'
                 buttonText='Export'
               />
@@ -81,13 +75,15 @@ function Mywork({match}) {
                   onChange={(e) => setSearch(e.target.value)}
                 />
                 <table className='table caption-top' id='emp'>
-                  <caption>List of my work</caption>
+                  <caption>List of creation</caption>
                   <thead>
                     <tr>
                       <th scope='col'>Name</th>
 
-                      <th scope='col'>Type</th>
-                      <th scope='col'>Marks</th>
+                      <th scope='col'>Level</th>
+                      <th scope='col'>Category</th>
+                      <th scope='col'>duration</th>
+                      <th scope='col'>type</th>
                     </tr>
                   </thead>
                   {loading
@@ -97,7 +93,7 @@ function Mywork({match}) {
                           if (search === '') {
                             return val;
                           } else if (
-                            val.notes_title
+                            val.course_name
                               .toLowerCase()
                               .includes(search.toLowerCase())
                           ) {
@@ -105,20 +101,18 @@ function Mywork({match}) {
                           }
                         })
                         .map((fil) => (
-                          <tbody key={fil.tiled_id}>
+                          <tbody key={fil.id}>
                             <tr>
-                              <td>{fil.tiled_title}</td>
                               <td>
-                                <Link
-                                  to={`/work_to_one/${fil.tiled_title}/${fil.student_email}/${fil.teacher_email}/${fil.tiled_id}`}>
-                                  {fil.tiled_type}
+                                <Link to={`/one-course/${fil.course_name}`}>
+                                  {fil.course_name}
                                 </Link>
                               </td>
-                              <Turn
-                                id={match.params.id}
-                                name={fil.tiled_title}
-                                teacher={own}
-                              />
+
+                              <td>{fil.course_level}</td>
+                              <td>{fil.course_category}</td>
+                              <td>{fil.course_duration}</td>
+                              <td>{fil.course_type}</td>
                             </tr>
                           </tbody>
                         ))}
@@ -132,4 +126,4 @@ function Mywork({match}) {
   );
 }
 
-export default React.memo(Mywork);
+export default React.memo(CreateCourse);

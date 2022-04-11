@@ -1,19 +1,20 @@
+import React, {useEffect, useState} from 'react';
 import people from '../images/dashboard/people.svg';
+
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import React, {useEffect, useState} from 'react';
 function Track() {
   const [message, setMessage] = useState([]);
-  const [loading, Setloading] = useState(true);
+
   const getProfile = async () => {
     try {
-      const res = await fetch('https://extreme-ip-lookup.com/json/', {
+      const res = await fetch('https://ipapi.co/json/', {
         method: 'GET',
       });
 
       const parseData = await res.json();
+
       setMessage(parseData);
-      Setloading(false);
     } catch (err) {
       console.error(err.message);
     }
@@ -30,8 +31,8 @@ function Track() {
           <div className='card-people mt-auto'>
             <LazyLoadImage
               effect='blur'
-              width=''
-              height=''
+              width='464.5px'
+              height='241.87px'
               src={people}
               alt='people'
             />
@@ -39,12 +40,9 @@ function Track() {
               <div className='d-flex'>
                 <div className='ml-2'>
                   <h4 className='location font-weight-normal'>
-                    {loading ? <p>loading</p> : message.country}
+                    {message.country_name}
                   </h4>
-                  <h6 className='font-weight-normal'>
-                    {' '}
-                    {loading ? <p>loading</p> : message.country}
-                  </h6>
+                  <h6 className='font-weight-normal'>{message.city}</h6>
                 </div>
               </div>
             </div>
@@ -52,7 +50,6 @@ function Track() {
         </div>
       </div>
       <div className='col-md-6 grid-margin transparent'>
-        <div className='row'></div>
         <div className='row'></div>
       </div>
     </div>

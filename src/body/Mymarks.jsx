@@ -10,7 +10,7 @@ function Mymarks() {
   const [open, setOpen] = useState(false);
   const getProfile = async () => {
     try {
-      const res = await fetch(`${url}/get/mark_feed`, {
+      const res = await fetch(`${url}/get/marks`, {
         method: 'GET',
         headers: {jwt_token: localStorage.token},
       });
@@ -38,7 +38,7 @@ function Mymarks() {
             <ol className='list-group list-group-numbered'>
               <li className='list-group-item d-flex justify-content-between align-items-start'>
                 <div className='ms-2 me-auto'>
-                  <div className='fw-bold'>{fil.test_name}</div>
+                  <div className='fw-bold'>{fil.course_name}</div>
                   {open ? (
                     <Link onClick={() => setOpen(false)}>
                       <i className='bi bi-plus'></i> Hide feedback{' '}
@@ -56,7 +56,7 @@ function Mymarks() {
                   </div>
                 </div>
                 <span className='badge bg-primary rounded-pill'>
-                  {fil.test_mark}
+                  {fil.mark}
                 </span>
               </li>
             </ol>

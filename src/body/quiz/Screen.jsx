@@ -10,11 +10,11 @@ function Screen({match}) {
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [answers, setAnswers] = useState([]);
   const [notes, setNote] = useState([]);
-  const [profile] = useContext(ProfileContext);
+
   let controller = new AbortController();
   const getProfile = async () => {
     try {
-      const res = await fetch(`${url}/get/test`, {
+      const res = await fetch(`${url}/get/quiz`, {
         method: 'GET',
         headers: {jwt_token: localStorage.token},
         signal: controller.signal,
@@ -22,13 +22,7 @@ function Screen({match}) {
 
       const parseData = await res.json();
 
-      setNote(
-        parseData.filter(
-          (fil) =>
-            fil.class_year_content === id[0] &&
-            fil.test_name === match.params.id,
-        ),
-      );
+      setNote(parseData);
     } catch (err) {
       console.error(err.message);
     }
@@ -43,9 +37,7 @@ function Screen({match}) {
     return () => controller?.abort();
   }, []);
 
-  const id = profile.map((profil) => profil.class_student);
-
-
+  console.log(notes[activeQuestion]);
   return (
     <div>
       {step === 1 && <Start onQuizStart={quizStartHandler} data={notes} />}

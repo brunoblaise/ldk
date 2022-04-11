@@ -11,7 +11,7 @@ function Track() {
 
   const getProfile = async () => {
     try {
-      const res = await fetch('https://extreme-ip-lookup.com/json/', {
+      const res = await fetch('https://ipapi.co/json/', {
         method: 'GET',
       });
 
@@ -43,7 +43,7 @@ function Track() {
               <div className='d-flex'>
                 <div className='ml-2'>
                   <h4 className='location font-weight-normal'>
-                    {message.country}
+                    {message.country_name}
                   </h4>
                   <h6 className='font-weight-normal'>{message.city}</h6>
                 </div>

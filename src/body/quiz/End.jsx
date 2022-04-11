@@ -4,21 +4,22 @@ import jsPDF from 'jspdf';
 import {toast} from 'react-toastify';
 import {url} from '../../url';
 
-const Modal = React.lazy(() => import('./Modal'));
-import {Link} from 'react-router-dom';
+const Header = React.lazy(() => import('../../header/Header'));
+const Sidebar = React.lazy(() => import('../../sidebar/Sidebar'));
+
 function End({results, data, nameu, datas}) {
   const [correctAnswers, setCorrectAnswers] = useState(0);
   const [profile] = useContext(ProfileContext);
-  const [email] = useState(profile[0].student_email);
-  const [name] = useState('closed question');
-  const [written] = useState('Great work');
+  const [student] = useState(profile[0].student_email);
+  const [name] = useState(datas.course_name);
+  const [feedback] = useState('Great work');
   const [teacher] = useState(datas.teacher_email);
-  const [open, setOpen] = useState(false);
-  const mark = Math.floor((correctAnswers / data.length) * 100);
+
+  const marks = Math.floor((correctAnswers / data.length) * 100);
   useEffect(() => {
     let correct = 0;
     results.forEach((result, index) => {
-      if (result.a === data[index].test_answer) {
+      if (result.a === data[index].quiz_answer) {
         correct++;
       }
     });
@@ -42,62 +43,69 @@ function End({results, data, nameu, datas}) {
       myHeaders.append('Content-Type', 'application/json');
       myHeaders.append('jwt_token', localStorage.token);
 
-      const body = {mark, name, email, teacher, written};
-      const response = await fetch(`${url}/create/mark_feed`, {
+      const body = {marks, name, feedback, student, teacher};
+      const response = await fetch(`${url}/create/marks`, {
         method: 'POST',
         headers: myHeaders,
         body: JSON.stringify(body),
       });
-      setOpen(true);
-      if (response.status === 500) {
-        toast.error('Something is wrong');
-      } else {
+
+      if (response.status === 200) {
         toast.success('Sent Successfully');
-        setOpen(false);
+      
+      } else {
+        toast.error('Something is wrong');
       }
     } catch (err) {
       console.error(err.message);
     }
   };
-  
 
   return (
     <>
-      <button
-        className={data[0].test_certificate === 'no' ? 'hide' : 'btn btn-info'}
-        onClick={generatePdf}>
-        download your certificate
-      </button>
-      <form onSubmit={onSubmitForm}>
-        <div className='containerp' id='contentp'>
-          <div className='logop'>College du Christ Roi</div>
+      <Header />
+      <div className='container-fluid page-body-wrapper'>
+        <Sidebar />
+        <div className='content-wrapper'>
+          <button className={'btn btn-info'} onClick={generatePdf}>
+            <i className='fa fa-paper-plane'></i>
+            download your certificate
+          </button>
+          <br />
+          <br />
+          <button
+            className='btnSendMsg btn btn_info yur'
+            id='sendMsgBtn'></button>
+          <form onSubmit={onSubmitForm}>
+            <div className='containerp' id='contentp'>
+              <div className='logop'>College du Christ Roi</div>
 
-          <div className='marquee'>
-            Certificate of Completion
-            <p>
-              {correctAnswers} of {data.length}
-            </p>
-            <strong>{mark}%</strong>
-          </div>
+              <div className='marquee'>
+                Certificate of Completion
+                <p>
+                  {correctAnswers} of {data.length}
+                </p>
+                <strong>{marks}%</strong>
+              </div>
 
-          <div className='assignment'>This certificate is presented to</div>
+              <div className='assignment'>This certificate is presented to</div>
 
-          <div className='person'>{profile[0].student_fname}</div>
+              <div className='person'>{profile[0].student_fname}</div>
 
-          <div className='reason'>
-            for finishing the test given by his or her Teacher in {nameu}
-          </div>
+              <div className='reason'>
+                for finishing the test given by his or her Teacher in {nameu}
+              </div>
+            </div>
+
+            <br />
+            <br />
+            <button className={'btn btn-info'} >
+              <i className='fa fa-paper-plane'></i>
+              Save your marks
+            </button>
+          </form>
         </div>
-        <button
-          disabled={open}
-          className='btnSendMsg btn btn_info yur'
-          id='sendMsgBtn'>
-          <i className='fa fa-paper-plane'></i>
-          save your marks
-        </button>
-      </form>
-      <Link to='/dashboard'>continue to Dashboard</Link>
-      <Modal results={results} data={data} />
+      </div>
     </>
   );
 }
