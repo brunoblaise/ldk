@@ -120,4 +120,4 @@ function Written({match}) {
   );
 }
 
-export default Written;
+export default  React.memo(Written);

@@ -169,4 +169,4 @@ export const EditorToolBar = (props) => {
  }
  </>)
  }
-export default EditorToolBar;
+export default EditorToolBar ;

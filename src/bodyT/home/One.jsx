@@ -138,4 +138,4 @@ function One({match}) {
   );
 }
 
-export default One;
+export default React.memo(One);
