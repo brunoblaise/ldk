@@ -3,7 +3,7 @@ import {toast} from 'react-toastify';
 import ReactQuill from 'react-quill';
 import {url} from '../url';
 import 'react-quill/dist/quill.snow.css';
-import EditorToolbar, {modules, formats} from '../EditorToolbar';
+import EditorToolbar, {modules, formats} from './EditorToolbar';
 import {TeacherContext} from '../bodyT/context/TeacherContext';
 const Header = React.lazy(() => import('../header1/Header'));
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
