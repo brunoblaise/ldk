@@ -6,7 +6,7 @@ import {url} from '../url';
 import ReactQuill from 'react-quill';
 import {ProfileContext} from './context/ProfileContext';
 import 'react-quill/dist/quill.snow.css';
-import EditorToolbar, {modules, formats} from '../EditorToolbar';
+import {modules, formats, EditorToolBar} from '../EditorToolbar';
 function Written({match}) {
   const [profile] = useContext(ProfileContext);
   const id = profile.map((profil) => profil.student_email)[0];
@@ -94,7 +94,7 @@ function Written({match}) {
                     <div className='ml-xl-4 mt-3'>
                       <form className='row g-3' onSubmit={onSubmitFor}>
                         <div className='containe '>
-                          <EditorToolbar toolbarId={'t1'} />
+                          <EditorToolBar toolbarId={'t1'} />
                           <ReactQuill
                             theme='snow'
                             value={content}
