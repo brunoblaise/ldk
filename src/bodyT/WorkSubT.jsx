@@ -15,7 +15,6 @@ function WorkSubT() {
     title: '',
     summary: '',
     email: name,
-   
   });
 
   const {title, email, summary} = inputs;
@@ -35,7 +34,7 @@ function WorkSubT() {
       formData.append('classe', classe);
       formData.append('title', title);
       formData.append('summary', summary);
-    
+
       formData.append('email', email);
       formData.append('recfile', recfile);
       const myHeaders = new Headers();
@@ -50,10 +49,10 @@ function WorkSubT() {
         },
       );
       setOpene(true);
-      if (response.status === 500) {
-        toast.error('Fill the required one');
-      } else {
+      if (response.status === 200) {
         toast.success('Sent Successfully');
+      } else {
+        toast.error('Fill the required one');
         setOpene(false);
       }
     } catch (err) {
@@ -151,16 +150,14 @@ function WorkSubT() {
                       </label>
                       <input
                         name='recfile'
-                       
                         placeholder='Upload File'
                         type='file'
                         className='form-control form-control form-control-lg '
                         id='exampleInputPassword'
                         onChange={(e) => setRecfile(e.target.files[0])}
                       />
-                  
                     </div>
-                 
+
                     <button
                       disabled={opene}
                       className='btn m-4 btn-primary col-md-3 btn-icon-text'>

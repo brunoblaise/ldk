@@ -3,8 +3,9 @@ import {toast} from 'react-toastify';
 import ReactQuill from 'react-quill';
 import {url} from '../url';
 import 'react-quill/dist/quill.snow.css';
-import EditorToolbar, {modules, formats} from './EditorToolbar';
+
 import {TeacherContext} from '../bodyT/context/TeacherContext';
+import EditorToolBar, { formats, modules } from './EditorToolBar';
 const Header = React.lazy(() => import('../header1/Header'));
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 
@@ -190,7 +191,7 @@ function CreateOne({match}) {
                 <div className='ml-xl-4 mt-3'>
                   <form className='row g-3' onSubmit={onSubmitFor}>
                     <div className='containe '>
-                      <EditorToolbar toolbarId={'t1'} />
+                      <EditorToolBar toolbarId={'t1'} />
                       <ReactQuill
                         theme='snow'
                         value={content}
