@@ -4,7 +4,7 @@ import {url} from '../url';
 import ReactQuill from 'react-quill';
 import {ProfileContext} from './context/ProfileContext';
 import 'react-quill/dist/quill.snow.css';
-import EditorToolbar, {modules, formats} from './EditorToolbar';
+import EditorToolBar, {modules, formats}from './EditorToolBar';
 
 function Submit({course, teacher}) {
  
