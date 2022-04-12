@@ -93,7 +93,7 @@ export const formats = [
 
 
 // Quill Toolbar component
-export const QuillToolbar = (props) => {
+export const EditorToolBar = (props) => {
   return  (<> 
   {props.toolbarId !== undefined && 
   <div id={props.toolbarId}>
@@ -169,4 +169,4 @@ export const QuillToolbar = (props) => {
  }
  </>)
  }
-export default QuillToolbar;
+export default EditorToolBar;
