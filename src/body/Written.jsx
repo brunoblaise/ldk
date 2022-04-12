@@ -1,11 +1,11 @@
 import React, {useEffect, useState, useContext} from 'react';
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
-
-import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
-import {ProfileContext} from './context/ProfileContext';
+import {toast} from 'react-toastify';
 import {url} from '../url';
+import ReactQuill from 'react-quill';
+import {ProfileContext} from './context/ProfileContext';
+import 'react-quill/dist/quill.snow.css';
 import EditorToolbar, {modules, formats} from '../EditorToolbar';
 function Written({match}) {
   const [profile] = useContext(ProfileContext);
