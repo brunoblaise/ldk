@@ -6,7 +6,8 @@ import {url} from '../url';
 import ReactQuill from 'react-quill';
 import {ProfileContext} from './context/ProfileContext';
 import 'react-quill/dist/quill.snow.css';
-import {modules, formats, EditorToolBar} from '../EditorToolbar';
+import EditorToolBar, {modules, formats}from './EditorToolBar';
+
 function Written({match}) {
   const [profile] = useContext(ProfileContext);
   const id = profile.map((profil) => profil.student_email)[0];
