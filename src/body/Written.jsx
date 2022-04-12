@@ -1,11 +1,12 @@
 import React, {useEffect, useState, useContext} from 'react';
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
-import EditorToolbar, {modules, formats} from '../EditorToolbar';
+
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import {ProfileContext} from './context/ProfileContext';
 import {url} from '../url';
+import EditorToolbar, {modules, formats} from '../EditorToolbar';
 function Written({match}) {
   const [profile] = useContext(ProfileContext);
   const id = profile.map((profil) => profil.student_email)[0];
