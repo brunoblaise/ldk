@@ -5,7 +5,7 @@ import {url} from '../url';
 import 'react-quill/dist/quill.snow.css';
 
 import {TeacherContext} from '../bodyT/context/TeacherContext';
-import EditorToolBar, { formats, modules } from './EditorToolBar';
+import EditorToolBar, {modules, formats}from './EditorToolBar';
 const Header = React.lazy(() => import('../header1/Header'));
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 
