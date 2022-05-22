@@ -5,17 +5,17 @@ import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 import {Helmet} from 'react-helmet';
 import Group from '../images/blob-scene-haikei (1).svg';
 import gto from '../images/pexels-element-digital-1370296.jpg';
-import grou1 from '../../image/DSC_5066.jpg';
-import grou2 from '../../image/DSC_5094.jpg';
-import grou3 from '../../image/DSC_5180.jpg';
-import grou4 from '../../image/DSC_8332.jpg';
-import grou5 from '../../image/DSC_8673.jpg';
-import grou6 from '../../image/DSC_8690.jpg';
-import grou7 from '../../image/DSC_9082.jpg';
-import grou8 from '../../image/DSC_9094.jpg';
-import grou9 from '../../image/DSC_9864.jpg';
-import grou10 from '../../image/DSC_9865.jpg';
-import grou11 from '../../image/DSC_9876.jpg';
+import grou1 from '../images/DSC_5066.jpg';
+import grou2 from '../images/DSC_5094.jpg';
+import grou3 from '../images/DSC_5180.jpg';
+import grou4 from '../images/DSC_8332.jpg';
+import grou5 from '../images/DSC_8673.jpg';
+import grou6 from '../images/DSC_8690.jpg';
+import grou7 from '../images/DSC_9082.jpg';
+import grou8 from '../images/DSC_9094.jpg';
+import grou9 from '../images/DSC_9864.jpg';
+import grou10 from '../images/DSC_9865.jpg';
+import grou11 from '../images/DSC_9876.jpg';
 
 
 
