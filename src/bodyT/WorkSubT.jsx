@@ -120,7 +120,7 @@ function WorkSubT() {
                     </div>
                     <div className='col-md-4'>
                       <label forhtml='inputEmail4' className='form-label'>
-                        Notes title
+                         title
                       </label>
                       <input
                         type='text'

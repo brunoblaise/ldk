@@ -7,7 +7,7 @@ import {Helmet} from 'react-helmet';
 import gto from '../images/pexels-element-digital-1370296.jpg';
 
 
-import group4 from './qqr.jpg';
+
 import group5 from './e.jpg';
 import group6 from './eer.jpg';
 
@@ -109,14 +109,7 @@ function Land() {
 <div id="cf4a">
 
   
-<img
-      
-      src={group4}
-      alt=''
-      
-      width='1280px'
-      className='banner-image bottom'
-    />
+
     <img
       
       src={group5}
