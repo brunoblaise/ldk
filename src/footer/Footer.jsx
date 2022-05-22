@@ -6,7 +6,7 @@ import Form from '../land/Form';
 function Footer() {
   return (
     <div>
-      <footer className='footer-03'>
+      <footer className='footer-03 pushdown'>
         <div class='custom-shape-divider-bottom-1640345171'>
           <svg
             data-name='Layer 1'

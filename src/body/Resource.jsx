@@ -3,6 +3,7 @@ const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
 
 
+
 function Resource() {
   return (
     <div className='App'>

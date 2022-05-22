@@ -11,6 +11,8 @@ import EditorToolBar, {modules, formats}from './EditorToolBar';
 function Written({match}) {
   const [profile] = useContext(ProfileContext);
   const id = profile.map((profil) => profil.student_email)[0];
+  const level = profile.map((profil) => profil.class_student)[0];
+
   const [messag, setMessag] = useState([]);
   const [course] = match.params.id;
   const name = id;
@@ -44,6 +46,7 @@ function Written({match}) {
     try {
       const body = {
         course,
+        level,
         content,
         name,
         teacher,
@@ -65,7 +68,7 @@ function Written({match}) {
       console.error(err.message);
     }
   };
-
+ console.log(level)
   return (
     <div>
       <div className='App'>

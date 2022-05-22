@@ -4121,6 +4121,8 @@ input[type='button'].btn-block {
   border-top-right-radius: 0;
 }
 
+
+
 .btn-group-toggle > .btn,
 .fc .btn-group-toggle > button,
 .ajax-upload-dragdrop .btn-group-toggle > .ajax-file-upload,
@@ -26769,10 +26771,11 @@ img.img-fluid.banner-image {
 }
 .banner-move {
   position: relative;
-  left: 129px;
-  top: -739px;
+  left: 49px;
+  top: -749px;
   color: #fff;
-
+word-spacing:10px;
+line-height: 1.8;
   word-break: normal;
 }
 
@@ -27206,15 +27209,16 @@ width:1340px;
 }
 .corrdance{
   position: relative;
-  will-change: top, left;
-  left: -2px;
-  top: 539px;
+  left: -20px;
+
 }
 .closer{
   position: relative;
   left: -39px;
 }
 .footer-03 {
+  position :relative;
+  top:200px;
   height: 900px;
   background-color: #001220;
   box-shadow: rgb(109 125 172 / 10%) 0px 10px 50px;
@@ -27425,3 +27429,112 @@ html{overflow-x: hidden;}
   width: 48%;
   cursor: pointer;
 }
+.main-sectiont {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+  bottom:-600px;
+  left:80px;
+
+}
+
+.cardq {
+  width: 340px;
+  height: 280px;
+  margin: 16px;
+  
+  
+  box-shadow: 0px 5px 21px -5px #cdd1e1;
+}
+
+#cf4a img {
+  animation-name: cf4FadeInOut;
+  
+/* if you only want to cycle a finite amount of times, 
+ simply change 'infinite' with # of iterations you need */
+  animation-iteration-count: infinite ; 
+  animation-duration: 12s;
+  /* not strictly necessary */
+  position :absolute;
+}
+
+@keyframes cf4FadeInOut {
+  0% {
+    opacity:1;
+  }
+  17% {
+    opacity:1;
+  }
+  25% {
+    opacity:0;
+  }
+  92% {
+    opacity:0;
+  }
+  100% {
+    opacity:1;
+  }
+}
+
+#cf4a img:nth-of-type(1) {
+  animation-delay: 4s;
+}
+#cf4a img:nth-of-type(2) {
+  animation-delay: 6s;
+}
+#cf4a img:nth-of-type(3) {
+  animation-delay: 8s;
+}
+#cf4a img:nth-of-type(4) {
+  animation-delay: 10s;
+}
+
+#cf4a img:nth-of-type(5) {
+  animation-delay: 12s;
+}
+
+
+#cf4a img:nth-of-type(6) {
+  animation-delay: 14s;
+}
+
+#cf4a img:nth-of-type(7) {
+  animation-delay: 15s;
+}
+
+
+#cf4a img:nth-of-type(8) {
+  animation-delay: 17s;
+}
+
+
+
+#cf4a img:nth-of-type(9) {
+  animation-delay: 19s;
+}
+
+
+#cf4a img:nth-of-type(10) {
+  animation-delay:20s;
+}
+
+#cf4a img:nth-of-type(11) {
+  animation-delay: 30s;
+}
+
+#cf4a img:nth-of-type(12) {
+  animation-delay: 32s;
+}
+
+#cf4a img:nth-of-type(13) {
+  animation-delay:34s;
+}
+
+
+.pushdown{
+  position:relative;
+top:600px;
+  
+}
+

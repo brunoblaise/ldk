@@ -5,6 +5,21 @@ import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 import {Helmet} from 'react-helmet';
 import Group from '../images/blob-scene-haikei (1).svg';
 import gto from '../images/pexels-element-digital-1370296.jpg';
+import grou1 from '../../image/DSC_5066.jpg';
+import grou2 from '../../image/DSC_5094.jpg';
+import grou3 from '../../image/DSC_5180.jpg';
+import grou4 from '../../image/DSC_8332.jpg';
+import grou5 from '../../image/DSC_8673.jpg';
+import grou6 from '../../image/DSC_8690.jpg';
+import grou7 from '../../image/DSC_9082.jpg';
+import grou8 from '../../image/DSC_9094.jpg';
+import grou9 from '../../image/DSC_9864.jpg';
+import grou10 from '../../image/DSC_9865.jpg';
+import grou11 from '../../image/DSC_9876.jpg';
+
+
+
+
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -92,14 +107,142 @@ function Land() {
         </nav>
       </header>
       <div className='banner banner-background'>
-        <LazyLoadImage
-          effect='blur'
-          src={Group}
+<div id="cf4a">
+
+        <img
+      
+          src={grou1}
           alt=''
-          height='793px'
+          
           width='1280px'
-          className='banner-image'
+          className='banner-image bottom'
         />
+      <img
+      
+      src={grou2}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+
+<img
+      
+      src={grou3}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+
+<img
+      
+      src={grou4}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+    <img
+      
+      src={grou5}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+    <img
+      
+      src={grou6}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+    <img
+      
+      src={grou8}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+  <img
+      
+      src={grou9}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+    <img
+      
+      src={grou10}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+    <img
+      
+      src={grou11}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+    
+  
+</div>
+        
+<section class="main-sectiont">
+<div class="cardq">
+<div className='card h-100'>
+<div className='card-body'>
+<div class="circle font-weight-bold"></div>
+<br />
+<br />
+<h5 className='card-title '>E-learning</h5>
+              <p className='card-text'>
+              eLearning doesn't just "happen"! It requires careful planning and implementation.
+              People expect to be bored by eLearning—let’s show them it doesn’t have to be like that!
+              </p>
+              </div>
+              </div>
+
+</div>
+<div class="cardq">
+<div className='card h-100'>
+<div className='card-body'>
+<div class="circle font-weight-bold"></div>
+<br />
+<br />
+<h5 className='card-title '>Community</h5>
+              <p className='card-text'>
+              What should young people do with their lives today? Many things, obviously. But the most daring thing is to create stable communities in which the terrible disease of loneliness can be cured.
+              </p>
+              </div>
+              </div>
+
+</div>
+<div class="cardq">
+<div className='card h-100'>
+<div className='card-body'>
+<div class="circle font-weight-bold"></div>
+<br />
+<br />
+<h5 className='card-title '>Time</h5>
+              <p className='card-text'>
+              Time flies over us, but leaves its shadow behind.
+
+              Yesterday is gone. Tomorrow has not yet come. We have only today. Let us begin.
+              </p>
+              </div>
+              </div>
+
+</div>
+</section>  
+
         <div className=''>
           <h1 className='font-weight-semibold banner-move'>
             A Better way to study now & It is just one click.
@@ -108,14 +251,15 @@ function Land() {
             This is Simple way where students and teacher connect very easy
           </h6>
           <div>
-            <button className='btn btn-opacity-light mr-1 banner-move'>
-              Study online
-            </button>
-            <button className='btn btn-opacity-success ml-1 banner-move'>
-              Get reports easily
-            </button>
+        
           </div>
-          <Link to='/challenge' className='btn-track'>
+            
+        </div>
+      </div>
+<div className="pushdown">
+
+
+<Link to='/challenge' className='btn-track'>
             <div className='--icon'>
               <div className='circle-inner'></div>
               <div className='circle-outer'></div>
@@ -142,11 +286,27 @@ function Land() {
                   fill='#DE6D56'
                 />
               </svg>
+
+
+
+
+
+              <svg width='10' height='14' viewBox='0 0 10 14' id='pin'>
+                <path
+                  fillRule='evenodd'
+                  clipRule='evenodd'
+                  d='M5 14C6.5 14 10 8.5 10 5C10 1.5 7.76142 0 5 0C2.23858 0 0 1.5 0 5C0 8.5 3.5 14 5 14ZM4.99998 7.5C6.38069 7.5 7.49998 6.38071 7.49998 5C7.49998 3.61929 6.38069 2.5 4.99998 2.5C3.61927 2.5 2.49998 3.61929 2.49998 5C2.49998 6.38071 3.61927 7.5 4.99998 7.5Z'
+                  fill='#DE6D56'
+                />
+              </svg>
             </div>
             <div className='--text'>Challenge</div>
-          </Link>
-        </div>
-      </div>
+            </Link>
+
+            <h1 className='pq banner-move'>BR Community</h1>
+
+            <h1 className='pq  banner-move'>Build A Rwandan Through Technology</h1>
+
       <h1 className='pq'>Services in the platform</h1>
       <div className='row1 row-cols-1 row-cols-md-3 g-4 weq'>
         <div className='col fut'>
@@ -210,7 +370,9 @@ function Land() {
           controls
         />
       </div>
-      <div className="corrdance">
+</div>
+
+      <div className="corrdance pushdown">
         <h2 className='pb-5 pt-4 pl-4'>
           It's not about the platform but the quality of education we as student
           are offered
