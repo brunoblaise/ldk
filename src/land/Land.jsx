@@ -6,16 +6,16 @@ import {Helmet} from 'react-helmet';
 
 import gto from '../images/pexels-element-digital-1370296.jpg';
 
-import group2 from './DSC_5094.jpg';
-import group3 from './DSC_5180.jpg';
-import group4 from './DSC_8332.jpg';
-import group5 from './DSC_8673.jpg';
-import group6 from './DSC_8690.jpg';
+import group2 from './DSC594.jpg';
+import group3 from './DSC5180.jpg';
+import group4 from './DSC8332.jpg';
+import group5 from './DSC8673.jpg';
+import group6 from './DSC8690.jpg';
 
-import group8 from './DSC_9094.jpg';
-import group9 from './DSC_9864.jpg';
-import group10 from './DSC_9865.jpg';
-import group11 from './DSC_9876.jpg';
+import group8 from './DSC9094.jpg';
+import group9 from './DSC9864.jpg';
+import group10 from './DSC9865.jpg';
+import group11 from './DSC9876.jpg';
 
 
 
