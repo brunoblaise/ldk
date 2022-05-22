@@ -5,7 +5,7 @@ import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 import {Helmet} from 'react-helmet';
 
 import gto from '../images/pexels-element-digital-1370296.jpg';
-import grou1 from './DSC_5066.jpg';
+
 import grou2 from './DSC_5094.jpg';
 import grou3 from './DSC_5180.jpg';
 import grou4 from './DSC_8332.jpg';
@@ -109,14 +109,7 @@ function Land() {
       <div className='banner banner-background'>
 <div id="cf4a">
 
-        <img
       
-          src={grou1}
-          alt=''
-          
-          width='1280px'
-          className='banner-image bottom'
-        />
       <img
       
       src={grou2}
