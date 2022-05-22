@@ -6,16 +6,16 @@ import {Helmet} from 'react-helmet';
 
 import gto from '../images/pexels-element-digital-1370296.jpg';
 
-import grou2 from './DSC_5094.jpg';
-import grou3 from './DSC_5180.jpg';
-import grou4 from './DSC_8332.jpg';
-import grou5 from './DSC_8673.jpg';
-import grou6 from './DSC_8690.jpg';
+import group2 from './DSC_5094.jpg';
+import group3 from './DSC_5180.jpg';
+import group4 from './DSC_8332.jpg';
+import group5 from './DSC_8673.jpg';
+import group6 from './DSC_8690.jpg';
 
-import grou8 from './DSC_9094.jpg';
-import grou9 from './DSC_9864.jpg';
-import grou10 from './DSC_9865.jpg';
-import grou11 from './DSC_9876.jpg';
+import group8 from './DSC_9094.jpg';
+import group9 from './DSC_9864.jpg';
+import group10 from './DSC_9865.jpg';
+import group11 from './DSC_9876.jpg';
 
 
 
@@ -106,13 +106,13 @@ function Land() {
           </div>
         </nav>
       </header>
-      <div className='banner banner-background'>
+      <div className='banner banner-backgroupnd'>
 <div id="cf4a">
 
       
       <img
       
-      src={grou2}
+      src={group2}
       alt=''
       
       width='1280px'
@@ -121,7 +121,7 @@ function Land() {
 
 <img
       
-      src={grou3}
+      src={group3}
       alt=''
       
       width='1280px'
@@ -130,7 +130,7 @@ function Land() {
 
 <img
       
-      src={grou4}
+      src={group4}
       alt=''
       
       width='1280px'
@@ -138,7 +138,7 @@ function Land() {
     />
     <img
       
-      src={grou5}
+      src={group5}
       alt=''
       
       width='1280px'
@@ -146,7 +146,7 @@ function Land() {
     />
     <img
       
-      src={grou6}
+      src={group6}
       alt=''
       
       width='1280px'
@@ -154,7 +154,7 @@ function Land() {
     />
     <img
       
-      src={grou8}
+      src={group8}
       alt=''
       
       width='1280px'
@@ -162,7 +162,7 @@ function Land() {
     />
   <img
       
-      src={grou9}
+      src={group9}
       alt=''
       
       width='1280px'
@@ -170,7 +170,7 @@ function Land() {
     />
     <img
       
-      src={grou10}
+      src={group10}
       alt=''
       
       width='1280px'
@@ -178,7 +178,7 @@ function Land() {
     />
     <img
       
-      src={grou11}
+      src={group11}
       alt=''
       
       width='1280px'
