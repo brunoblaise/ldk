@@ -34,7 +34,6 @@ function Submitted({match}) {
   useEffect(() => {
     getProfile();
   }, [setMessage]);
-
   return (
     <div>
       <div className='col-lg-12 grid-margin stretch-card'>
