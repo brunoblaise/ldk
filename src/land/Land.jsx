@@ -6,16 +6,15 @@ import {Helmet} from 'react-helmet';
 
 import gto from '../images/pexels-element-digital-1370296.jpg';
 
-import group2 from './DSC594.jpg';
-import group3 from './DSC5180.jpg';
-import group4 from './DSC8332.jpg';
-import group5 from './DSC8673.jpg';
-import group6 from './DSC8690.jpg';
 
-import group8 from './DSC9094.jpg';
-import group9 from './DSC9864.jpg';
-import group10 from './DSC9865.jpg';
-import group11 from './DSC9876.jpg';
+import group4 from './qqr.jpg';
+import group5 from './e.jpg';
+import group6 from './eer.jpg';
+
+import group8 from './b.jpg';
+import group9 from './ioo.jpg';
+import group10 from './ss.jpg';
+import group11 from './ra.jpg';
 
 
 
@@ -109,25 +108,7 @@ function Land() {
       <div className='banner banner-backgroupnd'>
 <div id="cf4a">
 
-      
-      <img
-      
-      src={group2}
-      alt=''
-      
-      width='1280px'
-      className='banner-image bottom'
-    />
-
-<img
-      
-      src={group3}
-      alt=''
-      
-      width='1280px'
-      className='banner-image bottom'
-    />
-
+  
 <img
       
       src={group4}
