@@ -212,10 +212,10 @@ function Land() {
 
         <div className=''>
           <h1 className='font-weight-semibold banner-move'>
-            A Better way to study now & It is just one click.
+           
           </h1>
           <h6 className='font-weight-normal text-muted pb-3 banner-move'>
-            This is Simple way where students and teacher connect very easy
+            
           </h6>
           <div>
         
