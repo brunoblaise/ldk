@@ -8,7 +8,6 @@ import gto from '../images/pexels-element-digital-1370296.jpg';
 
 
 
-import group5 from './e.jpg';
 import group6 from './eer.jpg';
 
 import group8 from './b.jpg';
@@ -108,16 +107,6 @@ function Land() {
       <div className='banner banner-backgroupnd'>
 <div id="cf4a">
 
-  
-
-    <img
-      
-      src={group5}
-      alt=''
-      
-      width='1280px'
-      className='banner-image bottom'
-    />
     <img
       
       src={group6}
@@ -226,7 +215,14 @@ function Land() {
 <div className="pushdown">
 
 
-<Link to='/challenge' className='btn-track'>
+
+
+            <h1 className='pq banner-move'>BR Community</h1>
+
+            <h1 className='pq  banner-move'>Build A Rwandan Through Technology</h1>
+
+
+            <Link to='/challenge' className='btn-track'>
             <div className='--icon'>
               <div className='circle-inner'></div>
               <div className='circle-outer'></div>
@@ -269,10 +265,6 @@ function Land() {
             </div>
             <div className='--text'>Challenge</div>
             </Link>
-
-            <h1 className='pq banner-move'>BR Community</h1>
-
-            <h1 className='pq  banner-move'>Build A Rwandan Through Technology</h1>
 
       <h1 className='pq'>Services in the platform</h1>
       <div className='row1 row-cols-1 row-cols-md-3 g-4 weq'>
