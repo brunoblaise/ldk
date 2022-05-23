@@ -4,6 +4,7 @@ import {Helmet} from 'react-helmet';
 import Header from '../../header1/Header';
 import Sidebar from '../../sidebar1/Sidebar';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+import { url } from '../../url';
 function Submitted({match}) {
   const [message, setMessage] = useState([]);
   const [search, setSearch] = useState('');
@@ -31,6 +32,7 @@ function Submitted({match}) {
     }
   };
 
+  console.log(match.params.id)
   useEffect(() => {
     getProfile();
   }, [setMessage]);
