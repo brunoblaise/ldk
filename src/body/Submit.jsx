@@ -57,7 +57,7 @@ function Submit({course, teacher}) {
             <div className='ml-xl-4 mt-3'>
               <form className='row g-3' onSubmit={onSubmitFor}>
                 <div className='containe '>
-                  <EditorToolbar toolbarId={'t1'} />
+                  <EditorToolBar toolbarId={'t1'} />
                   <ReactQuill
                     theme='snow'
                     value={content}

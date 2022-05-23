@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react';
 import Header from '../../header1/Header';
 import Sidebar from '../../sidebar1/Sidebar';
 import {url} from '../../url';
+import {toast} from 'react-toastify';
 
 function One({match}) {
   const [inputs, setInputs] = useState({
@@ -20,7 +21,11 @@ function One({match}) {
       });
 
       const parseData = await res.json();
-
+      if (response.status === 500) {
+        toast.error('Fill the required one');
+      } else {
+        toast.success('Sent Successfully');
+      }
       setMessage(
         parseData.filter((fil) => fil.course_name === match.params.id),
       );
@@ -35,6 +40,8 @@ function One({match}) {
   const name = message.map((profil) => profil.course_name)[0];
   const student = message.map((profil) => profil.student_email)[0];
   const teacher = message.map((profil) => profil.teacher_email)[0];
+
+  console.log(message)
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
