@@ -56,7 +56,7 @@ function Mymarks() {
                   </div>
                 </div>
                 <span className='badge bg-primary rounded-pill'>
-                  {fil.mark}
+                  {fil.marks}
                 </span>
               </li>
             </ol>
