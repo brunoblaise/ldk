@@ -97,6 +97,10 @@ const Login = ({setAuth}) => {
                   </div>
                   <div className='text-center mt-4 font-weight-light'>
                     <br />
+
+                    <Link to='/register' className='text-primary'>
+                      Create an account
+</Link>
                     <Link to='/forget' className='text-primary'>
                       forget password
                     </Link>

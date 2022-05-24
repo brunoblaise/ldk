@@ -207,7 +207,7 @@ function App() {
                 exact
               />
               <Route
-                path='/register/WkxCjkrXwg/:id'
+                path='/register'
                 render={(props) =>
                   !isAuthenticated ? (
                     <Register {...props} setAuth={setAuth} />
@@ -408,7 +408,7 @@ function App() {
                 />
 
                 <Route
-                  path='/registerT/WkxCjkrXwg/:id'
+                  path='/registerT'
                   render={(props) =>
                     !isAuthenticated ? (
                       <RegisterT {...props} setAuth={setAuth} />
