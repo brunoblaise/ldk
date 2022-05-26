@@ -12,6 +12,7 @@ function Submit({course, teacher}) {
 
   const [profile] = useContext(ProfileContext);
   const own = profile.map((profil) => profil.student_email);
+  const level = 'easy';
 
   const [content, setContent] = useState('');
   const handleChange = (value) => {
@@ -29,6 +30,7 @@ function Submit({course, teacher}) {
         content,
         teacher,
         name,
+        level,
        
       };
       const response = await fetch(`${url}/create/answers`, {
