@@ -8,6 +8,7 @@ const End = React.lazy(() => import('./End'));
 function Screen({match}) {
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
+  const [mes, setMes] = useState('');
   const [answers, setAnswers] = useState([]);
   const [notes, setNote] = useState([]);
 
@@ -37,10 +38,33 @@ function Screen({match}) {
     return () => controller?.abort();
   }, []);
 
-  console.log(notes[activeQuestion]);
+
+  const getPro = async () => {
+    try {
+      const res = await fetch(`${url}/get/courses`, {
+        method: 'GET',
+      });
+
+      const parseData = await res.json();
+
+      setMes(parseData.filter(
+        (fil) =>
+          fil.course_name === match.params.id,
+      ),);
+      setLoading(false);
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  useEffect(() => {
+    getPro();
+  }, [setMes]);
+ 
+  
   return (
     <div>
-      {step === 1 && <Start onQuizStart={quizStartHandler} data={notes} />}
+      {step === 1 && <Start onQuizStart={quizStartHandler} data={notes} course={mes} />}
       {step === 2 && (
         <OneTest
           data={notes[activeQuestion]}

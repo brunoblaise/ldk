@@ -1,7 +1,8 @@
 import React from 'react';
 const Header = React.lazy(() => import('../../header/Header'));
 const Sidebar = React.lazy(() => import('../../sidebar/Sidebar'));
-const Start = ({onQuizStart, data}) => {
+const Start = ({onQuizStart, data, course}) => {
+ 
   return (
     <>
       <Header />
@@ -12,7 +13,7 @@ const Start = ({onQuizStart, data}) => {
             <div className='card-content'>
               <div className='content'>
                 <h1>Start the Test</h1>
-                {data.length === 0 ? (
+                {data.length === 0 || course[0].course_course === 'yes' ? (
                   <p>loading questions</p>
                 ) : (
                   <p> Good luck!</p>
@@ -20,7 +21,9 @@ const Start = ({onQuizStart, data}) => {
 
                 <button
                   className={
-                    data.length === 0 ? 'hide' : 'button is-info is-medium'
+                    data.length === 0 
+                      ? 'hide'
+                      : 'button is-info is-medium'
                   }
                   onClick={onQuizStart}>
                   Start

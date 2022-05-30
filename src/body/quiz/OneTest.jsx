@@ -1,4 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
+import { url } from '../../url';
 const Header = React.lazy(() => import('../../header/Header'));
 const Sidebar = React.lazy(() => import('../../sidebar/Sidebar'));
 function OneTest({
@@ -11,6 +12,7 @@ function OneTest({
 }) {
   const [counter, setCounter] = useState(120);
   const [selected, setSelected] = useState('');
+
   const [error, setError] = useState('');
   const radiosWrapper = useRef();
   useEffect(() => {
@@ -50,6 +52,9 @@ function OneTest({
       onSetStep(3);
     }
   };
+
+
+
   return (
     <>
       <Header />

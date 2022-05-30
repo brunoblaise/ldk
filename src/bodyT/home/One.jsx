@@ -21,11 +21,7 @@ function One({match}) {
       });
 
       const parseData = await res.json();
-      if (response.status === 500) {
-        toast.error('Fill the required one');
-      } else {
-        toast.success('Sent Successfully');
-      }
+    
       setMessage(
         parseData.filter((fil) => fil.course_name === match.params.id),
       );

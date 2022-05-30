@@ -23,6 +23,8 @@ function CreateOne({match}) {
   const [choic, setChoic] = useState(null);
   const [choica, setChoica] = useState(null);
   const [content, setContent] = useState('');
+  const [closure, setClosure] = useState('');
+
   const {question, answer} = inputs;
   const choices = [choicese, choice, choic, choica];
 
@@ -30,6 +32,10 @@ function CreateOne({match}) {
     setInputs({...inputs, [e.target.name]: e.target.value});
   const handleChange = (value) => {
     setContent(value);
+  };
+
+  const handlEhang = (value) => {
+    setClosure(value);
   };
   const onSubmitForm = async (e) => {
     e.preventDefault();
@@ -86,13 +92,72 @@ function CreateOne({match}) {
       console.error(err.message);
     }
   };
- 
+
+
+  const onSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const body = {closure};
+      const response = await fetch(`${url}/create/course/${name}`, {
+        method: 'POST',
+        headers: {
+          'Content-type': 'application/json',
+        },
+        body: JSON.stringify(body),
+      });
+
+      const parseRes = await response.json();
+      if (response.status === 200) {
+        toast.success('Sent Successfully');
+      } else {
+        toast.error('Fill the required one');
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+ console.log(closure)
   return (
     <div className='App'>
       <Header />
       <div className='container-fluid page-body-wrapper'>
         <Sidebar />
         <div className='content-wrapper aerq'>
+        <div className='card'>
+            <div className='row'>
+              <div className='card-body'>
+                <div className='ml-xl-4 mt-3'>
+                  <form className='row g-3' onSubmit={onSubmit}>
+                  <div className='col-md-6'>
+                      <label forhtml='inputPassword4' className='form-label'>
+                        Close the test no || yes
+                      </label>
+                      <input
+                        type='text'
+                        className='form-control'
+                        value={closure}
+                        onChange={(e) => setClosure(e.target.value)}
+                        name='question'
+                        id='inputPassword4'
+                      />
+                    </div>
+                    
+                    <button className='btn btn-primary btn-icon-text'>
+                      <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
+                      Submit
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+          <br />
+          <br />
+          <br />
           <div className='card'>
             <div className='row'>
               <div className='card-body'>

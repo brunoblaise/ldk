@@ -34,7 +34,7 @@ function Submitted({match}) {
     }
   };
 
-  console.log(match.params.id)
+  
   useEffect(() => {
     getProfile();
   }, [setMessage]);

@@ -81,7 +81,7 @@ function End({results, data, nameu, datas}) {
               <div className='logop'>College du Christ Roi</div>
 
               <div className='marquee'>
-                Report card
+                Marks
                 <p>
                   {correctAnswers} of {data.length}
                 </p>
