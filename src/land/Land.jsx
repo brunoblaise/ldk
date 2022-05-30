@@ -8,16 +8,17 @@ import gto from '../images/pexels-element-digital-1370296.jpg';
 
 
 
-import group6 from './eer.jpg';
+import group6 from './DSC_8690.jpg';
 
-import group8 from './b.jpg';
+import group8 from './DSC_9876.jpg';
 import group9 from './ioo.jpg';
-import group10 from './ss.jpg';
+import group10 from './1494938269_b30a9594.jpg';
 import group11 from './ra.jpg';
+import group12 from './WhatsApp Image 2022-05-24 at 5.45.35 PM.jpeg'
 
 
 
-
+import group14 from './WhatsApp Image 2022-05-24 at 5.45.25 PM.jpeg'
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 
 import 'react-lazy-load-image-component/src/effects/blur.css';
@@ -139,6 +140,22 @@ function Land() {
       width='1280px'
       className='banner-image bottom'
     />
+      <img
+      
+      src={group12}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
+    <img
+      
+      src={group14}
+      alt=''
+      
+      width='1280px'
+      className='banner-image bottom'
+    />
     <img
       
       src={group11}
@@ -147,6 +164,10 @@ function Land() {
       width='1280px'
       className='banner-image bottom'
     />
+
+
+    
+
     
   
 </div>
