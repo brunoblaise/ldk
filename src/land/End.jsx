@@ -37,7 +37,7 @@ function End({results, data, datas}) {
     let doc = new jsPDF('p', 'pt', 'a4');
     doc.html(document.querySelector('#contentp'), {
       callback: function (pdf) {
-        pdf.save('certificate.pdf');
+        pdf.save('report.pdf');
       },
     });
   };
@@ -365,21 +365,21 @@ function End({results, data, datas}) {
       <button
         className={'btn btn-info'}
         onClick={generatePdf}>
-        download your certificate
+        download your report
       </button>
       <form>
         <div className='containerp' id='contentp'>
           <div className='logop'>BR Community</div>
 
           <div className='marquee'>
-            Certificate of Completion
+            report of Completion
             <p>
               {correctAnswers} of {data.length}
             </p>
             <strong>{mark}%</strong>
           </div>
 
-          <div className='assignment'>This certificate is presented to</div>
+          <div className='assignment'>This report is presented to</div>
 
           <div className='person'>{student}</div>
 

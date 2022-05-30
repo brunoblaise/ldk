@@ -69,7 +69,7 @@ function End({results, data, nameu, datas}) {
         <div className='content-wrapper'>
           <button className={'btn btn-info'} onClick={generatePdf}>
             <i className='fa fa-paper-plane'></i>
-            download your certificate
+            download your report
           </button>
           <br />
           <br />
@@ -81,14 +81,14 @@ function End({results, data, nameu, datas}) {
               <div className='logop'>College du Christ Roi</div>
 
               <div className='marquee'>
-                Certificate of Completion
+                Report card
                 <p>
                   {correctAnswers} of {data.length}
                 </p>
                 <strong>{marks}%</strong>
               </div>
 
-              <div className='assignment'>This certificate is presented to</div>
+              <div className='assignment'>This report is presented to</div>
 
               <div className='person'>{profile[0].student_fname}</div>
 
