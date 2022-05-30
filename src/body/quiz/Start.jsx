@@ -21,7 +21,7 @@ const Start = ({onQuizStart, data, course}) => {
 
                 <button
                   className={
-                    data.length === 0 
+                    data.length === 0 || course[0].course_course === 'yes'
                       ? 'hide'
                       : 'button is-info is-medium'
                   }
