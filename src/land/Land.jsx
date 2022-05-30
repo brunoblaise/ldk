@@ -12,9 +12,9 @@ import group6 from './DSC_8690.jpg';
 
 import group8 from './DSC_9876.jpg';
 import group9 from './ioo.jpg';
-import group10 from './1494938269_b30a9594.jpg';
+import group10 from './IMG-20220524-WA0019.jpg';
 import group11 from './ra.jpg';
-import group12 from './WhatsApp Image 2022-05-24 at 5.45.35 PM.jpeg'
+
 
 
 
@@ -140,14 +140,7 @@ function Land() {
       width='1280px'
       className='banner-image bottom'
     />
-      <img
-      
-      src={group12}
-      alt=''
-      
-      width='1280px'
-      className='banner-image bottom'
-    />
+   
     <img
       
       src={group14}
