@@ -13,7 +13,7 @@ function Submit({course, teacher}) {
   const [profile] = useContext(ProfileContext);
   const own = profile.map((profil) => profil.student_email);
   
-  const level = profile.map((profil) => profil.class_student);
+  const level = profile.map((profil) => profil.class_student)[0];
 
 
   const [content, setContent] = useState('');
