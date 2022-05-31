@@ -13,7 +13,7 @@ function Submit({course, teacher}) {
   const [profile] = useContext(ProfileContext);
   const own = profile.map((profil) => profil.student_email);
   
-  const level = profile.map((profil) => profil.class_student)[0];
+  const level1 = profile.map((profil) => profil.class_student);
 
 
   const [content, setContent] = useState('');
@@ -22,6 +22,8 @@ function Submit({course, teacher}) {
   };
 
   const [name] = useState(own[0]);
+  const [level] = useState(level1[0]);
+
 
   const onSubmitFor = async (e) => {
     e.preventDefault();
