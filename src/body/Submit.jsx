@@ -54,7 +54,7 @@ function Submit({course, teacher}) {
       console.error(err.message);
     }
   };
- 
+ console.log(level)
   return (
     <div className='content-wrapper aerq'>
       <div className='card'>
