@@ -84,20 +84,22 @@ function CreateTest() {
                         id='inputState'
                         className='form-select'>
                         <option>Select subject</option>
-                        <option value='mathematics'>mathematics</option>
-                        <option value='english'>english</option>
-                        <option value='kinyarwanda'>kinyarwanda</option>
-                        <option value='kiswahili'>kiswahili</option>
-                        <option value='geography'>geography</option>
-                        <option value='history'>history</option>
-                        <option value='religion'>religion</option>
-                        <option value='music'>music</option>
-                        <option value='literature'>literature</option>
-                        <option value='chemistry'>chemistry</option>
-                        <option value='physics'>physics</option>
-                        <option value='french'>french</option>
-                        <option value='ict'>ict</option>
-                        <option value='biology'>biology</option>
+                        <option value='mathematics'>Mathematics</option>
+                        <option value='english'>English</option>
+                        <option value='entrepreneurship'>Entrepreneurship</option>
+
+                        <option value='kinyarwanda'>Kinyarwanda</option>
+                        <option value='kiswahili'>Kiswahili</option>
+                        <option value='geography'>Geography</option>
+                        <option value='history'>History</option>
+                        <option value='religion'>Religion</option>
+                        <option value='music'>Music</option>
+                        <option value='literature'>Literature</option>
+                        <option value='chemistry'>Chemistry</option>
+                        <option value='physics'>Physics</option>
+                        <option value='french'>French</option>
+                        <option value='ict'>Ict</option>
+                        <option value='biology'>Biology</option>
                       </select>
                     </div>
                     <div className='col-md-6'>

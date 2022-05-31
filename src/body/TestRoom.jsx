@@ -27,6 +27,15 @@ function TestRoom() {
             </Link>
           </div>
           <div className='accordion accordion-flush' id='accordionFlushExample'>
+            <Link to='/room/test/entrepreneurship' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>
+                  Entrepreneurship
+                </div>
+              </h2>
+            </Link>
+          </div>
+          <div className='accordion accordion-flush' id='accordionFlushExample'>
             <Link to='/room/test/chemistry' className='accordion-item'>
               <h2 className='accordion-header'>
                 <div className='accordion-button collapsed'>Chemistry</div>
