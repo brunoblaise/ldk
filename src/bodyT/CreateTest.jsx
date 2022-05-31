@@ -21,6 +21,7 @@ function CreateTest() {
 
   const level = subjec.value;
   const type = subject.value;
+  const closure = 'no'
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -40,7 +41,7 @@ function CreateTest() {
         level,
         category,
         duration,
-
+         closure,
         type,
         teacher,
       };
