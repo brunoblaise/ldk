@@ -2,33 +2,15 @@ import React, {useEffect, useState} from 'react';
 import {Link} from 'react-router-dom';
 import {format} from 'timeago.js';
 import {url} from '../url';
-
+import {useQuery} from 'react-query';
 const Header = React.lazy(() => import('../header/Header'));
 
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 
 function Onenotes({match}) {
-  const [notes, setNote] = useState([]);
-  const [loading, setLoading] = useState(true);
-  const getProfile = async () => {
-    try {
-      const res = await fetch(`${url}/get/notes/${match.params.id}`, {
-        method: 'GET',
-        headers: {jwt_token: localStorage.token},
-      });
-
-      const parseData = await res.json();
-
-      setNote(parseData);
-      setLoading(false);
-    } catch (err) {
-      console.error(err.message);
-    }
-  };
-
-  useEffect(() => {
-    getProfile();
-  }, [setNote]);
+  const {loading, notes} = useQuery('notes', () =>
+    fetch(`${url}/get/notes/${match.params.id}`).then((res) => res.json()),
+  );
 
   return (
     <>
