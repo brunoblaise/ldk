@@ -1,8 +1,12 @@
-import React, {useEffect, useState, useContext} from 'react';
+import {useStoreState} from 'easy-peasy';
+import React, {useEffect, useState} from 'react';
 import {url} from '../url';
-import {ProfileContext} from './context/ProfileContext';
+
 function Numwork() {
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const [notes, setNote] = useState([]);
 
   const getProfile = async () => {

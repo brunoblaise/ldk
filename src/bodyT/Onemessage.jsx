@@ -1,6 +1,6 @@
 import React, {useEffect, useState, useContext} from 'react';
 const Messageform = React.lazy(() => import('./Messageform'));
-import ScrollToBottom from "react-scroll-to-bottom";
+
 import {TeacherContext} from './context/TeacherContext';
 import {format} from 'timeago.js';
 import {url} from '../url';
@@ -86,27 +86,26 @@ function Onemessage({match}) {
             </div>
             <div className='content__body'>
               <div className='chat__items'>
-                <ScrollToBottom className='chat__items'>
-                  {message.map((chat) => (
-                    <div
-                      key={chat.id}
-                      className={
-                        chat.email === own[0]
-                          ? 'chat__item me'
-                          : 'chat__item other'
-                      }
-                      style={{animationDelay: '0.8s'}}>
-                      <div className='chat__item__content'>
-                        <div className='chat__msg'>{chat.content}</div>
+                {message.map((chat) => (
+                  <div
+                    key={chat.id}
+                    className={
+                      chat.email === own[0]
+                        ? 'chat__item me'
+                        : 'chat__item other'
+                    }
+                    style={{animationDelay: '0.8s'}}>
+                    <div className='chat__item__content'>
+                      <div className='chat__msg'>{chat.content}</div>
 
-                        <div className='chat__meta'>
-                          <span>{chat.email}</span>
-                          <span>{format(chat.send_time)}</span>
-                        </div>
+                      <div className='chat__meta'>
+                        <span>{chat.email}</span>
+                        <span>{format(chat.send_time)}</span>
                       </div>
                     </div>
-                  ))}
-                </ScrollToBottom>
+                  </div>
+                ))}
+
                 <div></div>
               </div>
             </div>

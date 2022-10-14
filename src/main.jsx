@@ -1,14 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import {QueryClient, QueryClientProvider} from 'react-query';
 
+import {BrowserRouter as Router} from 'react-router-dom';
+import {StoreProvider} from 'easy-peasy';
+import {QueryClient, QueryClientProvider} from 'react-query';
+import {ReactQueryDevtools} from 'react-query/devtools';
+import store from './utils/store/Store';
 const queryClient = new QueryClient();
 ReactDOM.render(
-  <React.StrictMode>
+  <Router>
     <QueryClientProvider client={queryClient}>
-      <App />
+      <StoreProvider store={store}>
+        <App />
+      </StoreProvider>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
-  </React.StrictMode>,
-  document.getElementById('cxrwebapp'),
+  </Router>,
+  document.getElementById('ldkwebapp'),
 );

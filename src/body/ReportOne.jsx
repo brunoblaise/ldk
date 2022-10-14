@@ -1,7 +1,8 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {ProfileContext} from './context/ProfileContext';
+import React, {useEffect, useState} from 'react';
+
 import {format} from 'timeago.js';
 import {url} from '../url';
+import {useStoreState} from 'easy-peasy';
 function Iframe(props) {
   return (
     <div dangerouslySetInnerHTML={{__html: props.iframe ? props.iframe : ''}} />
@@ -9,7 +10,10 @@ function Iframe(props) {
 }
 function ReportOne() {
   const [notes, setNote] = useState([]);
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/report`, {
@@ -68,8 +72,6 @@ function ReportOne() {
           </div>
         </div>
       ))}
-
-     
     </>
   );
 }

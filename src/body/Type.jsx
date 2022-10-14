@@ -1,9 +1,10 @@
-import React, {useEffect, useState, useContext} from 'react';
+import {useStoreState} from 'easy-peasy';
+import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import {Link} from 'react-router-dom';
 import {url} from '../url';
-import {ProfileContext} from './context/ProfileContext';
+
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
 function Type({match}) {
@@ -13,7 +14,10 @@ function Type({match}) {
   const [searc, setSearc] = useState('');
   const [loading, setLoading] = useState(true);
 
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const own = profile.map((profil) => profil.class_student);
 
   const getProfile = async () => {

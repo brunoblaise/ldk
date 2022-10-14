@@ -1,10 +1,11 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
-import {ProfileContext} from './context/ProfileContext';
+
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-const Submis = React.lazy(() => import( './Submis'));
+import {useStoreState} from 'easy-peasy';
+const Submis = React.lazy(() => import('./Submis'));
 
 function Profile({setAuth}) {
   const logout = async (e) => {
@@ -17,11 +18,10 @@ function Profile({setAuth}) {
       console.error(err.message);
     }
   };
-  
-  const [profile] = useContext(ProfileContext);
- 
 
+  const {User} = useStoreState((state) => state);
 
+  const {profile} = User;
 
   return (
     <div>
@@ -109,12 +109,12 @@ function Profile({setAuth}) {
                         <li className='nav-item'>
                           <p className='nav-link'>
                             <i className='ti-user'></i>
-                            Change your Info 
+                            Change your Info
                           </p>
                         </li>
                       </ul>
                     </div>
-                 <Submis/>
+                    <Submis />
                   </div>
                 </div>
               </div>

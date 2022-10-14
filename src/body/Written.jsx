@@ -1,15 +1,19 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
 import {toast} from 'react-toastify';
 import {url} from '../url';
 import ReactQuill from 'react-quill';
-import {ProfileContext} from './context/ProfileContext';
+
 import 'react-quill/dist/quill.snow.css';
-import EditorToolBar, {modules, formats}from './EditorToolBar';
+import EditorToolBar, {modules, formats} from './EditorToolBar';
+import {useStoreState} from 'easy-peasy';
 
 function Written({match}) {
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const id = profile.map((profil) => profil.student_email)[0];
   const level = profile.map((profil) => profil.class_student)[0];
 
@@ -68,7 +72,7 @@ function Written({match}) {
       console.error(err.message);
     }
   };
- console.log(level)
+  console.log(level);
   return (
     <div>
       <div className='App'>
@@ -124,4 +128,4 @@ function Written({match}) {
   );
 }
 
-export default  React.memo(Written);
+export default React.memo(Written);

@@ -1,9 +1,12 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {ProfileContext} from './context/ProfileContext';
+import React, {useEffect, useState} from 'react';
+
 import {Link} from 'react-router-dom';
 import {url} from '../url';
 function Notessidebar() {
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const [notes, setNote] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);

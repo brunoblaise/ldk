@@ -1,20 +1,19 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
 import ReactQuill from 'react-quill';
-import {ProfileContext} from './context/ProfileContext';
+
 import 'react-quill/dist/quill.snow.css';
-import EditorToolBar, {modules, formats}from './EditorToolBar';
+import EditorToolBar, {modules, formats} from './EditorToolBar';
+import {useStoreState} from 'easy-peasy';
 
 function Submit({course, teacher}) {
- 
+  const {User} = useStoreState((state) => state);
 
-
-  const [profile] = useContext(ProfileContext);
+  const {profile} = User;
   const own = profile.map((profil) => profil.student_email);
-  
-  const level1 = profile.map((profil) => profil.class_student);
 
+  const level1 = profile.map((profil) => profil.class_student);
 
   const [content, setContent] = useState('');
   const handleChange = (value) => {
@@ -23,7 +22,6 @@ function Submit({course, teacher}) {
 
   const [name] = useState(own[0]);
   const [level] = useState(level1[0]);
-
 
   const onSubmitFor = async (e) => {
     e.preventDefault();
@@ -35,7 +33,6 @@ function Submit({course, teacher}) {
         teacher,
         name,
         level,
-       
       };
       const response = await fetch(`${url}/create/answers`, {
         method: 'POST',
@@ -54,7 +51,7 @@ function Submit({course, teacher}) {
       console.error(err.message);
     }
   };
- console.log(level)
+  console.log(level);
   return (
     <div className='content-wrapper aerq'>
       <div className='card'>

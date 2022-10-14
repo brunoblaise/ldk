@@ -1,18 +1,21 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 const Messageform = React.lazy(() => import('./Messageform'));
-import ScrollToBottom from "react-scroll-to-bottom";
-import {ProfileContext} from './context/ProfileContext';
+
+
 import {format} from 'timeago.js';
 import io from 'socket.io-client';
 import {Helmet} from 'react-helmet';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import {url} from '../url';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { useStoreState } from 'easy-peasy';
 function Message() {
   const [message, setMessage] = useState([]);
 
+  const {User} = useStoreState((state) => state);
 
-  const [profile] = useContext(ProfileContext);
+  const {profile} = User;
+
   const id = profile.map((profil) => profil.class_student);
 
   const own = profile.map((profil) => profil.student_email);
@@ -29,8 +32,6 @@ function Message() {
       const parseData = await res.json();
 
       setMessage(parseData.filter((fil) => fil.level === id[0]));
-
-     
     } catch (err) {
       console.error(err.message);
     }
@@ -48,7 +49,7 @@ function Message() {
 
   return (
     <>
-    <Helmet>
+      <Helmet>
         <meta name='title' content='college du christ roi' />
         <meta
           http-equiv='Content-Security-Policy'
@@ -62,36 +63,35 @@ function Message() {
 
         <title>Message</title>
       </Helmet>
-    <div className='__main'>
-      <div className='nav'>
-        <div className='nav__blocks'></div>
-        <div className='nav__blocks'></div>
-        <div className='nav__blocks'></div>
-      </div>
-      <div className='main__chatbody'>
-        <div className='main__chatcontent'>
-          <div className='content__header'>
-            <div className='blocks'>
-              <div className='current-chatting-user'>
-                <div className='avatar'>
-                  <div className='avatar-img'>
-                    <LazyLoadImage
-                      effect='blur'
-                      width='640'
-                      height='360'
-                      src={`https://avatars.dicebear.com/api/avataaars/${own[0]}.svg`}
-                      alt=''
-                    />
+      <div className='__main'>
+        <div className='nav'>
+          <div className='nav__blocks'></div>
+          <div className='nav__blocks'></div>
+          <div className='nav__blocks'></div>
+        </div>
+        <div className='main__chatbody'>
+          <div className='main__chatcontent'>
+            <div className='content__header'>
+              <div className='blocks'>
+                <div className='current-chatting-user'>
+                  <div className='avatar'>
+                    <div className='avatar-img'>
+                      <LazyLoadImage
+                        effect='blur'
+                        width='640'
+                        height='360'
+                        src={`https://avatars.dicebear.com/api/avataaars/${own[0]}.svg`}
+                        alt=''
+                      />
+                    </div>
+                    <span className='isOnline active'></span>
                   </div>
-                  <span className='isOnline active'></span>
+                  <p>Cxr Chat Box</p>
                 </div>
-                <p>Cxr Chat Box</p>
               </div>
             </div>
-          </div>
-          <div className='content__body'>
-            <div className='chat__items'>
-            <ScrollToBottom className="chat__items">
+            <div className='content__body'>
+              <div className='chat__items'>
                 {message.map((chat) => (
                   <div
                     key={chat.id}
@@ -111,16 +111,16 @@ function Message() {
                     </div>
                   </div>
                 ))}
-              </ScrollToBottom>
-              <div></div>
+
+                <div></div>
+              </div>
             </div>
-          </div>
-          <div className='content__footer'>
-            <Messageform classe={id[0]} />
+            <div className='content__footer'>
+              <Messageform classe={id[0]} />
+            </div>
           </div>
         </div>
       </div>
-    </div>
     </>
   );
 }

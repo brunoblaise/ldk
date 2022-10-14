@@ -1,9 +1,13 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {ProfileContext} from './context/ProfileContext';
+import React, {useEffect, useState} from 'react';
+
 import {Link} from 'react-router-dom';
 import {url} from '../url';
+import {useStoreState} from 'easy-peasy';
 function WorkList() {
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const [notes, setNote] = useState([]);
   const [search, setSearch] = useState('');
   const getProfile = async () => {

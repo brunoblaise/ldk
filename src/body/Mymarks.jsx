@@ -1,9 +1,13 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {ProfileContext} from './context/ProfileContext';
+import React, {useEffect, useState} from 'react';
+
 import {Link} from 'react-router-dom';
 import {url} from '../url';
+import {useStoreState} from 'easy-peasy';
 function Mymarks() {
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const [notes, setNote] = useState([]);
   const [loading, setLoading] = useState(true);
   const id = profile.map((profil) => profil.student_email);

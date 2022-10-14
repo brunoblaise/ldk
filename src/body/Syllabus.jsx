@@ -1,13 +1,17 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {ProfileContext} from './context/ProfileContext';
+import React, {useEffect, useState} from 'react';
+
 import {Link} from 'react-router-dom';
 import {url} from '../url';
+import {useStoreState} from 'easy-peasy';
 
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
 
 function Syllabus() {
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const [notes, setNote] = useState([]);
 
   const [loading, setLoading] = useState(true);
@@ -68,11 +72,8 @@ function Syllabus() {
                 )}
               </div>
             </div>
-           
           </div>
-          
         </div>
-        
       </div>
     </div>
   );

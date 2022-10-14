@@ -1,13 +1,15 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
 import {Helmet} from 'react-helmet';
 import Header from '../header/Header';
 import Sidebar from '../sidebar/Sidebar';
-import {ProfileContext} from './context/ProfileContext';
 
 function UpdateClass() {
-  const [profile] = useContext(ProfileContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const own = profile.map((profil) => profil.student_id);
 
   const id = own[0];
@@ -15,8 +17,6 @@ function UpdateClass() {
   const [subjec, setSubjec] = useState('');
 
   const classe = subjec.value;
-
- 
 
   const handleChang = (event) => {
     setSubjec({value: event.target.value});

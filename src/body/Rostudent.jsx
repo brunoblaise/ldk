@@ -1,10 +1,13 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 import {url} from '../url';
-import {ProfileContext} from './context/ProfileContext';
+
 function Rostudent() {
   const [message, setMessage] = useState([]);
   const [search, setSearch] = useState('');
-  const [profile] = useContext(ProfileContext);
+
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/Emailsel`, {
@@ -25,7 +28,7 @@ function Rostudent() {
   }, []);
   const id = profile.map((profil) => profil.class_student);
 
-  const hid =profile[0].hide
+  const hid = profile[0].hide;
   message.filter((el, index) => message.indexOf(el) === index);
   return (
     <div className='col-lg-12 grid-margin stretch-card'>
@@ -94,10 +97,11 @@ function Rostudent() {
                       <td _msthash='4742972' _msttexthash='89830'>
                         {note.student_gender}
                       </td>
-                      {  <td _msthash='4742972' _msttexthash='89830'>
-                        {note.student_phonem}
-                      </td>   }
-                     
+                      {
+                        <td _msthash='4742972' _msttexthash='89830'>
+                          {note.student_phonem}
+                        </td>
+                      }
                     </tr>
                   </tbody>
                 ))}

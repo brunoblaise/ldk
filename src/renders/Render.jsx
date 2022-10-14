@@ -9,7 +9,8 @@ function Render({setAuth}) {
     <div className='App'>
       <Header />
       <div className='container-fluid page-body-wrapper'>
-        <Sidebar setAuth={setAuth} />
+        <Sidebar />
+
 
         <Main />
       </div>
