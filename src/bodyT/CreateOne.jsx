@@ -1,11 +1,11 @@
-import React, {useState, useContext} from 'react';
+import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import ReactQuill from 'react-quill';
 import {url} from '../url';
 import 'react-quill/dist/quill.snow.css';
 
-import {TeacherContext} from '../bodyT/context/TeacherContext';
-import EditorToolBar, {modules, formats}from './EditorToolBar';
+import EditorToolBar, {modules, formats} from './EditorToolBar';
+import { useStoreState } from 'easy-peasy';
 const Header = React.lazy(() => import('../header1/Header'));
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 
@@ -14,7 +14,11 @@ function CreateOne({match}) {
     question: '',
     answer: '',
   });
-  const [profile] = useContext(TeacherContext);
+
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const own = profile.map((profil) => profil.teacher_email);
   const [teacher] = useState(own[0]);
   const name = match.params.id;
@@ -93,7 +97,6 @@ function CreateOne({match}) {
     }
   };
 
-
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -118,19 +121,19 @@ function CreateOne({match}) {
     }
   };
 
- console.log(closure)
+  console.log(closure);
   return (
     <div className='App'>
       <Header />
       <div className='container-fluid page-body-wrapper'>
         <Sidebar />
         <div className='content-wrapper aerq'>
-        <div className='card'>
+          <div className='card'>
             <div className='row'>
               <div className='card-body'>
                 <div className='ml-xl-4 mt-3'>
                   <form className='row g-3' onSubmit={onSubmit}>
-                  <div className='col-md-6'>
+                    <div className='col-md-6'>
                       <label forhtml='inputPassword4' className='form-label'>
                         Close the test no || yes
                       </label>
@@ -143,7 +146,7 @@ function CreateOne({match}) {
                         id='inputPassword4'
                       />
                     </div>
-                    
+
                     <button className='btn btn-primary btn-icon-text'>
                       <i className='bi bi-upload ti-file menu-icon btn-icon-prepend'></i>
                       Submit
@@ -153,7 +156,6 @@ function CreateOne({match}) {
               </div>
             </div>
           </div>
-
 
           <br />
           <br />

@@ -1,16 +1,21 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 const Messageform = React.lazy(() => import('./Messageform'));
 
-import {TeacherContext} from './context/TeacherContext';
 import {format} from 'timeago.js';
 import {url} from '../url';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import io from 'socket.io-client';
 import {Helmet} from 'react-helmet';
+import { useStoreState } from 'easy-peasy';
 function Onemessage({match}) {
+  const {token} = useStoreState((state) => state.Auth);
+
+  const {User} = useStoreState((state) => state);
+
+
+  const {profile} = User;
   const [message, setMessage] = useState([]);
-  const [profile] = useContext(TeacherContext);
 
   const socket = io.connect(url);
 
@@ -18,7 +23,7 @@ function Onemessage({match}) {
     try {
       const res = await fetch(`${url}/get/message`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();

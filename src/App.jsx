@@ -74,11 +74,14 @@ const WorkSubT = React.lazy(() => import('./bodyT/WorkSubT'));
 
 function App() {
   const {token} = useStoreState((state) => state.Auth);
+  const {type} = useStoreState((state) => state.Type);
+  const {profile} = useStoreState((state) => state.User);
 
   const {setProfile} = useStoreActions((state) => state.User);
   let controller = new AbortController();
-  const {setAuth, setToken} = useStoreActions((actions) => actions.Auth);
 
+  const {setToken, setAuth} = useStoreActions((state) => state.Auth);
+  const {setType} = useStoreActions((state) => state.Type);
   const errorHandle = (error, errorInfo) => {
     console.log('logging', error, errorInfo);
   };
@@ -92,22 +95,34 @@ function App() {
         },
       });
       const parseRes = await res.json();
-      console.log(res);
+
       if (parseRes === true) {
         setAuth(true);
-      } else {
-        setAuth(false);
-        setToken('');
+      } else if (parseRes === false) {
         setProfile([]);
+        setToken('');
+        setAuth(false);
+        setType('');
+      } else if (profile.length === 0) {
+        setProfile([]);
+        setToken('');
+        setAuth(false);
+        setType('');
       }
     } catch (err) {
       console.error(err.message);
     }
   };
+  const check =
+    type === 'teacher'
+      ? `/get/teacher`
+      : type === 'student'
+      ? `/get/profile`
+      : '';
 
   const getProfile = async () => {
     try {
-      const res = await fetch(`${url}/get/profile`, {
+      const res = await fetch(`${url}${check}`, {
         method: 'GET',
         headers: {jwt_token: token},
       });
@@ -124,10 +139,11 @@ function App() {
 
   useEffect(() => {
     fetchUrl();
+    getProfile();
     return () => controller?.abort();
   }, []);
 
-  const query = useQuery('profile', getProfile());
+  const query = useQuery('profile');
 
   return (
     <Suspense
@@ -141,7 +157,11 @@ function App() {
           <Route path='/forget' render={<Forget />} />
 
           <Route path='/forget/:id/:token' element={<Reset />} />
+          <Route path='/forgetT' render={<ForgetT />} />
 
+          <Route path='/registerT' element={<RegisterT />} />
+
+          <Route path='/forgetT/:id/:token' element={<ResetT />} />
           <Route path='/register' element={<Register />} />
           <Route element={<PrivateRoutes />}>
             <Route path='/lab' element={<Resource />} />
@@ -180,6 +200,32 @@ function App() {
             <Route path='/open/question/:id' element={<Written />} />
 
             <Route path='/report' element={<Report />} />
+
+            <Route path='/dashboardT' element={<RenderT />} />
+
+            <Route path='/create/room/Create' element={<CreateTest />} />
+
+            <Route path='/create/room/Created' element={<CreateCourse />} />
+
+            <Route path='/one-course/:id' element={<CreateOne />} />
+            <Route path='/course/:id' element={<One />} />
+
+            <Route path='/Syllabust' element={<SyllabusT />} />
+
+            <Route path='/Teacher' element={<ProfileT />} />
+
+            <Route path='/libraryT' element={<LibraryT />} />
+
+            <Route path='/messageT' element={<MessageT />} />
+            <Route path='/messageT/:id' element={<Onemessage />} />
+            <Route path='/notesT' element={<NotesT />} />
+
+            <Route path='/reportT' element={<ReportT />} />
+            <Route path='/worksT' element={<WorkSubT />} />
+
+            <Route path='/class' element={<Rooms />} />
+
+            <Route path='/class/room/:id' element={<Submitted />} />
           </Route>
 
           <Route path='*' element={<Nomatch />} />

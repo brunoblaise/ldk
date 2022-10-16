@@ -1,12 +1,17 @@
-import React, {useState, useContext} from 'react';
+import { useStoreState } from 'easy-peasy';
+import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 
 import {url} from '../url';
-import {TeacherContext} from '../bodyT/context/TeacherContext';
+
 const Header = React.lazy(() => import('../header1/Header'));
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 function CreateTest() {
-  const [profile] = useContext(TeacherContext);
+  const {User} = useStoreState((state) => state);
+
+
+  const {profile} = User;
+
   const own = profile.map((profil) => profil.teacher_email);
   const [teacher] = useState(own[0]);
   const [inputs, setInputs] = useState({
@@ -21,7 +26,7 @@ function CreateTest() {
 
   const level = subjec.value;
   const type = subject.value;
-  const closure = 'no'
+  const closure = 'no';
   const onChange = (e) =>
     setInputs({...inputs, [e.target.name]: e.target.value});
 
@@ -41,7 +46,7 @@ function CreateTest() {
         level,
         category,
         duration,
-         closure,
+        closure,
         type,
         teacher,
       };
@@ -52,10 +57,9 @@ function CreateTest() {
         },
         body: JSON.stringify(body),
       });
-   
+
       if (response.status === 200) {
         toast.success('Sent Successfully');
-        
       } else {
         toast.error('Something is wrong');
       }
@@ -86,7 +90,9 @@ function CreateTest() {
                         <option>Select subject</option>
                         <option value='mathematics'>Mathematics</option>
                         <option value='english'>English</option>
-                        <option value='entrepreneurship'>Entrepreneurship</option>
+                        <option value='entrepreneurship'>
+                          Entrepreneurship
+                        </option>
 
                         <option value='kinyarwanda'>Kinyarwanda</option>
                         <option value='kiswahili'>Kiswahili</option>

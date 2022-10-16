@@ -3,8 +3,11 @@ import Header from '../../header1/Header';
 import Sidebar from '../../sidebar1/Sidebar';
 import {url} from '../../url';
 import {toast} from 'react-toastify';
+import {useStoreState} from 'easy-peasy';
 
 function One({match}) {
+  const {token} = useStoreState((state) => state.Auth);
+
   const [inputs, setInputs] = useState({
     marks: '',
     feedback: '',
@@ -21,7 +24,7 @@ function One({match}) {
       });
 
       const parseData = await res.json();
-    
+
       setMessage(
         parseData.filter((fil) => fil.course_name === match.params.id),
       );
@@ -37,14 +40,13 @@ function One({match}) {
   const student = message.map((profil) => profil.student_email)[0];
   const teacher = message.map((profil) => profil.teacher_email)[0];
 
-  console.log(message)
   const onSubmitForm = async (e) => {
     e.preventDefault();
     try {
       const myHeaders = new Headers();
 
       myHeaders.append('Content-Type', 'application/json');
-      myHeaders.append('jwt_token', localStorage.token);
+      myHeaders.append('jwt_token', token);
 
       const body = {marks, name, feedback, student, teacher};
       const response = await fetch(`${url}/create/marks`, {

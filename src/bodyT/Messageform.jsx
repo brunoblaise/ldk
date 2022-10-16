@@ -1,9 +1,14 @@
-import React, {useState, useContext} from 'react';
+import {useStoreState} from 'easy-peasy';
+import React, {useState} from 'react';
 import io from 'socket.io-client';
 import {url} from '../url';
-import {TeacherContext} from './context/TeacherContext';
+
 function Messageform({classe}) {
-  const [profile] = useContext(TeacherContext);
+  const {User} = useStoreState((state) => state);
+
+
+  const {profile} = User;
+
   const own = profile.map((profil) => profil.teacher_email);
 
   const [message, setMessage] = useState('');

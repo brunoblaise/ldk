@@ -1,15 +1,18 @@
-import {TeacherContext} from '../bodyT/context/TeacherContext';
-import React, {useContext} from 'react';
-import {Helmet} from "react-helmet";
+import React from 'react';
+import {Helmet} from 'react-helmet';
 import {Link} from 'react-router-dom';
 import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
+import { useStoreState } from 'easy-peasy';
 function Header() {
-  const [profile] = useContext(TeacherContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   return (
     <nav className='navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row'>
-           <Helmet>
+      <Helmet>
         <meta name='title' content='college du christ roi' />
         <meta
           http-equiv='Content-Security-Policy'

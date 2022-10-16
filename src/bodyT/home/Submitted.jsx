@@ -1,17 +1,22 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {TeacherContext} from '../context/TeacherContext';
+import React, {useEffect, useState} from 'react';
+
 import {Helmet} from 'react-helmet';
 import Header from '../../header1/Header';
 import Sidebar from '../../sidebar1/Sidebar';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-import { url } from '../../url';
+import {url} from '../../url';
 import {Link} from 'react-router-dom';
+import {useStoreState} from 'easy-peasy';
 
 function Submitted({match}) {
   const [message, setMessage] = useState([]);
+
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
-  const [profile] = useContext(TeacherContext);
+
   const own = profile.map((profil) => profil.teacher_email);
   const [teacher] = useState(own[0]);
   const getProfile = async () => {
@@ -34,12 +39,11 @@ function Submitted({match}) {
     }
   };
 
-  
   useEffect(() => {
     getProfile();
   }, [setMessage]);
 
-  console.log(message)
+  console.log(message);
   return (
     <div>
       <div className='col-lg-12 grid-margin stretch-card'>

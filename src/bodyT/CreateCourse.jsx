@@ -1,17 +1,21 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import {Link} from 'react-router-dom';
 import {url} from '../url';
 
-import {TeacherContext} from '../bodyT/context/TeacherContext';
+import {useStoreState} from 'easy-peasy';
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 const Header = React.lazy(() => import('../header1/Header'));
 function CreateCourse() {
+  const {User} = useStoreState((state) => state);
+
+
+  const {profile} = User;
   const [message, setMessage] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
-  const [profile] = useContext(TeacherContext);
+
   const own = profile.map((profil) => profil.teacher_email);
   const [teacher] = useState(own[0]);
   const getProfile = async () => {
@@ -33,7 +37,6 @@ function CreateCourse() {
     getProfile();
   }, [setMessage]);
 
- 
   return (
     <div className='col-lg-12 grid-margin stretch-card'>
       <Helmet>

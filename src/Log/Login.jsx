@@ -1,10 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 
 import {Link, useParams} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {Helmet} from 'react-helmet';
 import {url} from '../url';
-import {useStoreActions, useStoreState} from 'easy-peasy';
+import {useStoreActions} from 'easy-peasy';
 
 const Login = () => {
   const [inputs, setInputs] = useState({
@@ -12,12 +12,9 @@ const Login = () => {
     password: '',
   });
 
-  const {Auth, User} = useStoreState((state) => state);
-
-  const {profile} = User;
-
   const {id} = useParams();
   const {setAuth, setToken} = useStoreActions((actions) => actions.Auth);
+  const {setType} = useStoreActions((actions) => actions.Type);
 
   const {email, password} = inputs;
 
@@ -26,11 +23,12 @@ const Login = () => {
 
   const check =
     id === 'teacher'
-      ? `${url}/teacher/create/logins`
+      ? `${url}/create/loginT`
       : id === 'student'
       ? `${url}/create/logins`
       : `Nothing`;
-
+  const who =
+    id === 'teacher' ? '/dashboardT' : id === 'student' ? '/dashboard' : '';
   const onSubmitForm = async (e) => {
     e.preventDefault();
     if (inputs.email === '' || inputs.password === '') {
@@ -52,7 +50,8 @@ const Login = () => {
           toast.success('Logged in Successfully');
           setToken(` ${parseRes.jwtToken}`);
           setAuth(true);
-          window.location.href = '/dashboard';
+          window.location.href = who;
+          
         } else {
           setAuth(false);
           toast.error(parseRes);
@@ -62,8 +61,9 @@ const Login = () => {
       }
     }
   };
-
-  console.log('profile', profile);
+  useEffect(() => {
+    setType(id);
+  }, []);
   return (
     <div className='container-scroller'>
       <Helmet>

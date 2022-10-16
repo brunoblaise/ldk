@@ -3,6 +3,7 @@ import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../../url';
 import {Helmet} from 'react-helmet';
+import {useStoreState} from 'easy-peasy';
 
 const Sidebar = React.lazy(() => import('../../sidebar1/Sidebar'));
 const Header = React.lazy(() => import('../../header1/Header'));
@@ -10,6 +11,8 @@ function SyllabusT() {
   const [inputs, setInputs] = useState({
     title: '',
   });
+
+  const {token} = useStoreState((state) => state.Auth);
 
   const {title} = inputs;
   const [subjec, setSubjec] = useState('');
@@ -29,7 +32,7 @@ function SyllabusT() {
       formData.append('title', title);
       formData.append('recfile', recfile);
       const myHeaders = new Headers();
-      myHeaders.append('jwt_token', localStorage.token);
+      myHeaders.append('jwt_token', token);
       const response = await fetch(
         `${url}/create/syllabus`,
 

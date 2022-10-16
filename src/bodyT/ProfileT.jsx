@@ -1,24 +1,29 @@
-import React, {useContext} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import {TeacherContext} from './context/TeacherContext';
+
 import {Helmet} from 'react-helmet';
-const Submis = React.lazy(() => import( './Submis'));
-function ProfileT({setAuth}) {
+import {useStoreActions, useStoreState} from 'easy-peasy';
+const Submis = React.lazy(() => import('./Submis'));
+function ProfileT() {
+  const {setToken, setAuth} = useStoreActions((state) => state.Auth);
+  const {setProfile} = useStoreActions((state) => state.User);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
   const logout = async (e) => {
     e.preventDefault();
     try {
-      localStorage.removeItem('token');
+      setToken('');
+      setProfile([]);
       setAuth(false);
       toast.success('Logout successfully');
     } catch (err) {
       console.error(err.message);
     }
   };
-
-  const [profile] = useContext(TeacherContext);
 
   return (
     <div>
@@ -119,18 +124,17 @@ function ProfileT({setAuth}) {
                     </div>
                   </div>
 
-
                   <div className='mt-4 py-2 border-top border-bottom'>
-                      <ul className='nav profile-navbar'>
-                        <li className='nav-item'>
-                          <p className='nav-link'>
-                            <i className='ti-user'></i>
-                            Change your Info 
-                          </p>
-                        </li>
-                      </ul>
-                    </div>
-                 <Submis/>
+                    <ul className='nav profile-navbar'>
+                      <li className='nav-item'>
+                        <p className='nav-link'>
+                          <i className='ti-user'></i>
+                          Change your Info
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+                  <Submis />
                 </div>
               </div>
             </div>
