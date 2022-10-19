@@ -119,7 +119,6 @@ function App() {
       : type === 'student'
       ? `/get/profile`
       : '';
-
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}${check}`, {
@@ -140,11 +139,17 @@ function App() {
   useEffect(() => {
     fetchUrl();
     getProfile();
+
     return () => controller?.abort();
   }, []);
-
-  const query = useQuery('profile');
-
+  if (profile.length === 0) {
+    setProfile([]);
+    setToken('');
+    setAuth(false);
+    setType('');
+  } else {
+    console.log('hello');
+  }
   return (
     <Suspense
       fallback={
@@ -175,6 +180,7 @@ function App() {
             <Route path='/text/documents/:id' element={<Texteditor />} />
 
             <Route path='/dashboard' element={<Render />} />
+
             <Route path='/UpdateClass' element={<UpdateClass />} />
 
             <Route path='/profile' element={<Profile />} />
