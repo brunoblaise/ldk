@@ -10,6 +10,7 @@ function Sidebar({setAuth}) {
       toast.success('Logout successfully');
     } catch (err) {
       console.error(err.message);
+      
     }
   };
   return (

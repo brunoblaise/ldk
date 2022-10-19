@@ -127,9 +127,12 @@ function App() {
       });
 
       const parseData = await res.json();
-
-      if (parseData) {
-        setProfile(parseData);
+      setProfile(parseData);
+      if (parseData.length === 0) {
+        setProfile([]);
+        setToken('');
+        setAuth(false);
+        setType('');
       }
     } catch (err) {
       console.error(err.message);
@@ -142,14 +145,7 @@ function App() {
 
     return () => controller?.abort();
   }, []);
-  if (profile.length === 0) {
-    setProfile([]);
-    setToken('');
-    setAuth(false);
-    setType('');
-  } else {
-    console.log('hello');
-  }
+
   return (
     <Suspense
       fallback={

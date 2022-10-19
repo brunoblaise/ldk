@@ -88,7 +88,7 @@ function Message() {
                     </div>
                     <span className='isOnline active'></span>
                   </div>
-                  <p>Cxr Chat Box</p>
+                  <p>Ldk Chat Box</p>
                 </div>
               </div>
             </div>

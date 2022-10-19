@@ -1,6 +1,6 @@
 import {Link} from 'react-router-dom';
 import React from 'react';
-import {useStoreState} from 'easy-peasy';
+
 function Nomatch() {
   return (
     <div className='flex items-center justify-center min-h-screen bg-indigo-500  bg-fixed bg-cover bg-bottom error-bg'>
