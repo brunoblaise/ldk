@@ -115,24 +115,21 @@ function App() {
   };
   const check =
     type === 'teacher'
-      ? `/get/teacher`
+      ? `${url}/get/teacher`
       : type === 'student'
-      ? `/get/profile`
+      ? `${url}/get/profile`
       : '';
   const getProfile = async () => {
     try {
-      const res = await fetch(`${url}${check}`, {
+      const res = await fetch(`${check}`, {
         method: 'GET',
         headers: {jwt_token: token},
       });
 
       const parseData = await res.json();
-      setProfile(parseData);
-      if (parseData.length === 0) {
-        setProfile([]);
-        setToken('');
-        setAuth(false);
-        setType('');
+
+      if (parseData) {
+        setProfile(parseData);
       }
     } catch (err) {
       console.error(err.message);

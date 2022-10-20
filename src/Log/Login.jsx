@@ -4,6 +4,7 @@ import {Link, useParams} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {Helmet} from 'react-helmet';
 import {url} from '../url';
+
 import {useStoreActions} from 'easy-peasy';
 
 const Login = () => {
@@ -36,7 +37,7 @@ const Login = () => {
     } else {
       try {
         const body = {email, password};
-        const response = await fetch(`${url}/create/logins`, {
+        const response = await fetch(`${check}`, {
           method: 'POST',
           headers: {
             'Content-type': 'application/json',
@@ -51,7 +52,6 @@ const Login = () => {
           setToken(` ${parseRes.jwtToken}`);
           setAuth(true);
           window.location.href = who;
-          
         } else {
           setAuth(false);
           toast.error(parseRes);
