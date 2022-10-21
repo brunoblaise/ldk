@@ -6,22 +6,23 @@ import 'react-quill/dist/quill.snow.css';
 
 import EditorToolBar, {modules, formats} from './EditorToolBar';
 import { useStoreState } from 'easy-peasy';
+import { useParams } from 'react-router-dom';
 const Header = React.lazy(() => import('../header1/Header'));
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 
-function CreateOne({match}) {
+function CreateOne() {
   const [inputs, setInputs] = useState({
     question: '',
     answer: '',
   });
-
+const {id} = useParams()
   const {User} = useStoreState((state) => state);
 
   const {profile} = User;
 
   const own = profile.map((profil) => profil.teacher_email);
   const [teacher] = useState(own[0]);
-  const name = match.params.id;
+  const name = id;
   const [choicese, setChoicese] = useState(null);
   const [choice, setChoice] = useState(null);
   const [choic, setChoic] = useState(null);

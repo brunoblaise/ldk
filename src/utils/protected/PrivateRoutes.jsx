@@ -1,4 +1,4 @@
-import { useStoreState} from 'easy-peasy';
+import {useStoreState} from 'easy-peasy';
 import React from 'react';
 
 import {Navigate, Outlet} from 'react-router-dom';
@@ -8,7 +8,11 @@ const PrivateRoutes = () => {
 
   const {isAuth} = Auth;
 
-  return isAuth ? <Outlet /> : <Navigate to='/' />;
+  return isAuth ? (
+    <Outlet />
+  ) : (
+    <Navigate to='https://www.lyceedekigali.ac.rw/' />
+  );
 };
 
 export default PrivateRoutes;

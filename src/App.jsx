@@ -17,7 +17,7 @@ const Quiz = React.lazy(() => import('./body/Quiz'));
 
 import {v4 as uuidV4} from 'uuid';
 import './App.css';
-import {Navigate, Route, Routes} from 'react-router-dom';
+import {Navigate, Route, Routes, useLocation} from 'react-router-dom';
 
 const Library = React.lazy(() => import('./body/Library'));
 const LibraryT = React.lazy(() => import('./bodyT/LibraryT'));
@@ -142,6 +142,11 @@ function App() {
 
     return () => controller?.abort();
   }, []);
+
+  const location = useLocation();
+  if (location.pathname === '/') {
+    return window.location.assign('https://www.lyceedekigali.ac.rw/');
+  }
 
   return (
     <Suspense

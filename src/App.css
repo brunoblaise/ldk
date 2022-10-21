@@ -1,5 +1,4 @@
 *,
-
 *::before,
 *::after {
   box-sizing: border-box;
@@ -4121,8 +4120,6 @@ input[type='button'].btn-block {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
-
-
 
 .btn-group-toggle > .btn,
 .fc .btn-group-toggle > button,
@@ -13479,7 +13476,6 @@ address p {
 
 body,
 html {
-
   padding-right: 0 !important;
 }
 
@@ -26775,8 +26771,8 @@ img.img-fluid.banner-image {
   left: 49px;
   top: -749px;
   color: #fff;
-word-spacing:10px;
-line-height: 1.8;
+  word-spacing: 10px;
+  line-height: 1.8;
   word-break: normal;
 }
 
@@ -27127,16 +27123,12 @@ footer a {
   background-color: #fbdbc1 !important;
 }
 
-
 /*mobile*/
 
-
-
 @media (max-width: 915px) {
-  .Mohea{
-  
+  .Mohea {
   }
-  .cap{
+  .cap {
     left: 34px;
     top: 34px;
   }
@@ -27144,107 +27136,97 @@ footer a {
     top: -20px;
     position: relative;
     left: 200px;
-}
+  }
 
-.banner-move {
-  position: relative;
-  left: 45px;
-  
-}
+  .banner-move {
+    position: relative;
+    left: 45px;
+  }
 
-h6.font-weight-normal.text-muted.pb-3.banner-move {
-  left: 62px;
-  color: #fff !important;
-  font-size: 30px;
-  top: -705px;
-}
+  h6.font-weight-normal.text-muted.pb-3.banner-move {
+    left: 62px;
+    color: #fff !important;
+    font-size: 30px;
+    top: -705px;
+  }
 
-.uomo{
-  position:relative;
-  left:29900px;
-}
+  .uomo {
+    position: relative;
+    left: 29900px;
+  }
 
-button.btn.btn-opacity-success.ml-1.banner-move {
-  left: 02px;
-  top: -605px;
-  border: 4px solid #164249;
-}
+  button.btn.btn-opacity-success.ml-1.banner-move {
+    left: 02px;
+    top: -605px;
+    border: 4px solid #164249;
+  }
 
-button.btn.btn-opacity-light.mr-1.banner-move {
-  left: 18px;
-  top: -365px;
-  font-size: 15px;
-  border: 4px solid #79c698;
-}
-.banner-image{
-height:903px;
-width:1340px;
-}
-.pq {
-  position: relative;
-  left: 24px;
-  top: -125px;
-}
+  button.btn.btn-opacity-light.mr-1.banner-move {
+    left: 18px;
+    top: -365px;
+    font-size: 15px;
+    border: 4px solid #79c698;
+  }
+  .banner-image {
+    height: 903px;
+    width: 1340px;
+  }
+  .pq {
+    position: relative;
+    left: 24px;
+    top: -125px;
+  }
 
-.weq {
-  position: relative;
-   left: 2px; 
-  top: -69px;
-  margin-top: 10px;
-}
+  .weq {
+    position: relative;
+    left: 2px;
+    top: -69px;
+    margin-top: 10px;
+  }
 
-
-.row1 {
-  display: flex;
-  flex-wrap: wrap;
-  margin-right: 30px; 
-
- 
+  .row1 {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: 30px;
+  }
+  .video_land {
+    width: 600px !important;
+    height: 320px !important;
+    position: relative;
+    left: 26px;
+    top: 4px;
+  }
+  .corrdance {
+    position: relative;
+    left: -20px;
+  }
+  .closer {
+    position: relative;
+    left: -39px;
+  }
+  .footer-03 {
+    position: relative;
+    top: 200px;
+    height: 900px;
+    background-color: #001220;
+    box-shadow: rgb(109 125 172 / 10%) 0px 10px 50px;
+    border-radius: 0px;
+    color: #fff;
+    margin: 20px;
+  }
+  html {
+    overflow-x: hidden;
+  }
 }
-.video_land {
-  width: 600px !important;
-  height: 320px !important;
-  position: relative;
-  left: 26px;
-  top: 4px;
-}
-.corrdance{
-  position: relative;
-  left: -20px;
-
-}
-.closer{
-  position: relative;
-  left: -39px;
-}
-.footer-03 {
-  position :relative;
-  top:200px;
-  height: 900px;
-  background-color: #001220;
-  box-shadow: rgb(109 125 172 / 10%) 0px 10px 50px;
-  border-radius: 0px;
-  color: #fff;
-  margin: 20px;
-}
-html{overflow-x: hidden;}
-}
-
-
-
 
 .wrapper {
   width: 1050px;
   margin: 30px auto;
-
-  position: relative;
-    left: -23px;
-    top: 108px;
 }
 
 .main:after {
   clear: both;
-  content: "";
+  content: '';
   display: table;
 }
 
@@ -27261,7 +27243,7 @@ html{overflow-x: hidden;}
   cursor: pointer;
   padding-top: 20px;
   overflow: hidden;
-  transition: all .2s ease-in;
+  transition: all 0.2s ease-in;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.2);
 }
 
@@ -27326,7 +27308,7 @@ html{overflow-x: hidden;}
 }
 
 .type-3 {
-  background: #F8B707;
+  background: #f8b707;
 }
 
 .type-4 {
@@ -27342,7 +27324,7 @@ html{overflow-x: hidden;}
 }
 
 .type-7 {
-  background: #4CAFFA;
+  background: #4caffa;
 }
 
 .type-8 {
@@ -27370,10 +27352,9 @@ html{overflow-x: hidden;}
 }
 
 .legend {
-  
   position: absolute;
-  width:820px;
-  height:200px;
+  width: 820px;
+  height: 200px;
   top: -160px;
   left: 10%;
   padding: 10px;
@@ -27381,11 +27362,12 @@ html{overflow-x: hidden;}
   background: #f1edec;
   border: 1px solid rgba(0, 0, 0, 0.2);
   border-radius: 15px;
-  box-shadow: inset 0 1px 1px white, inset 0 -5px 3px #dddcdb, 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 1px 1px white, inset 0 -5px 3px #dddcdb,
+    0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 .legend:after {
-  content: "";
+  content: '';
   display: table;
   clear: table;
 }
@@ -27396,12 +27378,11 @@ html{overflow-x: hidden;}
 
 .legend .list-2 {
   position: relative;
- 
+
   left: 43px;
   top: -163px;
 
   margin-left: 40px;
- 
 }
 
 .legend .list-1 li {
@@ -27435,46 +27416,44 @@ html{overflow-x: hidden;}
   justify-content: flex-start;
   flex-wrap: wrap;
   position: relative;
-  bottom:-460px;
-  left:80px;
-
+  bottom: -460px;
+  left: 80px;
 }
 
 .cardq {
   width: 340px;
   height: 280px;
   margin: 16px;
-  
-  
+
   box-shadow: 0px 5px 21px -5px #cdd1e1;
 }
 
 #cf4a img {
   animation-name: cf4FadeInOut;
-  
-/* if you only want to cycle a finite amount of times, 
+
+  /* if you only want to cycle a finite amount of times, 
  simply change 'infinite' with # of iterations you need */
-  animation-iteration-count: infinite ; 
+  animation-iteration-count: infinite;
   animation-duration: 12s;
   /* not strictly necessary */
-  position :absolute;
+  position: absolute;
 }
 
 @keyframes cf4FadeInOut {
   0% {
-    opacity:1;
+    opacity: 1;
   }
   17% {
-    opacity:1;
+    opacity: 1;
   }
   25% {
-    opacity:0;
+    opacity: 0;
   }
   92% {
-    opacity:0;
+    opacity: 0;
   }
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }
 
@@ -27495,7 +27474,6 @@ html{overflow-x: hidden;}
   animation-delay: 12s;
 }
 
-
 #cf4a img:nth-of-type(6) {
   animation-delay: 14s;
 }
@@ -27504,20 +27482,16 @@ html{overflow-x: hidden;}
   animation-delay: 15s;
 }
 
-
 #cf4a img:nth-of-type(8) {
   animation-delay: 17s;
 }
-
-
 
 #cf4a img:nth-of-type(9) {
   animation-delay: 19s;
 }
 
-
 #cf4a img:nth-of-type(10) {
-  animation-delay:20s;
+  animation-delay: 20s;
 }
 
 #cf4a img:nth-of-type(11) {
@@ -27529,13 +27503,10 @@ html{overflow-x: hidden;}
 }
 
 #cf4a img:nth-of-type(13) {
-  animation-delay:34s;
+  animation-delay: 34s;
 }
 
-
-.pushdown{
-  position:relative;
-top:600px;
-  
+.pushdown {
+  position: relative;
+  top: 600px;
 }
-

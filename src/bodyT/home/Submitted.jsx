@@ -5,12 +5,13 @@ import Header from '../../header1/Header';
 import Sidebar from '../../sidebar1/Sidebar';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
 import {url} from '../../url';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {useStoreState} from 'easy-peasy';
 
-function Submitted({match}) {
+function Submitted() {
   const [message, setMessage] = useState([]);
 
+  const {id} = useParams()
   const {User} = useStoreState((state) => state);
 
   const {profile} = User;
@@ -30,7 +31,7 @@ function Submitted({match}) {
       setMessage(
         parseData.filter(
           (fil) =>
-            fil.teacher_email === teacher && fil.level === match.params.id,
+            fil.teacher_email === teacher && fil.level === id,
         ),
       );
       setLoading(false);

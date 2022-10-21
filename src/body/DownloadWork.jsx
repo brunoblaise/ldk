@@ -1,26 +1,25 @@
 /** @format */
 
-import { useStoreState } from 'easy-peasy';
+import {useStoreState} from 'easy-peasy';
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 const Header = React.lazy(() => import('../header/Header'));
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 import {format} from 'timeago.js';
 import {url} from '../url';
 
 const Submit = React.lazy(() => import('./Submit'));
-function DownloadWork({match}) {
+function DownloadWork() {
   const {token} = useStoreState((state) => state.Auth);
-  
 
+  const {id} = useParams();
   const [notes, setNote] = useState([]);
   const [loading, setLoading] = useState(true);
   const getProfile = async () => {
     try {
-      const res = await fetch(`${url}/get/work/${match.params.id}`, {
+      const res = await fetch(`${url}/get/work/${id}`, {
         method: 'GET',
         headers: {jwt_token: token},
-
       });
 
       const parseData = await res.json();
@@ -64,16 +63,16 @@ function DownloadWork({match}) {
                                 <i className='ti-file'></i>
                               </div>
                               <div className='details'>
-                                <h6> notes title</h6>
+                                <h6>Title</h6>
                                 <p className='file-name'>{notes.work_title}</p>
 
                                 <div className='buttons'>
-                                  <Link
-                                    to={{pathname: `${notes.work_url}`}}
+                                  <a
+                                    href={`${notes.work_url}`}
                                     target='_blank'
                                     className='view'>
                                     View
-                                  </Link>
+                                  </a>
                                 </div>
                               </div>
                             </>
@@ -81,7 +80,10 @@ function DownloadWork({match}) {
                         </li>
                       </ul>
                     </div>
-                    <Submit course={notes.work_title} teacher={notes.teacher_email} />
+                    <Submit
+                      course={notes.work_title}
+                      teacher={notes.teacher_email}
+                    />
                     <p>
                       <br />
                       <br />

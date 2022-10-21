@@ -2,18 +2,19 @@ import {useStoreState} from 'easy-peasy';
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
 import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-import {Link} from 'react-router-dom';
+import {Link, useParams} from 'react-router-dom';
 import {url} from '../url';
 
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
-function Type({match}) {
+function Type() {
   const [message, setMessage] = useState([]);
   const [messag, setMessag] = useState([]);
   const [search, setSearch] = useState('');
   const [searc, setSearc] = useState('');
   const [loading, setLoading] = useState(true);
 
+  const {id} = useParams();
   const {User} = useStoreState((state) => state);
 
   const {profile} = User;
@@ -30,8 +31,7 @@ function Type({match}) {
 
       setMessage(
         parseData.filter(
-          (fil) =>
-            fil.course_type === match.params.id && fil.course_level === own[0],
+          (fil) => fil.course_type === id && fil.course_level === own[0],
         ),
       );
       setLoading(false);
@@ -54,8 +54,7 @@ function Type({match}) {
 
       setMessag(
         parseData.filter(
-          (fil) =>
-            fil.course_type === match.params.id && fil.course_level === own[0],
+          (fil) => fil.course_type === id && fil.course_level === own[0],
         ),
       );
       setLoading(false);

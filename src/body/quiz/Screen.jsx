@@ -1,14 +1,15 @@
-import { useStoreState } from 'easy-peasy';
+import {useStoreState} from 'easy-peasy';
 import React, {useState, useEffect} from 'react';
+import {useParams} from 'react-router-dom';
 import {url} from '../../url';
-
 
 const OneTest = React.lazy(() => import('./OneTest'));
 const Start = React.lazy(() => import('./Start'));
 const End = React.lazy(() => import('./End'));
-function Screen({match}) {
+function Screen() {
   const {token} = useStoreState((state) => state.Auth);
-
+  const [setLoading] = useState(true);
+  const {id} = useParams();
   const [step, setStep] = useState(1);
   const [activeQuestion, setActiveQuestion] = useState(0);
   const [mes, setMes] = useState('');
@@ -20,7 +21,7 @@ function Screen({match}) {
     try {
       const res = await fetch(`${url}/get/quiz`, {
         method: 'GET',
-        headers: {jwt_token:token},
+        headers: {jwt_token: token},
         signal: controller.signal,
       });
 
@@ -41,7 +42,6 @@ function Screen({match}) {
     return () => controller?.abort();
   }, []);
 
-
   const getPro = async () => {
     try {
       const res = await fetch(`${url}/get/courses`, {
@@ -50,10 +50,7 @@ function Screen({match}) {
 
       const parseData = await res.json();
 
-      setMes(parseData.filter(
-        (fil) =>
-          fil.course_name === match.params.id,
-      ),);
+      setMes(parseData.filter((fil) => fil.course_name === id));
       setLoading(false);
     } catch (err) {
       console.error(err.message);
@@ -63,11 +60,12 @@ function Screen({match}) {
   useEffect(() => {
     getPro();
   }, [setMes]);
- 
-  
+
   return (
     <div>
-      {step === 1 && <Start onQuizStart={quizStartHandler} data={notes} course={mes} />}
+      {step === 1 && (
+        <Start onQuizStart={quizStartHandler} data={notes} course={mes} />
+      )}
       {step === 2 && (
         <OneTest
           data={notes[activeQuestion]}
@@ -82,7 +80,7 @@ function Screen({match}) {
         <End
           results={answers}
           data={notes}
-          nameu={match.params.id}
+          nameu={id}
           datas={notes[activeQuestion]}
         />
       )}

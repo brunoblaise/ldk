@@ -7,12 +7,13 @@ import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
 import io from 'socket.io-client';
 import {Helmet} from 'react-helmet';
-import { useStoreState } from 'easy-peasy';
-function Onemessage({match}) {
+import {useStoreState} from 'easy-peasy';
+import {useParams} from 'react-router-dom';
+function Onemessage() {
   const {token} = useStoreState((state) => state.Auth);
+  const {id} = useParams();
 
   const {User} = useStoreState((state) => state);
-
 
   const {profile} = User;
   const [message, setMessage] = useState([]);
@@ -28,7 +29,7 @@ function Onemessage({match}) {
 
       const parseData = await res.json();
 
-      setMessage(parseData.filter((fil) => fil.level === match.params.id));
+      setMessage(parseData.filter((fil) => fil.level === id));
     } catch (err) {
       console.error(err.message);
     }
@@ -115,7 +116,7 @@ function Onemessage({match}) {
               </div>
             </div>
             <div className='content__footer'>
-              <Messageform classe={match.params.id} />
+              <Messageform classe={id} />
             </div>
           </div>
         </div>

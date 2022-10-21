@@ -71,7 +71,7 @@ function End({results, data, nameu, datas}) {
         <div className='content-wrapper'>
           <button className={'btn btn-info'} onClick={generatePdf}>
             <i className='fa fa-paper-plane'></i>
-            download your report
+            Download your report
           </button>
           <br />
           <br />
@@ -80,7 +80,7 @@ function End({results, data, nameu, datas}) {
             id='sendMsgBtn'></button>
           <form onSubmit={onSubmitForm}>
             <div className='containerp' id='contentp'>
-              <div className='logop'>College du Christ Roi</div>
+              <div className='logop'>Lycee De Kigali</div>
 
               <div className='marquee'>
                 Marks
@@ -95,7 +95,7 @@ function End({results, data, nameu, datas}) {
               <div className='person'>{profile[0].student_fname}</div>
 
               <div className='reason'>
-                for finishing the test given by his or her Teacher in {nameu}
+                for finishing the test given by his or her Teacher to {nameu}
               </div>
             </div>
 

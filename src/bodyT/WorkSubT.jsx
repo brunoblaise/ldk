@@ -91,7 +91,8 @@ function WorkSubT() {
             <div className='row'>
               <div className='card-body'>
                 <div className='ml-xl-4 mt-3'>
-                  <h4 className='card-title'>Submit your Assignment here </h4>
+                  <h4 className='card-title'>Submit a Assignment here </h4>
+
                   <div className='template-demo'>
                     <p className='card-description'>
                       here you will submit you work with the button upload

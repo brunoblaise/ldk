@@ -51,6 +51,7 @@ const Login = () => {
           toast.success('Logged in Successfully');
           setToken(` ${parseRes.jwtToken}`);
           setAuth(true);
+          setType(id);
           window.location.href = who;
         } else {
           setAuth(false);
@@ -61,9 +62,7 @@ const Login = () => {
       }
     }
   };
-  useEffect(() => {
-    setType(id);
-  }, []);
+
   return (
     <div className='container-scroller'>
       <Helmet>
