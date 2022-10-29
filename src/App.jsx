@@ -1,6 +1,6 @@
 /** @format */
 
-import React, {useEffect, Suspense} from 'react';
+import React, {useEffect, Suspense, useState, useRef} from 'react';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const Render = React.lazy(() => import('./renders/Render'));
@@ -13,7 +13,10 @@ const ProfileT = React.lazy(() => import('./bodyT/ProfileT'));
 const RegisterT = React.lazy(() => import('./bodyT/RegisterT'));
 const Notes = React.lazy(() => import('./body/Notes'));
 
+import songsdata from './audio';
+
 const Quiz = React.lazy(() => import('./body/Quiz'));
+const Player = React.lazy(() => import('./Player'));
 
 import {v4 as uuidV4} from 'uuid';
 import './App.css';
@@ -35,9 +38,10 @@ const Report = React.lazy(() => import('./body/Report'));
 import {url} from './url';
 import {ErrorBoundary} from 'react-error-boundary';
 import PrivateRoutes from './utils/protected/PrivateRoutes';
-import Nomatch from './Nomatch';
+
+const Nomatch = React.lazy(() => import('./Nomatch'));
+
 import {useStoreActions, useStoreState} from 'easy-peasy';
-import {useQuery} from 'react-query';
 
 const Written = React.lazy(() => import('./body/Written'));
 const Submitted = React.lazy(() => import('./bodyT/home/Submitted'));
@@ -148,12 +152,46 @@ function App() {
     return window.location.assign('https://www.lyceedekigali.ac.rw/');
   }
 
+  const [songs, setSongs] = useState(songsdata);
+
+  const [isplaying, setisplaying] = useState(false);
+  const [currentSong, setCurrentSong] = useState(songsdata[1]);
+
+  const audioElem = useRef();
+
+  useEffect(() => {
+    if (isplaying) {
+      audioElem.current.play();
+    }
+  }, [isplaying]);
+
+  const onPlaying = () => {
+    const duration = audioElem.current.duration;
+    const ct = audioElem.current.currentTime;
+
+    setCurrentSong({
+      ...currentSong,
+      progress: (ct / duration) * 100,
+      length: duration,
+    });
+  };
+
   return (
     <Suspense
       fallback={
         <p className='fall'>loading the application please hold on... </p>
       }>
       <ErrorBoundary FallbackComponent={Fallback} onError={errorHandle}>
+        <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
+        <Player
+          songs={songs}
+          setSongs={setSongs}
+          isplaying={isplaying}
+          setisplaying={setisplaying}
+          audioElem={audioElem}
+          currentSong={currentSong}
+          setCurrentSong={setCurrentSong}
+        />
         <Routes>
           <Route path='/:id/login' element={<Login />} />
 
