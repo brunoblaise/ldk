@@ -1,10 +1,17 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, {useEffect, useState} from 'react';
 import {format} from 'timeago.js';
 import {Link} from 'react-router-dom';
 import {url} from '../url';
-import {TeacherContext} from './context/TeacherContext';
+import { useStoreState } from 'easy-peasy';
+
 function Notessidebar() {
-  const [profile] = useContext(TeacherContext);
+  const {token} = useStoreState((state) => state.Auth);
+
+  const {User} = useStoreState((state) => state);
+
+
+  const {profile} = User;
+
   const [notes, setNote] = useState([]);
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
@@ -12,7 +19,7 @@ function Notessidebar() {
     try {
       const res = await fetch(`${url}/get/worksub`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();

@@ -1,16 +1,18 @@
 import React, {useEffect, useState} from 'react';
 const Messageform = React.lazy(() => import('./Messageform'));
 
-
 import {format} from 'timeago.js';
 import io from 'socket.io-client';
 import {Helmet} from 'react-helmet';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import {url} from '../url';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { useStoreState } from 'easy-peasy';
+import {useStoreState} from 'easy-peasy';
 function Message() {
   const [message, setMessage] = useState([]);
+
+  const {token} = useStoreState((state) => state.Auth);
+
 
   const {User} = useStoreState((state) => state);
 
@@ -26,7 +28,7 @@ function Message() {
     try {
       const res = await fetch(`${url}/get/message`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();
@@ -86,7 +88,7 @@ function Message() {
                     </div>
                     <span className='isOnline active'></span>
                   </div>
-                  <p>Cxr Chat Box</p>
+                  <p>Ldk Chat Box</p>
                 </div>
               </div>
             </div>

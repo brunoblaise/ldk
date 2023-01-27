@@ -2,8 +2,12 @@ import React, {useState} from 'react';
 import {Link} from 'react-router-dom';
 import {Helmet} from 'react-helmet';
 import {url} from '../url';
-
-function RegisterT({setAuth}) {
+import { useStoreActions } from 'easy-peasy';
+import {toast} from 'react-toastify';
+function RegisterT() {
+  
+  const {setAuth, setToken} = useStoreActions((actions) => actions.Auth);
+  const {setType} = useStoreActions((actions) => actions.Type);
   const [inputs, setInputs] = useState({
     fname: '',
     lname: '',
@@ -50,14 +54,16 @@ function RegisterT({setAuth}) {
       );
 
       const parseRes = await response.json();
-      setOpene(true);
+      setOpene(false);
       if (parseRes.jwtToken) {
-        localStorage.setItem('token', parseRes.jwtToken);
-        setAuth(true);
         toast.success('Logged in Successfully');
+        setToken(` ${parseRes.jwtToken}`);
+        setAuth(true);
+        setType('teacher');
+        window.location.href = '/dashboardT';
       } else {
         setAuth(false);
-        toast.error(parseRes);
+          toast.error(parseRes);
         setOpene(false);
       }
     } catch (err) {

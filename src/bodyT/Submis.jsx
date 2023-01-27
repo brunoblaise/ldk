@@ -1,10 +1,13 @@
-import React, {useState, useContext} from 'react';
+import {useStoreState} from 'easy-peasy';
+import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
-import {TeacherContext} from './context/TeacherContext';
 
 function Submis() {
-  const [profile] = useContext(TeacherContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const own = profile.map((profil) => profil.teacher_id);
 
   const id = own[0];
@@ -24,7 +27,6 @@ function Submis() {
     fname,
     lname,
 
-
     gender,
 
     age,
@@ -39,7 +41,7 @@ function Submis() {
     e.preventDefault();
 
     try {
-      const body = {fname, lname,  gender, age, phone, bio};
+      const body = {fname, lname, gender, age, phone, bio};
       const response = await fetch(`${url}/create/UpdateProfileT/${id}`, {
         method: 'POST',
         headers: {

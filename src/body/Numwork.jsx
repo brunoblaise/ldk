@@ -4,6 +4,7 @@ import {url} from '../url';
 
 function Numwork() {
   const {User} = useStoreState((state) => state);
+  const {token} = useStoreState((state) => state.Auth);
 
   const {profile} = User;
 
@@ -13,7 +14,7 @@ function Numwork() {
     try {
       const res = await fetch(`${url}/get/work`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();

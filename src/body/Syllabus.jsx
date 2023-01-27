@@ -16,12 +16,13 @@ function Syllabus() {
 
   const [loading, setLoading] = useState(true);
   const id = profile.map((profil) => profil.class_student);
+  const {token} = useStoreState((state) => state.Auth);
 
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/syllabus`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();
@@ -51,23 +52,23 @@ function Syllabus() {
                   <p>loading...</p>
                 ) : (
                   notes.map((note) => (
-                    <Link
+                    <a
                       className='col-6'
                       target='_blank'
-                      to={{pathname: `${note.url_syllabus}`}}>
+                      href={`${note.url_syllabus}`}>
                       <div className='p-3 border bg-light'>
                         {' '}
                         <img
-                          src={`https://avatars.dicebear.com/api/initials/${note.title}.svg`}
+                          src={`https://avatars.dicebear.com/api/initials/${note.titled_syl}.svg`}
                           alt='avatar'
                           width='100px'
                           height='100px'
                         />
                         <div>
-                          <p>{note.title}</p>
+                          <p>{note.titled_syl}</p>
                         </div>
                       </div>
-                    </Link>
+                    </a>
                   ))
                 )}
               </div>

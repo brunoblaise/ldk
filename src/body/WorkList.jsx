@@ -7,6 +7,7 @@ function WorkList() {
   const {User} = useStoreState((state) => state);
 
   const {profile} = User;
+  const {token} = useStoreState((state) => state.Auth);
 
   const [notes, setNote] = useState([]);
   const [search, setSearch] = useState('');
@@ -14,7 +15,7 @@ function WorkList() {
     try {
       const res = await fetch(`${url}/get/work`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();

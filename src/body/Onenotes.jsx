@@ -1,16 +1,37 @@
+import {useStoreState} from 'easy-peasy';
 import React, {useEffect, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {useParams} from 'react-router-dom';
 import {format} from 'timeago.js';
 import {url} from '../url';
-import {useQuery} from 'react-query';
+
 const Header = React.lazy(() => import('../header/Header'));
 
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 
-function Onenotes({match}) {
-  const {loading, notes} = useQuery('notes', () =>
-    fetch(`${url}/get/notes/${match.params.id}`).then((res) => res.json()),
-  );
+function Onenotes() {
+  const [notes, setNotes] = useState([]);
+  const {id} = useParams();
+  const {token} = useStoreState((state) => state.Auth);
+
+  const getData = async () => {
+    try {
+      const res = await fetch(`${url}/get/notes/${id}`, {
+        method: 'GET',
+        headers: {jwt_token: token},
+      });
+
+      const parseData = await res.json();
+
+      if (parseData) {
+        setNotes(parseData);
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <>
@@ -33,31 +54,27 @@ function Onenotes({match}) {
                     <div className='attachments-sections'>
                       <ul>
                         <li>
-                          {loading ? (
-                            'loading..'
-                          ) : (
-                            <>
-                              <div className='thumb'>
-                                <i className='ti-file'></i>
-                              </div>
-                              <div className='details'>
-                                <h6> notes title</h6>
-                                <p className='file-name'>{notes.notes_title}</p>
-                                <br />
+                          <>
+                            <div className='thumb'>
+                              <i className='ti-file'></i>
+                            </div>
+                            <div className='details'>
+                              <h6> notes title</h6>
+                              <p className='file-name'>{notes.notes_title}</p>
+                              <br />
 
-                                <br />
+                              <br />
 
-                                <div className='buttons'>
-                                  <Link
-                                    to={{pathname: `${notes.notes_url}`}}
-                                    target='_blank'
-                                    className='view'>
-                                    View
-                                  </Link>
-                                </div>
+                              <div className='buttons'>
+                                <a
+                                  href={`${notes.notes_url}`}
+                                  target='_blank'
+                                  className='view'>
+                                  View
+                                </a>
                               </div>
-                            </>
-                          )}
+                            </div>
+                          </>
                         </li>
                       </ul>
                     </div>

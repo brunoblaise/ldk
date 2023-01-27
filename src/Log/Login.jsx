@@ -1,8 +1,10 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
+
 import {Link, useParams} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {Helmet} from 'react-helmet';
 import {url} from '../url';
+
 import {useStoreActions} from 'easy-peasy';
 
 const Login = () => {
@@ -13,6 +15,8 @@ const Login = () => {
 
   const {id} = useParams();
   const {setAuth, setToken} = useStoreActions((actions) => actions.Auth);
+  const {setType} = useStoreActions((actions) => actions.Type);
+
   const {email, password} = inputs;
 
   const onChange = (e) =>
@@ -20,11 +24,12 @@ const Login = () => {
 
   const check =
     id === 'teacher'
-      ? `${url}/teacher/create/logins`
+      ? `${url}/create/loginT`
       : id === 'student'
       ? `${url}/create/logins`
       : `Nothing`;
-
+  const who =
+    id === 'teacher' ? '/dashboardT' : id === 'student' ? '/dashboard' : '';
   const onSubmitForm = async (e) => {
     e.preventDefault();
     if (inputs.email === '' || inputs.password === '') {
@@ -32,7 +37,7 @@ const Login = () => {
     } else {
       try {
         const body = {email, password};
-        const response = await fetch(`${url}/create/logins`, {
+        const response = await fetch(`${check}`, {
           method: 'POST',
           headers: {
             'Content-type': 'application/json',
@@ -46,6 +51,8 @@ const Login = () => {
           toast.success('Logged in Successfully');
           setToken(` ${parseRes.jwtToken}`);
           setAuth(true);
+          setType(id);
+          window.location.href = who;
         } else {
           setAuth(false);
           toast.error(parseRes);
@@ -81,7 +88,7 @@ const Login = () => {
           <div className='row w-100 mx-0'>
             <div className='col-lg-4 mx-auto'>
               <div className='auth-form-light text-left py-5 px-4 px-sm-5'>
-                <h4>Hello! let's get started. {check}</h4>
+                <h4>Hello! let's get started.</h4>
 
                 <h6 className='font-weight-light'>Sign in to continue.</h6>
                 <form className='pt-3' onSubmit={onSubmitForm}>
@@ -119,13 +126,13 @@ const Login = () => {
                   <div className='text-center mt-4 font-weight-light'>
                     <br />
 
-                    <Link to='/register' className='text-primary'>
+                    <Link to={id === 'student'  ? '/register' : id === 'teacher' ? '/registerT' : 'nothing'} className='text-primary'>
                       Create an account
                     </Link>
 
                     <br />
                     <br />
-                    <Link to='/forget' className='text-primary'>
+                    <Link to={id === 'student'  ? '/forget' : id === 'teacher' ? '/forgetT' : 'nothing'} className='text-primary'>
                       forget password
                     </Link>
                   </div>

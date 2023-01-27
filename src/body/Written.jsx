@@ -8,18 +8,21 @@ import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css';
 import EditorToolBar, {modules, formats} from './EditorToolBar';
 import {useStoreState} from 'easy-peasy';
+import { useParams } from 'react-router-dom';
 
-function Written({match}) {
+function Written() {
   const {User} = useStoreState((state) => state);
 
   const {profile} = User;
 
-  const id = profile.map((profil) => profil.student_email)[0];
+  
+  const {id} = useParams()
+  const idle = profile.map((profil) => profil.student_email)[0];
   const level = profile.map((profil) => profil.class_student)[0];
 
   const [messag, setMessag] = useState([]);
-  const [course] = match.params.id;
-  const name = id;
+  const [course] = id;
+  const name = idle;
   const [content, setContent] = useState('');
   const handleChange = (value) => {
     setContent(value);
@@ -33,7 +36,7 @@ function Written({match}) {
 
       const parseData = await res.json();
 
-      setMessag(parseData.filter((fil) => fil.course_name === match.params.id));
+      setMessag(parseData.filter((fil) => fil.course_name === id));
     } catch (err) {
       console.error(err.message);
     }
@@ -72,7 +75,7 @@ function Written({match}) {
       console.error(err.message);
     }
   };
-  console.log(level);
+  
   return (
     <div>
       <div className='App'>

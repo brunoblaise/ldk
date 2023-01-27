@@ -1,13 +1,20 @@
-import React, {useState, useContext} from 'react';
-import {TeacherContext} from './context/TeacherContext';
+import React, {useState} from 'react';
+
 import {toast} from 'react-toastify';
 
 import {url} from '../url';
 import {Helmet} from 'react-helmet';
+import { useStoreState } from 'easy-peasy';
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 const Header = React.lazy(() => import('../header1/Header'));
 function NotesT() {
-  const [profile] = useContext(TeacherContext);
+  const {token} = useStoreState((state) => state.Auth);
+
+  const {User} = useStoreState((state) => state);
+
+
+  const {profile} = User;
+
   const own = profile.map((profil) => profil.teacher_email);
 
   const [name] = useState(own[0]);
@@ -15,7 +22,6 @@ function NotesT() {
     title: '',
     email: name,
     summary: '',
-
   });
 
   const [recfile, setRecfile] = useState('');
@@ -38,10 +44,10 @@ function NotesT() {
       formData.append('classe', classe);
       formData.append('title', title);
       formData.append('summary', summary);
-  
+
       formData.append('email', email);
       const myHeaders = new Headers();
-      myHeaders.append('jwt_token', localStorage.token);
+      myHeaders.append('jwt_token', token);
       const response = await fetch(
         `${url}/create/notes`,
 
@@ -155,14 +161,12 @@ function NotesT() {
                         name='recfile'
                         placeholder='Upload File'
                         type='file'
-                        
                         className='form-control form-control form-control-lg '
                         id='exampleInputPassword'
                         onChange={(e) => setRecfile(e.target.files[0])}
                       />
-                    
                     </div>
-                   
+
                     <button
                       disabled={opene}
                       className='btn m-4 btn-primary col-md-3 btn-icon-text'>

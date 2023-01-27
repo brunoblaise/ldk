@@ -2,9 +2,13 @@ import React, {useState} from 'react';
 import {toast} from 'react-toastify';
 import {url} from '../url';
 import {Helmet} from 'react-helmet';
+import {useStoreState} from 'easy-peasy';
 const Around = React.lazy(() => import('./home/Around'));
 
 function ReportT() {
+  const {token} = useStoreState((state) => state.Auth);
+
+
   const [recfile, setRecfile] = useState('');
   const [name, setName] = useState('');
   const [opene, setOpene] = useState(false);
@@ -17,7 +21,7 @@ function ReportT() {
       formData.append('recfile', recfile);
       formData.append('name', name);
       const myHeaders = new Headers();
-      myHeaders.append('jwt_token', localStorage.token);
+      myHeaders.append('jwt_token', token);
       const response = await fetch(
         `${url}/create/report`,
 
@@ -72,7 +76,6 @@ function ReportT() {
                   placeholder='Upload File'
                   type='file'
                   className='form-control form-control form-control-lg '
-                  
                   id='exampleInputPassword'
                   onChange={(e) => setRecfile(e.target.files[0])}
                 />
@@ -94,7 +97,7 @@ function ReportT() {
             </div>
           </div>
         </div>
-        <Around/>
+        <Around />
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import { useStoreState } from 'easy-peasy';
 import React, {useEffect, useState} from 'react';
 import {url} from '../url';
 
@@ -6,13 +7,15 @@ function Rostudent() {
   const [search, setSearch] = useState('');
 
   const {User} = useStoreState((state) => state);
+  
+  const {token} = useStoreState((state) => state.Auth);
 
   const {profile} = User;
   const getProfile = async () => {
     try {
       const res = await fetch(`${url}/get/Emailsel`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();

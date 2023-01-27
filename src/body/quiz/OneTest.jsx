@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useRef} from 'react';
-import { url } from '../../url';
+
 const Header = React.lazy(() => import('../../header/Header'));
 const Sidebar = React.lazy(() => import('../../sidebar/Sidebar'));
 function OneTest({
@@ -18,7 +18,7 @@ function OneTest({
   useEffect(() => {
     counter > 0 && setTimeout(() => setCounter(counter - 1), 1000);
   }, [counter]);
-  useEffect(async () => {
+  useEffect(() => {
     try {
       const findCheckedInput =
         radiosWrapper.current.querySelector('input:checked');
@@ -52,8 +52,6 @@ function OneTest({
       onSetStep(3);
     }
   };
-
-
 
   return (
     <>

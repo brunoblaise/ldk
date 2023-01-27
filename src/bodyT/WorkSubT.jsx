@@ -1,13 +1,17 @@
-import React, {useState, useContext} from 'react';
-import {TeacherContext} from './context/TeacherContext';
+import React, {useState} from 'react';
+
 import {toast} from 'react-toastify';
 import {url} from '../url';
 import {Helmet} from 'react-helmet';
+import {useStoreState} from 'easy-peasy';
 
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 const Header = React.lazy(() => import('../header1/Header'));
 function WorkSubT() {
-  const [profile] = useContext(TeacherContext);
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
+
   const own = profile.map((profil) => profil.teacher_email);
 
   const [name] = useState(own[0]);
@@ -87,7 +91,8 @@ function WorkSubT() {
             <div className='row'>
               <div className='card-body'>
                 <div className='ml-xl-4 mt-3'>
-                  <h4 className='card-title'>Submit your Assignment here </h4>
+                  <h4 className='card-title'>Submit a Assignment here </h4>
+
                   <div className='template-demo'>
                     <p className='card-description'>
                       here you will submit you work with the button upload
@@ -120,7 +125,7 @@ function WorkSubT() {
                     </div>
                     <div className='col-md-4'>
                       <label forhtml='inputEmail4' className='form-label'>
-                         title
+                        title
                       </label>
                       <input
                         type='text'

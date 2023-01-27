@@ -11,6 +11,7 @@ function Iframe(props) {
 function ReportOne() {
   const [notes, setNote] = useState([]);
   const {User} = useStoreState((state) => state);
+  const {token} = useStoreState((state) => state.Auth);
 
   const {profile} = User;
 
@@ -18,7 +19,7 @@ function ReportOne() {
     try {
       const res = await fetch(`${url}/get/report`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();

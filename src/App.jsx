@@ -1,23 +1,24 @@
-/** @format */
-
 import React, {useEffect, Suspense} from 'react';
 import {ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+
+
+
 const Render = React.lazy(() => import('./renders/Render'));
 const Login = React.lazy(() => import('./Log/Login'));
 const Profile = React.lazy(() => import('./body/Profile'));
 const Register = React.lazy(() => import('./body/Register'));
 const RenderT = React.lazy(() => import('./renders1/RenderT'));
-
 const ProfileT = React.lazy(() => import('./bodyT/ProfileT'));
 const RegisterT = React.lazy(() => import('./bodyT/RegisterT'));
 const Notes = React.lazy(() => import('./body/Notes'));
+
 
 const Quiz = React.lazy(() => import('./body/Quiz'));
 
 import {v4 as uuidV4} from 'uuid';
 import './App.css';
-import {Navigate, Route, Routes} from 'react-router-dom';
+import {Navigate, Route, Routes, useLocation} from 'react-router-dom';
 
 const Library = React.lazy(() => import('./body/Library'));
 const LibraryT = React.lazy(() => import('./bodyT/LibraryT'));
@@ -35,9 +36,11 @@ const Report = React.lazy(() => import('./body/Report'));
 import {url} from './url';
 import {ErrorBoundary} from 'react-error-boundary';
 import PrivateRoutes from './utils/protected/PrivateRoutes';
-import Nomatch from './Nomatch';
+
 import {useStoreActions, useStoreState} from 'easy-peasy';
-import {useQuery} from 'react-query';
+
+
+const Nomatch = React.lazy(() => import('./Nomatch'));
 
 const Written = React.lazy(() => import('./body/Written'));
 const Submitted = React.lazy(() => import('./bodyT/home/Submitted'));
@@ -73,25 +76,63 @@ const ReportT = React.lazy(() => import('./bodyT/ReportT'));
 const WorkSubT = React.lazy(() => import('./bodyT/WorkSubT'));
 
 function App() {
-  const {Auth} = useStoreState((state) => state);
+  const {token} = useStoreState((state) => state.Auth);
+  const {type} = useStoreState((state) => state.Type);
+  const {profile} = useStoreState((state) => state.User);
 
-  const {token, isAuth} = Auth;
+  const {setProfile} = useStoreActions((state) => state.User);
+  let controller = new AbortController();
 
-  const {setAuth, setToken} = useStoreActions((actions) => actions.Auth);
+  const {setToken, setAuth} = useStoreActions((state) => state.Auth);
+  const {setType} = useStoreActions((state) => state.Type);
+  const errorHandle = (error, errorInfo) => {
+    console.log('logging', error, errorInfo);
+  };
 
   const fetchUrl = async () => {
     try {
       const res = await fetch(`${url}/create/verify`, {
         method: 'POST',
-        headers: {jwt_token: token},
+        headers: {
+          jwt_token: `${token}`,
+        },
       });
       const parseRes = await res.json();
 
       if (parseRes === true) {
         setAuth(true);
-      } else {
-        //setAuth(false);
-        //setToken('');
+      } else if (parseRes === false) {
+        setProfile([]);
+        setToken('');
+        setAuth(false);
+        setType('');
+      } else if (profile.length === 0) {
+        setProfile([]);
+        setToken('');
+        setAuth(false);
+        setType('');
+      }
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+  const check =
+    type === 'teacher'
+      ? `${url}/get/teacher`
+      : type === 'student'
+      ? `${url}/get/profile`
+      : '';
+  const getProfile = async () => {
+    try {
+      const res = await fetch(`${check}`, {
+        method: 'GET',
+        headers: {jwt_token: token},
+      });
+
+      const parseData = await res.json();
+
+      if (parseData) {
+        setProfile(parseData);
       }
     } catch (err) {
       console.error(err.message);
@@ -100,11 +141,11 @@ function App() {
 
   useEffect(() => {
     fetchUrl();
+    getProfile();
+
+    return () => controller?.abort();
   }, []);
 
-  const errorHandle = (error, errorInfo) => {
-    console.log('logging', error, errorInfo);
-  };
 
   return (
     <Suspense
@@ -112,9 +153,11 @@ function App() {
         <p className='fall'>loading the application please hold on... </p>
       }>
       <ErrorBoundary FallbackComponent={Fallback} onError={errorHandle}>
+
+     
         <Routes>
           <Route path='/:id/login' element={<Login />} />
-
+       
           <Route path='/forget' render={<Forget />} />
 
           <Route path='/forget/:id/:token' element={<Reset />} />
@@ -124,7 +167,8 @@ function App() {
 
           <Route path='/forgetT/:id/:token' element={<ResetT />} />
           <Route path='/register' element={<Register />} />
-          <Route element={<PrivateRoutes />} isAuth={isAuth}>
+        
+          <Route element={<PrivateRoutes />}>
             <Route path='/lab' element={<Resource />} />
             <Route path='/meet' element={<JoinMeeting />} />
             <Route path='/video/:id' element={<VideoCall />} />
@@ -136,6 +180,7 @@ function App() {
             <Route path='/text/documents/:id' element={<Texteditor />} />
 
             <Route path='/dashboard' element={<Render />} />
+
             <Route path='/UpdateClass' element={<UpdateClass />} />
 
             <Route path='/profile' element={<Profile />} />
@@ -204,4 +249,4 @@ function App() {
   );
 }
 
-export default React.memo(App);
+export default App;

@@ -1,19 +1,21 @@
 import {useStoreState} from 'easy-peasy';
 import React, {useEffect, useState} from 'react';
+import {CSVLink} from 'react-csv';
 import {Helmet} from 'react-helmet';
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-import {Link} from 'react-router-dom';
+
+import {Link, useParams} from 'react-router-dom';
 import {url} from '../url';
 
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
-function Type({match}) {
+function Type() {
   const [message, setMessage] = useState([]);
   const [messag, setMessag] = useState([]);
   const [search, setSearch] = useState('');
   const [searc, setSearc] = useState('');
   const [loading, setLoading] = useState(true);
 
+  const {id} = useParams();
   const {User} = useStoreState((state) => state);
 
   const {profile} = User;
@@ -30,8 +32,7 @@ function Type({match}) {
 
       setMessage(
         parseData.filter(
-          (fil) =>
-            fil.course_type === match.params.id && fil.course_level === own[0],
+          (fil) => fil.course_type === id && fil.course_level === own[0],
         ),
       );
       setLoading(false);
@@ -54,8 +55,7 @@ function Type({match}) {
 
       setMessag(
         parseData.filter(
-          (fil) =>
-            fil.course_type === match.params.id && fil.course_level === own[0],
+          (fil) => fil.course_type === id && fil.course_level === own[0],
         ),
       );
       setLoading(false);
@@ -91,17 +91,15 @@ function Type({match}) {
           <div className='card'>
             <div className='card-body'>
               <h4 className='card-title'></h4>
-              <ReactHTMLTableToExcel
-                className='btn btn-info'
-                table='emp'
-                filename={'creation'}
-                sheet='Sheet'
-                buttonText='Export'
-              />
+
+              <CSVLink data={message} className='btn btn-info'>
+                Export
+              </CSVLink>
               <div className='table-responsive pt-3'>
                 <input
                   className='form-control w-100'
                   type='search'
+
                   placeholder='Search question'
                   id='Mail-rearch'
                   value={search}
@@ -162,13 +160,15 @@ function Type({match}) {
           <div className='card'>
             <div className='card-body'>
               <h4 className='card-title'></h4>
-              <ReactHTMLTableToExcel
+                <CSVLink 
                 className='btn btn-info'
                 table='emp'
+                data={messag}
                 filename={'creation'}
                 sheet='Sheet'
-                buttonText='Export'
-              />
+              >
+                export
+              </CSVLink>
               <div className='table-responsive pt-3'>
                 <input
                   className='form-control w-100'

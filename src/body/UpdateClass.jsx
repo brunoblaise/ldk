@@ -4,9 +4,11 @@ import {url} from '../url';
 import {Helmet} from 'react-helmet';
 import Header from '../header/Header';
 import Sidebar from '../sidebar/Sidebar';
+import { useStoreState } from 'easy-peasy';
 
 function UpdateClass() {
   const {User} = useStoreState((state) => state);
+
 
   const {profile} = User;
 

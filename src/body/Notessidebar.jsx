@@ -1,9 +1,12 @@
+import { useStoreState } from 'easy-peasy';
 import React, {useEffect, useState} from 'react';
 
 import {Link} from 'react-router-dom';
 import {url} from '../url';
 function Notessidebar() {
   const {User} = useStoreState((state) => state);
+
+  const {token} = useStoreState((state) => state.Auth);
 
   const {profile} = User;
 
@@ -16,7 +19,7 @@ function Notessidebar() {
     try {
       const res = await fetch(`${url}/get/notes`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();

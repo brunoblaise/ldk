@@ -4,24 +4,25 @@ import {toast} from 'react-toastify';
 
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import {useStoreState} from 'easy-peasy';
+import {useStoreActions, useStoreState} from 'easy-peasy';
 const Submis = React.lazy(() => import('./Submis'));
 
-function Profile({setAuth}) {
+function Profile() {
+  const {User} = useStoreState((state) => state);
+  const {setToken, setAuth} = useStoreActions((state) => state.Auth);
+  const {setProfile} = useStoreActions((state) => state.User);
+  const {profile} = User;
   const logout = async (e) => {
     e.preventDefault();
     try {
-      localStorage.removeItem('token');
+      setToken('');
       setAuth(false);
+      setProfile([]);
       toast.success('Logout successfully');
     } catch (err) {
       console.error(err.message);
     }
   };
-
-  const {User} = useStoreState((state) => state);
-
-  const {profile} = User;
 
   return (
     <div>

@@ -1,17 +1,25 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {TeacherContext} from '../context/TeacherContext';
+import React, {useEffect, useState} from 'react';
+
+
 import {Helmet} from 'react-helmet';
 import Header from '../../header1/Header';
 import Sidebar from '../../sidebar1/Sidebar';
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
-import { url } from '../../url';
-import {Link} from 'react-router-dom';
 
-function Submitted({match}) {
+import {url} from '../../url';
+import {Link, useParams} from 'react-router-dom';
+import {useStoreState} from 'easy-peasy';
+import {CSVLink} from 'react-csv';
+
+function Submitted() {
   const [message, setMessage] = useState([]);
+
+  const {id} = useParams();
+  const {User} = useStoreState((state) => state);
+
+  const {profile} = User;
   const [search, setSearch] = useState('');
   const [loading, setLoading] = useState(true);
-  const [profile] = useContext(TeacherContext);
+
   const own = profile.map((profil) => profil.teacher_email);
   const [teacher] = useState(own[0]);
   const getProfile = async () => {
@@ -24,8 +32,7 @@ function Submitted({match}) {
 
       setMessage(
         parseData.filter(
-          (fil) =>
-            fil.teacher_email === teacher && fil.level === match.params.id,
+          (fil) => fil.teacher_email === teacher && fil.level === id,
         ),
       );
       setLoading(false);
@@ -34,12 +41,11 @@ function Submitted({match}) {
     }
   };
 
-  
   useEffect(() => {
     getProfile();
   }, [setMessage]);
 
-  console.log(message)
+  console.log(message);
   return (
     <div>
       <div className='col-lg-12 grid-margin stretch-card'>
@@ -64,13 +70,9 @@ function Submitted({match}) {
             <div className='card'>
               <div className='card-body'>
                 <h4 className='card-title'></h4>
-                <ReactHTMLTableToExcel
-                  className='btn btn-info'
-                  table='emp'
-                  filename={'creation'}
-                  sheet='Sheet'
-                  buttonText='Export'
-                />
+                <CSVLink data={message} className='btn btn-info'>
+                  Export
+                </CSVLink>
                 <div className='table-responsive pt-3'>
                   <input
                     className='form-control w-100'

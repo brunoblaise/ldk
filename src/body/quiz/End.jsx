@@ -1,15 +1,18 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {ProfileContext} from '../context/ProfileContext';
+import React, {useEffect, useState} from 'react';
+
 import jsPDF from 'jspdf';
 import {toast} from 'react-toastify';
 import {url} from '../../url';
+import {useStoreState} from 'easy-peasy';
 
 const Header = React.lazy(() => import('../../header/Header'));
 const Sidebar = React.lazy(() => import('../../sidebar/Sidebar'));
 
 function End({results, data, nameu, datas}) {
+  const {token} = useStoreState((state) => state.Auth);
+  const {profile} = useStoreState((state) => state.User);
   const [correctAnswers, setCorrectAnswers] = useState(0);
-  const [profile] = useContext(ProfileContext);
+
   const [student] = useState(profile[0].student_email);
   const [name] = useState(datas.course_name);
   const [feedback] = useState('Great work');
@@ -41,7 +44,7 @@ function End({results, data, nameu, datas}) {
       const myHeaders = new Headers();
 
       myHeaders.append('Content-Type', 'application/json');
-      myHeaders.append('jwt_token', localStorage.token);
+      myHeaders.append('jwt_token', token);
 
       const body = {marks, name, feedback, student, teacher};
       const response = await fetch(`${url}/create/marks`, {
@@ -52,7 +55,6 @@ function End({results, data, nameu, datas}) {
 
       if (response.status === 200) {
         toast.success('Sent Successfully');
-      
       } else {
         toast.error('Something is wrong');
       }
@@ -69,7 +71,7 @@ function End({results, data, nameu, datas}) {
         <div className='content-wrapper'>
           <button className={'btn btn-info'} onClick={generatePdf}>
             <i className='fa fa-paper-plane'></i>
-            download your report
+            Download your report
           </button>
           <br />
           <br />
@@ -78,7 +80,7 @@ function End({results, data, nameu, datas}) {
             id='sendMsgBtn'></button>
           <form onSubmit={onSubmitForm}>
             <div className='containerp' id='contentp'>
-              <div className='logop'>College du Christ Roi</div>
+              <div className='logop'>Lycee De Kigali</div>
 
               <div className='marquee'>
                 Marks
@@ -93,13 +95,13 @@ function End({results, data, nameu, datas}) {
               <div className='person'>{profile[0].student_fname}</div>
 
               <div className='reason'>
-                for finishing the test given by his or her Teacher in {nameu}
+                for finishing the test given by his or her Teacher to {nameu}
               </div>
             </div>
 
             <br />
             <br />
-            <button className={'btn btn-info'} >
+            <button className={'btn btn-info'}>
               <i className='fa fa-paper-plane'></i>
               Save your marks
             </button>

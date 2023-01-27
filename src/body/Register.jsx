@@ -3,14 +3,16 @@ import {Link} from 'react-router-dom';
 import {toast} from 'react-toastify';
 import {url} from '../url';
 import {Helmet} from 'react-helmet';
-function Register({setAuth}) {
+import { useStoreActions } from 'easy-peasy';
+function Register() {
+  const {setAuth, setToken} = useStoreActions((actions) => actions.Auth);
+  const {setType} = useStoreActions((actions) => actions.Type);
   const [inputs, setInputs] = useState({
     fname: '',
     lname: '',
     gender: '',
     type: 'main',
     hide: '',
-    parent: '',
     email: '',
     password: '',
     age: '',
@@ -26,7 +28,7 @@ function Register({setAuth}) {
     lname,
     type,
     hide,
-    parent,
+    
 
     gender,
     email,
@@ -49,7 +51,7 @@ function Register({setAuth}) {
       formData.append('lname', lname);
       formData.append('gender', gender);
       formData.append('type', type);
-      formData.append('parent', parent);
+    
       formData.append('hide', hide);
 
       formData.append('email', email);
@@ -71,12 +73,15 @@ function Register({setAuth}) {
       const parseRes = await response.json();
       setOpen(true);
       if (parseRes.jwtToken) {
-        localStorage.setItem('token', parseRes.jwtToken);
-        setAuth(true);
         toast.success('Logged in Successfully');
+        setToken(` ${parseRes.jwtToken}`);
+        setAuth(true);
+        setType('student');
+        window.location.href = '/dashboard';
       } else {
         setAuth(false);
         toast.error(parseRes);
+      setOpen(false);
       }
     } catch (err) {
       console.error(err.message);
@@ -305,24 +310,8 @@ function Register({setAuth}) {
                     </div>
                   </div>
 
-                  <div className='form-group'>
-                    <label>Parent name</label>
-                    <div className='input-group'>
-                      <div className='input-group-prepend bg-transparent'>
-                        <span className='input-group-text bg-transparent border-right-0'>
-                          <i className='ti-user text-primary'></i>
-                        </span>
-                      </div>
-                      <input
-                        type='text'
-                        className='form-control form-control form-control-lg border-left-0'
-                        name='parent'
-                        value={parent}
-                        placeholder='Username'
-                        onChange={(e) => onChange(e)}
-                      />
-                    </div>
-                  </div>
+                  
+              
                   <div className='form-group'>
                     <label>Biography</label>
                     <div className='input-group'>

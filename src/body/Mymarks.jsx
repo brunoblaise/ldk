@@ -5,6 +5,7 @@ import {url} from '../url';
 import {useStoreState} from 'easy-peasy';
 function Mymarks() {
   const {User} = useStoreState((state) => state);
+  const {token} = useStoreState((state) => state.Auth);
 
   const {profile} = User;
 
@@ -16,7 +17,7 @@ function Mymarks() {
     try {
       const res = await fetch(`${url}/get/marks`, {
         method: 'GET',
-        headers: {jwt_token: localStorage.token},
+        headers: {jwt_token: token},
       });
 
       const parseData = await res.json();
