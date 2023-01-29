@@ -126,13 +126,13 @@ const Login = () => {
                   <div className='text-center mt-4 font-weight-light'>
                     <br />
 
-                    <Link to='/register' className='text-primary'>
+                    <Link to={id === 'student'  ? '/register' : id === 'teacher' ? '/registerT' : 'nothing'} className='text-primary'>
                       Create an account
                     </Link>
 
                     <br />
                     <br />
-                    <Link to='/forget' className='text-primary'>
+                    <Link to={id === 'student'  ? '/forget' : id === 'teacher' ? '/forgetT' : 'nothing'} className='text-primary'>
                       forget password
                     </Link>
                   </div>

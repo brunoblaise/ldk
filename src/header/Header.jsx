@@ -1,16 +1,18 @@
-import React from 'react';
+
+import React  from 'react';
 import Ca from '../images/240890812_2673305222962552_4016126827192558575_n.jpg';
 
 import {Link} from 'react-router-dom';
 import {LazyLoadImage} from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import {Helmet} from 'react-helmet';
-import {useStoreState} from 'easy-peasy';
+import {Helmet} from "react-helmet";
+import { useStoreState } from 'easy-peasy';
 function Header() {
+
   const {User} = useStoreState((state) => state);
 
   const {profile} = User;
-
+  
   return (
     <nav className='navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row'>
       <Helmet>
@@ -25,7 +27,7 @@ function Header() {
         <meta name='distribution' content='global' />
         <meta name='rating' content='general' />
 
-        <title>Ldk student</title>
+        <title>Cxr student</title>
         <meta name='title' content='College du Christ Roi' />
         <meta
           name='description'
@@ -33,22 +35,22 @@ function Header() {
         />
 
         <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://Ldkgo.ml/' />
+        <meta property='og:url' content='https://cxrgo.ml/' />
         <meta property='og:title' content='College du Christ Roi' />
         <meta
           property='og:description'
           content='study today from your home and give your students online work or exercise and boost your productivity'
         />
-        <meta property='og:image' content='/Ldk.jpg' />
+        <meta property='og:image' content='/cxr.jpg' />
 
         <meta property='twitter:card' content='summary_large_image' />
-        <meta property='twitter:url' content='https://Ldkgo.ml/' />
+        <meta property='twitter:url' content='https://cxrgo.ml/' />
         <meta property='twitter:title' content='College du Christ Roi' />
         <meta
           property='twitter:description'
           content='study today from your home and give your students online work or exercise and boost your productivity'
         />
-        <meta property='twitter:image' content='/Ldk.jpg' />
+        <meta property='twitter:image' content='/cxr.jpg' />
       </Helmet>
       <div className='text-center navbar-brand-wrapper d-flex align-items-center justify-content-center'>
         <Link to='/dashboard'>
@@ -76,7 +78,7 @@ function Header() {
               <input
                 type='text'
                 className='form-control'
-                placeholder='Welcome to Ldk'
+                placeholder='Welcome to CXR'
               />
             </div>
           </li>

@@ -1,13 +1,14 @@
 import React, {useEffect} from 'react';
 import axios from 'axios';
-import {Helmet} from "react-helmet";
-function Video({match}) {
-  const id = match.params.id;
+import {Helmet} from 'react-helmet';
+import { useParams } from 'react-router-dom';
+function Video() {
+  const {id} = useParams();
 
   useEffect(() => {
     const domain = 'https://brunoblaise.daily.co/';
     axios
-      .get(`https://serene-tor-16642.herokuapp.com/video-call/${id}`)
+    .get(`https://video-chat-3jb3.onrender.com/video-call/${id}`)
       .then((res) => {
         if (res.status === 200) {
           const script = document.createElement('script');
@@ -31,21 +32,28 @@ function Video({match}) {
       .catch((err) => console.log(err));
   }, [id]);
 
-  return <div> <Helmet>
-  <meta name='title' content='college du christ roi' />
-  <meta
-    http-equiv='Content-Security-Policy'
-    content='upgrade-insecure-requests'
-  />
-  <meta name='language' content='EN' />
-  <meta name='author' content='Mudacumura brunoblaise' />
-  <meta name='creationdate' content='29/07/2020' />
-  <meta name='distribution' content='global' />
-  <meta name='rating' content='general' />
+  return (
+    <div>
+      {' '}
+      <Helmet>
+        <meta name='title' content='college du christ roi' />
+        <meta
+          http-equiv='Content-Security-Policy'
+          content='upgrade-insecure-requests'
+        />
+        <meta name='language' content='EN' />
+        <meta name='author' content='Mudacumura brunoblaise' />
+        <meta name='creationdate' content='29/07/2020' />
+        <meta name='distribution' content='global' />
+        <meta name='rating' content='general' />
 
-  <title>{id}</title>
-  <script crossorigin src="https://unpkg.com/@daily-co/daily-js" defer></script>
-
-</Helmet></div>;
+        <title>{id}</title>
+        <script
+          crossorigin
+          src='https://unpkg.com/@daily-co/daily-js'
+          defer></script>
+      </Helmet>
+    </div>
+  );
 }
 export default React.memo(Video);

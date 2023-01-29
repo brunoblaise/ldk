@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
 
@@ -14,6 +15,75 @@ function Resource() {
         <div className='content-wrapper'>
       
     <div>
+    <div className='accordion accordion-flush' id='accordionFlushExample'>
+            <a href='https://simbucket.com/chemthinkserver/chemthink/index.html?io' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Ions</div>
+              </h2>
+            </a>
+            <a href='https://simbucket.com/chemthinkserver/chemthink/index.html?pn' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Nature of matter</div>
+              </h2>
+            </a>
+
+            <a href='https://simbucket.com/chemthinkserver/chemthink/index.html?ib' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Ionic Bond</div>
+              </h2>
+            </a>
+
+            <a href='https://simbucket.com/chemthinkserver/chemthink/index.html?cb' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Covalent Bond</div>
+              </h2>
+            </a>
+
+            <a href='https://simbucket.com/chemthinkserver/chemthink/index.html?gl' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Behavior of Gases</div>
+              </h2>
+            </a>
+
+            <a href='https://www.simbucket.com/chemthinkserver/chemthink/index.html?rn' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Chemical Reactions</div>
+              </h2>
+            </a>
+
+            <a href='https://www.simbucket.com/chemthinkserver/chemthink/index.html?is' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Isotopes</div>
+              </h2>
+            </a>
+
+            <a href='https://www.simbucket.com/density/' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Density</div>
+              </h2>
+            </a>
+
+            <a href='https://www.simbucket.com/pmi/' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Law of reflection and plane mirror</div>
+              </h2>
+            </a>
+
+            <a href='https://simbucket.com/lensesandmirrors/' target='_blank' className='accordion-item'>
+              <h2 className='accordion-header'>
+                <div className='accordion-button collapsed'>Lenses and mirror</div>
+              </h2>
+            </a>
+
+          </div>
+
+     
+
+          <br />
+<br />
+<br />
+<br />
+
       <div class='wrapper'>
         <ul class='main'>
           s
@@ -356,7 +426,7 @@ function Resource() {
       </div>
     </div>
 
-
+    
     </div>
           
           </div>

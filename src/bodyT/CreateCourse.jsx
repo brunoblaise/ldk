@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {Helmet} from 'react-helmet';
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+
 import {Link} from 'react-router-dom';
 import {url} from '../url';
 
 import {useStoreState} from 'easy-peasy';
+import {CSVLink} from 'react-csv';
 const Sidebar = React.lazy(() => import('../sidebar1/Sidebar'));
 const Header = React.lazy(() => import('../header1/Header'));
 function CreateCourse() {
   const {User} = useStoreState((state) => state);
-
 
   const {profile} = User;
   const [message, setMessage] = useState([]);
@@ -60,13 +60,10 @@ function CreateCourse() {
           <div className='card'>
             <div className='card-body'>
               <h4 className='card-title'></h4>
-              <ReactHTMLTableToExcel
-                className='btn btn-info'
-                table='emp'
-                filename={'creation'}
-                sheet='Sheet'
-                buttonText='Export'
-              />
+              <CSVLink data={message} className='btn btn-info'>
+                Export
+              </CSVLink>
+
               <div className='table-responsive pt-3'>
                 <input
                   className='form-control w-100'

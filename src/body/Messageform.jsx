@@ -36,9 +36,7 @@ function Messageform({classe}) {
         placeholder='Type a message here'
         name='message'
         value={message}
-        onKeyPress={(event) => {
-          event.key === 'Enter' && sendMessage();
-        }}
+
         onChange={(e) => setMessage(e.target.value)}
       />
       <button className='btnSendMsg' onClick={sendMessage} id='sendMsgBtn'>

@@ -11,7 +11,8 @@ const PrivateRoutes = () => {
   return isAuth ? (
     <Outlet />
   ) : (
-    <Navigate to='https://www.lyceedekigali.ac.rw/' />
+    <Navigate to='/' />
+
   );
 };
 

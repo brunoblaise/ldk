@@ -4,13 +4,12 @@ const Main = React.lazy(() => import('./Main'));
 const Sidebar = React.lazy(() => import('../sidebar/Sidebar'));
 const Header = React.lazy(() => import('../header/Header'));
 
-function Render({setAuth}) {
+function Render() {
   return (
     <div className='App'>
       <Header />
       <div className='container-fluid page-body-wrapper'>
-        <Sidebar />
-
+        <Sidebar  />
 
         <Main />
       </div>

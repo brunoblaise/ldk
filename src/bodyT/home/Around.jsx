@@ -1,7 +1,8 @@
 import {useStoreState} from 'easy-peasy';
 import React, {useEffect, useState} from 'react';
+import {CSVLink} from 'react-csv';
 import {Helmet} from 'react-helmet';
-import ReactHTMLTableToExcel from 'react-html-table-to-excel';
+
 import {url} from '../../url';
 function Around() {
   const {token} = useStoreState((state) => state.Auth);
@@ -50,13 +51,11 @@ function Around() {
       <div className='card'>
         <div className='card-body'>
           <h4 className='card-title'>Signed up Students</h4>
-          <ReactHTMLTableToExcel
-            className='btn btn-info'
-            table='emp'
-            filename='students'
-            sheet='Sheet'
-            buttonText='Export'
-          />
+          <CSVLink data={message} className='btn btn-info'>
+            Export
+          </CSVLink>
+
+
           <div className='table-responsive pt-3'>
             <input
               className='form-control w-100'
