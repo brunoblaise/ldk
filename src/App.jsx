@@ -149,7 +149,7 @@ function App() {
 
   const location = useLocation();
   if (location.pathname === '/') {
-    return window.location.assign('https://www.lyceedekigali.ac.rw/');
+    return window.location.assign('/student/login');
   }
 
   const [songs, setSongs] = useState(songsdata);

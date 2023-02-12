@@ -204,15 +204,30 @@ function Register() {
                       <option value='s1'>s1</option>
                       <option value='s2'>s2</option>
                       <option value='s3'>s3</option>
-                      <option value='s4mcb'>s4mcb</option>
-                      <option value='s4lkk'>s4lkk</option>
-                      <option value='s4pcb'>s4pcb</option>
-                      <option value='s5mcb'>s5mcb</option>
-                      <option value='s5pcb'>s5pcb</option>
-                      <option value='s5lkk'>s5lkk</option>
-                      <option value='s6mcb'>s6mcb</option>
-                      <option value='s6pcb'>s6pcb</option>
-                      <option value='s6lkk'>s6lkk</option>
+                      <option value='s4mcb'>s4 MPC</option>
+                      <option value='s4mcb'>s4 MEC</option>
+                      <option value='s4mcb'>s4 PCB</option>
+                      <option value='s4mcb'>s4 MPG</option>
+                      <option value='s4mcb'>s4 MEG</option>
+                      <option value='s4mcb'>s4 PCM</option>
+                   
+                      <option value='s4mcb'>s5 MPC</option>
+                      <option value='s4mcb'>s5 MEC</option>
+                      <option value='s4mcb'>s5 PCB</option>
+                      <option value='s4mcb'>s5 MPG</option>
+                      <option value='s4mcb'>s5 MEG</option>
+                      <option value='s4mcb'>s5 PCM</option>
+                      <option value='s4mcb'>s5 HEG</option>
+                      <option value='s4mcb'>s5 BCG</option>
+
+                      <option value='s4mcb'>s6 MPC</option>
+                      <option value='s4mcb'>s6 MEC</option>
+                      <option value='s4mcb'>s6 PCB</option>
+                      <option value='s4mcb'>s6 MPG</option>
+                      <option value='s4mcb'>s6 MEG</option>
+                      <option value='s4mcb'>s6 PCM</option>
+                      <option value='s4mcb'>s6 HEG</option>
+                      <option value='s4mcb'>s6 BCG</option>
                     </select>
                   </div>
 

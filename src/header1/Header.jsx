@@ -23,7 +23,7 @@ function Header() {
         <meta name='distribution' content='global' />
         <meta name='rating' content='general' />
 
-        <title>Cxr teacher</title>
+        <title>LDK teacher</title>
         <meta name='title' content='College du Christ Roi' />
         <meta
           name='description'
@@ -31,22 +31,22 @@ function Header() {
         />
 
         <meta property='og:type' content='website' />
-        <meta property='og:url' content='https://cxrgo.ml/' />
+        <meta property='og:url' content='https://LDKgo.ml/' />
         <meta property='og:title' content='College du Christ Roi' />
         <meta
           property='og:description'
           content='study today from your home and give your students online work or exercise and boost your productivity'
         />
-        <meta property='og:image' content='/cxr.jpg' />
+        <meta property='og:image' content='/LDK.jpg' />
 
         <meta property='twitter:card' content='summary_large_image' />
-        <meta property='twitter:url' content='https://cxrgo.ml/' />
+        <meta property='twitter:url' content='https://LDKgo.ml/' />
         <meta property='twitter:title' content='College du Christ Roi' />
         <meta
           property='twitter:description'
           content='study today from your home and give your students online work or exercise and boost your productivity'
         />
-        <meta property='twitter:image' content='/cxr.jpg' />
+        <meta property='twitter:image' content='/LDK.jpg' />
       </Helmet>
       <div className='text-center navbar-brand-wrapper d-flex align-items-center justify-content-center'>
         <Link to='/dashboardT'>
@@ -74,7 +74,7 @@ function Header() {
               <input
                 type='text'
                 className='form-control'
-                placeholder='Welcome to CXR'
+                placeholder='Welcome to LDK'
               />
             </div>
           </li>
