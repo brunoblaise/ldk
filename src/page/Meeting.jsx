@@ -11,7 +11,7 @@ function Video() {
     .get(`https://video-chat-3jb3.onrender.com/video-call/${id}`)
       .then((res) => {
         if (res.status === 200) {
-          const script = document.createElement('script');
+          const script = document?.createElement('script');
           script.innerHTML = `window.DailyIframe.createFrame({
             iframeStyle: {
               position: "relative",
